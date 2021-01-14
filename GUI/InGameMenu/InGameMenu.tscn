@@ -1,0 +1,134 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://GUI/InGameMenu/InGameMenu.gd" type="Script" id=7]
+
+[node name="InGameMenu" type="Popup"]
+pause_mode = 2
+visible = true
+margin_left = 154.274
+margin_top = 85.0839
+margin_right = 842.274
+margin_bottom = 539.084
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 689.721
+margin_bottom = 455.36
+color = Color( 0.654902, 0.360784, 0.360784, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Reprendre" type="ColorRect" parent="."]
+margin_left = 267.16
+margin_top = 26.7841
+margin_right = 428.16
+margin_bottom = 101.784
+focus_neighbour_bottom = NodePath("../Sauvegarder")
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Reprendre"]
+anchor_right = 0.215
+margin_left = -5.34521
+margin_top = 19.0
+margin_right = 45.9548
+margin_bottom = 39.0
+rect_scale = Vector2( 2, 2 )
+rect_clip_content = true
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 1, 0, 0, 1 )
+text = "REPRENDRE"
+align = 1
+valign = 1
+autowrap = true
+clip_text = true
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sauvegarder" type="ColorRect" parent="."]
+margin_left = 249.932
+margin_top = 114.755
+margin_right = 448.932
+margin_bottom = 189.755
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Sauvegarder"]
+margin_left = -2.72076
+margin_top = 15.9189
+margin_right = 97.2792
+margin_bottom = 35.9189
+rect_scale = Vector2( 2, 2 )
+focus_neighbour_top = NodePath("../../Reprendre")
+focus_neighbour_bottom = NodePath("../../Option")
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 1, 0.0313726, 0.0313726, 1 )
+text = "SAUVEGARDER
+"
+align = 1
+valign = 1
+autowrap = true
+clip_text = true
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Option" type="ColorRect" parent="."]
+margin_left = 264.738
+margin_top = 206.339
+margin_right = 444.738
+margin_bottom = 281.339
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Option"]
+margin_left = 34.0
+margin_top = 20.0
+margin_right = 89.0
+margin_bottom = 34.0
+rect_scale = Vector2( 2, 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 1, 0, 0, 1 )
+text = "OPTION"
+autowrap = true
+clip_text = true
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuPrincipal" type="ColorRect" parent="."]
+margin_left = 266.451
+margin_top = 298.59
+margin_right = 447.451
+margin_bottom = 373.59
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MenuPrincipal"]
+margin_left = 4.0
+margin_top = 3.0
+margin_right = 88.0
+margin_bottom = 51.0
+rect_scale = Vector2( 2, 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 1, 0, 0, 1 )
+text = "MENU PRINCIPAL
+"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
