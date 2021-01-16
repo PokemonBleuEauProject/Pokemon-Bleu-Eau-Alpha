@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Entities/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://GUI/GUI-Total.tscn" type="PackedScene" id=2]
@@ -10,6 +10,9 @@
 [ext_resource path="res://Map/AllObject/Meubles/Siege.tscn" type="PackedScene" id=8]
 [ext_resource path="res://img Pokemon/img Map/Environnement/Texture Object/rocherdepierre.png" type="Texture" id=9]
 [ext_resource path="res://img Pokemon/img Map/Environnement/Texture Mur/Wall6-Arena1-Side.png" type="Texture" id=10]
+[ext_resource path="res://Map/AllObject/Decoration/Statue-Arene1.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Map/AllObject/Decoration/Statue-Arene1.gd" type="Script" id=12]
+[ext_resource path="res://img Pokemon/img Map/Environnement/Texture Object/Statue-Arene1.png" type="Texture" id=13]
 
 [node name="Arena1" type="Node2D"]
 
@@ -46,6 +49,20 @@ position = Vector2( -17.282, -334.011 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( -15.3038, 71.7665 )
+
+[node name="StatueArene" parent="." instance=ExtResource( 11 )]
+position = Vector2( 48, 0 )
+script = ExtResource( 12 )
+TXT1 = "Arene Pokemon d'Argenta         Champion : PIERRE"
+TXT2 = "Vainqueurs : "
+TheTexture = ExtResource( 13 )
+
+[node name="StatueArene1" parent="." instance=ExtResource( 11 )]
+position = Vector2( -80, 0 )
+script = ExtResource( 12 )
+TXT1 = "Arene Pokemon d'Argenta         Champion : PIERRE"
+TXT2 = "Vainqueurs : "
+TheTexture = ExtResource( 13 )
 
 [node name="Arena1" type="Position2D" parent="."]
 position = Vector2( -15.5596, 76.6633 )
