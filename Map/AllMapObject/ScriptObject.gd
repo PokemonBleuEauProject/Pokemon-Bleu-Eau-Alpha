@@ -12,7 +12,6 @@ var IsIn = false
 var Velocity = Vector2(0,-1)
 var HaveToMove = false
 
-
 func _physics_process(delta):
 	if HaveToMove :
 		player.move_and_collide(Velocity)

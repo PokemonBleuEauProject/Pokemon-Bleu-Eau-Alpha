@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Entities/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://GUI/GUI-Total.tscn" type="PackedScene" id=2]
@@ -16,6 +16,10 @@
 [ext_resource path="res://Map/AllObject/Decoration/VitrineMusee.tscn" type="PackedScene" id=14]
 [ext_resource path="res://img Pokemon/img Map/Environnement/Texture Others/ShowPtera.png" type="Texture" id=15]
 [ext_resource path="res://img Pokemon/img Map/Environnement/Texture Others/ShowKabutops.png" type="Texture" id=16]
+[ext_resource path="res://Map/AllObject/Walls/Wall7-Stairs.tscn" type="PackedScene" id=17]
+[ext_resource path="res://img Pokemon/img Map/Environnement/Texture Mur/DecoFlechePanneau.png" type="Texture" id=18]
+[ext_resource path="res://Map/AllObject/Decoration/Fenetre.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Map/Inside-Outside/StairsMusee/DownStairs.tscn" type="PackedScene" id=20]
 
 [node name="Musee" type="Node2D"]
 
@@ -49,6 +53,17 @@ TheTexture = ExtResource( 6 )
 TheAction = "ui_down"
 NodePosition = "BatimentMusee"
 
+[node name="Wall7" parent="TileMap" instance=ExtResource( 17 )]
+position = Vector2( -111.905, 18.3748 )
+
+[node name="Fenetre" parent="TileMap" instance=ExtResource( 19 )]
+position = Vector2( -125.498, -188.258 )
+TheTexture = ExtResource( 18 )
+
+[node name="Fenetre2" parent="TileMap" instance=ExtResource( 19 )]
+position = Vector2( -48.1415, -187.689 )
+TheTexture = ExtResource( 18 )
+
 [node name="Siege" parent="TileMap" instance=ExtResource( 8 )]
 position = Vector2( 48.4229, -111.669 )
 TheTexture = ExtResource( 9 )
@@ -68,12 +83,12 @@ TXT1 = "Des bouquins sur les pokemons"
 TheTexture = ExtResource( 11 )
 
 [node name="VitrineMusee" parent="TileMap" instance=ExtResource( 14 )]
-position = Vector2( -455, 10 )
+position = Vector2( -420, 10 )
 TXT1 = "Fossile du KABUTOPS                      Un Pokemon rare et ancien."
 TheTexture = ExtResource( 16 )
 
 [node name="VitrineMusee2" parent="TileMap" instance=ExtResource( 14 )]
-position = Vector2( -455, -90 )
+position = Vector2( -420, -90 )
 TXT1 = "Fossile de PTERA                        Un Pokemon rare et ancien."
 TheTexture = ExtResource( 15 )
 
@@ -83,6 +98,10 @@ position = Vector2( -558.247, -151.349 )
 [node name="Plante3" parent="TileMap" instance=ExtResource( 12 )]
 position = Vector2( -555.54, 86.0087 )
 
+[node name="DownStairs" parent="TileMap" instance=ExtResource( 20 )]
+position = Vector2( -166.8, 46.9872 )
+Scene = "res://Map/AllInsideObject/Argenta/MuseeTop.tscn"
+
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( -29.8351, 62.2938 )
 
@@ -91,6 +110,9 @@ position = Vector2( 13.0971, 86.0228 )
 
 [node name="Musee" type="Position2D" parent="."]
 position = Vector2( -28.9585, 73.1236 )
+
+[node name="MuseeStairs" type="Position2D" parent="."]
+position = Vector2( -210.471, 57.9976 )
 
 [node name="BatimentMusee" type="Position2D" parent="."]
 position = Vector2( 192.645, 77.0907 )

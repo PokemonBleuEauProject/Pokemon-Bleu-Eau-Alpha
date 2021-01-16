@@ -25,8 +25,8 @@
 [ext_resource path="res://Map/AllMapObject/ForetDeJade/SortieForetJade.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Map/AllMapObject/ForetDeJade/GrandeEntreeForetJade.tscn" type="PackedScene" id=24]
 [ext_resource path="res://Map/AllMapObject/ForetDeJade/Transit.tscn" type="PackedScene" id=25]
-[ext_resource path="res://Map/AllMapObject/Jadielle/JadielleHouse2.tscn" type="PackedScene" id=26]
-[ext_resource path="res://Map/AllMapObject/Jadielle/JadielleHouse1.tscn" type="PackedScene" id=27]
+[ext_resource path="res://Map/AllMapObject/Jadielle/JadielleHouse1.tscn" type="PackedScene" id=26]
+[ext_resource path="res://Map/AllMapObject/Jadielle/JadielleHouse2.tscn" type="PackedScene" id=27]
 [ext_resource path="res://Map/AllMapObject/BourgPalette/Laboratoire.tscn" type="PackedScene" id=28]
 [ext_resource path="res://Map/AllMapObject/Others/Barriere.tscn" type="PackedScene" id=29]
 [ext_resource path="res://Map/AllMountains/Route2-Grotte.tscn" type="PackedScene" id=30]
@@ -833,10 +833,10 @@ position = Vector2( 502.361, 6317.96 )
 position = Vector2( 342.874, 3696.03 )
 
 [node name="JadielleHouse2" type="Position2D" parent="Positions"]
-position = Vector2( 368.049, 3381.34 )
+position = Vector2( 365.049, 3371.34 )
 
 [node name="ShopJadielle" type="Position2D" parent="Positions"]
-position = Vector2( 744.782, 3700.13 )
+position = Vector2( 744.782, 3688.67 )
 
 [node name="ShopArgenta" type="Position2D" parent="Positions"]
 position = Vector2( 393.917, -528.148 )
