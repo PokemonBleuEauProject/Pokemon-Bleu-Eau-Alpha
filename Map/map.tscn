@@ -543,8 +543,9 @@ position = Vector2( 196.023, 6338.38 )
 [node name="AllPNJ" type="Node2D" parent="."]
 
 [node name="StaticPNJ" parent="AllPNJ" instance=ExtResource( 7 )]
-position = Vector2( 60.9418, -147.368 )
+position = Vector2( 51.5323, -145.997 )
 TXT1 = "Hello"
+TXT2 = "How Are u today ?"
 
 [node name="LinearPNJ" parent="AllPNJ" instance=ExtResource( 4 )]
 position = Vector2( 258.396, -248.978 )
@@ -821,7 +822,7 @@ shape = SubResource( 10 )
 [node name="Positions" type="Node2D" parent="."]
 
 [node name="Spawn" type="Position2D" parent="Positions"]
-position = Vector2( 266.767, 1949.13 )
+position = Vector2( 185.085, -74.7684 )
 
 [node name="StartHouse1" type="Position2D" parent="Positions"]
 position = Vector2( 175.207, 6316.73 )
@@ -998,5 +999,4 @@ visible = false
 
 [node name="Fight" parent="GUITotal" instance=ExtResource( 12 )]
 [connection signal="tree_entered" from="Player" to="Player" method="_on_Player_tree_entered"]
-[connection signal="body_entered" from="AllPNJ/LinearPNJ/Area2D" to="AllPNJ/LinearPNJ" method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="AllPNJ/LinearPNJ/Area2D2" to="AllPNJ/LinearPNJ" method="_on_Area2D2_body_entered"]

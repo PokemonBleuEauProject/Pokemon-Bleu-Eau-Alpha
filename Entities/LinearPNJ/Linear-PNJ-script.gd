@@ -40,7 +40,7 @@ export (Dictionary) var POKEMON4
 export (Dictionary) var POKEMON5
 export (Dictionary) var POKEMON6
 
-onready var player = get_node("/root/Map/Player")
+onready var player = get_node(PG.ActualScene + "/Player")
 onready var UISpeackScene = get_node(PG.ActualScene + "/GUITotal").get_node("UISpeackPopUp")
 onready var animationFight = get_node("/root/Map/GUITotal").get_node("Fight")
 

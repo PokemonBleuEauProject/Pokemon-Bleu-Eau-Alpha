@@ -35,29 +35,19 @@ animations = [ {
 "name": "Down",
 "speed": 4.0
 }, {
-"frames": [ ExtResource( 17 ), ExtResource( 15 ) ],
-"loop": true,
-"name": "Right",
-"speed": 4.0
-}, {
 "frames": [ ExtResource( 18 ), ExtResource( 22 ) ],
 "loop": true,
 "name": "Left",
 "speed": 4.0
 }, {
+"frames": [ ExtResource( 17 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "Right",
+"speed": 4.0
+}, {
 "frames": [ ExtResource( 7 ), ExtResource( 8 ) ],
 "loop": true,
 "name": "LeftRun",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 6 ), ExtResource( 5 ) ],
-"loop": true,
-"name": "RightRun",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
-"loop": true,
-"name": "TopRun",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 10 ), ExtResource( 9 ) ],
@@ -69,6 +59,16 @@ animations = [ {
 "loop": false,
 "name": "JumpAir",
 "speed": 7.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "RightRun",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "TopRun",
+"speed": 5.0
 } ]
 
 [sub_resource type="CircleShape2D" id=2]

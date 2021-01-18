@@ -13,6 +13,12 @@ func _ready():
 	if TheTexture != null : $Sprite.texture = TheTexture
 
 func talk() :
+	if TXT2 == "" :
+		UISpeack.ListOfTxt = [TXT1]
+	elif TXT3 == "" :
+		UISpeack.ListOfTxt = [TXT1,TXT2]
+	else :
+		UISpeack.ListOfTxt = [TXT1,TXT2,TXT3]
 	UISpeack.ListOfTxt = [TXT1,TXT2,TXT3]
 	UISpeackScene.display()
 
