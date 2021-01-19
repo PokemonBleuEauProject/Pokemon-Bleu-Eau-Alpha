@@ -876,6 +876,9 @@ func vol(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
 	SpecialText = PokemonPlayer.Name + " s'est envolé !"
 func coupe(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
 	PokemonEnnemi.Hp = PokemonEnnemi.Hp - CalculateDammage(PokemonAttaqueName,PokemonPlayer,PokemonEnnemi,"Player")
+func fouetlianes(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
+	PokemonEnnemi.Hp = PokemonEnnemi.Hp - CalculateDammage(PokemonAttaqueName,PokemonPlayer,PokemonEnnemi,"Player")
+
 #Ennemi (le E signifie qu'il agit seulement contre le user)
 func chargeE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
 	PokemonPlayer.Hp = PokemonPlayer.Hp - CalculateDammage(PokemonAttaqueName,PokemonEnnemi,PokemonPlayer,"Ennemi")
@@ -937,6 +940,8 @@ func volE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
 	SpecialText = PokemonEnnemi.Name + " s'est envolé !"
 func coupeE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
 	PokemonPlayer.Hp = PokemonPlayer.Hp - CalculateDammage(PokemonAttaqueName,PokemonEnnemi,PokemonPlayer,"Ennemi")
+func fouetlianesE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
+	PokemonEnnemi.Hp = PokemonEnnemi.Hp - CalculateDammage(PokemonAttaqueName,PokemonPlayer,PokemonEnnemi,"Player")
 
 #Secondaries functions for attacks method
 func UseVol(PokemonPlayer,PokemonEnnemi) :
@@ -1035,6 +1040,8 @@ func CheckAttack(PokemonAttaqueName,PokemonPlayer,PokemonEnnemi,WhoAttack) :
 					vol(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
 				"Coupe" :
 					coupe(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
+				"Fouet Lianes" :
+					fouetlianes(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
 		"Ennemi" :
 			match PokemonAttaqueName :
 				"Charge" :
@@ -1077,6 +1084,8 @@ func CheckAttack(PokemonAttaqueName,PokemonPlayer,PokemonEnnemi,WhoAttack) :
 					volE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
 				"Coupe" :
 					coupeE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
+				"Fouet Lianes" :
+					fouetlianesE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
 func CheckSuccess(Attacker,PokemonAttaqueName) :
 	var ARandom = RandomNumberGenerator.new()
 	ARandom.randomize()
@@ -1218,6 +1227,7 @@ var Armure = {Type = "Normal",Precision = 100,MaxPP = 30}
 var DardVenin = {Type = "Poison",Puissance = 15,Precision = 100,MaxPP = 35}
 var Vol = {Type="Vol",Puissance = 90,Precision = 95,MaxPP = 15}
 var Coupe = {Type="Normal",Puissance = 50,Precision = 95,MaxPP = 30}
+var FouetLianes = {Type="Plante",Puissance = 45, Precision = 100, MaxPP = 25}
 #Liste des Attaques Special (vitesse)
 var ListSpecialSpeed = {"Vive Attaque" : ViveAttaque}
 #Liste de toures ces attaques pour un référencement
@@ -1241,5 +1251,6 @@ var List = {
 	"Armure" : Armure,
 	"Dard Venin" :DardVenin,
 	"Vol" : Vol,
-	"Coupe" : Coupe
+	"Coupe" : Coupe,
+	"Fouet Lianes" : FouetLianes
 	}

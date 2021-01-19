@@ -26,6 +26,10 @@ func load_values(NamePlayer,LvlPlayer,LifePlayer,MaxLifePlayer,Experience,Experi
 	ExpProgress.max_value = ExperienceNeededToLvlUp
 	AnimationLoadLife.track_set_key_value(0,0,ActualLife)
 	AnimationLoadLife.track_set_key_value(0,1,LifePlayer)
+	if LifePlayer >= MaxLifePlayer/2 : $LifeProgress.texture_progress = load("res://img Pokemon/img Fight/UIPokemonBox/TextureProgress-Green.png")
+	elif LifePlayer < MaxLifePlayer/2 and LifePlayer > MaxLifePlayer/4 : $LifeProgress.texture_progress = load("res://img Pokemon/img Fight/UIPokemonBox/TextureProgress-Orange.png")
+	elif LifePlayer < MaxLifePlayer/4 : $LifeProgress.texture_progress = load("res://img Pokemon/img Fight/UIPokemonBox/TextureProgress-Red.png")
+	else : $LifeProgress.texture_progress = load("res://img Pokemon/img Fight/UIPokemonBox/TextureProgress-Green.png")
 	if (ActualLife == LifePlayer) : pass
 	else :  $AnimationPlayer.play("LoadLife")
 

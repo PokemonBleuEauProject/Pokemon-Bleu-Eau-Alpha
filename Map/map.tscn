@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://Map/TileMap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Entities/Player/Player.tscn" type="PackedScene" id=2]
@@ -33,33 +33,30 @@
 [ext_resource path="res://Map/AllMapObject/Argenta/BatimentMusee.tscn" type="PackedScene" id=31]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 18.6461, 17.9532 )
-
-[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 5, 50 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 109.092, 108.992 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 31.2689, 120.56 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 89.9036, 58.7813 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 93.9446, 75.9639 )
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 97.7567, 96.98 )
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 108.211, 77.6339 )
 
-[sub_resource type="RectangleShape2D" id=9]
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 124.166, 54.4678 )
 
-[sub_resource type="RectangleShape2D" id=10]
+[sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 203.253, 72.9302 )
 
 [node name="Map" type="Node2D"]
@@ -557,24 +554,53 @@ TheTexture = ExtResource( 3 )
 
 [node name="Area2D" type="Area2D" parent="AllPNJ/LinearPNJ"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AllPNJ/LinearPNJ/Area2D"]
-shape = SubResource( 1 )
-
 [node name="Area2D2" type="Area2D" parent="AllPNJ/LinearPNJ"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AllPNJ/LinearPNJ/Area2D2"]
 position = Vector2( 0, 40 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="WildAreas" type="Node2D" parent="."]
 
 [node name="WildArea1" parent="WildAreas" instance=ExtResource( 15 )]
-visible = false
 position = Vector2( 69.6078, 382.48 )
+ListPokemon = [ {
+"Lvl": 8,
+"Name": "Rattata",
+"x": 20
+}, {
+"Lvl": 9,
+"Name": "Rattata",
+"x": 20
+}, {
+"Lvl": 8,
+"Name": "Roucool",
+"x": 20
+}, {
+"Lvl": 9,
+"Name": "Roucool",
+"x": 20
+}, {
+"Lvl": 15,
+"Name": "Rattatac",
+"x": 8
+}, {
+"Lvl": 15,
+"Name": "Roucoups",
+"x": 8
+}, {
+"Lvl": 16,
+"Name": "Reptincel",
+"x": 2
+}, {
+"Lvl": 16,
+"Name": "Carabaffe",
+"x": 2
+} ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WildAreas/WildArea1"]
 position = Vector2( 9.5, -15.2 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="WildArea9" parent="WildAreas" instance=ExtResource( 15 )]
 position = Vector2( 354.463, 5889 )
@@ -614,7 +640,7 @@ ListPokemon = [ {
 } ]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="WildAreas/WildArea9"]
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 
 [node name="WildArea4" parent="WildAreas" instance=ExtResource( 15 )]
 position = Vector2( 516.628, 5728.11 )
@@ -653,7 +679,7 @@ ListPokemon = [ {
 } ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WildAreas/WildArea4"]
-shape = SubResource( 5 )
+shape = SubResource( 4 )
 
 [node name="WildArea5" parent="WildAreas" instance=ExtResource( 15 )]
 position = Vector2( 481.637, 5424.86 )
@@ -676,7 +702,7 @@ ListPokemon = [ {
 } ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WildAreas/WildArea5"]
-shape = SubResource( 6 )
+shape = SubResource( 5 )
 
 [node name="WildArea6" parent="WildAreas" instance=ExtResource( 15 )]
 position = Vector2( 577.947, 4961.41 )
@@ -711,7 +737,7 @@ ListPokemon = [ {
 } ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WildAreas/WildArea6"]
-shape = SubResource( 7 )
+shape = SubResource( 6 )
 
 [node name="WildArea8" parent="WildAreas" instance=ExtResource( 15 )]
 position = Vector2( 209.833, 2098.95 )
@@ -735,7 +761,7 @@ ListPokemon = [ {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WildAreas/WildArea8"]
 position = Vector2( -0.663422, -1.3269 )
-shape = SubResource( 8 )
+shape = SubResource( 7 )
 
 [node name="WildArea" parent="WildAreas" instance=ExtResource( 15 )]
 position = Vector2( 128.471, 5728.98 )
@@ -774,7 +800,7 @@ ListPokemon = [ {
 } ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WildAreas/WildArea"]
-shape = SubResource( 9 )
+shape = SubResource( 8 )
 
 [node name="AWildArea" parent="WildAreas" instance=ExtResource( 15 )]
 position = Vector2( 467.754, 4722.08 )
@@ -817,7 +843,7 @@ ListPokemon = [ {
 } ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WildAreas/AWildArea"]
-shape = SubResource( 10 )
+shape = SubResource( 9 )
 
 [node name="Positions" type="Node2D" parent="."]
 
