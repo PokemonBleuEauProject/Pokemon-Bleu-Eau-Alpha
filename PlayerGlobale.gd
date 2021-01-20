@@ -40,7 +40,7 @@ export (Dictionary) var Pokemon1 = {
 	DefenseSpecial = 64,
 	Vitesse = 30000,
 	LvlNeededToEvolve = 16,
-	Attaque1 = "Fouet Lianes",
+	Attaque1 = "Coup d'Boule",
 	Attaque2 = "Vol",
 	Attaque3 = "Pistolet a O",
 	Attaque4 = "Dard Venin",
@@ -189,6 +189,7 @@ var CantMoveCauseJumping
 var NodePositionPath = "Spawn"
 export (Vector2) var Last_position
 export (String) var ActualScene
+export (String) var ActualPlace
 
 #GLOBAL VAR FOR SPEED PLAYER
 export (bool) var IsShoesEquip = false

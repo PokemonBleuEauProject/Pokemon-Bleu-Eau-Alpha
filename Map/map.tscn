@@ -551,6 +551,31 @@ TXT = "Hello"
 TXTIntro = "Salut le mec"
 EnnemiName = "Joggeur"
 TheTexture = ExtResource( 3 )
+POKEMON1 = {
+"ActualPPAttaque1": 20,
+"ActualPPAttaque2": 20,
+"ActualPPAttaque3": 20,
+"ActualPPAttaque4": 20,
+"Attaque1": "Coup d'Boule",
+"Attaque2": "Rugissement",
+"Attaque3": "-",
+"Attaque4": "-",
+"AttaqueSpecial": 50,
+"Defense": 65,
+"DefenseSpecial": 64,
+"Experience": 0,
+"ExperienceNeededToLvlUp": 30,
+"Hp": 25,
+"Lvl": 5,
+"LvlNeededToEvolve": 16,
+"MaxHp": 25,
+"Name": "Salameche",
+"Puissance": 48,
+"Statut": "",
+"Type1": "Feu",
+"Type2": "-",
+"Vitesse": 60
+}
 
 [node name="Area2D" type="Area2D" parent="AllPNJ/LinearPNJ"]
 
@@ -561,6 +586,7 @@ position = Vector2( 0, 40 )
 shape = SubResource( 1 )
 
 [node name="WildAreas" type="Node2D" parent="."]
+visible = false
 
 [node name="WildArea1" parent="WildAreas" instance=ExtResource( 15 )]
 position = Vector2( 69.6078, 382.48 )
@@ -846,6 +872,7 @@ ListPokemon = [ {
 shape = SubResource( 9 )
 
 [node name="Positions" type="Node2D" parent="."]
+visible = false
 
 [node name="Spawn" type="Position2D" parent="Positions"]
 position = Vector2( 185.085, -74.7684 )
@@ -933,6 +960,7 @@ position = Vector2( 357.22, 6069.46 )
 NameNotification = "Bourg-Palette"
 
 [node name="Overlay" type="Node2D" parent="."]
+visible = false
 
 [node name="Panneau1" parent="Overlay" instance=ExtResource( 11 )]
 TXT1 = "Hello"

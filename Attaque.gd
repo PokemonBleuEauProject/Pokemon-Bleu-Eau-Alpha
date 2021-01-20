@@ -878,6 +878,8 @@ func coupe(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
 	PokemonEnnemi.Hp = PokemonEnnemi.Hp - CalculateDammage(PokemonAttaqueName,PokemonPlayer,PokemonEnnemi,"Player")
 func fouetlianes(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
 	PokemonEnnemi.Hp = PokemonEnnemi.Hp - CalculateDammage(PokemonAttaqueName,PokemonPlayer,PokemonEnnemi,"Player")
+func coupdboule(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
+	PokemonEnnemi.Hp = PokemonEnnemi.Hp - CalculateDammage(PokemonAttaqueName,PokemonPlayer,PokemonEnnemi,"Player")
 
 #Ennemi (le E signifie qu'il agit seulement contre le user)
 func chargeE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
@@ -941,7 +943,9 @@ func volE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
 func coupeE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
 	PokemonPlayer.Hp = PokemonPlayer.Hp - CalculateDammage(PokemonAttaqueName,PokemonEnnemi,PokemonPlayer,"Ennemi")
 func fouetlianesE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
-	PokemonEnnemi.Hp = PokemonEnnemi.Hp - CalculateDammage(PokemonAttaqueName,PokemonPlayer,PokemonEnnemi,"Player")
+	PokemonPlayer.Hp = PokemonPlayer.Hp - CalculateDammage(PokemonAttaqueName,PokemonEnnemi,PokemonPlayer,"Ennemi")
+func coupdbouleE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
+	PokemonPlayer.Hp = PokemonPlayer.Hp - CalculateDammage(PokemonAttaqueName,PokemonEnnemi,PokemonPlayer,"Ennemi")
 
 #Secondaries functions for attacks method
 func UseVol(PokemonPlayer,PokemonEnnemi) :
@@ -1042,6 +1046,8 @@ func CheckAttack(PokemonAttaqueName,PokemonPlayer,PokemonEnnemi,WhoAttack) :
 					coupe(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
 				"Fouet Lianes" :
 					fouetlianes(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
+				"Coup d'Boule" :
+					coupdboule(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
 		"Ennemi" :
 			match PokemonAttaqueName :
 				"Charge" :
@@ -1085,6 +1091,8 @@ func CheckAttack(PokemonAttaqueName,PokemonPlayer,PokemonEnnemi,WhoAttack) :
 				"Coupe" :
 					coupeE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
 				"Fouet Lianes" :
+					fouetlianesE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
+				"Coup d'Boule" :
 					fouetlianesE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
 func CheckSuccess(Attacker,PokemonAttaqueName) :
 	var ARandom = RandomNumberGenerator.new()
@@ -1228,6 +1236,7 @@ var DardVenin = {Type = "Poison",Puissance = 15,Precision = 100,MaxPP = 35}
 var Vol = {Type="Vol",Puissance = 90,Precision = 95,MaxPP = 15}
 var Coupe = {Type="Normal",Puissance = 50,Precision = 95,MaxPP = 30}
 var FouetLianes = {Type="Plante",Puissance = 45, Precision = 100, MaxPP = 25}
+var CoupDBoule = {Type="Normal",Puissance = 70, Precision = 100, MaxPP = 15}
 #Liste des Attaques Special (vitesse)
 var ListSpecialSpeed = {"Vive Attaque" : ViveAttaque}
 #Liste de toures ces attaques pour un référencement
@@ -1252,5 +1261,6 @@ var List = {
 	"Dard Venin" :DardVenin,
 	"Vol" : Vol,
 	"Coupe" : Coupe,
-	"Fouet Lianes" : FouetLianes
+	"Fouet Lianes" : FouetLianes,
+	"Coup d'Boule" : CoupDBoule
 	}
