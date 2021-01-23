@@ -2,6 +2,6 @@ extends Popup
 
 
 func showText(Text) :
+	$display.stop()
 	$display.play("display")
-	yield(get_tree().create_timer(0.15),"timeout")
 	$Label.text = Text

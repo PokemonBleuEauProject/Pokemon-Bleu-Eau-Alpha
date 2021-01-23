@@ -101,6 +101,7 @@ MoveToChange = "ui_up"
 [node name="ArgentaArena" parent="TileMap" instance=ExtResource( 22 )]
 position = Vector2( 31.9541, -639.24 )
 Scene = "res://Map/AllInsideObject/Arena/Arena1.tscn"
+NodePositionPath = "Arena1"
 MoveToChange = "ui_up"
 
 [node name="HouseRoute2" parent="TileMap" instance=ExtResource( 18 )]
