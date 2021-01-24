@@ -2,6 +2,7 @@ extends Node
 
 #Global
 var IsFightLaunch
+var CanAnimationBeSet
 
 #Texts
 var CantPassTxt

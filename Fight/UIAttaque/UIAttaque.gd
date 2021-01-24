@@ -164,6 +164,7 @@ func _input(_event):
 		UiFight_Text.text = "Que va faire " + PokemonPlayer.PokemonPlayer.Name + " ?"
 
 func ProcessRepeat(FirstAttacker,TheAttaque,SpecialProcessRepeat,StringSpecial) :
+	get_node("/root/FightScene/AnimationPlayer").stop()
 	UIFight.CantPassTxt = true
 	if SpecialProcessRepeat :
 		if StringSpecial == "Player" :

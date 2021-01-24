@@ -23,31 +23,37 @@ var VampiDraineE = false
 var VampiDraineRoundE = 0
 
 var AttaquePlayer = 0
+var AttaqueSpecialPlayer = 0
 var AttaqueEnnemi = 0
+var AttaqueSpecialEnnemi = 0
 var DefensePlayer = 0
+var DefenseSpecialPlayer = 0
 var DefenseEnnemi = 0
+var DefenseSpecialEnnemi = 0
 var VitessePlayer = 0
 var VitesseEnnemi = 0
-var PrecisionPlayer = 0
-var PrecisionEnnemi = 0
+var PrecisionPlayer = 100
+var PrecisionEnnemi = 100
 
 #All Maths Calcul for Dammage
 #Calculs finaux des dommages physiques et spéciales
 func CalculateDammage(PokemonAttaqueName,PokemonPlayer,PokemonEnnemi,Attacker) :
 	var Dommage
+	CheckStatVariable(PokemonPlayer,PokemonEnnemi)
 	match Attacker :
 		"Player" :
-			Dommage = ((((((PokemonPlayer.Lvl * 2 / 5) + 2) * GetAttaquePuissance(PokemonAttaqueName) * (PokemonPlayer.Puissance + AttaquePlayer) / 50) / PokemonEnnemi.Defense + DefenseEnnemi) + 2) * CC(Attacker,PokemonPlayer.Lvl) * R() / 100) * Stab(PokemonAttaqueName,PokemonPlayer.Type1,PokemonPlayer.Type2) * Type1(GetAttaqueType(PokemonAttaqueName),PokemonEnnemi.Type1) * Type2(GetAttaqueType(PokemonAttaqueName),PokemonEnnemi.Type2)
+			Dommage = ((((((PokemonPlayer.Lvl * 2 / 5) + 2) * GetAttaquePuissance(PokemonAttaqueName) * (PokemonPlayer.Puissance + AttaquePlayer) / 50) / (PokemonEnnemi.Defense + DefenseEnnemi)) + 2) * CC(Attacker,PokemonPlayer.Lvl) * R() / 100) * Stab(PokemonAttaqueName,PokemonPlayer.Type1,PokemonPlayer.Type2) * Type1(GetAttaqueType(PokemonAttaqueName),PokemonEnnemi.Type1) * Type2(GetAttaqueType(PokemonAttaqueName),PokemonEnnemi.Type2)
 		"Ennemi" :
-			Dommage = ((((((PokemonPlayer.Lvl * 2 / 5) + 2) * GetAttaquePuissance(PokemonAttaqueName) * (PokemonPlayer.Puissance + AttaqueEnnemi) / 50) / PokemonEnnemi.Defense + DefensePlayer) + 2) * CC(Attacker,PokemonPlayer.Lvl) * R() / 100) * Stab(PokemonAttaqueName,PokemonPlayer.Type1,PokemonPlayer.Type2) * Type1(GetAttaqueType(PokemonAttaqueName),PokemonEnnemi.Type1) * Type2(GetAttaqueType(PokemonAttaqueName),PokemonEnnemi.Type2)
+			Dommage = ((((((PokemonPlayer.Lvl * 2 / 5) + 2) * GetAttaquePuissance(PokemonAttaqueName) * (PokemonPlayer.Puissance + AttaqueEnnemi) / 50) / (PokemonEnnemi.Defense + DefensePlayer)) + 2) * CC(Attacker,PokemonPlayer.Lvl) * R() / 100) * Stab(PokemonAttaqueName,PokemonPlayer.Type1,PokemonPlayer.Type2) * Type1(GetAttaqueType(PokemonAttaqueName),PokemonEnnemi.Type1) * Type2(GetAttaqueType(PokemonAttaqueName),PokemonEnnemi.Type2)
 	return Dommage
 func CalculateDammageSpe(PokemonAttaqueName,PokemonPlayer,PokemonEnnemi,Attacker) :
 	var Dommage
+	CheckStatVariable(PokemonPlayer,PokemonEnnemi)
 	match Attacker :
 		"Player" :
-			Dommage = ((((((PokemonPlayer.Lvl * 2 / 5) + 2) * GetAttaquePuissance(PokemonAttaqueName) * PokemonPlayer.AttaqueSpecial / 50) / PokemonEnnemi.DefenseSpecial) + 2) * CC(Attacker,PokemonPlayer.Lvl) * R() / 100) * Stab(PokemonAttaqueName,PokemonPlayer.Type1,PokemonPlayer.Type2) * Type1(GetAttaqueType(PokemonAttaqueName),PokemonEnnemi.Type1) * Type2(GetAttaqueType(PokemonAttaqueName),PokemonEnnemi.Type2)
+			Dommage = ((((((PokemonPlayer.Lvl * 2 / 5) + 2) * GetAttaquePuissance(PokemonAttaqueName) * (PokemonPlayer.AttaqueSpecial + AttaqueSpecialPlayer) / 50) / (PokemonEnnemi.DefenseSpecial + DefenseSpecialPlayer)) + 2) * CC(Attacker,PokemonPlayer.Lvl) * R() / 100) * Stab(PokemonAttaqueName,PokemonPlayer.Type1,PokemonPlayer.Type2) * Type1(GetAttaqueType(PokemonAttaqueName),PokemonEnnemi.Type1) * Type2(GetAttaqueType(PokemonAttaqueName),PokemonEnnemi.Type2)
 		"Ennemi" :
-			Dommage = ((((((PokemonPlayer.Lvl * 2 / 5) + 2) * GetAttaquePuissance(PokemonAttaqueName) * PokemonPlayer.AttaqueSpecial / 50) / PokemonEnnemi.DefenseSpecial) + 2) * CC(Attacker,PokemonPlayer.Lvl) * R() / 100) * Stab(PokemonAttaqueName,PokemonPlayer.Type1,PokemonPlayer.Type2) * Type1(GetAttaqueType(PokemonAttaqueName),PokemonEnnemi.Type1) * Type2(GetAttaqueType(PokemonAttaqueName),PokemonEnnemi.Type2)
+			Dommage = ((((((PokemonPlayer.Lvl * 2 / 5) + 2) * GetAttaquePuissance(PokemonAttaqueName) * (PokemonPlayer.AttaqueSpecial + AttaqueSpecialEnnemi) / 50) / (PokemonEnnemi.DefenseSpecial + DefenseSpecialEnnemi)) + 2) * CC(Attacker,PokemonPlayer.Lvl) * R() / 100) * Stab(PokemonAttaqueName,PokemonPlayer.Type1,PokemonPlayer.Type2) * Type1(GetAttaqueType(PokemonAttaqueName),PokemonEnnemi.Type1) * Type2(GetAttaqueType(PokemonAttaqueName),PokemonEnnemi.Type2)
 	return Dommage
 #Verifie les coups critiques
 func CC(Prop,PokemonLvl) :
@@ -87,7 +93,7 @@ func R() :
 	Random.randomize()
 	var rand = Random.randi_range(217,255)
 	return (rand * 100) / 255
-#Elles verifient l'adaptabilité de l'attaque par apport aux types du pokemon
+#Elles verifient l'adaptabilité de l'attaque par rapport aux types du pokemon
 func Stab(PokemonAttaqueName,PokemonType1,PokemonType2) :
 	if (GetAttaqueType(PokemonAttaqueName) == PokemonType1) or (GetAttaqueType(PokemonAttaqueName) == PokemonType2) :
 		return 1.5
@@ -750,7 +756,7 @@ func Efficacity(Att,Def) :
 					return 1
 		_ :
 			return 1
-#Cette fonction verifie si il faut ou non afficher un message particulier et lequelles .
+#Cette fonction verifie si il faut ou non afficher un message particulier et lequelles.
 func EventText(Attacker) :
 	var Temp1 = ""
 	var Temp2 = ""
@@ -821,15 +827,15 @@ func charge(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
 func griffe(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
 	PokemonEnnemi.Hp = PokemonEnnemi.Hp - CalculateDammage(PokemonAttaqueName,PokemonPlayer,PokemonEnnemi,"Player")
 func rugissement(PokemonPlayer,PokemonEnnemi) :
-	AttaqueEnnemi = AttaqueEnnemi - 8
-	SpecialText = "L'attaque de l'ennemi baisse !"
+	AttaqueEnnemi = AttaqueEnnemi - PokemonEnnemi.Puissance * (1/8)
+	SpecialText = "Ah, Attaque du " + PokemonEnnemi.Name + " ennemi baisse !"
 func mimiqueue(PokemonPlayer,PokemonEnnemi) :
-	DefenseEnnemi = DefenseEnnemi - 8
-	SpecialText = "La defense de l'ennemi baisse !"
+	DefenseEnnemi = DefenseEnnemi - PokemonEnnemi.Defense * (1/8)
+	SpecialText = "Ah, Defense du " + PokemonEnnemi.Name + " ennemi baisse !"
 func belier(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName):
 	PokemonEnnemi.Hp = PokemonEnnemi.Hp - CalculateDammage(PokemonAttaqueName,PokemonPlayer,PokemonEnnemi,"Player")
 	PokemonPlayer.Hp = PokemonPlayer.Hp - (CalculateDammage(PokemonAttaqueName,PokemonPlayer,PokemonEnnemi,"Player")/4)
-	SpecialText = "Votre Pokemon subit un contrecoup !"
+	SpecialText = PokemonPlayer.Name + " subit un contrecoup !"
 func tranchherbe(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName):
 	PokemonEnnemi.Hp = PokemonEnnemi.Hp - CalculateDammage(PokemonAttaqueName,PokemonPlayer,PokemonEnnemi,"Player")
 func viveattaque(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
@@ -852,15 +858,21 @@ func vampigraine(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
 	VampiDraine = true
 func ecume(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
 	PokemonEnnemi.Hp = PokemonEnnemi.Hp - CalculateDammageSpe(PokemonAttaqueName,PokemonPlayer,PokemonEnnemi,"Player")
+	var ARandom = RandomNumberGenerator.new()
+	ARandom.randomize()
+	var random = ARandom.randf()
+	if random <= 0.1 :
+		SpecialText = "Ah, Vitesse du " + PokemonEnnemi.Name + " ennemi baisse !"
+		PrecisionEnnemi = PrecisionEnnemi - (PrecisionEnnemi * (1/8))
 func jetdesable(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
-	PrecisionEnnemi = PrecisionEnnemi - 12
-	SpecialText = PokemonEnnemi.Name + " perd de sa precision !"
+	PrecisionEnnemi = PrecisionEnnemi - (PrecisionEnnemi * (1/8))
+	SpecialText = "Ah, Precision du " + PokemonEnnemi.Name + " ennemi baisse !"
 func secretion(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
-	VitesseEnnemi = VitesseEnnemi - 12
-	SpecialText = PokemonEnnemi.Name + " ennemi perd en vitesse !"
+	VitesseEnnemi = VitesseEnnemi - PokemonEnnemi.Vitesse * (1/8)
+	SpecialText = "Ah, Vitesse du " + PokemonEnnemi.Name + " ennemi baisse !"
 func armure(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
-	DefensePlayer = DefensePlayer + 12
-	SpecialText = "Vous gagnez en defense !"
+	DefensePlayer = DefensePlayer + PokemonPlayer.Defense * (1/8)
+	SpecialText = PokemonPlayer.Name + " gagne en defense !"
 func dardvenin(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
 	PokemonEnnemi.Hp = PokemonEnnemi.Hp - CalculateDammage(PokemonAttaqueName,PokemonPlayer,PokemonEnnemi,"Player")
 	var ARandom = RandomNumberGenerator.new()
@@ -869,8 +881,6 @@ func dardvenin(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
 	if random <= 0.3 :
 		PokemonEnnemi.Statut = "Empoisonne"
 		SpecialText = PokemonEnnemi.Name + " est empoisonné !"
-	else :
-		pass
 func vol(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
 	IsFlying = true
 	SpecialText = PokemonPlayer.Name + " s'est envolé !"
@@ -880,22 +890,29 @@ func fouetlianes(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
 	PokemonEnnemi.Hp = PokemonEnnemi.Hp - CalculateDammage(PokemonAttaqueName,PokemonPlayer,PokemonEnnemi,"Player")
 func coupdboule(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
 	PokemonEnnemi.Hp = PokemonEnnemi.Hp - CalculateDammage(PokemonAttaqueName,PokemonPlayer,PokemonEnnemi,"Player")
-
-#Ennemi (le E signifie qu'il agit seulement contre le user)
+func machouille(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
+	PokemonEnnemi.Hp = PokemonEnnemi.Hp - CalculateDammage(PokemonAttaqueName,PokemonPlayer,PokemonEnnemi,"Player")
+	var ARandom = RandomNumberGenerator.new()
+	ARandom.randomize()
+	var random = ARandom.randf()
+	if random <= 0.2 :
+		SpecialText = "Ah, Defense Speciale du " + PokemonEnnemi.Name + " ennemi baisse !"
+		DefenseSpecialEnnemi = DefenseSpecialEnnemi - PokemonEnnemi.DefenseSpeciale * (1/8)
+#Ennemi (le E signifie ennemi au user)
 func chargeE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
 	PokemonPlayer.Hp = PokemonPlayer.Hp - CalculateDammage(PokemonAttaqueName,PokemonEnnemi,PokemonPlayer,"Ennemi")
 func griffeE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
 	PokemonPlayer.Hp = PokemonPlayer.Hp - CalculateDammage(PokemonAttaqueName,PokemonEnnemi,PokemonPlayer,"Ennemi")
 func rugissementE(PokemonPlayer,PokemonEnnemi) :
-	AttaquePlayer = AttaquePlayer - 8
-	SpecialText = "Ah, votre attaque baisse ..."
+	AttaquePlayer = AttaquePlayer - PokemonPlayer.Puissance * (1/8)
+	SpecialText = "Ah, Attaque du " + PokemonPlayer.Name + " baisse !"
 func mimiqueueE(PokemonPlayer,PokemonEnnemi) :
-	DefensePlayer = DefensePlayer - 8
-	SpecialText = "Ah, votre defense baisse ..."
+	DefensePlayer = DefensePlayer - PokemonPlayer.Puissance * (1/8)
+	SpecialText = "Ah, Attaque du " + PokemonPlayer.Name + " baisse !"
 func belierE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName):
 	PokemonPlayer.Hp = PokemonPlayer.Hp - CalculateDammage(PokemonAttaqueName,PokemonEnnemi,PokemonPlayer,"Ennemi")
-	PokemonPlayer.Hp = PokemonPlayer.Hp - (CalculateDammage(PokemonAttaqueName,PokemonEnnemi,PokemonPlayer,"Ennemi")/4)
-	SpecialText = "Le Pokemon adverse subit un contrecoup !"
+	PokemonEnnemi.Hp = PokemonEnnemi.Hp - (CalculateDammage(PokemonAttaqueName,PokemonEnnemi,PokemonPlayer,"Ennemi")/4)
+	SpecialText = PokemonEnnemi.Name + " ennemi subit un contrecoup !"
 func tranchherbeE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName):
 	PokemonPlayer.Hp = PokemonPlayer.Hp - CalculateDammage(PokemonAttaqueName,PokemonEnnemi,PokemonPlayer,"Ennemi")
 func viveattaqueE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
@@ -918,15 +935,21 @@ func vampigraineE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
 	VampiDraineE = true
 func ecumeE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
 	PokemonPlayer.Hp = PokemonPlayer.Hp - CalculateDammageSpe(PokemonAttaqueName,PokemonEnnemi,PokemonPlayer,"Ennemi")
+	var ARandom = RandomNumberGenerator.new()
+	ARandom.randomize()
+	var random = ARandom.randf()
+	if random <= 0.1 :
+		SpecialText = "Ah, Vitesse du " + PokemonPlayer.Name + " baisse !"
+		PrecisionPlayer = PrecisionPlayer - (PrecisionPlayer * (1/8))
 func jetdesableE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
-	PrecisionPlayer = PrecisionPlayer - 12
-	SpecialText = "Ah, votre precision baisse !"
+	PrecisionPlayer = PrecisionPlayer - (PrecisionPlayer * (1/8))
+	SpecialText = "Ah, Precision du " + PokemonPlayer.Name + " baisse !"
 func secretionE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
-	VitessePlayer = VitessePlayer - 12
-	SpecialText = "Ah, votre vitesse baisse ..."
+	VitessePlayer = VitessePlayer - PokemonPlayer.Vitesse * (1/8)
+	SpecialText = "Ah, Vitesse du " + PokemonPlayer.Name + " baisse !"
 func armureE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
-	DefenseEnnemi = DefenseEnnemi + 12
-	SpecialText = PokemonEnnemi.Name + " gagne en defense !"
+	DefensePlayer = DefensePlayer + PokemonEnnemi.Defense * (1/8)
+	SpecialText = PokemonEnnemi.Name + " ennemi gagne en defense !"
 func dardveninE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
 	PokemonPlayer.Hp = PokemonPlayer.Hp - CalculateDammage(PokemonAttaqueName,PokemonPlayer,PokemonEnnemi,"Ennemi")
 	var ARandom = RandomNumberGenerator.new()
@@ -946,7 +969,14 @@ func fouetlianesE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
 	PokemonPlayer.Hp = PokemonPlayer.Hp - CalculateDammage(PokemonAttaqueName,PokemonEnnemi,PokemonPlayer,"Ennemi")
 func coupdbouleE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
 	PokemonPlayer.Hp = PokemonPlayer.Hp - CalculateDammage(PokemonAttaqueName,PokemonEnnemi,PokemonPlayer,"Ennemi")
-
+func machouilleE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
+	PokemonPlayer.Hp = PokemonPlayer.Hp - CalculateDammage(PokemonAttaqueName,PokemonPlayer,PokemonEnnemi,"Ennemi")
+	var ARandom = RandomNumberGenerator.new()
+	ARandom.randomize()
+	var random = ARandom.randf()
+	if random <= 0.2 :
+		SpecialText = "Ah, Defense Speciale du " + PokemonPlayer.Name + " ennemi baisse !"
+		DefenseSpecialPlayer = DefenseSpecialPlayer - PokemonPlayer.DefenseSpeciale * (1/8)
 #Secondaries functions for attacks method
 func UseVol(PokemonPlayer,PokemonEnnemi) :
 	PokemonEnnemi.Hp = PokemonEnnemi.Hp - CalculateDammage("Vol",PokemonEnnemi,PokemonPlayer,"Player")
@@ -1048,6 +1078,8 @@ func CheckAttack(PokemonAttaqueName,PokemonPlayer,PokemonEnnemi,WhoAttack) :
 					fouetlianes(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
 				"Coup d'Boule" :
 					coupdboule(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
+				"Machouille" :
+					machouille(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
 		"Ennemi" :
 			match PokemonAttaqueName :
 				"Charge" :
@@ -1094,6 +1126,8 @@ func CheckAttack(PokemonAttaqueName,PokemonPlayer,PokemonEnnemi,WhoAttack) :
 					fouetlianesE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
 				"Coup d'Boule" :
 					fouetlianesE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
+				"Machouille" :
+					machouilleE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
 func CheckSuccess(Attacker,PokemonAttaqueName) :
 	var ARandom = RandomNumberGenerator.new()
 	ARandom.randomize()
@@ -1127,7 +1161,31 @@ func CheckPP(ThePokemon,AttaqueNumber) :
 			else : return false
 		_ :
 			return true
-
+func CheckStatVariable(PokemonPlayer,PokemonEnnemi) :
+	if AttaquePlayer < PokemonPlayer.Puissance * 0.25 : AttaquePlayer = PokemonPlayer.Puissance * 0.25
+	if AttaquePlayer > PokemonPlayer.Puissance * 4 : AttaquePlayer = PokemonPlayer.Puissance * 4
+	if AttaqueSpecialPlayer < PokemonPlayer.AttaqueSpecial * 0.25 : AttaqueSpecialPlayer = PokemonPlayer.AttaqueSpecial * 0.25
+	if AttaqueSpecialPlayer > PokemonPlayer.AttaqueSpecial * 4 : AttaqueSpecialPlayer = PokemonPlayer.AttaqueSpecial * 4
+	if AttaqueEnnemi < PokemonEnnemi.Puissance * 0.25 :  AttaqueEnnemi = PokemonEnnemi.Puissance * 0.25
+	if AttaqueEnnemi > PokemonEnnemi.Puissance * 4 : AttaqueEnnemi = PokemonEnnemi.Puissance * 4
+	if AttaqueSpecialEnnemi < PokemonEnnemi.AttaqueSpecial * 0.25 : AttaqueSpecialEnnemi = PokemonEnnemi.AttaqueSpecial * 0.25
+	if AttaqueSpecialEnnemi > PokemonEnnemi.AttaqueSpecial * 4 : AttaqueSpecialEnnemi = PokemonEnnemi.AttaqueSpecial * 4
+	if DefensePlayer < PokemonPlayer.Defense * 0.25 : DefensePlayer = PokemonPlayer.Defense * 0.25
+	if DefensePlayer > PokemonPlayer.Defense * 4 : DefensePlayer = PokemonPlayer.Defense * 4
+	if DefenseSpecialPlayer < PokemonPlayer.DefenseSpecial * 0.25 : DefenseSpecialPlayer = PokemonPlayer.DefenseSpecial * 0.25
+	if DefenseSpecialPlayer > PokemonPlayer.DefenseSpecial * 4 : DefenseSpecialPlayer = PokemonPlayer.DefenseSpecial * 4
+	if DefenseEnnemi < PokemonEnnemi.Defense * 0.25 : DefenseEnnemi = PokemonEnnemi.Defense * 0.25
+	if DefenseEnnemi > PokemonEnnemi.Defense * 4 : DefenseEnnemi = PokemonEnnemi.Defense * 4
+	if DefenseSpecialEnnemi < PokemonEnnemi.DefenseSpecial * 0.25 : DefenseSpecialEnnemi = PokemonEnnemi.DefenseSpecial * 0.25
+	if DefenseSpecialEnnemi > PokemonEnnemi.DefenseSpecial * 4 : DefenseSpecialEnnemi = PokemonEnnemi.DefenseSpecial * 4
+	if VitessePlayer < PokemonPlayer.Vitesse * 0.25 : VitessePlayer = PokemonPlayer.Vitesse * 0.25
+	if VitessePlayer > PokemonPlayer.Vitesse * 4 : VitessePlayer = PokemonPlayer.Vitesse * 4
+	if VitesseEnnemi < PokemonEnnemi.Vitesse * 0.25 : VitesseEnnemi = PokemonEnnemi.Vitesse * 0.25
+	if VitesseEnnemi > PokemonEnnemi.Vitesse * 4 : VitesseEnnemi = PokemonEnnemi.Vitesse * 4
+	if PrecisionPlayer < 25 : PrecisionPlayer = 25
+	if PrecisionPlayer > 400 : PrecisionPlayer = 400
+	if PrecisionEnnemi < 25 : PrecisionEnnemi = 25
+	if PrecisionEnnemi > 400 : PrecisionEnnemi = 400
 #Des fonctions qui prenent et renvoi des informations simples mais utiles
 func GetAttaqueMaxPP(PokemonAttaque) :
 	for x in List :
@@ -1163,7 +1221,6 @@ func GetFirstAttacker(VitessePokemonPlayer,VitessePokemonEnnemi,PokemonAttaqueNa
 		return false
 	else :
 		return true
-
 #Others Actions
 #Calcul pour attraper le pokemon
 func CatchAPokemon(PokemonMaxHp,PokemonHp,PokemonCatchRate,PokemonStatut,PokeballBonus) :
@@ -1237,6 +1294,7 @@ var Vol = {Type="Vol",Puissance = 90,Precision = 95,MaxPP = 15}
 var Coupe = {Type="Normal",Puissance = 50,Precision = 95,MaxPP = 30}
 var FouetLianes = {Type="Plante",Puissance = 45, Precision = 100, MaxPP = 25}
 var CoupDBoule = {Type="Normal",Puissance = 70, Precision = 100, MaxPP = 15}
+var Machouille = {Type = "Tenebre", Puissance = 80,Precision = 100,MaxPP = 15}
 #Liste des Attaques Special (vitesse)
 var ListSpecialSpeed = {"Vive Attaque" : ViveAttaque}
 #Liste de toures ces attaques pour un référencement
@@ -1262,5 +1320,6 @@ var List = {
 	"Vol" : Vol,
 	"Coupe" : Coupe,
 	"Fouet Lianes" : FouetLianes,
-	"Coup d'Boule" : CoupDBoule
+	"Coup d'Boule" : CoupDBoule,
+	"Machouille" : Machouille
 	}

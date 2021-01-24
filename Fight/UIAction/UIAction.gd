@@ -25,9 +25,11 @@ signal DisplayUIPokemonBox
 signal ChangePokemonReturn
 signal ChangePokemon
 
-
 func _input(_event):
-	if (!self.visible) or Cantmove : pass
+	if (!self.visible) or Cantmove :  UIFight.CanAnimationBeSet = true
+	elif UIFight.CanAnimationBeSet : 
+		UIFight.CanAnimationBeSet = false
+		get_node("/root/FightScene/AnimationPlayer").play("IDLEAnimation")
 	elif (Input.is_action_pressed("ui_accept")) :
 		match actual_arrow :
 			0 :

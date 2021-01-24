@@ -189,7 +189,7 @@ var CantMoveCauseJumping
 var NodePositionPath = "Spawn"
 export (Vector2) var Last_position
 export (String) var ActualScene
-export (String) var ActualPlace
+export (String) var ActualPlace = "Bourg Palette"
 
 #GLOBAL VAR FOR SPEED PLAYER
 export (bool) var IsShoesEquip = false
