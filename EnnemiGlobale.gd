@@ -29,7 +29,7 @@ func GetAPokemonInLife() :
 			PokemonNumber = PokemonNumber + 1
 	return null
 func loadTexture(TextureToLoad) :
-	TextureToLoad.texture = load(TextureFight)
+	TextureToLoad.texture = TextureFight
 
 #Others
 export (String) var RivalName = "Test"

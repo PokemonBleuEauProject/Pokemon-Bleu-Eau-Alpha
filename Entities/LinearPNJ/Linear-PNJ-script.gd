@@ -9,6 +9,7 @@ export (String) var TXT
 export (String) var TXTIntro
 export (String) var EnnemiName
 export (Texture) var TheTexture
+export (Texture) var TheInFightTexture
 
 export (Dictionary) var POKEMON1 = {
 	Name = "Salameche",
@@ -92,7 +93,7 @@ func _on_Area2D2_body_entered(body):
 
 func loadParameters() :
 #	Texture and Graphic
-	EG.TextureFight = "res://img Pokemon/All PNJ/InFight/archie.png"
+	EG.TextureFight = TheInFightTexture
 	UIFight.CercleFight = load("res://img Pokemon/img Fight/Graphique/CercleFightWhite.png")
 	UIFight.BGCOLOR = Color(1, 1, 1)
 #	Pokemon
