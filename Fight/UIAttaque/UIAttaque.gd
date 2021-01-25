@@ -189,7 +189,7 @@ func ProcessRepeat(FirstAttacker,TheAttaque,SpecialProcessRepeat,StringSpecial) 
 				UiFight.changeText(PokemonPlayer.PokemonPlayer.Name + " rate son attaque !")
 				yield(UiFight_ShowText,"animation_finished")
 			emit_signal("LoadValues")
-			ProcessRepeatOthers()
+			yield(ProcessRepeatOthers(),"completed")
 		elif StringSpecial == "Ennemi" :
 			self.hide()
 			var AttaqueEnnemi = PokemonEnnemi.EnnemiLaunchAttack()
@@ -215,12 +215,9 @@ func ProcessRepeat(FirstAttacker,TheAttaque,SpecialProcessRepeat,StringSpecial) 
 				yield(UiFight_ShowText,"animation_finished")
 			CheckSomeoneDead(PokemonPlayer.PokemonPlayer,PokemonEnnemi.PokemonEnnemi)
 			emit_signal("LoadValues")
-			ProcessRepeatOthers()
+			yield(ProcessRepeatOthers(),"completed")
 		UIFight.CantPassTxt = false
 		self.hide()
-		UiFight_Text.text = "Que va faire " + PokemonPlayer.PokemonPlayer.Name + " ?"
-		UiAction.popup()
-		actual_arrow = null
 	else :
 		if FirstAttacker :
 			self.hide()
@@ -315,8 +312,7 @@ func ProcessRepeat(FirstAttacker,TheAttaque,SpecialProcessRepeat,StringSpecial) 
 				yield(UiFight_ShowText,"animation_finished")
 			emit_signal("LoadValues")
 			CheckSomeoneDead(PokemonPlayer.PokemonPlayer,PokemonEnnemi.PokemonEnnemi)
-			ProcessRepeatOthers()
-			CheckSomeoneDead(PokemonPlayer.PokemonPlayer,PokemonEnnemi.PokemonEnnemi)
+			yield(ProcessRepeatOthers(),"completed")
 	UIFight.CantPassTxt = false
 	self.hide()
 

@@ -16,6 +16,8 @@ var StatutSentence = ""
 
 var IsFlying = false
 var IsFlyingE = false
+var IfTornadoAndFlying = 1
+var IfTornadoAndFlyingE = 1
 
 var VampiDraine = false
 var VampiDraineRound = 0
@@ -897,7 +899,14 @@ func machouille(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
 	var random = ARandom.randf()
 	if random <= 0.2 :
 		SpecialText = "Ah, Defense Speciale du " + PokemonEnnemi.Name + " ennemi baisse !"
-		DefenseSpecialEnnemi = DefenseSpecialEnnemi - PokemonEnnemi.DefenseSpeciale * (1/8)
+		DefenseSpecialEnnemi = DefenseSpecialEnnemi - PokemonEnnemi.DefenseSpecial * (1/8)
+func tornade(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
+	PokemonEnnemi.Hp = PokemonEnnemi.Hp - (CalculateDammageSpe(PokemonAttaqueName,PokemonPlayer,PokemonEnnemi,"Player")*IfTornadoAndFlying)
+	IfTornadoAndFlying = 1
+func damocles(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName):
+	PokemonEnnemi.Hp = PokemonEnnemi.Hp - CalculateDammage(PokemonAttaqueName,PokemonPlayer,PokemonEnnemi,"Player")
+	PokemonPlayer.Hp = PokemonPlayer.Hp - (CalculateDammage(PokemonAttaqueName,PokemonPlayer,PokemonEnnemi,"Player")/4)
+	SpecialText = PokemonPlayer.Name + " subit un contrecoup !"
 #Ennemi (le E signifie ennemi au user)
 func chargeE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
 	PokemonPlayer.Hp = PokemonPlayer.Hp - CalculateDammage(PokemonAttaqueName,PokemonEnnemi,PokemonPlayer,"Ennemi")
@@ -976,7 +985,14 @@ func machouilleE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
 	var random = ARandom.randf()
 	if random <= 0.2 :
 		SpecialText = "Ah, Defense Speciale du " + PokemonPlayer.Name + " ennemi baisse !"
-		DefenseSpecialPlayer = DefenseSpecialPlayer - PokemonPlayer.DefenseSpeciale * (1/8)
+		DefenseSpecialPlayer = DefenseSpecialPlayer - PokemonPlayer.DefenseSpecial * (1/8)
+func tornadeE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
+	PokemonPlayer.Hp = PokemonPlayer.Hp - (CalculateDammageSpe(PokemonAttaqueName,PokemonPlayer,PokemonEnnemi,"Ennemi")*IfTornadoAndFlyingE)
+	IfTornadoAndFlyingE = 1
+func damoclesE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName):
+	PokemonPlayer.Hp = PokemonPlayer.Hp - CalculateDammage(PokemonAttaqueName,PokemonEnnemi,PokemonPlayer,"Ennemi")
+	PokemonEnnemi.Hp = PokemonEnnemi.Hp - (CalculateDammage(PokemonAttaqueName,PokemonEnnemi,PokemonPlayer,"Ennemi")/4)
+	SpecialText = PokemonEnnemi.Name + " ennemi subit un contrecoup !"
 #Secondaries functions for attacks method
 func UseVol(PokemonPlayer,PokemonEnnemi) :
 	PokemonEnnemi.Hp = PokemonEnnemi.Hp - CalculateDammage("Vol",PokemonEnnemi,PokemonPlayer,"Player")
@@ -1034,111 +1050,79 @@ func CheckAttack(PokemonAttaqueName,PokemonPlayer,PokemonEnnemi,WhoAttack) :
 	match WhoAttack :
 		"Player" :
 			match PokemonAttaqueName :
-				"Charge" :
-					charge(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
-				"Griffe" :
-					griffe(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
-				"Mimi Queue" :
-					mimiqueue(PokemonPlayer,PokemonEnnemi)
-				"Rugissement" :
-					rugissement(PokemonPlayer,PokemonEnnemi)
-				"Belier" :
-					belier(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
-				"Tranch'Herbe" :
-					tranchherbe(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
-				"Vive Attaque" :
-					viveattaque(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
-				"Cru Ailes" :
-					cruailes(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
-				"Pistolet a O" :
-					pistoletao(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
-				"Morsure" :
-					morsure(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
-				"Lance Flamme" :
-					lanceflamme(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
-				"Puissance" :
-					puissance(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
-				"Vampigraine" :
-					vampigraine(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
-				"Ecume" :
-					ecume(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
-				"Jet de sable" :
-					jetdesable(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
-				"Secretion" : 
-					secretion(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
-				"Armure" :
-					armure(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
-				"Dard Venin" :
-					dardvenin(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
-				"Vol" :
-					vol(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
-				"Coupe" :
-					coupe(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
-				"Fouet Lianes" :
-					fouetlianes(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
-				"Coup d'Boule" :
-					coupdboule(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
-				"Machouille" :
-					machouille(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
+				"Charge" : charge(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
+				"Griffe" : griffe(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
+				"Mimi Queue" : mimiqueue(PokemonPlayer,PokemonEnnemi)
+				"Rugissement" : rugissement(PokemonPlayer,PokemonEnnemi)
+				"Belier" : belier(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
+				"Tranch'Herbe" : tranchherbe(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
+				"Vive Attaque" : viveattaque(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
+				"Cru Ailes" : cruailes(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
+				"Pistolet a O" : pistoletao(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
+				"Morsure" : morsure(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
+				"Lance Flamme" : lanceflamme(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
+				"Puissance" : puissance(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
+				"Vampigraine" : vampigraine(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
+				"Ecume" : ecume(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
+				"Jet de sable" : jetdesable(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
+				"Secretion" : secretion(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
+				"Armure" : armure(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
+				"Dard Venin" : dardvenin(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
+				"Vol" : vol(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
+				"Coupe" : coupe(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
+				"Fouet Lianes" : fouetlianes(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
+				"Coup d'Boule" : coupdboule(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
+				"Machouille" : machouille(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
+				"Tornade" : tornade(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
+				"Damocles" : damocles(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
 		"Ennemi" :
 			match PokemonAttaqueName :
-				"Charge" :
-					chargeE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
-				"Griffe" :
-					griffeE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
-				"Mimi Queue" :
-					mimiqueueE(PokemonPlayer,PokemonEnnemi)
-				"Rugissement" :
-					rugissementE(PokemonPlayer,PokemonEnnemi)
-				"Belier" :
-					belierE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
-				"Tranch'Herbe" :
-					tranchherbeE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
-				"Vive Attaque" :
-					viveattaqueE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
-				"Cru Ailes" :
-					cruailesE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
-				"Pistolet a O" :
-					pistoletaoE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
-				"Morsure" :
-					morsureE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
-				"Lance Flamme" :
-					lanceflammeE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
-				"Puissance" :
-					puissanceE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
-				"Vampigraine" :
-					vampigraineE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
-				"Ecume" :
-					ecumeE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
-				"Jet de sable" :
-					jetdesableE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
-				"Secretion" : 
-					secretionE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
-				"Armure" :
-					armureE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
-				"Dard Venin" :
-					dardveninE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
-				"Vol" :
-					volE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
-				"Coupe" :
-					coupeE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
-				"Fouet Lianes" :
-					fouetlianesE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
-				"Coup d'Boule" :
-					fouetlianesE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
-				"Machouille" :
-					machouilleE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
+				"Charge" : chargeE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
+				"Griffe" : griffeE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
+				"Mimi Queue" : mimiqueueE(PokemonPlayer,PokemonEnnemi)
+				"Rugissement" : rugissementE(PokemonPlayer,PokemonEnnemi)
+				"Belier" : belierE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
+				"Tranch'Herbe" : tranchherbeE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
+				"Vive Attaque" : viveattaqueE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
+				"Cru Ailes" : cruailesE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
+				"Pistolet a O" : pistoletaoE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
+				"Morsure" : morsureE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
+				"Lance Flamme" : lanceflammeE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
+				"Puissance" : puissanceE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
+				"Vampigraine" :vampigraineE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
+				"Ecume" : ecumeE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
+				"Jet de sable" : jetdesableE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
+				"Secretion" : secretionE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
+				"Armure" : armureE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
+				"Dard Venin" : dardveninE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
+				"Vol" : volE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
+				"Coupe" : coupeE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
+				"Fouet Lianes" : fouetlianesE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
+				"Coup d'Boule" : fouetlianesE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
+				"Machouille" : machouilleE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
+				"Tornade" : tornadeE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
+				"Damocles" : damoclesE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
 func CheckSuccess(Attacker,PokemonAttaqueName) :
 	var ARandom = RandomNumberGenerator.new()
 	ARandom.randomize()
 	var Random = ARandom.randf_range(0,100)
 	match Attacker :
 		"Player" :
-			if IsFlyingE : return false
+			if PokemonAttaqueName == "Vol" and (GetAttaquePrecision(PokemonAttaqueName)+PrecisionPlayer >= Random) :
+				return true
+			elif (IsFlyingE) and (PokemonAttaqueName == "Tornade") :
+				IfTornadoAndFlying = 2
+				return true
+			elif IsFlyingE : return false
 			elif (GetAttaquePrecision(PokemonAttaqueName)+PrecisionPlayer >= Random) : return true
 			else : return false
 		"Ennemi" :
-			if IsFlying : return false
+			if PokemonAttaqueName == "Vol" and (GetAttaquePrecision(PokemonAttaqueName)+PrecisionEnnemi >= Random) :
+				return true
+			elif IsFlying and PokemonAttaqueName == "Tornade" : 
+				IfTornadoAndFlyingE = 2
+				return true
+			elif IsFlying : return false
 			elif (GetAttaquePrecision(PokemonAttaqueName)+PrecisionEnnemi >= Random) : return true
 			else : return false
 func CheckPP(ThePokemon,AttaqueNumber) :
@@ -1162,26 +1146,26 @@ func CheckPP(ThePokemon,AttaqueNumber) :
 		_ :
 			return true
 func CheckStatVariable(PokemonPlayer,PokemonEnnemi) :
-	if AttaquePlayer < PokemonPlayer.Puissance * 0.25 : AttaquePlayer = PokemonPlayer.Puissance * 0.25
-	if AttaquePlayer > PokemonPlayer.Puissance * 4 : AttaquePlayer = PokemonPlayer.Puissance * 4
-	if AttaqueSpecialPlayer < PokemonPlayer.AttaqueSpecial * 0.25 : AttaqueSpecialPlayer = PokemonPlayer.AttaqueSpecial * 0.25
-	if AttaqueSpecialPlayer > PokemonPlayer.AttaqueSpecial * 4 : AttaqueSpecialPlayer = PokemonPlayer.AttaqueSpecial * 4
-	if AttaqueEnnemi < PokemonEnnemi.Puissance * 0.25 :  AttaqueEnnemi = PokemonEnnemi.Puissance * 0.25
-	if AttaqueEnnemi > PokemonEnnemi.Puissance * 4 : AttaqueEnnemi = PokemonEnnemi.Puissance * 4
-	if AttaqueSpecialEnnemi < PokemonEnnemi.AttaqueSpecial * 0.25 : AttaqueSpecialEnnemi = PokemonEnnemi.AttaqueSpecial * 0.25
-	if AttaqueSpecialEnnemi > PokemonEnnemi.AttaqueSpecial * 4 : AttaqueSpecialEnnemi = PokemonEnnemi.AttaqueSpecial * 4
-	if DefensePlayer < PokemonPlayer.Defense * 0.25 : DefensePlayer = PokemonPlayer.Defense * 0.25
-	if DefensePlayer > PokemonPlayer.Defense * 4 : DefensePlayer = PokemonPlayer.Defense * 4
-	if DefenseSpecialPlayer < PokemonPlayer.DefenseSpecial * 0.25 : DefenseSpecialPlayer = PokemonPlayer.DefenseSpecial * 0.25
-	if DefenseSpecialPlayer > PokemonPlayer.DefenseSpecial * 4 : DefenseSpecialPlayer = PokemonPlayer.DefenseSpecial * 4
-	if DefenseEnnemi < PokemonEnnemi.Defense * 0.25 : DefenseEnnemi = PokemonEnnemi.Defense * 0.25
-	if DefenseEnnemi > PokemonEnnemi.Defense * 4 : DefenseEnnemi = PokemonEnnemi.Defense * 4
-	if DefenseSpecialEnnemi < PokemonEnnemi.DefenseSpecial * 0.25 : DefenseSpecialEnnemi = PokemonEnnemi.DefenseSpecial * 0.25
-	if DefenseSpecialEnnemi > PokemonEnnemi.DefenseSpecial * 4 : DefenseSpecialEnnemi = PokemonEnnemi.DefenseSpecial * 4
-	if VitessePlayer < PokemonPlayer.Vitesse * 0.25 : VitessePlayer = PokemonPlayer.Vitesse * 0.25
-	if VitessePlayer > PokemonPlayer.Vitesse * 4 : VitessePlayer = PokemonPlayer.Vitesse * 4
-	if VitesseEnnemi < PokemonEnnemi.Vitesse * 0.25 : VitesseEnnemi = PokemonEnnemi.Vitesse * 0.25
-	if VitesseEnnemi > PokemonEnnemi.Vitesse * 4 : VitesseEnnemi = PokemonEnnemi.Vitesse * 4
+	if AttaquePlayer + PokemonPlayer.Puissance < PokemonPlayer.Puissance * 0.25 : AttaquePlayer = PokemonPlayer.Puissance * 0.25
+	if AttaquePlayer + PokemonPlayer.Puissance > PokemonPlayer.Puissance * 4 : AttaquePlayer = PokemonPlayer.Puissance * 4
+	if AttaqueSpecialPlayer + PokemonPlayer.AttaqueSpecial < PokemonPlayer.AttaqueSpecial * 0.25 : AttaqueSpecialPlayer = PokemonPlayer.AttaqueSpecial * 0.25
+	if AttaqueSpecialPlayer + PokemonPlayer.AttaqueSpecial > PokemonPlayer.AttaqueSpecial * 4 : AttaqueSpecialPlayer = PokemonPlayer.AttaqueSpecial * 4
+	if AttaqueEnnemi + PokemonEnnemi.Puissance < PokemonEnnemi.Puissance * 0.25 :  AttaqueEnnemi = PokemonEnnemi.Puissance * 0.25
+	if AttaqueEnnemi + PokemonEnnemi.Puissance > PokemonEnnemi.Puissance * 4 : AttaqueEnnemi = PokemonEnnemi.Puissance * 4
+	if AttaqueSpecialEnnemi + PokemonEnnemi.AttaqueSpecial < PokemonEnnemi.AttaqueSpecial * 0.25 : AttaqueSpecialEnnemi = PokemonEnnemi.AttaqueSpecial * 0.25
+	if AttaqueSpecialEnnemi + PokemonEnnemi.AttaqueSpecial > PokemonEnnemi.AttaqueSpecial * 4 : AttaqueSpecialEnnemi = PokemonEnnemi.AttaqueSpecial * 4
+	if DefensePlayer + PokemonPlayer.Defense < PokemonPlayer.Defense * 0.25 : DefensePlayer = PokemonPlayer.Defense * 0.25
+	if DefensePlayer + PokemonPlayer.Defense > PokemonPlayer.Defense * 4 : DefensePlayer = PokemonPlayer.Defense * 4
+	if DefenseSpecialPlayer + PokemonPlayer.DefenseSpecial < PokemonPlayer.DefenseSpecial * 0.25 : DefenseSpecialPlayer = PokemonPlayer.DefenseSpecial * 0.25
+	if DefenseSpecialPlayer + PokemonPlayer.DefenseSpecial > PokemonPlayer.DefenseSpecial * 4 : DefenseSpecialPlayer = PokemonPlayer.DefenseSpecial * 4
+	if DefenseEnnemi + PokemonEnnemi.Defense < PokemonEnnemi.Defense * 0.25 : DefenseEnnemi = PokemonEnnemi.Defense * 0.25
+	if DefenseEnnemi + PokemonEnnemi.Defense > PokemonEnnemi.Defense * 4 : DefenseEnnemi = PokemonEnnemi.Defense * 4
+	if DefenseSpecialEnnemi + PokemonEnnemi.DefenseSpecial < PokemonEnnemi.DefenseSpecial * 0.25 : DefenseSpecialEnnemi = PokemonEnnemi.DefenseSpecial * 0.25
+	if DefenseSpecialEnnemi + PokemonEnnemi.DefenseSpecial > PokemonEnnemi.DefenseSpecial * 4 : DefenseSpecialEnnemi = PokemonEnnemi.DefenseSpecial * 4
+	if VitessePlayer + PokemonPlayer.Vitesse < PokemonPlayer.Vitesse * 0.25 : VitessePlayer = PokemonPlayer.Vitesse * 0.25
+	if VitessePlayer + PokemonPlayer.Vitesse > PokemonPlayer.Vitesse * 4 : VitessePlayer = PokemonPlayer.Vitesse * 4
+	if VitesseEnnemi + PokemonEnnemi.Vitesse < PokemonEnnemi.Vitesse * 0.25 : VitesseEnnemi = PokemonEnnemi.Vitesse * 0.25
+	if VitesseEnnemi + PokemonEnnemi.Vitesse > PokemonEnnemi.Vitesse * 4 : VitesseEnnemi = PokemonEnnemi.Vitesse * 4
 	if PrecisionPlayer < 25 : PrecisionPlayer = 25
 	if PrecisionPlayer > 400 : PrecisionPlayer = 400
 	if PrecisionEnnemi < 25 : PrecisionEnnemi = 25
@@ -1295,6 +1279,8 @@ var Coupe = {Type="Normal",Puissance = 50,Precision = 95,MaxPP = 30}
 var FouetLianes = {Type="Plante",Puissance = 45, Precision = 100, MaxPP = 25}
 var CoupDBoule = {Type="Normal",Puissance = 70, Precision = 100, MaxPP = 15}
 var Machouille = {Type = "Tenebre", Puissance = 80,Precision = 100,MaxPP = 15}
+var Tornade = {Type = "Vol", Puissance = 40,Precision = 100,MaxPP = 35}
+var Damocles = {Type="Normal",Puissance = 120,Precision = 100,MaxPP = 15}
 #Liste des Attaques Special (vitesse)
 var ListSpecialSpeed = {"Vive Attaque" : ViveAttaque}
 #Liste de toures ces attaques pour un référencement
@@ -1321,5 +1307,7 @@ var List = {
 	"Coupe" : Coupe,
 	"Fouet Lianes" : FouetLianes,
 	"Coup d'Boule" : CoupDBoule,
-	"Machouille" : Machouille
+	"Machouille" : Machouille,
+	"Tornade" : Tornade,
+	"Damocles" : Damocles
 	}

@@ -40,10 +40,10 @@ export (Dictionary) var Pokemon1 = {
 	DefenseSpecial = 64,
 	Vitesse = 30000,
 	LvlNeededToEvolve = 16,
-	Attaque1 = "Coup d'Boule",
-	Attaque2 = "Vol",
-	Attaque3 = "Pistolet a O",
-	Attaque4 = "Dard Venin",
+	Attaque1 = "Tornade",
+	Attaque2 = "Ecume",
+	Attaque3 = "Fouet Lianes",
+	Attaque4 = "Damocles",
 	ActualPPAttaque1 = 20,
 	ActualPPAttaque2 = 20,
 	ActualPPAttaque3 = 20,
@@ -186,7 +186,7 @@ func CheckDictionnaryPokemonFree() :
 #Global VAr for Player's position
 var CantMoveCauseChangingScene
 var CantMoveCauseJumping
-var NodePositionPath = "Spawn"
+export (String) var NodePositionPath = "Spawn"
 export (Vector2) var Last_position
 export (String) var ActualScene
 export (String) var ActualPlace = "Bourg Palette"
