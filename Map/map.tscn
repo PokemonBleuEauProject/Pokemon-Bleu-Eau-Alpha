@@ -561,8 +561,8 @@ POKEMON1 = {
 "ActualPPAttaque2": 20,
 "ActualPPAttaque3": 20,
 "ActualPPAttaque4": 20,
-"Attaque1": "Vol",
-"Attaque2": "-",
+"Attaque1": "Vibraqua",
+"Attaque2": "Hydroqueue",
 "Attaque3": "-",
 "Attaque4": "-",
 "AttaqueSpecial": 50,
@@ -965,7 +965,6 @@ position = Vector2( 357.22, 6069.46 )
 NameNotification = "Bourg-Palette"
 
 [node name="Overlay" type="Node2D" parent="."]
-visible = false
 
 [node name="Panneau1" parent="Overlay" instance=ExtResource( 11 )]
 TXT1 = "Hello"
@@ -977,9 +976,8 @@ TXT1 = "Hello"
 
 [node name="Panneau15" parent="Overlay" instance=ExtResource( 11 )]
 position = Vector2( 176.628, 1938.71 )
-TXT1 = "En ces lieux, residait le pokemon ..."
-TXT2 = "... qui autrefois regnait sur les cieux ..."
-TXT3 = "... et survolait la terre et la mer."
+TXT1 = "Quelque part se trouve un Pokémon nommé Rayquaza."
+TXT2 = "On raconte que dans le passé, c'est Rayquaza qui avait calmé les deux combattants."
 
 [node name="Panneau3" parent="Overlay" instance=ExtResource( 11 )]
 position = Vector2( 174.977, 4082.39 )
