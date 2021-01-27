@@ -51,6 +51,7 @@ func _input(_event):
 				if MenuPokemon.PokemonHasChanged :
 					yield(get_tree().create_timer(1.5),"timeout")
 					if Attaque.GetFirstAttacker(PokemonPlayer.PokemonPlayer.Vitesse,PokemonEnnemi.PokemonEnnemi.Vitesse,"") :
+						Attaque.IsPlayerTheFirstAttacker = true
 						UiFight.changeText(PokemonPlayer.PokemonPlayer.Name + " revient !")
 						yield(get_tree().create_timer(0.6),"timeout")
 						emit_signal("ChangePokemonReturn")
@@ -74,6 +75,7 @@ func _input(_event):
 						Cantmove = false
 						UiFight.changeText("Que va faire " + PokemonPlayer.PokemonPlayer.Name + " ?")
 					else : 
+						Attaque.IsPlayerTheFirstAttacker = false
 						yield(UiAttaque.ProcessRepeat(false,null,true,"Ennemi"),"completed")
 						UiFight.changeText(PokemonPlayer.PokemonPlayer.Name + " revient !")
 						yield(get_tree().create_timer(0.6),"timeout")
@@ -200,69 +202,10 @@ func _on_Bag_catchapokemon(PokeballBonus,PokeballName):
 		PG.UnUsed = get_tree().change_scene("res://Map/map.tscn")
 	else :
 		UiAttaque.hide()
-		var AttaqueEnnemi = PokemonEnnemi.EnnemiLaunchAttack()
-		yield(get_tree().create_timer(0.75),"timeout")
-		UiFight.changeText(PokemonEnnemi.PokemonEnnemi.Name + " utilise " + AttaqueEnnemi + " !")
-		yield(UiFight_ShowText,"animation_finished")
-		if Attaque.CheckSuccess("Ennemi",AttaqueEnnemi) :
-			AttaqueAnimation.play(AttaqueEnnemi+" E")
-			UiAttaque.emit_signal("AboutLoadingValues")
-			Attaque.CheckAttack(AttaqueEnnemi,PokemonPlayer.PokemonPlayer,PokemonEnnemi.PokemonEnnemi,"Ennemi")
-			yield(get_tree().create_timer(1),"timeout")
-			Attaque.EventText("Ennemi")
-			if (Attaque.EvenText != "") :
-				UiFight.changeText(Attaque.EvenText)
-				yield(UiFight_ShowText,"animation_finished")
-			if (Attaque.SpecialText != "") :
-				UiFight.changeText(Attaque.SpecialText)
-				yield(UiFight_ShowText,"animation_finished")
-				Attaque.SpecialText = ""
-			UiAttaque.emit_signal("ChangeStatut",Attaque.GetAndSetStatut(PokemonPlayer.PokemonPlayer))
-		else :
-			UiFight.changeText(PokemonEnnemi.PokemonEnnemi.Name + " rate son attaque !")
-			yield(UiFight_ShowText,"animation_finished")
+		Attaque.IsPlayerTheFirstAttacker = false
+		yield(UiAttaque.ProcessRepeat(false,null,true,"Ennemi"),"completed")
 		UiAttaque.CheckSomeoneDead(PokemonPlayer.PokemonPlayer,PokemonEnnemi.PokemonEnnemi)
 		UiAttaque.emit_signal("LoadValues")
-		if Attaque.IsFlyingE :
-			UiAttaque.emit_signal("AboutLoadingValues")
-			Attaque.UseVolE(PokemonPlayer.PokemonPlayer,PokemonEnnemi.PokemonEnnemi)
-			AttaqueAnimation.play("UseVolE")
-			UiFight.changeText(PokemonEnnemi.PokemonEnnemi.Name + " utilise Vol !")
-			yield(UiFight_ShowText,"animation_finished")
-			UiAttaque.CheckSomeoneDead(PokemonPlayer.PokemonPlayer,PokemonEnnemi.PokemonEnnemi)
-			UiAttaque.emit_signal("LoadValues")
-		if Attaque.VampiDraine :
-			UiAttaque.emit_signal("AboutLoadingValues")
-			Attaque.DrainVampigraine(PokemonPlayer.PokemonPlayer,PokemonEnnemi.PokemonEnnemi)
-			AttaqueAnimation.play("VampigraineDrain")
-			UiFight.changeText("Vampigraine drain l'énergie de " + PokemonEnnemi.PokemonEnnemi.Name + " ennemi !")
-			yield(UiFight_ShowText,"animation_finished")
-			UiAttaque.CheckSomeoneDead(PokemonPlayer.PokemonPlayer,PokemonEnnemi.PokemonEnnemi)
-			UiAttaque.emit_signal("LoadValues")
-		if Attaque.VampiDraineE :
-			UiAttaque.emit_signal("AboutLoadingValues")
-			Attaque.DrainVampigraineE(PokemonPlayer.PokemonPlayer,PokemonEnnemi.PokemonEnnemi)
-			AttaqueAnimation.play("VampigraineDrain E")
-			UiFight.changeText("Vampigraine drain l'énergie de " + PokemonPlayer.PokemonPlayer.Name)
-			yield(UiFight_ShowText,"animation_finished")
-			UiAttaque.CheckSomeoneDead(PokemonPlayer.PokemonPlayer,PokemonEnnemi.PokemonEnnemi)
-			UiAttaque.emit_signal("LoadValues")
-		if Attaque.CheckPokemonStatut(PokemonEnnemi.PokemonEnnemi) :
-			UiAttaque.emit_signal("AboutLoadingValues")
-			UiFight.changeText(Attaque.StatutSentence)
-			yield(UiFight_ShowText,"animation_finished")
-			AttaqueAnimation.play(PokemonEnnemi.PokemonEnnemi.Statut + " E")
-			yield(get_tree().create_timer(1),"timeout")
-			UiAttaque.CheckSomeoneDead(PokemonPlayer.PokemonPlayer,PokemonEnnemi.PokemonEnnemi)
-			UiAttaque.emit_signal("LoadValues")
-		if Attaque.CheckPokemonStatut(PokemonPlayer.PokemonPlayer) :
-			UiAttaque.emit_signal("AboutLoadingValues")
-			UiFight.changeText(Attaque.StatutSentence)
-			yield(UiFight_ShowText,"animation_finished")
-			AttaqueAnimation.play(PokemonEnnemi.PokemonEnnemi.Statut)
-			yield(get_tree().create_timer(1),"timeout")
-			UiAttaque.CheckSomeoneDead(PokemonPlayer.PokemonPlayer,PokemonEnnemi.PokemonEnnemi)
-			UiAttaque.emit_signal("LoadValues")
 		UiFight_Text.text = "Que va faire " + PokemonPlayer.PokemonPlayer.Name + " ?"
 		UiAttaque.hide()
 		UiAction.popup()

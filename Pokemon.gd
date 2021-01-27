@@ -630,7 +630,7 @@ class Rattatac :
 	var BaseLvl : int = 116
 	var Statut : String = ""
 	var CatchRate : int = 127
-	var Attaque1 : String = "ViveAttaque"
+	var Attaque1 : String = "Vive Attaque"
 	var Attaque2 : String = "Puissance"
 	var Attaque3 : String = "-"
 	var Attaque4 : String = "-"

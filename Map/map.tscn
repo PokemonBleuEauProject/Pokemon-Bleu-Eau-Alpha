@@ -561,8 +561,8 @@ POKEMON1 = {
 "ActualPPAttaque2": 20,
 "ActualPPAttaque3": 20,
 "ActualPPAttaque4": 20,
-"Attaque1": "Vibraqua",
-"Attaque2": "Hydroqueue",
+"Attaque1": "Abri",
+"Attaque2": "-",
 "Attaque3": "-",
 "Attaque4": "-",
 "AttaqueSpecial": 50,
@@ -965,6 +965,7 @@ position = Vector2( 357.22, 6069.46 )
 NameNotification = "Bourg-Palette"
 
 [node name="Overlay" type="Node2D" parent="."]
+visible = false
 
 [node name="Panneau1" parent="Overlay" instance=ExtResource( 11 )]
 TXT1 = "Hello"

@@ -25,7 +25,7 @@ func changeText(Text) :
 func _on_UIFight_tree_entered():
 	popup()
 	get_node("/root/FightScene/MenuPokemon").visible = false
-	Attaque.reload()
+	Attaque.reload("Both")
 #		1) Dresseur Fight
 	if (UIFight.TypeOfFight == "FightDresseur") :
 	#	Load Textures

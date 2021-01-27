@@ -1,6 +1,8 @@
 extends Node
 
 #All needed variable for Game
+var IsPlayerTheFirstAttacker = false
+
 var BoolCC = false
 var BoolCCE = false
 var Efficacity1 = 1
@@ -21,8 +23,8 @@ var IfTornadoAndFlyingE = 1
 
 var Protected = false
 var ProtectedE = false
-var ProtectedPercent = 1
-var ProtectedPercentE = 1
+var ProtectedPercent = 100
+var ProtectedPercentE = 100
 
 var VampiDraine = false
 var VampiDraineRound = 0
@@ -39,8 +41,8 @@ var DefenseEnnemi = 0
 var DefenseSpecialEnnemi = 0
 var VitessePlayer = 0
 var VitesseEnnemi = 0
-var PrecisionPlayer = 100
-var PrecisionEnnemi = 100
+var PrecisionPlayer = 0
+var PrecisionEnnemi = 0
 
 #All Maths Calcul for Dammage
 #Calculs finaux des dommages physiques et spéciales
@@ -872,7 +874,7 @@ func ecume(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
 		SpecialText = "Ah, Vitesse du " + PokemonEnnemi.Name + " ennemi baisse !"
 		PrecisionEnnemi = PrecisionEnnemi - (PrecisionEnnemi * (1/8))
 func jetdesable(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
-	PrecisionEnnemi = PrecisionEnnemi - (PrecisionEnnemi * (1/8))
+	PrecisionEnnemi = (PrecisionEnnemi - 1)*1.5
 	SpecialText = "Ah, Precision du " + PokemonEnnemi.Name + " ennemi baisse !"
 func secretion(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
 	VitesseEnnemi = VitesseEnnemi - PokemonEnnemi.Vitesse * (1/8)
@@ -917,8 +919,13 @@ func vibraqua(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName):
 func hydroqueue(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
 	PokemonEnnemi.Hp = PokemonEnnemi.Hp - CalculateDammage(PokemonAttaqueName,PokemonPlayer,PokemonEnnemi,"Player")
 func abri(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
-	Protected = true
-	ProtectedPercent /= 2
+	if IsPlayerTheFirstAttacker :
+		Protected = true
+		ProtectedPercent /= 2
+		SpecialText = PokemonPlayer.Name + " se met a l'abri !"
+	else : 
+		Protected = false
+		ProtectedPercent /= 2
 #Ennemi (le E signifie ennemi au user)
 func chargeE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
 	PokemonPlayer.Hp = PokemonPlayer.Hp - CalculateDammage(PokemonAttaqueName,PokemonEnnemi,PokemonPlayer,"Ennemi")
@@ -963,7 +970,7 @@ func ecumeE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
 		SpecialText = "Ah, Vitesse du " + PokemonPlayer.Name + " baisse !"
 		PrecisionPlayer = PrecisionPlayer - (PrecisionPlayer * (1/8))
 func jetdesableE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
-	PrecisionPlayer = PrecisionPlayer - (PrecisionPlayer * (1/8))
+	PrecisionPlayer = (PrecisionPlayer - 1)*1.5
 	SpecialText = "Ah, Precision du " + PokemonPlayer.Name + " baisse !"
 func secretionE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
 	VitessePlayer = VitessePlayer - PokemonPlayer.Vitesse * (1/8)
@@ -1010,8 +1017,13 @@ func vibraquaE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName):
 func hydroqueueE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName):
 	PokemonPlayer.Hp = PokemonPlayer.Hp - CalculateDammage(PokemonAttaqueName,PokemonEnnemi,PokemonPlayer,"Ennemi")
 func abriE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName):
-	ProtectedE = true
-	ProtectedPercentE /= 2
+	if !IsPlayerTheFirstAttacker :
+		ProtectedE = true
+		ProtectedPercentE /= 2
+		SpecialText = PokemonEnnemi.Name + " se met a l'abri !"
+	else : 
+		ProtectedE = false
+		ProtectedPercentE /= 2
 #Secondaries functions for attacks method
 func UseVol(PokemonPlayer,PokemonEnnemi) :
 	PokemonEnnemi.Hp = PokemonEnnemi.Hp - CalculateDammage("Vol",PokemonEnnemi,PokemonPlayer,"Player")
@@ -1095,6 +1107,8 @@ func CheckAttack(PokemonAttaqueName,PokemonPlayer,PokemonEnnemi,WhoAttack) :
 				"Tornade" : tornade(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
 				"Damocles" : damocles(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
 				"Vibraqua" : vibraqua(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
+				"Hydroqueue" : hydroqueue(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
+				"Abri" : abri(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
 		"Ennemi" :
 			match PokemonAttaqueName :
 				"Charge" : chargeE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
@@ -1123,13 +1137,21 @@ func CheckAttack(PokemonAttaqueName,PokemonPlayer,PokemonEnnemi,WhoAttack) :
 				"Tornade" : tornadeE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
 				"Damocles" : damoclesE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
 				"Vibraqua" : vibraquaE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
+				"Hydroqueue" : hydroqueueE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
+				"Abri" : abriE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
 func CheckSuccess(Attacker,PokemonAttaqueName) :
 	var ARandom = RandomNumberGenerator.new()
 	ARandom.randomize()
 	var Random = ARandom.randf_range(0,100)
 	match Attacker :
 		"Player" :
-			if ProtectedE : return false
+			if PokemonAttaqueName == "Abri" and !IsPlayerTheFirstAttacker : 
+				return false
+			elif PokemonAttaqueName == "Abri" and (ProtectedPercent >= Random) :
+				return true
+			elif ProtectedE : 
+				ProtectedE = false
+				return false
 			elif PokemonAttaqueName == "Vol" and (GetAttaquePrecision(PokemonAttaqueName)+PrecisionPlayer >= Random) :
 				return true
 			elif (IsFlyingE) and (PokemonAttaqueName == "Tornade") :
@@ -1139,7 +1161,11 @@ func CheckSuccess(Attacker,PokemonAttaqueName) :
 			elif (GetAttaquePrecision(PokemonAttaqueName)+PrecisionPlayer >= Random) : return true
 			else : return false
 		"Ennemi" :
-			if Protected : return false
+			if PokemonAttaqueName == "Abri" and IsPlayerTheFirstAttacker : return false
+			elif PokemonAttaqueName == "Abri" and (ProtectedPercentE >= Random) : return true
+			elif Protected :
+				Protected = false
+				return false
 			elif PokemonAttaqueName == "Vol" and (GetAttaquePrecision(PokemonAttaqueName)+PrecisionEnnemi >= Random) :
 				return true
 			elif IsFlying and PokemonAttaqueName == "Tornade" : 
@@ -1189,9 +1215,9 @@ func CheckStatVariable(PokemonPlayer,PokemonEnnemi) :
 	if VitessePlayer + PokemonPlayer.Vitesse > PokemonPlayer.Vitesse * 4 : VitessePlayer = PokemonPlayer.Vitesse * 4
 	if VitesseEnnemi + PokemonEnnemi.Vitesse < PokemonEnnemi.Vitesse * 0.25 : VitesseEnnemi = PokemonEnnemi.Vitesse * 0.25
 	if VitesseEnnemi + PokemonEnnemi.Vitesse > PokemonEnnemi.Vitesse * 4 : VitesseEnnemi = PokemonEnnemi.Vitesse * 4
-	if PrecisionPlayer < 25 : PrecisionPlayer = 25
+	if PrecisionPlayer < -75 : PrecisionPlayer = -75
 	if PrecisionPlayer > 400 : PrecisionPlayer = 400
-	if PrecisionEnnemi < 25 : PrecisionEnnemi = 25
+	if PrecisionEnnemi < -75 : PrecisionEnnemi = -75
 	if PrecisionEnnemi > 400 : PrecisionEnnemi = 400
 #Des fonctions qui prenent et renvoi des informations simples mais utiles
 func GetAttaqueMaxPP(PokemonAttaque) :
@@ -1230,42 +1256,75 @@ func GetFirstAttacker(VitessePokemonPlayer,VitessePokemonEnnemi,PokemonAttaqueNa
 		return true
 #Others Actions
 #Reload Variables
-func reaload() :
-	BoolCC = false
-	BoolCCE = false
+func reload(WhichOne) :
 	Efficacity1 = 1
 	Efficacity2 = 1
 	EvenText = ""
 	SpecialText = ""
-	CCSpecial = false
-	CCSpecialValue = 0
-	CCSpecialE = false
-	CCSpecialValueE = 0
 	StatutSentence = ""
-	IsFlying = false
-	IsFlyingE = false
-	IfTornadoAndFlying = 1
-	IfTornadoAndFlyingE = 1
-	Protected = false
-	ProtectedE = false
-	ProtectedPercent = 1
-	ProtectedPercentE = 1
-	VampiDraine = false
-	VampiDraineRound = 0
-	VampiDraineE = false
-	VampiDraineRoundE = 0
-	AttaquePlayer = 0
-	AttaqueSpecialPlayer = 0
-	AttaqueEnnemi = 0
-	AttaqueSpecialEnnemi = 0
-	DefensePlayer = 0
-	DefenseSpecialPlayer = 0
-	DefenseEnnemi = 0
-	DefenseSpecialEnnemi = 0
-	VitessePlayer = 0
-	VitesseEnnemi = 0
-	PrecisionPlayer = 100
-	PrecisionEnnemi = 100
+	match WhichOne:
+		"Player" :
+			BoolCC = false
+			CCSpecial = false
+			CCSpecialValue = 0
+			IsFlying = false
+			IfTornadoAndFlying = 1
+			Protected = false
+			ProtectedPercent = 100
+			VampiDraine = false
+			VampiDraineRound = 0
+			AttaquePlayer = 0
+			AttaqueSpecialPlayer = 0
+			DefensePlayer = 0
+			DefenseSpecialPlayer = 0
+			VitessePlayer = 0
+			PrecisionPlayer = 0
+		"Ennemi" : 
+			BoolCCE = false
+			CCSpecialE = false
+			CCSpecialValueE = 0
+			IsFlyingE = false
+			IfTornadoAndFlyingE = 1
+			ProtectedE = false
+			ProtectedPercentE = 100
+			VampiDraineE = false
+			VampiDraineRoundE = 0
+			AttaqueEnnemi = 0
+			AttaqueSpecialEnnemi = 0
+			DefenseEnnemi = 0
+			DefenseSpecialEnnemi = 0
+			VitesseEnnemi = 0
+			PrecisionEnnemi = 0
+		"Both" :
+			BoolCC = false
+			CCSpecial = false
+			CCSpecialValue = 0
+			CCSpecialE = false
+			CCSpecialValueE = 0
+			IsFlying = false
+			IsFlyingE = false
+			IfTornadoAndFlying = 1
+			IfTornadoAndFlyingE = 1
+			Protected = false
+			ProtectedE = false
+			ProtectedPercent = 100
+			ProtectedPercentE = 100
+			VampiDraine = false
+			VampiDraineRound = 0
+			VampiDraineE = false
+			VampiDraineRoundE = 0
+			AttaquePlayer = 0
+			AttaqueSpecialPlayer = 0
+			AttaqueEnnemi = 0
+			AttaqueSpecialEnnemi = 0
+			DefensePlayer = 0
+			DefenseSpecialPlayer = 0
+			DefenseEnnemi = 0
+			DefenseSpecialEnnemi = 0
+			VitessePlayer = 0
+			VitesseEnnemi = 0
+			PrecisionPlayer = 0
+			PrecisionEnnemi = 0
 #Calcul pour attraper le pokemon
 func CatchAPokemon(PokemonMaxHp,PokemonHp,PokemonCatchRate,PokemonStatut,PokeballBonus) :
 	var a = (0.33 * (PokemonHp/PokemonMaxHp) * PokemonCatchRate * StatutBonus(PokemonStatut) * PokeballBonus)
@@ -1343,7 +1402,7 @@ var Tornade = {Type = "Vol", Puissance = 40,Precision = 100,MaxPP = 35}
 var Damocles = {Type="Normal",Puissance = 120,Precision = 100,MaxPP = 15}
 var Vibraqua = {Type="Eau",Puissance = 60,Precision = 100,MaxPP = 20}
 var Hydroqueue = {Type="eau",Puissance = 90,Precision = 90,MaxPP = 10}
-var Abri = {Type="Normal",MaxPP = 10}
+var Abri = {Type="Normal",MaxPP = 10,Precision = 0}
 #Liste des Attaques Special (vitesse)
 var ListSpecialSpeed = {"Vive Attaque" : ViveAttaque}
 #Liste de toures ces attaques pour un référencement
