@@ -857,6 +857,12 @@ func morsure(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
 	PokemonEnnemi.Hp = PokemonEnnemi.Hp - CalculateDammage(PokemonAttaqueName,PokemonPlayer,PokemonEnnemi,"Player")
 func lanceflamme(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
 	PokemonEnnemi.Hp = PokemonEnnemi.Hp - CalculateDammageSpe(PokemonAttaqueName,PokemonPlayer,PokemonEnnemi,"Player")
+	var ARandom = RandomNumberGenerator.new()
+	ARandom.randomize()
+	var random = ARandom.randf()
+	if random <= 0.3 :
+		PokemonEnnemi.Statut = "Brule"
+		SpecialText = PokemonEnnemi.Name + " est brulé !"
 func puissance(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
 	CCSpecial = true
 	CCSpecialValue = 2
@@ -926,6 +932,22 @@ func abri(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
 	else : 
 		Protected = false
 		ProtectedPercent /= 2
+func flammeche(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
+	PokemonEnnemi.Hp = PokemonEnnemi.Hp - CalculateDammageSpe(PokemonAttaqueName,PokemonPlayer,PokemonEnnemi,"Player")
+	var ARandom = RandomNumberGenerator.new()
+	ARandom.randomize()
+	var random = ARandom.randf()
+	if random <= 0.2 :
+		PokemonEnnemi.Statut = "Brule"
+		SpecialText = PokemonEnnemi.Name + " est brulé !"
+func rebondifeu(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
+	PokemonEnnemi.Hp = PokemonEnnemi.Hp - CalculateDammageSpe(PokemonAttaqueName,PokemonPlayer,PokemonEnnemi,"Player")
+	var ARandom = RandomNumberGenerator.new()
+	ARandom.randomize()
+	var random = ARandom.randf()
+	if random <= 0.1 :
+		PokemonEnnemi.Statut = "Brule"
+		SpecialText = PokemonEnnemi.Name + " est brulé !"
 #Ennemi (le E signifie ennemi au user)
 func chargeE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
 	PokemonPlayer.Hp = PokemonPlayer.Hp - CalculateDammage(PokemonAttaqueName,PokemonEnnemi,PokemonPlayer,"Ennemi")
@@ -953,6 +975,12 @@ func morsureE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
 	PokemonPlayer.Hp = PokemonPlayer.Hp - CalculateDammage(PokemonAttaqueName,PokemonEnnemi,PokemonPlayer,"Ennemi")
 func lanceflammeE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
 	PokemonPlayer.Hp = PokemonPlayer.Hp - CalculateDammageSpe(PokemonAttaqueName,PokemonEnnemi,PokemonPlayer,"Ennemi")
+	var ARandom = RandomNumberGenerator.new()
+	ARandom.randomize()
+	var random = ARandom.randf()
+	if random <= 0.3 :
+		PokemonPlayer.Statut = "Brule"
+		SpecialText = PokemonEnnemi.Name + " est brulé !"
 func puissanceE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
 	CCSpecialE = true
 	CCSpecialValueE = 2
@@ -1024,6 +1052,22 @@ func abriE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName):
 	else : 
 		ProtectedE = false
 		ProtectedPercentE /= 2
+func flammecheE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
+	PokemonPlayer.Hp = PokemonPlayer.Hp - CalculateDammageSpe(PokemonAttaqueName,PokemonEnnemi,PokemonPlayer,"Ennemi")
+	var ARandom = RandomNumberGenerator.new()
+	ARandom.randomize()
+	var random = ARandom.randf()
+	if random <= 0.2 :
+		PokemonPlayer.Statut = "Brule"
+		SpecialText = PokemonEnnemi.Name + " est brulé !"
+func rebondifeuE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
+	PokemonPlayer.Hp = PokemonPlayer.Hp - CalculateDammageSpe(PokemonAttaqueName,PokemonEnnemi,PokemonPlayer,"Ennemi")
+	var ARandom = RandomNumberGenerator.new()
+	ARandom.randomize()
+	var random = ARandom.randf()
+	if random <= 0.1 :
+		PokemonPlayer.Statut = "Brule"
+		SpecialText = PokemonEnnemi.Name + " est brulé !"
 #Secondaries functions for attacks method
 func UseVol(PokemonPlayer,PokemonEnnemi) :
 	PokemonEnnemi.Hp = PokemonEnnemi.Hp - CalculateDammage("Vol",PokemonEnnemi,PokemonPlayer,"Player")
@@ -1064,6 +1108,9 @@ func CheckPokemonStatut(ThePokemon) :
 			"Empoisonne" :
 				Poison(ThePokemon)
 				StatutSentence = ThePokemon.Name + " souffre du poison !"
+			"Brule" :
+				Brule(ThePokemon)
+				StatutSentence = ThePokemon.Name + " souffre de brulure !"
 			"Paralyse" :
 #				Paralyse
 				pass
@@ -1074,7 +1121,11 @@ func Poison(ThePokemon) :
 		ThePokemon.Hp = ThePokemon.Hp - 1
 	else :
 		ThePokemon.Hp = ThePokemon.Hp - (ThePokemon.Hp / 8)
-
+func Brule(ThePokemon) :
+	if (ThePokemon.Hp < 16) :
+		ThePokemon.Hp = ThePokemon.Hp - 1
+	else :
+		ThePokemon.Hp = ThePokemon.Hp - (ThePokemon.Hp / 8)
 #Others Functions : 
 #Des fonctions qui verifient certaines conditions ou verifient
 func CheckAttack(PokemonAttaqueName,PokemonPlayer,PokemonEnnemi,WhoAttack) :
@@ -1109,6 +1160,8 @@ func CheckAttack(PokemonAttaqueName,PokemonPlayer,PokemonEnnemi,WhoAttack) :
 				"Vibraqua" : vibraqua(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
 				"Hydroqueue" : hydroqueue(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
 				"Abri" : abri(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
+				"Flammeche" : flammeche(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
+				"Rebondi Feu" : rebondifeu(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
 		"Ennemi" :
 			match PokemonAttaqueName :
 				"Charge" : chargeE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
@@ -1139,6 +1192,8 @@ func CheckAttack(PokemonAttaqueName,PokemonPlayer,PokemonEnnemi,WhoAttack) :
 				"Vibraqua" : vibraquaE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
 				"Hydroqueue" : hydroqueueE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
 				"Abri" : abriE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
+				"Flammeche" : flammecheE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
+				"Rebondi Feu" : rebondifeuE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
 func CheckSuccess(Attacker,PokemonAttaqueName) :
 	var ARandom = RandomNumberGenerator.new()
 	ARandom.randomize()
@@ -1403,6 +1458,8 @@ var Damocles = {Type="Normal",Puissance = 120,Precision = 100,MaxPP = 15}
 var Vibraqua = {Type="Eau",Puissance = 60,Precision = 100,MaxPP = 20}
 var Hydroqueue = {Type="eau",Puissance = 90,Precision = 90,MaxPP = 10}
 var Abri = {Type="Normal",MaxPP = 10,Precision = 0}
+var Flammeche = {Type="Feu",Puissance = 40, MaxPP=25, Precision=100}
+var RebondiFeu = {Type="Feu",Puissance = 70, MaxPP=15, Precision=100}
 #Liste des Attaques Special (vitesse)
 var ListSpecialSpeed = {"Vive Attaque" : ViveAttaque}
 #Liste de toures ces attaques pour un référencement
@@ -1434,5 +1491,7 @@ var List = {
 	"Damocles" : Damocles,
 	"Vibraqua" : Vibraqua,
 	"Hydroqueue" : Hydroqueue,
-	"Abri" : Abri
+	"Abri" : Abri,
+	"Flammeche" : Flammeche,
+	"Rebondi Feu" : RebondiFeu
 	}
