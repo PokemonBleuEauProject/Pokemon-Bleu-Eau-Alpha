@@ -63,6 +63,7 @@ func _on_UIFight_tree_entered():
 	get_node("/root/FightScene/UIAction").popup()
 #	Text UIAction
 	changeText("Que va faire " + PokemonPlayer.PokemonPlayer.Name + " ?")
+	UIFight.CantPassTxt = false
 
 func _input(_event):
 	if Input.is_action_pressed("ui_speack_accept") :

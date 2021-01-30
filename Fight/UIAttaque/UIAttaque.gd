@@ -17,6 +17,7 @@ signal AboutLoadingValues
 signal LoadValues
 signal ChangeStatut(TheStatut)
 signal ChangeStatutE(TheStatut)
+signal ProcessRepeatOthersSignal
 
 func DisplayUIAttaque():
 	loadGUIScript()
@@ -190,7 +191,7 @@ func ProcessRepeat(FirstAttacker,TheAttaque,SpecialProcessRepeat,StringSpecial) 
 				UiFight.changeText(PokemonPlayer.PokemonPlayer.Name + " rate son attaque !")
 				yield(UiFight_ShowText,"animation_finished")
 			emit_signal("LoadValues")
-			ProcessRepeatOthers()
+			yield(ProcessRepeatOthers(),"completed")
 		elif StringSpecial == "Ennemi" :
 			Attaque.IsPlayerTheFirstAttacker = false
 			self.hide()
@@ -217,7 +218,7 @@ func ProcessRepeat(FirstAttacker,TheAttaque,SpecialProcessRepeat,StringSpecial) 
 				yield(UiFight_ShowText,"animation_finished")
 			CheckSomeoneDead(PokemonPlayer.PokemonPlayer,PokemonEnnemi.PokemonEnnemi)
 			emit_signal("LoadValues")
-			ProcessRepeatOthers()
+			yield(ProcessRepeatOthers(),"completed")
 		UIFight.CantPassTxt = false
 		self.hide()
 	else :
@@ -268,7 +269,7 @@ func ProcessRepeat(FirstAttacker,TheAttaque,SpecialProcessRepeat,StringSpecial) 
 				yield(UiFight_ShowText,"animation_finished")
 			CheckSomeoneDead(PokemonPlayer.PokemonPlayer,PokemonEnnemi.PokemonEnnemi)
 			emit_signal("LoadValues")
-			ProcessRepeatOthers()
+			yield(ProcessRepeatOthers(),"completed")
 		elif !FirstAttacker :
 			Attaque.IsPlayerTheFirstAttacker = false
 			hide()
@@ -316,11 +317,12 @@ func ProcessRepeat(FirstAttacker,TheAttaque,SpecialProcessRepeat,StringSpecial) 
 				yield(UiFight_ShowText,"animation_finished")
 			emit_signal("LoadValues")
 			CheckSomeoneDead(PokemonPlayer.PokemonPlayer,PokemonEnnemi.PokemonEnnemi)
-			ProcessRepeatOthers()
+			yield(ProcessRepeatOthers(),"completed")
 		UIFight.CantPassTxt = false
 		self.hide()
 
 func ProcessRepeatOthers() :
+	yield(get_tree().create_timer(0.5),"timeout")
 	if Attaque.IsFlying :
 			emit_signal("AboutLoadingValues")
 			Attaque.UseVol(PokemonPlayer.PokemonPlayer,PokemonEnnemi.PokemonEnnemi)
@@ -369,7 +371,6 @@ func ProcessRepeatOthers() :
 			yield(get_tree().create_timer(1),"timeout")
 			CheckSomeoneDead(PokemonPlayer.PokemonPlayer,PokemonEnnemi.PokemonEnnemi)
 			emit_signal("LoadValues")
-	else : pass
 
 func CheckSomeoneDead(Player,Ennemi) :
 	if Ennemi.Hp <= 0 :

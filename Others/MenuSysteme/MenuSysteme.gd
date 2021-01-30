@@ -50,7 +50,7 @@ func _on_NewGameForSur_confirmed():
 	yield($AnimationPlayer,"animation_finished")
 	Save.deleteSave()
 	PG.UnUsed = get_tree().change_scene("res://Others/NewGame/NewGame.tscn")
-
-
 func _on_MenuSysteme_tree_entered():
 	Save.loadGame()
+func _on_Leave_pressed():
+	get_tree().quit()

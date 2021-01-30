@@ -38,12 +38,12 @@ export (Dictionary) var Pokemon1 = {
 	Defense = 65,
 	AttaqueSpecial = 50,
 	DefenseSpecial = 64,
-	Vitesse = 10,
+	Vitesse = 1,
 	LvlNeededToEvolve = 16,
-	Attaque1 = "Dard Venin",
-	Attaque2 = "Lance Flamme",
-	Attaque3 = "Vive Attaque",
-	Attaque4 = "Rebondi Feu",
+	Attaque1 = "Poudre Toxik",
+	Attaque2 = "Double Dard",
+	Attaque3 = "Crocs Feu",
+	Attaque4 = "Choc Mental",
 	ActualPPAttaque1 = 20,
 	ActualPPAttaque2 = 20,
 	ActualPPAttaque3 = 20,
@@ -195,4 +195,3 @@ export (String) var ActualPlace = "Bourg Palette"
 export (bool) var IsShoesEquip = false
 #MENU USER VAR
 export (bool) var CantdisplayMenu = false
-

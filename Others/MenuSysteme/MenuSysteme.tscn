@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://img Pokemon/img MenuSyeteme/Continuer Cadre.png" type="Texture" id=1]
 [ext_resource path="res://Others/MenuSysteme/MenuSysteme.gd" type="Script" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://Font/45Font.tres" type="DynamicFont" id=5]
 [ext_resource path="res://img Pokemon/img MenuSyeteme/Continuer Cadre hover.png" type="Texture" id=6]
 [ext_resource path="res://img Pokemon/img MenuSyeteme/CreditsCadre hover.png" type="Texture" id=7]
+[ext_resource path="res://img Pokemon/img MenuSyeteme/NewGame Cadre.png" type="Texture" id=8]
+[ext_resource path="res://img Pokemon/img MenuSyeteme/NewGame Cadre Hover.png" type="Texture" id=9]
 
 [sub_resource type="Animation" id=1]
 resource_name = "ChangeScene"
@@ -174,8 +176,8 @@ margin_left = 72.0
 margin_top = 351.246
 margin_right = 954.0
 margin_bottom = 438.246
-texture_normal = ExtResource( 4 )
-texture_hover = ExtResource( 7 )
+texture_normal = ExtResource( 8 )
+texture_hover = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -194,10 +196,10 @@ __meta__ = {
 }
 
 [node name="Credits" type="TextureButton" parent="."]
-margin_left = 73.1302
-margin_top = 458.726
-margin_right = 955.13
-margin_bottom = 545.726
+margin_left = 73.0
+margin_top = 459.0
+margin_right = 473.0
+margin_bottom = 546.0
 texture_normal = ExtResource( 4 )
 texture_hover = ExtResource( 7 )
 __meta__ = {
@@ -214,6 +216,32 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0.768627, 0.768627, 0.768627, 1 )
 text = "Credits"
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Leave" type="TextureButton" parent="."]
+margin_left = 552.0
+margin_top = 459.0
+margin_right = 952.0
+margin_bottom = 546.0
+texture_normal = ExtResource( 4 )
+texture_hover = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Name" type="Label" parent="Leave"]
+margin_left = 20.0
+margin_top = 16.62
+margin_right = 248.0
+margin_bottom = 76.62
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0.768627, 0.768627, 0.768627, 1 )
+text = "Quitter"
 uppercase = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -248,5 +276,6 @@ anims/ChangeScene = SubResource( 1 )
 [connection signal="pressed" from="Continuer" to="." method="_on_Continuer_pressed"]
 [connection signal="pressed" from="NewGame" to="." method="_on_NewGame_pressed"]
 [connection signal="pressed" from="Credits" to="." method="_on_Credits_pressed"]
+[connection signal="pressed" from="Leave" to="." method="_on_Leave_pressed"]
 [connection signal="confirmed" from="Sure" to="." method="_on_Sure_confirmed"]
 [connection signal="confirmed" from="NewGameForSur" to="." method="_on_NewGameForSur_confirmed"]

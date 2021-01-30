@@ -1,4 +1,4 @@
-[gd_scene load_steps=165 format=2]
+[gd_scene load_steps=180 format=2]
 
 [ext_resource path="res://Fight/UIListPokemon/UIListPokemon.gd" type="Script" id=1]
 [ext_resource path="res://Fight/UIAction/UIAction.tscn" type="PackedScene" id=2]
@@ -73,6 +73,11 @@
 [ext_resource path="res://img Pokemon/img Animation/Animation - Attaque/Flammeche/flamme.png" type="Texture" id=71]
 [ext_resource path="res://img Pokemon/img Animation/Animation - Attaque/Flammeche/feu.png" type="Texture" id=72]
 [ext_resource path="res://img Pokemon/img Animation/Animation - Attaque/RebondiFeu/Boule de Feu.png" type="Texture" id=73]
+[ext_resource path="res://Fight/UIFight/UIFight.gd" type="Script" id=74]
+[ext_resource path="res://img Pokemon/img Animation/Animation - Attaque/DracoRage/Souffle.png" type="Texture" id=75]
+[ext_resource path="res://img Pokemon/img Animation/Animation - Attaque/ChocMental/BGP.png" type="Texture" id=76]
+[ext_resource path="res://img Pokemon/img Animation/Animation - Attaque/ChocMental/BGE.png" type="Texture" id=77]
+[ext_resource path="res://img Pokemon/img Animation/Animation - Attaque/Poudre Toxik/poudreToxik.png" type="Texture" id=78]
 
 [sub_resource type="Animation" id=1]
 resource_name = "-"
@@ -2243,7 +2248,7 @@ tracks/10/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=87]
+[sub_resource type="Animation" id=30]
 resource_name = "Brule"
 length = 1.5
 tracks/0/type = "value"
@@ -2439,8 +2444,7 @@ tracks/15/keys = {
 "values": [ Vector2( 40, 46 ) ]
 }
 
-[sub_resource type="Animation" id=30]
-resource_name = "Brule E"
+[sub_resource type="Animation" id=31]
 length = 1.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
@@ -2623,7 +2627,7 @@ tracks/14/keys = {
 "values": [ Vector2( 40, 64 ) ]
 }
 
-[sub_resource type="Animation" id=31]
+[sub_resource type="Animation" id=32]
 tracks/0/type = "value"
 tracks/0/path = NodePath("PokemonPlayer:position")
 tracks/0/interp = 1
@@ -2673,7 +2677,7 @@ tracks/3/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=32]
+[sub_resource type="Animation" id=33]
 tracks/0/type = "value"
 tracks/0/path = NodePath("PokemonEnnemi:position")
 tracks/0/interp = 1
@@ -2735,7 +2739,183 @@ tracks/4/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=33]
+[sub_resource type="Animation" id=96]
+resource_name = "Choc Mental"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("BG/SpecialBG:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 76 ), null ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BG/SpecialBG:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 1.5, 1.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("PokemonPlayer:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 315, 365 ), Vector2( 380, 365 ), Vector2( 315, 365 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("PokemonEnnemi:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 1, 1.1, 1.2, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.286275, 0.286275, 0.286275, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("PokemonPlayer:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.7, 0.9, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.999999, 0.999999, 1, 1 ), Color( 0.847059, 0.847059, 0.85098, 1 ), Color( 0.999999, 0.999999, 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("PokemonEnnemi:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 1, 1.1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 770, 150 ), Vector2( 790, 150 ), Vector2( 770, 150 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("PokemonEnnemi:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 1, 1.05, 1.1, 1.15, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 3.5, 3.5 ), Vector2( 4.5, 4 ), Vector2( 3.5, 3 ), Vector2( 3.5, 2 ), Vector2( 3.5, 3.5 ) ]
+}
+
+[sub_resource type="Animation" id=97]
+resource_name = "Choc Mental E"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("BG/SpecialBG:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 77 ), null ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BG/SpecialBG:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 1.5, 1.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("PokemonPlayer:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 1, 1.1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 315, 365 ), Vector2( 315, 365 ), Vector2( 315, 365 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("PokemonEnnemi:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.7, 0.9, 1.1, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.745098, 0.745098, 0.745098, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("PokemonPlayer:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.999999, 0.999999, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 0.999999, 0.999999, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 0.999999, 0.999999, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 0.999999, 0.999999, 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("PokemonEnnemi:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 770, 150 ), Vector2( 800, 150 ), Vector2( 770, 150 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("PokemonPlayer:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 1, 1.05, 1.1, 1.15, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 4.75, 5 ), Vector2( 6, 6 ), Vector2( 4, 2 ), Vector2( 4, 6 ), Vector2( 4.75, 5 ) ]
+}
+
+[sub_resource type="Animation" id=34]
 tracks/0/type = "value"
 tracks/0/path = NodePath("PokemonPlayer:position")
 tracks/0/interp = 1
@@ -2857,7 +3037,7 @@ tracks/9/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=34]
+[sub_resource type="Animation" id=35]
 tracks/0/type = "value"
 tracks/0/path = NodePath("PokemonPlayer:position")
 tracks/0/interp = 1
@@ -2979,7 +3159,7 @@ tracks/9/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=35]
+[sub_resource type="Animation" id=36]
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
 tracks/0/interp = 1
@@ -3065,7 +3245,7 @@ tracks/6/keys = {
 "values": [ Vector2( 150, 150 ) ]
 }
 
-[sub_resource type="Animation" id=36]
+[sub_resource type="Animation" id=37]
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
 tracks/0/interp = 1
@@ -3151,7 +3331,375 @@ tracks/6/keys = {
 "values": [ Vector2( 150, 150 ) ]
 }
 
-[sub_resource type="Animation" id=37]
+[sub_resource type="Animation" id=38]
+resource_name = "Crocs Feu"
+length = 1.7
+tracks/0/type = "value"
+tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 34 ), null ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AttaqueAnimation/Texture1:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4, 0.9, 1.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 608.945, 26.3654 ), Vector2( 608.945, 26.3654 ), Vector2( 603.899, 93.668 ), Vector2( 598.921, 27.7974 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AttaqueAnimation/Texture1:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("AttaqueAnimation/Texture1:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.4, 0.7, 0.8, 1, 1.2, 1.3, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0.937255, 0.223529, 0.0313726, 1 ), Color( 0.937255, 0.223529, 0.0313726, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("AttaqueAnimation/Texture2:texture")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 34 ), null ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("AttaqueAnimation/Texture2:rect_position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.4, 0.9, 1.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 896.989, 298.888 ), Vector2( 896.989, 298.888 ), Vector2( 901.213, 259.468 ), Vector2( 889.829, 301.752 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("AttaqueAnimation/Texture2:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 1.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("AttaqueAnimation/Texture2:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.3, 0.7, 0.8, 1, 1.2, 1.3, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0.937255, 0.223529, 0.0313726, 1 ), Color( 0.937255, 0.223529, 0.0313726, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("AttaqueAnimation/Texture2:rect_rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 1.3, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 180.0, 180.0, 0.0 ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("PokemonEnnemi:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 1.4, 1.45, 1.5, 1.55, 1.6, 1.65, 1.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.999998 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.999998 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.999998 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.999998 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("AttaqueAnimation/Texture1:rect_size")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0.7 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 300, 90 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("AttaqueAnimation/Texture2:rect_size")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 300, 90 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("AttaqueAnimation/Texture1:rect_scale")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("AttaqueAnimation/Texture2:rect_scale")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("BG:color")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0, 0.2, 1.1, 1.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.952941, 0.172549, 0.133333, 0.313726 ), Color( 0.952941, 0.172549, 0.133333, 0.313726 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=93]
+resource_name = "Crocs Feu E"
+length = 1.7
+tracks/0/type = "value"
+tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 34 ), null ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AttaqueAnimation/Texture1:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4, 0.9, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 182.431, 219.117 ), Vector2( 180.893, 306.265 ), Vector2( 180.893, 306.265 ), Vector2( 178.843, 234.496 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AttaqueAnimation/Texture1:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("AttaqueAnimation/Texture1:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.4, 0.7, 0.8, 1, 1.2, 1.3, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0.937255, 0.223529, 0.0313726, 1 ), Color( 0.937255, 0.223529, 0.0313726, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("AttaqueAnimation/Texture2:texture")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 34 ), null ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("AttaqueAnimation/Texture2:rect_position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.4, 0.9, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 476.627, 480.361 ), Vector2( 478.678, 475.235 ), Vector2( 478.678, 475.235 ), Vector2( 474.577, 524.448 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("AttaqueAnimation/Texture2:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 1.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("AttaqueAnimation/Texture2:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.3, 0.7, 0.8, 1, 1.2, 1.3, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0.937255, 0.223529, 0.0313726, 1 ), Color( 0.937255, 0.223529, 0.0313726, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("AttaqueAnimation/Texture2:rect_rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 1.3, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 180.0, 180.0, 0.0 ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("AttaqueAnimation/Texture1:rect_size")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0.7 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 300, 90 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("AttaqueAnimation/Texture2:rect_size")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 300, 90 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("AttaqueAnimation/Texture1:rect_scale")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("AttaqueAnimation/Texture2:rect_scale")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("BG:color")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0, 0.2, 1.1, 1.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.952941, 0.172549, 0.133333, 0.313726 ), Color( 0.952941, 0.172549, 0.133333, 0.313726 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("PokemonPlayer:modulate")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 1.3, 1.4, 1.5, 1.6, 1.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=39]
 length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
@@ -3346,7 +3894,7 @@ tracks/15/keys = {
 "values": [ Vector2( 110, 100 ) ]
 }
 
-[sub_resource type="Animation" id=38]
+[sub_resource type="Animation" id=40]
 length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
@@ -3517,7 +4065,7 @@ tracks/13/keys = {
 "values": [ Vector2( 100, 110 ) ]
 }
 
-[sub_resource type="Animation" id=39]
+[sub_resource type="Animation" id=41]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("BG/SpecialBG:texture")
@@ -3616,7 +4164,7 @@ tracks/7/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=40]
+[sub_resource type="Animation" id=42]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("BG/SpecialBG:texture")
@@ -3727,7 +4275,7 @@ tracks/8/keys = {
 "values": [ Vector2( 150, 150 ) ]
 }
 
-[sub_resource type="Animation" id=41]
+[sub_resource type="Animation" id=43]
 length = 2.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
@@ -3910,7 +4458,7 @@ tracks/14/keys = {
 "values": [ Vector2( 80, 60 ) ]
 }
 
-[sub_resource type="Animation" id=42]
+[sub_resource type="Animation" id=44]
 length = 2.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
@@ -4081,7 +4629,791 @@ tracks/13/keys = {
 "values": [ Vector2( 80, 60 ) ]
 }
 
-[sub_resource type="Animation" id=43]
+[sub_resource type="Animation" id=98]
+resource_name = "Double Dard"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 45 ), null ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AttaqueAnimation/Texture1:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AttaqueAnimation/Texture1:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("AttaqueAnimation/Texture1:rect_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 430.501, 326.986 ), Vector2( 708.362, 170.852 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("AttaqueAnimation/Texture1:rect_size")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 80, 60 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("AttaqueAnimation/Texture2:texture")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 45 ), null ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("AttaqueAnimation/Texture2:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("AttaqueAnimation/Texture2:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.1, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("AttaqueAnimation/Texture2:rect_position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 397.403, 264.805 ), Vector2( 668.827, 132.339 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("AttaqueAnimation/Texture1:rect_scale")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("AttaqueAnimation/Texture1:rect_min_size")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 80, 60 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("AttaqueAnimation/Texture2:rect_min_size")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 80, 60 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("AttaqueAnimation/Texture2:rect_size")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 80, 60 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("AttaqueAnimation/Texture2:rect_scale")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("PokemonEnnemi:modulate")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=99]
+resource_name = "Double Dard E"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 45 ), null ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AttaqueAnimation/Texture1:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AttaqueAnimation/Texture1:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("AttaqueAnimation/Texture1:rect_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 708.362, 170.852 ), Vector2( 430.501, 326.986 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("AttaqueAnimation/Texture1:rect_size")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 80, 60 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("AttaqueAnimation/Texture2:texture")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 45 ), null ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("AttaqueAnimation/Texture2:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("AttaqueAnimation/Texture2:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.1, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("AttaqueAnimation/Texture2:rect_position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 668.827, 132.339 ), Vector2( 397.403, 264.805 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("AttaqueAnimation/Texture1:rect_scale")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("AttaqueAnimation/Texture1:rect_min_size")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 80, 60 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("AttaqueAnimation/Texture2:rect_min_size")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 80, 60 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("AttaqueAnimation/Texture2:rect_size")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 80, 60 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("AttaqueAnimation/Texture2:rect_scale")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("PokemonPlayer:modulate")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.999999, 0.999999, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 0.999999, 0.999999, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 0.999999, 0.999999, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 0.999999, 0.999999, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=94]
+resource_name = "Draco Rage"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 75 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AttaqueAnimation/Texture2:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 75 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AttaqueAnimation/Texture3:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 75 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("AttaqueAnimation/Texture1:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.2, 1.1, 1.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false, false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("AttaqueAnimation/Texture1:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.1, 0.9, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("AttaqueAnimation/Texture2:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 1, 1.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("AttaqueAnimation/Texture2:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.2, 1.2, 1.6, 1.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("AttaqueAnimation/Texture3:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.6, 1.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("AttaqueAnimation/Texture3:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.6, 1, 1.3, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("AttaqueAnimation/Texture3:rect_size")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 77, 79 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("AttaqueAnimation/Texture2:rect_size")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 77, 79 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("AttaqueAnimation/Texture1:rect_size")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 77, 79 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("AttaqueAnimation/Texture3:rect_position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 0.2, 0.6, 0.7, 0.8, 1, 1.1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 645.065, 209.807 ), Vector2( 655.303, 202.981 ), Vector2( 431.503, 249.688 ), Vector2( 468.174, 227.339 ), Vector2( 495.324, 208.163 ), Vector2( 557.882, 169.391 ), Vector2( 624.685, 138.543 ), Vector2( 685.203, 119.567 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("AttaqueAnimation/Texture2:rect_position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 1, 1.1, 1.2, 1.3, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 469.762, 206.381 ), Vector2( 535.391, 176.123 ), Vector2( 594.974, 155.778 ), Vector2( 653.071, 123.609 ), Vector2( 699.083, 111.931 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("AttaqueAnimation/Texture1:rect_position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0, 0.2, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 176.11, 317.464 ), Vector2( 396.632, 285.961 ), Vector2( 648.309, 132.244 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("PokemonEnnemi:modulate")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.999998 ), Color( 0.411765, 0.129412, 0.905882, 1 ), Color( 1, 1, 1, 0.999998 ), Color( 0.411765, 0.129412, 0.905882, 1 ), Color( 1, 1, 1, 0.999998 ), Color( 0.411765, 0.129412, 0.905882, 1 ), Color( 1, 1, 1, 0.999998 ), Color( 0.411765, 0.129412, 0.905882, 1 ), Color( 1, 1, 1, 0.999998 ) ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("PokemonEnnemi:position")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 770, 150 ), Vector2( 790, 150 ), Vector2( 770, 150 ), Vector2( 790, 150 ), Vector2( 770, 150 ), Vector2( 790, 150 ), Vector2( 770, 150 ), Vector2( 790, 150 ), Vector2( 770, 150 ) ]
+}
+
+[sub_resource type="Animation" id=95]
+resource_name = "Draco Rage E"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 75 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AttaqueAnimation/Texture2:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 75 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AttaqueAnimation/Texture3:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 75 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("AttaqueAnimation/Texture1:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.2, 1.1, 1.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false, false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("AttaqueAnimation/Texture1:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.1, 0.9, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("AttaqueAnimation/Texture2:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 1, 1.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("AttaqueAnimation/Texture2:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.2, 1.2, 1.6, 1.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("AttaqueAnimation/Texture3:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.6, 1.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("AttaqueAnimation/Texture3:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.6, 1, 1.3, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("AttaqueAnimation/Texture3:rect_size")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 77, 79 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("AttaqueAnimation/Texture2:rect_size")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 77, 79 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("AttaqueAnimation/Texture1:rect_size")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 77, 79 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("AttaqueAnimation/Texture3:rect_position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0.6, 0.8, 1, 1.1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 610.472, 174.239 ), Vector2( 548.688, 210.362 ), Vector2( 485.09, 249.584 ), Vector2( 417.31, 271.15 ), Vector2( 375.058, 290.516 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("AttaqueAnimation/Texture2:rect_position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 1, 1.1, 1.2, 1.3, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 575.407, 213.16 ), Vector2( 506.307, 233.846 ), Vector2( 464.495, 251.891 ), Vector2( 404.638, 277.419 ), Vector2( 359.745, 305.147 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("AttaqueAnimation/Texture1:rect_position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0, 0.2, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 176.11, 317.464 ), Vector2( 648.309, 132.244 ), Vector2( 396.632, 285.961 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("PokemonPlayer:modulate")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.411765, 0.129412, 0.905882, 1 ), Color( 1, 1, 1, 1 ), Color( 0.411765, 0.129412, 0.905882, 1 ), Color( 1, 1, 1, 1 ), Color( 0.411765, 0.129412, 0.905882, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("PokemonPlayer:position")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 315, 365 ), Vector2( 335, 365 ), Vector2( 315, 365 ), Vector2( 335, 365 ), Vector2( 315, 365 ), Vector2( 335, 365 ), Vector2( 315, 365 ) ]
+}
+
+[sub_resource type="Animation" id=45]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
@@ -4216,7 +5548,7 @@ tracks/10/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=44]
+[sub_resource type="Animation" id=46]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
@@ -4351,7 +5683,7 @@ tracks/10/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=45]
+[sub_resource type="Animation" id=47]
 tracks/0/type = "value"
 tracks/0/path = NodePath("PokemonPlayer:modulate")
 tracks/0/interp = 1
@@ -4377,7 +5709,7 @@ tracks/1/keys = {
 "values": [ Vector2( 315, 365 ), Vector2( 300, 365 ), Vector2( 315, 365 ), Vector2( 325, 365 ), Vector2( 330, 365 ), Vector2( 315, 365 ), Vector2( 305, 365 ), Vector2( 315, 365 ) ]
 }
 
-[sub_resource type="Animation" id=46]
+[sub_resource type="Animation" id=48]
 tracks/0/type = "value"
 tracks/0/path = NodePath("PokemonEnnemi:modulate")
 tracks/0/interp = 1
@@ -4403,7 +5735,7 @@ tracks/1/keys = {
 "values": [ Vector2( 770, 150 ), Vector2( 750, 150 ), Vector2( 770, 150 ), Vector2( 790, 150 ), Vector2( 770, 150 ), Vector2( 750, 150 ), Vector2( 770, 150 ) ]
 }
 
-[sub_resource type="Animation" id=88]
+[sub_resource type="Animation" id=49]
 resource_name = "Flammeche"
 length = 2.8
 tracks/0/type = "value"
@@ -4635,7 +5967,7 @@ tracks/18/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=89]
+[sub_resource type="Animation" id=50]
 resource_name = "Flammeche E"
 length = 2.8
 tracks/0/type = "value"
@@ -4867,7 +6199,7 @@ tracks/18/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=47]
+[sub_resource type="Animation" id=51]
 length = 1.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("PokemonPlayer:position")
@@ -5014,7 +6346,7 @@ tracks/11/keys = {
 "values": [ Vector2( 250, 250 ) ]
 }
 
-[sub_resource type="Animation" id=48]
+[sub_resource type="Animation" id=52]
 length = 1.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
@@ -5173,7 +6505,7 @@ tracks/12/keys = {
 "values": [ Vector2( 1.5, 1.5 ), Vector2( 1.5, 1.5 ), Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=49]
+[sub_resource type="Animation" id=53]
 length = 1.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
@@ -5260,7 +6592,7 @@ tracks/6/keys = {
 "values": [ Vector2( 60, 60 ) ]
 }
 
-[sub_resource type="Animation" id=50]
+[sub_resource type="Animation" id=54]
 length = 1.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
@@ -5347,7 +6679,7 @@ tracks/6/keys = {
 "values": [ Vector2( 60, 60 ) ]
 }
 
-[sub_resource type="Animation" id=51]
+[sub_resource type="Animation" id=55]
 length = 2.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
@@ -5494,7 +6826,7 @@ tracks/11/keys = {
 "values": [ Vector2( 315, 365 ), Vector2( 315, 375 ), Vector2( 315, 365 ) ]
 }
 
-[sub_resource type="Animation" id=52]
+[sub_resource type="Animation" id=56]
 length = 2.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
@@ -5641,7 +6973,7 @@ tracks/11/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=53]
+[sub_resource type="Animation" id=57]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
@@ -5836,7 +7168,7 @@ tracks/15/keys = {
 "values": [ Color( 1, 1, 1, 0.999998 ), Color( 0.662745, 0.180392, 0.878431, 1 ), Color( 1, 1, 1, 0.999998 ), Color( 0.917647, 0.27451, 0.803922, 1 ), Color( 1, 1, 1, 0.999998 ), Color( 0.74902, 0.113725, 0.901961, 1 ), Color( 1, 1, 1, 0.999998 ) ]
 }
 
-[sub_resource type="Animation" id=54]
+[sub_resource type="Animation" id=58]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
@@ -6031,7 +7363,7 @@ tracks/15/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 0.760784, 0.0862745, 0.901961, 1 ), Color( 1, 1, 1, 1 ), Color( 0.662745, 0.0588235, 0.74902, 1 ), Color( 1, 1, 1, 1 ), Color( 0.792157, 0.0823529, 0.698039, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=55]
+[sub_resource type="Animation" id=59]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:visible")
@@ -6142,7 +7474,7 @@ tracks/8/keys = {
 "values": [ Vector2( 633, 186 ), Vector2( 633, 186 ) ]
 }
 
-[sub_resource type="Animation" id=56]
+[sub_resource type="Animation" id=60]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:visible")
@@ -6253,7 +7585,7 @@ tracks/8/keys = {
 "values": [ Vector2( 633, 186 ) ]
 }
 
-[sub_resource type="Animation" id=57]
+[sub_resource type="Animation" id=61]
 length = 2.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("BG:modulate")
@@ -6424,7 +7756,7 @@ tracks/13/keys = {
 "values": [ Color( 1, 0.999998, 0.999998, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 0.999998, 0.999998, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 0.999998, 0.999998, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 0.999998, 0.999998, 1 ) ]
 }
 
-[sub_resource type="Animation" id=58]
+[sub_resource type="Animation" id=62]
 length = 2.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("BG:modulate")
@@ -6595,7 +7927,7 @@ tracks/13/keys = {
 "values": [ Color( 1, 0.999998, 0.999998, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 0.999998, 0.999998, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 0.999998, 0.999998, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 0.999998, 0.999998, 1 ) ]
 }
 
-[sub_resource type="Animation" id=59]
+[sub_resource type="Animation" id=63]
 length = 2.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("PokemonPlayer:position")
@@ -6622,7 +7954,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0.403922, 0.403922, 0.917647, 1 ), Color( 0, 0.392157, 1, 1 ), Color( 0.392157, 0.392157, 0.686275, 1 ), Color( 0, 0.392157, 1, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=60]
+[sub_resource type="Animation" id=64]
 length = 2.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("PokemonEnnemi:position")
@@ -6649,7 +7981,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0, 0.0196078, 1, 1 ), Color( 0.176471, 0.556863, 0.862745, 1 ), Color( 0.223529, 0.235294, 0.815686, 1 ), Color( 0.196078, 0, 1, 1 ), Color( 0.12549, 0.133333, 0.482353, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=61]
+[sub_resource type="Animation" id=65]
 length = 1.7
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
@@ -6820,7 +8152,7 @@ tracks/13/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=62]
+[sub_resource type="Animation" id=66]
 length = 1.7
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
@@ -6991,7 +8323,7 @@ tracks/13/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=63]
+[sub_resource type="Animation" id=67]
 length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
@@ -7198,7 +8530,7 @@ tracks/16/keys = {
 "values": [ Color( 1, 1, 1, 0.999998 ), Color( 1, 1, 1, 0.999998 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.999998 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.999998 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.999998 ) ]
 }
 
-[sub_resource type="Animation" id=64]
+[sub_resource type="Animation" id=68]
 length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
@@ -7393,7 +8725,471 @@ tracks/15/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=65]
+[sub_resource type="Animation" id=100]
+resource_name = "Poudre Toxik"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 78 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AttaqueAnimation/Texture2:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 78 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AttaqueAnimation/Texture3:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 78 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("AttaqueAnimation/Texture1:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("AttaqueAnimation/Texture1:rect_position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 733.064, -3.73709 ), Vector2( 719.915, 174.021 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("AttaqueAnimation/Texture1:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.001, 0.1, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("AttaqueAnimation/Texture2:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("AttaqueAnimation/Texture2:rect_position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 578.999, 23.4596 ), Vector2( 575.103, 74.1081 ), Vector2( 577.051, 101.38 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("AttaqueAnimation/Texture2:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.2, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("AttaqueAnimation/Texture3:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 1.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("AttaqueAnimation/Texture3:rect_position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 1.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 863.348, 13.1971 ), Vector2( 836.076, 100.858 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("AttaqueAnimation/Texture3:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 0.2, 1, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("AttaqueAnimation/Texture1:rect_size")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 65, 141 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("AttaqueAnimation/Texture2:rect_size")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 65, 141 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("AttaqueAnimation/Texture3:rect_size")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 65, 141 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("AttaqueAnimation/Texture1:rect_scale")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("AttaqueAnimation/Texture2:rect_scale")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("AttaqueAnimation/Texture3:rect_scale")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/18/type = "value"
+tracks/18/path = NodePath("PokemonEnnemi:modulate")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 1.1, 1.2, 1.3, 1.4, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.772549, 0.0784314, 0.964706, 1 ), Color( 1, 1, 1, 1 ), Color( 0.737255, 0.0823529, 0.921569, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=101]
+resource_name = "Poudre Toxik E"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 78 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AttaqueAnimation/Texture2:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 78 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AttaqueAnimation/Texture3:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 78 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("AttaqueAnimation/Texture1:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("AttaqueAnimation/Texture1:rect_position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 265.844, 187.96 ), Vector2( 248.495, 374.667 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("AttaqueAnimation/Texture1:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.001, 0.1, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("AttaqueAnimation/Texture2:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("AttaqueAnimation/Texture2:rect_position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 103.196, 193.424 ), Vector2( 99.1536, 396.944 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("AttaqueAnimation/Texture2:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.2, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("AttaqueAnimation/Texture3:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 1.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("AttaqueAnimation/Texture3:rect_position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 1.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 414.772, 214.02 ), Vector2( 351.679, 405.296 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("AttaqueAnimation/Texture3:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 0.2, 1, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("AttaqueAnimation/Texture1:rect_size")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 65, 141 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("AttaqueAnimation/Texture2:rect_size")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 65, 141 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("AttaqueAnimation/Texture3:rect_size")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 65, 141 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("AttaqueAnimation/Texture1:rect_scale")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("AttaqueAnimation/Texture2:rect_scale")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("AttaqueAnimation/Texture3:rect_scale")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/18/type = "value"
+tracks/18/path = NodePath("PokemonPlayer:modulate")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 1.1, 1.2, 1.3, 1.4, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.654902, 0.0705882, 0.921569, 1 ), Color( 1, 1, 1, 1 ), Color( 0.647059, 0.0823529, 0.933333, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=69]
 length = 1.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
@@ -7624,7 +9420,7 @@ tracks/18/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=66]
+[sub_resource type="Animation" id=70]
 length = 1.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
@@ -7855,7 +9651,7 @@ tracks/18/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=90]
+[sub_resource type="Animation" id=71]
 resource_name = "Rebondi Feu"
 length = 1.5
 tracks/0/type = "value"
@@ -7967,7 +9763,7 @@ tracks/8/keys = {
 "values": [ Vector2( 100, 80 ) ]
 }
 
-[sub_resource type="Animation" id=91]
+[sub_resource type="Animation" id=72]
 resource_name = "Rebondi Feu E"
 length = 1.5
 tracks/0/type = "value"
@@ -8079,7 +9875,7 @@ tracks/8/keys = {
 "values": [ Vector2( 315, 365 ), Vector2( 330, 365 ), Vector2( 315, 365 ), Vector2( 330, 365 ), Vector2( 315, 365 ) ]
 }
 
-[sub_resource type="Animation" id=67]
+[sub_resource type="Animation" id=73]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
@@ -8286,7 +10082,7 @@ tracks/16/keys = {
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=68]
+[sub_resource type="Animation" id=74]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
@@ -8481,7 +10277,7 @@ tracks/15/keys = {
 "values": [ Vector2( 94, 79 ) ]
 }
 
-[sub_resource type="Animation" id=69]
+[sub_resource type="Animation" id=75]
 length = 2.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
@@ -8688,7 +10484,7 @@ tracks/16/keys = {
 "values": [ Color( 1, 1, 1, 0.999998 ), Color( 0.12549, 0.870588, 0.92549, 1 ), Color( 1, 1, 1, 0.999998 ), Color( 0.203922, 0.721569, 0.976471, 1 ), Color( 1, 1, 1, 0.999998 ), Color( 0.141176, 0.886275, 0.764706, 1 ), Color( 1, 1, 1, 0.999998 ) ]
 }
 
-[sub_resource type="Animation" id=70]
+[sub_resource type="Animation" id=76]
 length = 2.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
@@ -8895,7 +10691,7 @@ tracks/16/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 0.00392157, 0.858824, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0.454902, 1, 0.921569, 1 ), Color( 1, 1, 1, 1 ), Color( 0.407843, 0.705882, 1, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=71]
+[sub_resource type="Animation" id=77]
 length = 2.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
@@ -8994,7 +10790,7 @@ tracks/7/keys = {
 "values": [ Color( 1, 0.999998, 0.999998, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 0.999998, 0.999998, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 0.999998, 0.999998, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 0.999998, 0.999998, 1 ) ]
 }
 
-[sub_resource type="Animation" id=72]
+[sub_resource type="Animation" id=78]
 length = 2.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
@@ -9093,7 +10889,7 @@ tracks/7/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=73]
+[sub_resource type="Animation" id=79]
 length = 4.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
@@ -9288,7 +11084,7 @@ tracks/15/keys = {
 "values": [ Color( 1, 0.999998, 0.999998, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 0.999998, 0.999998, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 0.999998, 0.999998, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 0.999998, 0.999998, 1 ) ]
 }
 
-[sub_resource type="Animation" id=74]
+[sub_resource type="Animation" id=80]
 length = 4.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
@@ -9471,7 +11267,7 @@ tracks/14/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=75]
+[sub_resource type="Animation" id=81]
 length = 1.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
@@ -9570,7 +11366,7 @@ tracks/7/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=76]
+[sub_resource type="Animation" id=82]
 length = 1.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
@@ -9669,7 +11465,7 @@ tracks/7/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=77]
+[sub_resource type="Animation" id=83]
 length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
@@ -9888,7 +11684,7 @@ tracks/17/keys = {
 "values": [ Vector2( 50, 45 ) ]
 }
 
-[sub_resource type="Animation" id=78]
+[sub_resource type="Animation" id=84]
 length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
@@ -10107,7 +11903,7 @@ tracks/17/keys = {
 "values": [ Vector2( 50, 45 ) ]
 }
 
-[sub_resource type="Animation" id=79]
+[sub_resource type="Animation" id=85]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("BG:color")
@@ -10338,7 +12134,7 @@ tracks/18/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 0.25, 0.25 ), Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=80]
+[sub_resource type="Animation" id=86]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("BG:color")
@@ -10569,7 +12365,7 @@ tracks/18/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 0.25, 0.25 ), Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=81]
+[sub_resource type="Animation" id=87]
 length = 2.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("BG/SpecialBG:texture")
@@ -10704,7 +12500,7 @@ tracks/10/keys = {
 "values": [ Vector2( 164, 164 ) ]
 }
 
-[sub_resource type="Animation" id=82]
+[sub_resource type="Animation" id=88]
 length = 2.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("BG/SpecialBG:texture")
@@ -10815,7 +12611,7 @@ tracks/8/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 0.54902, 0.870588, 0.968627, 1 ), Color( 0.54902, 0.870588, 0.968627, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=83]
+[sub_resource type="Animation" id=89]
 tracks/0/type = "value"
 tracks/0/path = NodePath("PokemonPlayer:position")
 tracks/0/interp = 1
@@ -10853,7 +12649,7 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 0.999998 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.999998 ), Color( 1, 1, 1, 0.999998 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.999998 ) ]
 }
 
-[sub_resource type="Animation" id=84]
+[sub_resource type="Animation" id=90]
 tracks/0/type = "value"
 tracks/0/path = NodePath("PokemonPlayer:modulate")
 tracks/0/interp = 1
@@ -10891,7 +12687,7 @@ tracks/2/keys = {
 "values": [ Vector2( 770, 150 ), Vector2( 650, 180 ), Vector2( 770, 150 ) ]
 }
 
-[sub_resource type="Animation" id=85]
+[sub_resource type="Animation" id=91]
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
 tracks/0/interp = 1
@@ -10977,7 +12773,7 @@ tracks/6/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 0.25, 1 ), Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=86]
+[sub_resource type="Animation" id=92]
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
 tracks/0/interp = 1
@@ -11066,7 +12862,6 @@ tracks/6/keys = {
 [node name="FightScene" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = 2.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -11081,8 +12876,8 @@ __meta__ = {
 [node name="CercleEnnemi" type="TextureRect" parent="BG"]
 margin_left = 500.0
 margin_top = 125.0
-margin_right = 993.001
-margin_bottom = 265.006
+margin_right = 1000.0
+margin_bottom = 265.0
 texture = ExtResource( 18 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -11091,7 +12886,7 @@ __meta__ = {
 [node name="CerclePlayer" type="TextureRect" parent="BG"]
 margin_left = 22.0
 margin_top = 348.307
-margin_right = 515.959
+margin_right = 521.999
 margin_bottom = 488.307
 texture = ExtResource( 18 )
 __meta__ = {
@@ -11100,17 +12895,20 @@ __meta__ = {
 
 [node name="SpecialBG" type="TextureRect" parent="BG"]
 modulate = Color( 1, 1, 1, 0 )
-margin_right = 1026.0
+margin_left = 1.0
+margin_right = 1027.0
 margin_bottom = 600.0
 rect_min_size = Vector2( 1026, 600 )
-texture = ExtResource( 64 )
+texture = ExtResource( 77 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="UIFight" parent="." instance=ExtResource( 3 )]
+[node name="UIFight" type="Popup" parent="." instance=ExtResource( 3 )]
 margin_top = 426.0
+margin_right = 1026.0
 margin_bottom = 601.0
+script = ExtResource( 74 )
 
 [node name="UIAction" parent="." instance=ExtResource( 2 )]
 margin_left = 626.0
@@ -11167,7 +12965,6 @@ margin_bottom = 139.0
 texture_progress = ExtResource( 54 )
 
 [node name="UIPokemonBoxEnnemi" parent="." instance=ExtResource( 11 )]
-visible = false
 popup_exclusive = true
 script = ExtResource( 21 )
 
@@ -11235,7 +13032,6 @@ visible = false
 position = Vector2( -250, 150 )
 
 [node name="Ennemi" type="Sprite" parent="Ennemi"]
-visible = false
 position = Vector2( 0, -40 )
 scale = Vector2( 3.2604, 3.04493 )
 
@@ -11314,7 +13110,7 @@ __meta__ = {
 visible = false
 margin_top = 500.0
 margin_right = 1800.0
-margin_bottom = 776.0
+margin_bottom = 776.001
 texture = ExtResource( 25 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -11327,68 +13123,78 @@ anims/Armure = SubResource( 27 )
 "anims/Armure E" = SubResource( 28 )
 anims/Belier = SubResource( 29 )
 "anims/Belier E" = SubResource( 29 )
-anims/Brule = SubResource( 87 )
-"anims/Brule E" = SubResource( 30 )
-anims/Charge = SubResource( 31 )
-"anims/Charge E" = SubResource( 32 )
-"anims/Coup d'Boule" = SubResource( 33 )
-"anims/Coup d'Boule E" = SubResource( 34 )
-anims/Coupe = SubResource( 35 )
-"anims/Coupe E" = SubResource( 36 )
-"anims/Cru Ailes" = SubResource( 37 )
-"anims/Cru Ailes E" = SubResource( 38 )
-anims/Damocles = SubResource( 39 )
-"anims/Damocles E" = SubResource( 40 )
-"anims/Dard Venin" = SubResource( 41 )
-"anims/Dard Venin E" = SubResource( 42 )
-anims/Ecume = SubResource( 43 )
-"anims/Ecume E" = SubResource( 44 )
-anims/Empoisonne = SubResource( 45 )
-"anims/Empoisonne E" = SubResource( 46 )
-anims/Flammeche = SubResource( 88 )
-"anims/Flammeche E" = SubResource( 89 )
-"anims/Fouet Lianes" = SubResource( 47 )
-"anims/Fouet Lianes E" = SubResource( 48 )
-anims/Griffe = SubResource( 49 )
-"anims/Griffe E" = SubResource( 50 )
-anims/Hydroqueue = SubResource( 51 )
-"anims/Hydroqueue E" = SubResource( 52 )
-"anims/Jet de sable" = SubResource( 53 )
-"anims/Jet de sable E" = SubResource( 54 )
-"anims/Lance Flamme" = SubResource( 55 )
-"anims/Lance Flamme E" = SubResource( 56 )
-anims/Machouille = SubResource( 57 )
-"anims/Machouille E" = SubResource( 58 )
-"anims/Mimi Queue" = SubResource( 59 )
-"anims/Mimi Queue E" = SubResource( 60 )
-anims/Morsure = SubResource( 61 )
-"anims/Morsure E" = SubResource( 62 )
-"anims/Pistolet a O" = SubResource( 63 )
-"anims/Pistolet a O E" = SubResource( 64 )
-anims/Puissance = SubResource( 65 )
-"anims/Puissance E" = SubResource( 66 )
-"anims/Rebondi Feu" = SubResource( 90 )
-"anims/Rebondi Feu E" = SubResource( 91 )
-anims/Rugissement = SubResource( 67 )
-"anims/Rugissement E" = SubResource( 68 )
-anims/Secretion = SubResource( 69 )
-"anims/Secretion E" = SubResource( 70 )
-anims/Tornade = SubResource( 71 )
-"anims/Tornade E" = SubResource( 72 )
-anims/Tranch'Herbe = SubResource( 73 )
-"anims/Tranch'Herbe E" = SubResource( 74 )
-anims/UseVol = SubResource( 75 )
-anims/UseVolE = SubResource( 76 )
-anims/Vampigraine = SubResource( 77 )
-"anims/Vampigraine E" = SubResource( 78 )
-anims/VampigraineDrain = SubResource( 79 )
-"anims/VampigraineDrain E" = SubResource( 80 )
-anims/Vibraqua = SubResource( 81 )
-"anims/Vibraqua E" = SubResource( 82 )
-"anims/Vive Attaque" = SubResource( 83 )
-"anims/Vive Attaque E" = SubResource( 84 )
-anims/Vol = SubResource( 85 )
-"anims/Vol E" = SubResource( 86 )
+anims/Brule = SubResource( 30 )
+"anims/Brule E" = SubResource( 31 )
+anims/Charge = SubResource( 32 )
+"anims/Charge E" = SubResource( 33 )
+"anims/Choc Mental" = SubResource( 96 )
+"anims/Choc Mental E" = SubResource( 97 )
+"anims/Coup d'Boule" = SubResource( 34 )
+"anims/Coup d'Boule E" = SubResource( 35 )
+anims/Coupe = SubResource( 36 )
+"anims/Coupe E" = SubResource( 37 )
+"anims/Crocs Feu" = SubResource( 38 )
+"anims/Crocs Feu E" = SubResource( 93 )
+"anims/Cru Ailes" = SubResource( 39 )
+"anims/Cru Ailes E" = SubResource( 40 )
+anims/Damocles = SubResource( 41 )
+"anims/Damocles E" = SubResource( 42 )
+"anims/Dard Venin" = SubResource( 43 )
+"anims/Dard Venin E" = SubResource( 44 )
+"anims/Double Dard" = SubResource( 98 )
+"anims/Double Dard E" = SubResource( 99 )
+"anims/Draco Rage" = SubResource( 94 )
+"anims/Draco Rage E" = SubResource( 95 )
+anims/Ecume = SubResource( 45 )
+"anims/Ecume E" = SubResource( 46 )
+anims/Empoisonne = SubResource( 47 )
+"anims/Empoisonne E" = SubResource( 48 )
+anims/Flammeche = SubResource( 49 )
+"anims/Flammeche E" = SubResource( 50 )
+"anims/Fouet Lianes" = SubResource( 51 )
+"anims/Fouet Lianes E" = SubResource( 52 )
+anims/Griffe = SubResource( 53 )
+"anims/Griffe E" = SubResource( 54 )
+anims/Hydroqueue = SubResource( 55 )
+"anims/Hydroqueue E" = SubResource( 56 )
+"anims/Jet de sable" = SubResource( 57 )
+"anims/Jet de sable E" = SubResource( 58 )
+"anims/Lance Flamme" = SubResource( 59 )
+"anims/Lance Flamme E" = SubResource( 60 )
+anims/Machouille = SubResource( 61 )
+"anims/Machouille E" = SubResource( 62 )
+"anims/Mimi Queue" = SubResource( 63 )
+"anims/Mimi Queue E" = SubResource( 64 )
+anims/Morsure = SubResource( 65 )
+"anims/Morsure E" = SubResource( 66 )
+"anims/Pistolet a O" = SubResource( 67 )
+"anims/Pistolet a O E" = SubResource( 68 )
+"anims/Poudre Toxik" = SubResource( 100 )
+"anims/Poudre Toxik E" = SubResource( 101 )
+anims/Puissance = SubResource( 69 )
+"anims/Puissance E" = SubResource( 70 )
+"anims/Rebondi Feu" = SubResource( 71 )
+"anims/Rebondi Feu E" = SubResource( 72 )
+anims/Rugissement = SubResource( 73 )
+"anims/Rugissement E" = SubResource( 74 )
+anims/Secretion = SubResource( 75 )
+"anims/Secretion E" = SubResource( 76 )
+anims/Tornade = SubResource( 77 )
+"anims/Tornade E" = SubResource( 78 )
+anims/Tranch'Herbe = SubResource( 79 )
+"anims/Tranch'Herbe E" = SubResource( 80 )
+anims/UseVol = SubResource( 81 )
+anims/UseVolE = SubResource( 82 )
+anims/Vampigraine = SubResource( 83 )
+"anims/Vampigraine E" = SubResource( 84 )
+anims/VampigraineDrain = SubResource( 85 )
+"anims/VampigraineDrain E" = SubResource( 86 )
+anims/Vibraqua = SubResource( 87 )
+"anims/Vibraqua E" = SubResource( 88 )
+"anims/Vive Attaque" = SubResource( 89 )
+"anims/Vive Attaque E" = SubResource( 90 )
+anims/Vol = SubResource( 91 )
+"anims/Vol E" = SubResource( 92 )
 
 [node name="Black" type="ColorRect" parent="AttaqueAnimation"]
 visible = false
@@ -11401,13 +13207,13 @@ __meta__ = {
 }
 
 [node name="Texture1" type="TextureRect" parent="AttaqueAnimation"]
-visible = false
-margin_left = 410.145
-margin_top = 274.125
-margin_right = 510.145
-margin_bottom = 354.125
-rect_min_size = Vector2( 60, 40 )
-texture = ExtResource( 73 )
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 265.844
+margin_top = 187.96
+margin_right = 415.844
+margin_bottom = 337.96
+rect_min_size = Vector2( 80, 60 )
+texture = ExtResource( 78 )
 stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -11415,22 +13221,24 @@ __meta__ = {
 
 [node name="Texture2" type="TextureRect" parent="AttaqueAnimation"]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 821.758
-margin_top = 199.065
-margin_right = 871.758
-margin_bottom = 257.065
-texture = ExtResource( 41 )
+margin_left = 103.196
+margin_top = 193.424
+margin_right = 253.196
+margin_bottom = 343.424
+rect_min_size = Vector2( 80, 60 )
+texture = ExtResource( 78 )
+stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Texture3" type="TextureRect" parent="AttaqueAnimation"]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 714.372
-margin_top = 222.161
-margin_right = 764.372
-margin_bottom = 280.161
-texture = ExtResource( 71 )
+margin_left = 414.772
+margin_top = 214.02
+margin_right = 564.772
+margin_bottom = 364.02
+texture = ExtResource( 78 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -11444,22 +13252,23 @@ visible = false
 modulate = Color( 1, 1, 1, 0 )
 
 [node name="GameTime" parent="." instance=ExtResource( 53 )]
-[connection signal="ChangeEnnemiPokemon" from="UIFight" to="UIFight" method="_on_UIFight_ChangeEnnemiPokemon"]
 [connection signal="ChangeEnnemiPokemon" from="UIFight" to="AnimationPlayer" method="_on_UIFight_ChangeEnnemiPokemon"]
-[connection signal="ChangePokemon" from="UIFight" to="UIFight" method="_on_UIFight_ChangePokemon"]
+[connection signal="ChangeEnnemiPokemon" from="UIFight" to="UIFight" method="_on_UIFight_ChangeEnnemiPokemon"]
 [connection signal="ChangePokemon" from="UIFight" to="AnimationPlayer" method="_on_UIFight_ChangePokemon"]
-[connection signal="EnterTreeAnimation" from="UIFight" to="UIListPokemon" method="_on_UIFight_EnterTreeAnimation"]
+[connection signal="ChangePokemon" from="UIFight" to="UIFight" method="_on_UIFight_ChangePokemon"]
 [connection signal="EnterTreeAnimation" from="UIFight" to="UIListPokemonEnnemi" method="_on_UIFight_EnterTreeAnimation"]
+[connection signal="EnterTreeAnimation" from="UIFight" to="UIListPokemon" method="_on_UIFight_EnterTreeAnimation"]
 [connection signal="EnterTreeAnimation" from="UIFight" to="AnimationPlayer" method="_on_UIFight_EnterTreeAnimation"]
 [connection signal="EnterTreeAnimation2" from="UIFight" to="AnimationPlayer" method="_on_UIFight_EnterTreeAnimation2"]
-[connection signal="EnterTreeChangePokemon" from="UIFight" to="UIFight" method="_on_UIFight_EnterTreeChangePokemon"]
 [connection signal="EnterTreeChangePokemon" from="UIFight" to="AnimationPlayer" method="_on_UIFight_EnterTreeChangePokemon"]
+[connection signal="EnterTreeChangePokemon" from="UIFight" to="UIFight" method="_on_UIFight_EnterTreeChangePokemon"]
+[connection signal="tree_entered" from="UIFight" to="UIFight" method="_on_UIFight_tree_entered"]
 [connection signal="ChangePokemon" from="UIAction" to="AnimationPlayer" method="_on_UIAction_ChangePokemon"]
 [connection signal="ChangePokemonReturn" from="UIAction" to="AnimationPlayer" method="_on_UIAction_ChangePokemonReturn"]
 [connection signal="DisplayUIAttaque" from="UIAction" to="UIAttaque" method="DisplayUIAttaque"]
 [connection signal="DisplayUIPokemonBox" from="UIAction" to="UIPokemonBox" method="DisplayUIPokemonBox"]
-[connection signal="AboutLoadingValues" from="UIAttaque" to="UIPokemonBox" method="_on_UIAttaque_AboutLoadingValues"]
 [connection signal="AboutLoadingValues" from="UIAttaque" to="UIPokemonBoxEnnemi" method="_on_UIAttaque_AboutLoadingValues"]
+[connection signal="AboutLoadingValues" from="UIAttaque" to="UIPokemonBox" method="_on_UIAttaque_AboutLoadingValues"]
 [connection signal="ChangeStatut" from="UIAttaque" to="UIPokemonBox" method="_on_UIAttaque_ChangeStatut"]
 [connection signal="ChangeStatutE" from="UIAttaque" to="UIPokemonBoxEnnemi" method="_on_UIAttaque_ChangeStatutE"]
 [connection signal="LoadValues" from="UIAttaque" to="PokemonPlayer" method="_on_UIAttaque_LoadValues"]
