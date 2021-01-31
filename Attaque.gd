@@ -1016,6 +1016,10 @@ func combogriffe(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
 	else : x = 5
 	PokemonEnnemi.Hp = PokemonEnnemi.Hp - (CalculateDammage(PokemonAttaqueName,PokemonPlayer,PokemonEnnemi,"Player") * x)
 	SpecialText = "Touché " + str(x) + " fois !"
+func ouragan(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
+	PokemonEnnemi.Hp = PokemonEnnemi.Hp - CalculateDammageSpe(PokemonAttaqueName,PokemonPlayer,PokemonEnnemi,"Player")
+func hydrocanon(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
+	PokemonEnnemi.Hp = PokemonEnnemi.Hp - CalculateDammageSpe(PokemonAttaqueName,PokemonPlayer,PokemonEnnemi,"Player")
 #Ennemi (le E signifie ennemi au user)
 func chargeE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
 	PokemonPlayer.Hp = PokemonPlayer.Hp - CalculateDammage(PokemonAttaqueName,PokemonEnnemi,PokemonPlayer,"Ennemi")
@@ -1183,6 +1187,10 @@ func combogriffeE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
 	else : x = 5
 	PokemonPlayer.Hp = PokemonPlayer.Hp - (CalculateDammage(PokemonAttaqueName,PokemonPlayer,PokemonEnnemi,"Ennemi") * x)
 	SpecialText = "Touché " + str(x) + " fois !"
+func ouraganE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
+	PokemonPlayer.Hp = PokemonPlayer.Hp - CalculateDammageSpe(PokemonAttaqueName,PokemonEnnemi,PokemonPlayer,"Ennemi")
+func hydrocanonE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
+	PokemonPlayer.Hp = PokemonPlayer.Hp - CalculateDammageSpe(PokemonAttaqueName,PokemonEnnemi,PokemonPlayer,"Ennemi")
 #Secondaries functions for attacks method
 func UseVol(PokemonPlayer,PokemonEnnemi) :
 	PokemonEnnemi.Hp = PokemonEnnemi.Hp - CalculateDammage("Vol",PokemonEnnemi,PokemonPlayer,"Player")
@@ -1285,6 +1293,8 @@ func CheckAttack(PokemonAttaqueName,PokemonPlayer,PokemonEnnemi,WhoAttack) :
 				"Furie" : furie(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
 				"Cyclone" : cyclone(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
 				"Combo-Griffe" : combogriffe(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
+				"Ouragan" : ouragan(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
+				"Hydrocanon" : hydrocanon(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
 		"Ennemi" :
 			match PokemonAttaqueName :
 				"Charge" : chargeE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
@@ -1324,6 +1334,8 @@ func CheckAttack(PokemonAttaqueName,PokemonPlayer,PokemonEnnemi,WhoAttack) :
 				"Poudre Toxik" : poudretoxikE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
 				"Furie" : furieE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
 				"Combo-Griffe" : combogriffeE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
+				"Ouragan" : ouraganE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
+				"Hydrocanon" : hydrocanonE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
 func CheckSuccess(Attacker,PokemonAttaqueName) :
 	var ARandom = RandomNumberGenerator.new()
 	ARandom.randomize()
