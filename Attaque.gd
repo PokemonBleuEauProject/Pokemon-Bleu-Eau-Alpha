@@ -1005,6 +1005,17 @@ func lancesoleil(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
 		PokemonEnnemi.Hp = PokemonEnnemi.Hp - CalculateDammageSpe(PokemonAttaqueName,PokemonPlayer,PokemonEnnemi,"Player")
 	else :
 		IsSolarBeamActive = true
+func combogriffe(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
+	var x = 2
+	var ARandom = RandomNumberGenerator.new()
+	ARandom.randomize()
+	var random = ARandom.randf()
+	if random <= 0.375 : x = 2
+	elif random > 0.375 and random <= 0.7 : x = 3
+	elif random > 0.7 and random <= 0.85 : x = 4
+	else : x = 5
+	PokemonEnnemi.Hp = PokemonEnnemi.Hp - (CalculateDammage(PokemonAttaqueName,PokemonPlayer,PokemonEnnemi,"Player") * x)
+	SpecialText = "Touché " + str(x) + " fois !"
 #Ennemi (le E signifie ennemi au user)
 func chargeE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
 	PokemonPlayer.Hp = PokemonPlayer.Hp - CalculateDammage(PokemonAttaqueName,PokemonEnnemi,PokemonPlayer,"Ennemi")
@@ -1161,6 +1172,17 @@ func furieE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
 	else : x = 5
 	PokemonPlayer.Hp = PokemonPlayer.Hp - (CalculateDammage(PokemonAttaqueName,PokemonPlayer,PokemonEnnemi,"Ennemi") * x)
 	SpecialText = "Touché " + str(x) + " fois !"
+func combogriffeE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
+	var x = 2
+	var ARandom = RandomNumberGenerator.new()
+	ARandom.randomize()
+	var random = ARandom.randf()
+	if random <= 0.375 : x = 2
+	elif random > 0.375 and random <= 0.7 : x = 3
+	elif random > 0.7 and random <= 0.85 : x = 4
+	else : x = 5
+	PokemonPlayer.Hp = PokemonPlayer.Hp - (CalculateDammage(PokemonAttaqueName,PokemonPlayer,PokemonEnnemi,"Ennemi") * x)
+	SpecialText = "Touché " + str(x) + " fois !"
 #Secondaries functions for attacks method
 func UseVol(PokemonPlayer,PokemonEnnemi) :
 	PokemonEnnemi.Hp = PokemonEnnemi.Hp - CalculateDammage("Vol",PokemonEnnemi,PokemonPlayer,"Player")
@@ -1262,6 +1284,7 @@ func CheckAttack(PokemonAttaqueName,PokemonPlayer,PokemonEnnemi,WhoAttack) :
 				"Poudre Toxik" : poudretoxik(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
 				"Furie" : furie(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
 				"Cyclone" : cyclone(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
+				"Combo-Griffe" : combogriffe(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
 		"Ennemi" :
 			match PokemonAttaqueName :
 				"Charge" : chargeE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
@@ -1300,6 +1323,7 @@ func CheckAttack(PokemonAttaqueName,PokemonPlayer,PokemonEnnemi,WhoAttack) :
 				"Double Dard" : doubledardE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
 				"Poudre Toxik" : poudretoxikE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
 				"Furie" : furieE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
+				"Combo-Griffe" : combogriffeE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
 func CheckSuccess(Attacker,PokemonAttaqueName) :
 	var ARandom = RandomNumberGenerator.new()
 	ARandom.randomize()
@@ -1575,7 +1599,7 @@ var LanceSoleil = {Type = "Plante",Puissance = 120,Precision = 100,MaxPP = 10}
 var FeudEnfer = {Type = "Feu",Puissance = 100,Precision = 50,MaxPP = 5}
 var Ouragan = {Type = "Dragon",Puissance = 40,Precision = 100,MaxPP = 20}
 var Pique = {Type = "Vol",Puissance = 140,Precision = 90,MaxPP = 5}
-var ComboGriffe = {Type = "Normal",Puissance = 18,Precision = 80,MaxPP = 5}
+var ComboGriffe = {Type = "Normal",Puissance = 18,Precision = 80,MaxPP = 15}
 var Hydrocanon = {Type = "Eau",Puissance = 120,Precision = 80,MaxPP = 5}
 #Liste des Attaques Special (vitesse)
 var ListSpecialSpeed = {"Vive Attaque" : ViveAttaque}
