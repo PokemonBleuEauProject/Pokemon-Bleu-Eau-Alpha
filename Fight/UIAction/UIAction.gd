@@ -115,12 +115,12 @@ func _input(_event):
 					get_node("/root/FightScene/AnimationPlayer").play("EndOfFight")
 					yield(get_node("/root/FightScene/AnimationPlayer"),"animation_finished")
 					Cantmove = false
-					PG.UnUsed = get_tree().change_scene("res://Map/map.tscn")
+					PG.UnUsed = get_tree().change_scene(UIFight.SceneAfterFight)
 				else :
 					UiFight.changeText("Vous ne parvenez pas à prendre la fuite !")
 					Cantmove = true
-					self.hide()
 					yield(UiFight_ShowText,"animation_finished")
+					self.hide()
 					yield(UiAttaque.ProcessRepeat(false,null,true,"Ennemi"),"completed")
 					Cantmove = false
 					self.popup()
@@ -199,7 +199,7 @@ func _on_Bag_catchapokemon(PokeballBonus,PokeballName):
 		yield(UiFight_ShowText,"animation_finished")
 		get_node("/root/FightScene/AnimationPlayer").play("EndOfFight")
 		yield(get_node("/root/FightScene/AnimationPlayer"),"animation_finished")
-		PG.UnUsed = get_tree().change_scene("res://Map/map.tscn")
+		PG.UnUsed = get_tree().change_scene(UIFight.SceneAfterFight)
 	else :
 		UiAttaque.hide()
 		Attaque.IsPlayerTheFirstAttacker = false

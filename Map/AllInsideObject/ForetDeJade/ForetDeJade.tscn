@@ -73,6 +73,7 @@ tile_data = PoolIntArray( -5439524, 77, 0, -5439521, 77, 0, -5439518, 77, 0, -54
 
 [node name="AWildArea" parent="WildAreas" instance=ExtResource( 6 )]
 position = Vector2( -849.276, -108.108 )
+pathScene = "res://Map/AllInsideObject/ForetDeJade/ForetDeJade.tscn"
 ListPokemon = [ {
 "Lvl": 3,
 "Name": "Chenipan",
@@ -112,6 +113,7 @@ shape = SubResource( 1 )
 
 [node name="AWildArea2" parent="WildAreas" instance=ExtResource( 6 )]
 position = Vector2( -337.033, -223.682 )
+pathScene = "res://Map/AllInsideObject/ForetDeJade/ForetDeJade.tscn"
 ListPokemon = [ {
 "Lvl": 4,
 "Name": "Chenipan",
@@ -151,6 +153,7 @@ shape = SubResource( 2 )
 
 [node name="AWildArea3" parent="WildAreas" instance=ExtResource( 6 )]
 position = Vector2( -561.124, -540.124 )
+pathScene = "res://Map/AllInsideObject/ForetDeJade/ForetDeJade.tscn"
 ListPokemon = [ {
 "Lvl": 4,
 "Name": "Chenipan",
@@ -190,6 +193,7 @@ shape = SubResource( 3 )
 
 [node name="AWildArea4" parent="WildAreas" instance=ExtResource( 6 )]
 position = Vector2( -320.069, -638.12 )
+pathScene = "res://Map/AllInsideObject/ForetDeJade/ForetDeJade.tscn"
 ListPokemon = [ {
 "Lvl": 4,
 "Name": "Chenipan",
@@ -229,6 +233,7 @@ shape = SubResource( 4 )
 
 [node name="AWildArea5" parent="WildAreas" instance=ExtResource( 6 )]
 position = Vector2( -656.791, -685.85 )
+pathScene = "res://Map/AllInsideObject/ForetDeJade/ForetDeJade.tscn"
 ListPokemon = [ {
 "Lvl": 4,
 "Name": "Chenipan",
@@ -268,6 +273,7 @@ shape = SubResource( 5 )
 
 [node name="AWildArea6" parent="WildAreas" instance=ExtResource( 6 )]
 position = Vector2( -899.37, -717.073 )
+pathScene = "res://Map/AllInsideObject/ForetDeJade/ForetDeJade.tscn"
 ListPokemon = [ {
 "Lvl": 4,
 "Name": "Chenipan",
@@ -307,6 +313,7 @@ shape = SubResource( 6 )
 
 [node name="AWildArea7" parent="WildAreas" instance=ExtResource( 6 )]
 position = Vector2( -92.4875, -492.577 )
+pathScene = "res://Map/AllInsideObject/ForetDeJade/ForetDeJade.tscn"
 ListPokemon = [ {
 "Lvl": 4,
 "Name": "Chenipan",
@@ -347,6 +354,7 @@ shape = SubResource( 7 )
 
 [node name="AWildArea8" parent="WildAreas" instance=ExtResource( 6 )]
 position = Vector2( -15.9394, -686.526 )
+pathScene = "res://Map/AllInsideObject/ForetDeJade/ForetDeJade.tscn"
 ListPokemon = [ {
 "Lvl": 4,
 "Name": "Chenipan",
@@ -386,6 +394,7 @@ shape = SubResource( 8 )
 
 [node name="AWildArea9" parent="WildAreas" instance=ExtResource( 6 )]
 position = Vector2( 64.246, -493.175 )
+pathScene = "res://Map/AllInsideObject/ForetDeJade/ForetDeJade.tscn"
 ListPokemon = [ {
 "Lvl": 4,
 "Name": "Chenipan",
@@ -425,6 +434,7 @@ shape = SubResource( 9 )
 
 [node name="AWildArea10" parent="WildAreas" instance=ExtResource( 6 )]
 position = Vector2( 209.417, -221.837 )
+pathScene = "res://Map/AllInsideObject/ForetDeJade/ForetDeJade.tscn"
 ListPokemon = [ {
 "Lvl": 4,
 "Name": "Chenipan",
@@ -464,6 +474,7 @@ shape = SubResource( 10 )
 
 [node name="AWildArea11" parent="WildAreas" instance=ExtResource( 6 )]
 position = Vector2( 336.137, -523.051 )
+pathScene = "res://Map/AllInsideObject/ForetDeJade/ForetDeJade.tscn"
 ListPokemon = [ {
 "Lvl": 4,
 "Name": "Chenipan",
@@ -503,6 +514,7 @@ shape = SubResource( 11 )
 
 [node name="AWildArea12" parent="WildAreas" instance=ExtResource( 6 )]
 position = Vector2( 368.846, -972.521 )
+pathScene = "res://Map/AllInsideObject/ForetDeJade/ForetDeJade.tscn"
 ListPokemon = [ {
 "Lvl": 4,
 "Name": "Chenipan",
@@ -542,6 +554,7 @@ shape = SubResource( 12 )
 
 [node name="AWildArea13" parent="WildAreas" instance=ExtResource( 6 )]
 position = Vector2( 658.196, -109.214 )
+pathScene = "res://Map/AllInsideObject/ForetDeJade/ForetDeJade.tscn"
 ListPokemon = [ {
 "Lvl": 5,
 "Name": "Chenipan",
@@ -573,6 +586,7 @@ shape = SubResource( 13 )
 
 [node name="AWildArea14" parent="WildAreas" instance=ExtResource( 6 )]
 position = Vector2( 0, -1917.23 )
+pathScene = "res://Map/AllInsideObject/ForetDeJade/ForetDeJade.tscn"
 ListPokemon = [ {
 "Lvl": 6,
 "Name": "Chenipan",
@@ -612,6 +626,7 @@ shape = SubResource( 14 )
 
 [node name="AWildArea15" parent="WildAreas" instance=ExtResource( 6 )]
 position = Vector2( 242.251, -1788.98 )
+pathScene = "res://Map/AllInsideObject/ForetDeJade/ForetDeJade.tscn"
 ListPokemon = [ {
 "Lvl": 4,
 "Name": "Chenipan",
@@ -651,6 +666,7 @@ shape = SubResource( 15 )
 
 [node name="AWildArea16" parent="WildAreas" instance=ExtResource( 6 )]
 position = Vector2( -367.412, -1867.42 )
+pathScene = "res://Map/AllInsideObject/ForetDeJade/ForetDeJade.tscn"
 ListPokemon = [ {
 "Lvl": 4,
 "Name": "Chenipan",
@@ -690,6 +706,7 @@ shape = SubResource( 16 )
 
 [node name="AWildArea17" parent="WildAreas" instance=ExtResource( 6 )]
 position = Vector2( -689.291, -1819.97 )
+pathScene = "res://Map/AllInsideObject/ForetDeJade/ForetDeJade.tscn"
 ListPokemon = [ {
 "Lvl": 4,
 "Name": "Chenipan",
@@ -729,6 +746,7 @@ shape = SubResource( 17 )
 
 [node name="AWildArea18" parent="WildAreas" instance=ExtResource( 6 )]
 position = Vector2( -640.479, -1485.23 )
+pathScene = "res://Map/AllInsideObject/ForetDeJade/ForetDeJade.tscn"
 ListPokemon = [ {
 "Lvl": 4,
 "Name": "Chenipan",
@@ -768,6 +786,7 @@ shape = SubResource( 18 )
 
 [node name="AWildArea19" parent="WildAreas" instance=ExtResource( 6 )]
 position = Vector2( -989.816, -1713.77 )
+pathScene = "res://Map/AllInsideObject/ForetDeJade/ForetDeJade.tscn"
 ListPokemon = [ {
 "Lvl": 4,
 "Name": "Chenipan",

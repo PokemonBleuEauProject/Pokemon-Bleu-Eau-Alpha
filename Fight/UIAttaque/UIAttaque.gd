@@ -192,7 +192,7 @@ func ProcessRepeat(FirstAttacker,TheAttaque,SpecialProcessRepeat,StringSpecial) 
 				yield(UiFight_ShowText,"animation_finished")
 			emit_signal("LoadValues")
 			yield(ProcessRepeatOthers(),"completed")
-		elif StringSpecial == "Ennemi" :
+		else :
 			Attaque.IsPlayerTheFirstAttacker = false
 			self.hide()
 			var AttaqueEnnemi = PokemonEnnemi.EnnemiLaunchAttack()
@@ -220,7 +220,6 @@ func ProcessRepeat(FirstAttacker,TheAttaque,SpecialProcessRepeat,StringSpecial) 
 			emit_signal("LoadValues")
 			yield(ProcessRepeatOthers(),"completed")
 		UIFight.CantPassTxt = false
-		self.hide()
 	else :
 		if FirstAttacker :
 			Attaque.IsPlayerTheFirstAttacker = true
@@ -270,7 +269,7 @@ func ProcessRepeat(FirstAttacker,TheAttaque,SpecialProcessRepeat,StringSpecial) 
 			CheckSomeoneDead(PokemonPlayer.PokemonPlayer,PokemonEnnemi.PokemonEnnemi)
 			emit_signal("LoadValues")
 			yield(ProcessRepeatOthers(),"completed")
-		elif !FirstAttacker :
+		else :
 			Attaque.IsPlayerTheFirstAttacker = false
 			hide()
 			var AttaqueEnnemi = PokemonEnnemi.EnnemiLaunchAttack()
@@ -319,7 +318,8 @@ func ProcessRepeat(FirstAttacker,TheAttaque,SpecialProcessRepeat,StringSpecial) 
 			CheckSomeoneDead(PokemonPlayer.PokemonPlayer,PokemonEnnemi.PokemonEnnemi)
 			yield(ProcessRepeatOthers(),"completed")
 		UIFight.CantPassTxt = false
-		self.hide()
+	if Attaque.IsSolarBeamActive :
+		TwoRoundsIn(FirstAttacker,TheAttaque,SpecialProcessRepeat,StringSpecial)
 
 func ProcessRepeatOthers() :
 	yield(get_tree().create_timer(0.5),"timeout")
@@ -382,7 +382,7 @@ func CheckSomeoneDead(Player,Ennemi) :
 			Pokemon.CheckLvlUp(PG.Pokemon1,Pokemon.CheckExpWin(PokemonEnnemi.PokemonEnnemi))
 			get_node("/root/FightScene/AnimationPlayer").play("EndOfFight")
 			yield(get_node("/root/FightScene/AnimationPlayer"),"animation_finished")
-			PG.UnUsed = get_tree().change_scene("res://Map/map.tscn")
+			PG.UnUsed = get_tree().change_scene(UIFight.SceneAfterFight)
 		else :
 			match EG.GetAPokemonInLife() :
 				1 :
@@ -398,3 +398,6 @@ func CheckSomeoneDead(Player,Ennemi) :
 					pass
 	else :
 		pass
+
+func TwoRoundsIn(FirstAttacker,TheAttaque,SpecialProcessRepeat,StringSpecial) :
+	yield(ProcessRepeat(FirstAttacker,TheAttaque,SpecialProcessRepeat,StringSpecial),"completed")

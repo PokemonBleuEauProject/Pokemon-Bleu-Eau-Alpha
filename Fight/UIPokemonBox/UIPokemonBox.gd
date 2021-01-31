@@ -34,8 +34,10 @@ func load_values(NamePlayer,LvlPlayer,LifePlayer,MaxLifePlayer,Experience,Experi
 	else :  $AnimationPlayer.play("LoadLife")
 
 func _on_UIAttaque_ChangeStatut(TheStatut):
-	if TheStatut == "-" : pass
-	else : $AnimationPlayer.play(TheStatut)
+	if TheStatut == "-" or TheStatut == "" :
+		$Statut.texture = null
+	else :
+		$Statut.texture = load("res://img Pokemon/img Animation/Animation - Statut/" + TheStatut + ".png")
 
 func _on_UIAttaque_AboutLoadingValues():
 	ActualLife = PokemonPlayer.PokemonPlayer.Hp

@@ -16,6 +16,9 @@ var CCSpecialValueE = 0
 
 var StatutSentence = ""
 
+var IsSolarBeamActive = false
+var IsSolarBeamActiveE = false
+
 var IsFlying = false
 var IsFlyingE = false
 var IfTornadoAndFlying = 1
@@ -975,6 +978,33 @@ func poudretoxik(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
 	if random <= 0.75 :
 		PokemonEnnemi.Statut = "Empoisonne"
 		SpecialText = PokemonEnnemi.Name + " est empoisonné !"
+func furie(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
+	var x = 2
+	var ARandom = RandomNumberGenerator.new()
+	ARandom.randomize()
+	var random = ARandom.randf()
+	if random <= 0.375 : x = 2
+	elif random > 0.375 and random <= 0.7 : x = 3
+	elif random > 0.7 and random <= 0.85 : x = 4
+	else : x = 5
+	PokemonEnnemi.Hp = PokemonEnnemi.Hp - (CalculateDammage(PokemonAttaqueName,PokemonPlayer,PokemonEnnemi,"Player") * x)
+	SpecialText = "Touché " + str(x) + " fois !"
+func cyclone(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
+	if UIFight.TypeOfFight == "Savage" :
+#		EndFight
+		yield(get_tree().create_timer(1.5),"timeout")
+		get_node("/root/FightScene/AnimationPlayer").play("EndOfFight")
+		yield(get_node("/root/FightScene/AnimationPlayer"),"animation_finished")
+		UIFight.CantPassTxt = false
+		PG.UnUsed = get_tree().change_scene(UIFight.SceneAfterFight)
+	else :
+		SpecialText = PokemonAttaqueName + " rate son attaque !"
+func lancesoleil(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
+	if IsSolarBeamActive :
+		IsSolarBeamActive = false
+		PokemonEnnemi.Hp = PokemonEnnemi.Hp - CalculateDammageSpe(PokemonAttaqueName,PokemonPlayer,PokemonEnnemi,"Player")
+	else :
+		IsSolarBeamActive = true
 #Ennemi (le E signifie ennemi au user)
 func chargeE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
 	PokemonPlayer.Hp = PokemonPlayer.Hp - CalculateDammage(PokemonAttaqueName,PokemonEnnemi,PokemonPlayer,"Ennemi")
@@ -1120,6 +1150,17 @@ func poudretoxikE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
 	if random <= 0.75 :
 		PokemonPlayer.Statut = "Empoisonne"
 		SpecialText = PokemonPlayer.Name + " est empoisonné !"
+func furieE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
+	var x = 2
+	var ARandom = RandomNumberGenerator.new()
+	ARandom.randomize()
+	var random = ARandom.randf()
+	if random <= 0.375 : x = 2
+	elif random > 0.375 and random <= 0.7 : x = 3
+	elif random > 0.7 and random <= 0.85 : x = 4
+	else : x = 5
+	PokemonPlayer.Hp = PokemonPlayer.Hp - (CalculateDammage(PokemonAttaqueName,PokemonPlayer,PokemonEnnemi,"Ennemi") * x)
+	SpecialText = "Touché " + str(x) + " fois !"
 #Secondaries functions for attacks method
 func UseVol(PokemonPlayer,PokemonEnnemi) :
 	PokemonEnnemi.Hp = PokemonEnnemi.Hp - CalculateDammage("Vol",PokemonEnnemi,PokemonPlayer,"Player")
@@ -1219,6 +1260,8 @@ func CheckAttack(PokemonAttaqueName,PokemonPlayer,PokemonEnnemi,WhoAttack) :
 				"Choc Mental" : chocmental(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
 				"Double Dard" : doubledard(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
 				"Poudre Toxik" : poudretoxik(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
+				"Furie" : furie(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
+				"Cyclone" : cyclone(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
 		"Ennemi" :
 			match PokemonAttaqueName :
 				"Charge" : chargeE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
@@ -1256,21 +1299,20 @@ func CheckAttack(PokemonAttaqueName,PokemonPlayer,PokemonEnnemi,WhoAttack) :
 				"Choc Mental" : chocmentalE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
 				"Double Dard" : doubledardE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
 				"Poudre Toxik" : poudretoxikE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
+				"Furie" : furieE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
 func CheckSuccess(Attacker,PokemonAttaqueName) :
 	var ARandom = RandomNumberGenerator.new()
 	ARandom.randomize()
 	var Random = ARandom.randf_range(0,100)
 	match Attacker :
 		"Player" :
-			if PokemonAttaqueName == "Abri" and !IsPlayerTheFirstAttacker : 
-				return false
-			elif PokemonAttaqueName == "Abri" and (ProtectedPercent >= Random) :
-				return true
+			if PokemonAttaqueName == "Abri" and !IsPlayerTheFirstAttacker : return false
+			elif PokemonAttaqueName == "Abri" and (ProtectedPercent >= Random) : return true
+			elif PokemonAttaqueName == "Cyclone" and UIFight.TypeOfFight != "Savage" : return false
 			elif ProtectedE : 
 				ProtectedE = false
 				return false
-			elif PokemonAttaqueName == "Vol" and (GetAttaquePrecision(PokemonAttaqueName)+PrecisionPlayer >= Random) :
-				return true
+			elif PokemonAttaqueName == "Vol" and (GetAttaquePrecision(PokemonAttaqueName)+PrecisionPlayer >= Random) : return true
 			elif (IsFlyingE) and (PokemonAttaqueName == "Tornade") :
 				IfTornadoAndFlying = 2
 				return true
@@ -1518,7 +1560,7 @@ var Machouille = {Type = "Tenebre", Puissance = 80,Precision = 100,MaxPP = 15}
 var Tornade = {Type = "Vol", Puissance = 40,Precision = 100,MaxPP = 35}
 var Damocles = {Type="Normal",Puissance = 120,Precision = 100,MaxPP = 15}
 var Vibraqua = {Type="Eau",Puissance = 60,Precision = 100,MaxPP = 20}
-var Hydroqueue = {Type="eau",Puissance = 90,Precision = 90,MaxPP = 10}
+var Hydroqueue = {Type="Eau",Puissance = 90,Precision = 90,MaxPP = 10}
 var Abri = {Type="Normal",MaxPP = 10,Precision = 0}
 var Flammeche = {Type="Feu",Puissance = 40, MaxPP=25, Precision=100}
 var RebondiFeu = {Type="Feu",Puissance = 70, MaxPP=15, Precision=100}
@@ -1527,6 +1569,14 @@ var DracoRage = {Type="Dragon",Puissance = 0, MaxPP=10, Precision=100}
 var ChocMental = {Type="Psy",Puissance = 50, MaxPP=25, Precision=100}
 var DoubleDard = {Type = "Insecte",Puissance = 50,Precision = 100,MaxPP = 20}
 var PoudreToxik = {Type = "Poison",Puissance = 0,Precision = 75,MaxPP = 35}
+var Furie = {Type = "Normal",Puissance = 15,Precision = 85,MaxPP = 35}
+var Cyclone = {Type = "Normal",Puissance = 0,Precision = 85,MaxPP = 20}
+var LanceSoleil = {Type = "Plante",Puissance = 120,Precision = 100,MaxPP = 10}
+var FeudEnfer = {Type = "Feu",Puissance = 100,Precision = 50,MaxPP = 5}
+var Ouragan = {Type = "Dragon",Puissance = 40,Precision = 100,MaxPP = 20}
+var Pique = {Type = "Vol",Puissance = 140,Precision = 90,MaxPP = 5}
+var ComboGriffe = {Type = "Normal",Puissance = 18,Precision = 80,MaxPP = 5}
+var Hydrocanon = {Type = "Eau",Puissance = 120,Precision = 80,MaxPP = 5}
 #Liste des Attaques Special (vitesse)
 var ListSpecialSpeed = {"Vive Attaque" : ViveAttaque}
 #Liste de toures ces attaques pour un référencement
@@ -1565,5 +1615,13 @@ var List = {
 	"Draco Rage" : DracoRage,
 	"Choc Mental" : ChocMental,
 	"Double Dard" : DoubleDard,
-	"Poudre Toxik" : PoudreToxik
+	"Poudre Toxik" : PoudreToxik,
+	"Furie" : Furie,
+	"Cyclone" : Cyclone,
+	"Lance-Soleil" : LanceSoleil,
+	"Feu d'Enfer" : FeudEnfer,
+	"Ouragan" : Ouragan,
+	"Piqué" : Pique,
+	"Combo-Griffe" : ComboGriffe,
+	"Hydrocanon" : Hydrocanon
 	}

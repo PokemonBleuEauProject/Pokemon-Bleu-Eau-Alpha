@@ -591,10 +591,10 @@ position = Vector2( 0, 40 )
 shape = SubResource( 1 )
 
 [node name="WildAreas" type="Node2D" parent="."]
-visible = false
 
 [node name="WildArea1" parent="WildAreas" instance=ExtResource( 15 )]
 position = Vector2( 69.6078, 382.48 )
+pathScene = "res://Map/map.tscn"
 ListPokemon = [ {
 "Lvl": 8,
 "Name": "Rattata",
@@ -635,6 +635,7 @@ shape = SubResource( 2 )
 
 [node name="WildArea9" parent="WildAreas" instance=ExtResource( 15 )]
 position = Vector2( 354.463, 5889 )
+pathScene = "res://Map/map.tscn"
 ListPokemon = [ {
 "Lvl": 3,
 "Name": "Roucool",
@@ -675,6 +676,7 @@ shape = SubResource( 3 )
 
 [node name="WildArea4" parent="WildAreas" instance=ExtResource( 15 )]
 position = Vector2( 516.628, 5728.11 )
+pathScene = "res://Map/map.tscn"
 ListPokemon = [ {
 "Lvl": 3,
 "Name": "Roucool",
@@ -714,6 +716,7 @@ shape = SubResource( 4 )
 
 [node name="WildArea5" parent="WildAreas" instance=ExtResource( 15 )]
 position = Vector2( 481.637, 5424.86 )
+pathScene = "res://Map/map.tscn"
 ListPokemon = [ {
 "Lvl": 4,
 "Name": "Roucool",
@@ -737,6 +740,7 @@ shape = SubResource( 5 )
 
 [node name="WildArea6" parent="WildAreas" instance=ExtResource( 15 )]
 position = Vector2( 577.947, 4961.41 )
+pathScene = "res://Map/map.tscn"
 ListPokemon = [ {
 "Lvl": 4,
 "Name": "Rattata",
@@ -772,6 +776,7 @@ shape = SubResource( 6 )
 
 [node name="WildArea8" parent="WildAreas" instance=ExtResource( 15 )]
 position = Vector2( 209.833, 2098.95 )
+pathScene = "res://Map/map.tscn"
 ListPokemon = [ {
 "Lvl": 6,
 "Name": "Rattata",
@@ -796,6 +801,7 @@ shape = SubResource( 7 )
 
 [node name="WildArea" parent="WildAreas" instance=ExtResource( 15 )]
 position = Vector2( 128.471, 5728.98 )
+pathScene = "res://Map/map.tscn"
 ListPokemon = [ {
 "Lvl": 3,
 "Name": "Roucool",
@@ -835,6 +841,7 @@ shape = SubResource( 8 )
 
 [node name="AWildArea" parent="WildAreas" instance=ExtResource( 15 )]
 position = Vector2( 467.754, 4722.08 )
+pathScene = "res://Map/map.tscn"
 ListPokemon = [ {
 "Lvl": 4,
 "Name": "Rattata",

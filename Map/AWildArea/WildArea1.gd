@@ -2,7 +2,7 @@ extends Area2D
 
 onready var Player = get_node(PG.ActualScene + "/Player")
 onready var animationFight = get_node(PG.ActualScene + "/GUITotal").get_node("Fight")
-
+export (String) var pathScene
 export var ListPokemon = [{Name = "",Lvl = 0,x = 0},{Name = "",Lvl = 0,x=0},{Name = "",Lvl = 0,x=0},{Name = "",Lvl = 0,x=0},{Name = "",Lvl = 0,x = 0},{Name = "",Lvl = 0,x=0},{Name = "",Lvl = 0,x = 0},{Name = "",Lvl = 0,x=0}]
 
 var IsPlayerIn = false
@@ -56,4 +56,5 @@ func loadParameters(ThePokemon,TheLvl) :
 #	Graphic
 	UIFight.BGCOLOR = Color(0.847059, 0.941176, 0.847059)
 	UIFight.CercleFight = load("res://img Pokemon/img Fight/Graphique/CercleFightHerbe.png")
+	UIFight.SceneAfterFight = pathScene
 

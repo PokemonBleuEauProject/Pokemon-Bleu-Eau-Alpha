@@ -111,5 +111,6 @@ func _on_Player_tree_entered():
 		else :
 			self.position = get_node("/root/Map/Positions/" + PG.NodePositionPath).position
 	else :
-		if PG.ActualScene != null and PG.NodePositionPath != null and PG.NodePositionPath != "Spawn" :
+		if PG.ActualScene == "/root/ForetDeJade" : self.position = PG.Last_position
+		elif PG.ActualScene != null and PG.NodePositionPath != null and PG.NodePositionPath != "Spawn" :
 			self.position = get_node(PG.ActualScene + "/" + PG.NodePositionPath).position
