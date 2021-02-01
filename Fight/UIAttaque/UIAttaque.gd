@@ -174,7 +174,7 @@ func ProcessRepeat(FirstAttacker,TheAttaque,SpecialProcessRepeat,StringSpecial) 
 			UiFight.changeText(PokemonPlayer.PokemonPlayer.Name + " utilise " + TheAttaque + " !")
 			yield(UiFight_ShowText,"animation_finished")
 			if Attaque.CheckSuccess("Player",TheAttaque) :
-				AttaqueAnimation.play(TheAttaque)
+				AttaqueAnimation.play(TheAttaque+Attaque.SpecialAnimation)
 				emit_signal("AboutLoadingValues")
 				Attaque.CheckAttack(TheAttaque,PokemonPlayer.PokemonPlayer,PokemonEnnemi.PokemonEnnemi,"Player")
 				yield(get_tree().create_timer(1),"timeout")
@@ -227,7 +227,7 @@ func ProcessRepeat(FirstAttacker,TheAttaque,SpecialProcessRepeat,StringSpecial) 
 			UiFight.changeText(PokemonPlayer.PokemonPlayer.Name + " utilise " + TheAttaque + " !")
 			yield(UiFight_ShowText,"animation_finished")
 			if Attaque.CheckSuccess("Player",TheAttaque) :
-				AttaqueAnimation.play(TheAttaque)
+				AttaqueAnimation.play(TheAttaque+Attaque.SpecialAnimation)
 				emit_signal("AboutLoadingValues")
 				Attaque.CheckAttack(TheAttaque,PokemonPlayer.PokemonPlayer,PokemonEnnemi.PokemonEnnemi,"Player")
 				yield(get_tree().create_timer(1),"timeout")
@@ -298,7 +298,7 @@ func ProcessRepeat(FirstAttacker,TheAttaque,SpecialProcessRepeat,StringSpecial) 
 			UiFight.changeText(PokemonPlayer.PokemonPlayer.Name + " utilise " + TheAttaque + " !")
 			yield(UiFight_ShowText,"animation_finished")
 			if Attaque.CheckSuccess("Player",TheAttaque) :
-				AttaqueAnimation.play(TheAttaque)
+				AttaqueAnimation.play(TheAttaque+Attaque.SpecialAnimation)
 				emit_signal("AboutLoadingValues")
 				Attaque.CheckAttack(TheAttaque,PokemonPlayer.PokemonPlayer,PokemonEnnemi.PokemonEnnemi,"Player")
 				yield(get_tree().create_timer(1),"timeout")
@@ -318,8 +318,9 @@ func ProcessRepeat(FirstAttacker,TheAttaque,SpecialProcessRepeat,StringSpecial) 
 			CheckSomeoneDead(PokemonPlayer.PokemonPlayer,PokemonEnnemi.PokemonEnnemi)
 			yield(ProcessRepeatOthers(),"completed")
 		UIFight.CantPassTxt = false
-	if Attaque.IsSolarBeamActive :
-		TwoRoundsIn(FirstAttacker,TheAttaque,SpecialProcessRepeat,StringSpecial)
+	if Attaque.IsSolarBeamActive or Attaque.IsSkyAttackActive :
+		yield(TwoRoundsIn(FirstAttacker,TheAttaque,SpecialProcessRepeat,StringSpecial),"completed")
+		Attaque.SpecialAnimation = ""
 
 func ProcessRepeatOthers() :
 	yield(get_tree().create_timer(0.5),"timeout")

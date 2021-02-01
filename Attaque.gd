@@ -16,8 +16,13 @@ var CCSpecialValueE = 0
 
 var StatutSentence = ""
 
+var SpecialAnimation = ""
+
 var IsSolarBeamActive = false
 var IsSolarBeamActiveE = false
+
+var IsSkyAttackActive = false
+var IsSkyAttackActiveE = false
 
 var IsFlying = false
 var IsFlyingE = false
@@ -1004,6 +1009,8 @@ func lancesoleil(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
 		IsSolarBeamActive = false
 		PokemonEnnemi.Hp = PokemonEnnemi.Hp - CalculateDammageSpe(PokemonAttaqueName,PokemonPlayer,PokemonEnnemi,"Player")
 	else :
+		SpecialAnimation = " 2"
+		SpecialText = PokemonPlayer.Name + " rayonne !"
 		IsSolarBeamActive = true
 func combogriffe(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
 	var x = 2
@@ -1020,6 +1027,18 @@ func ouragan(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
 	PokemonEnnemi.Hp = PokemonEnnemi.Hp - CalculateDammageSpe(PokemonAttaqueName,PokemonPlayer,PokemonEnnemi,"Player")
 func hydrocanon(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
 	PokemonEnnemi.Hp = PokemonEnnemi.Hp - CalculateDammageSpe(PokemonAttaqueName,PokemonPlayer,PokemonEnnemi,"Player")
+func pique(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
+	if IsSkyAttackActive :
+		IsSkyAttackActive = false
+		PokemonEnnemi.Hp = PokemonEnnemi.Hp - CalculateDammage(PokemonAttaqueName,PokemonPlayer,PokemonEnnemi,"Player")
+	else :
+		SpecialAnimation = " 2"
+		SpecialText = PokemonPlayer.Name + " est entourré d'une lumière intense !"
+		IsSkyAttackActive = true
+func feudenfer(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
+	PokemonEnnemi.Hp = PokemonEnnemi.Hp - CalculateDammageSpe(PokemonAttaqueName,PokemonPlayer,PokemonEnnemi,"Player")
+	PokemonEnnemi.Statut = "Brule"
+	SpecialText = PokemonEnnemi.Name + " ennemi est brulé !"
 #Ennemi (le E signifie ennemi au user)
 func chargeE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
 	PokemonPlayer.Hp = PokemonPlayer.Hp - CalculateDammage(PokemonAttaqueName,PokemonEnnemi,PokemonPlayer,"Ennemi")
@@ -1191,6 +1210,10 @@ func ouraganE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
 	PokemonPlayer.Hp = PokemonPlayer.Hp - CalculateDammageSpe(PokemonAttaqueName,PokemonEnnemi,PokemonPlayer,"Ennemi")
 func hydrocanonE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
 	PokemonPlayer.Hp = PokemonPlayer.Hp - CalculateDammageSpe(PokemonAttaqueName,PokemonEnnemi,PokemonPlayer,"Ennemi")
+func feudenferE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName) :
+	PokemonPlayer.Hp = PokemonPlayer.Hp - CalculateDammageSpe(PokemonAttaqueName,PokemonPlayer,PokemonEnnemi,"Ennemi")
+	PokemonPlayer.Statut = "Brule"
+	SpecialText = PokemonPlayer.Name + " ennemi est brulé !"
 #Secondaries functions for attacks method
 func UseVol(PokemonPlayer,PokemonEnnemi) :
 	PokemonEnnemi.Hp = PokemonEnnemi.Hp - CalculateDammage("Vol",PokemonEnnemi,PokemonPlayer,"Player")
@@ -1295,6 +1318,9 @@ func CheckAttack(PokemonAttaqueName,PokemonPlayer,PokemonEnnemi,WhoAttack) :
 				"Combo-Griffe" : combogriffe(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
 				"Ouragan" : ouragan(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
 				"Hydrocanon" : hydrocanon(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
+				"Lance-Soleil" : lancesoleil(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
+				"Pique" : pique(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
+				"Feu d'Enfer" :feudenfer(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
 		"Ennemi" :
 			match PokemonAttaqueName :
 				"Charge" : chargeE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
@@ -1336,6 +1362,7 @@ func CheckAttack(PokemonAttaqueName,PokemonPlayer,PokemonEnnemi,WhoAttack) :
 				"Combo-Griffe" : combogriffeE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
 				"Ouragan" : ouraganE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
 				"Hydrocanon" : hydrocanonE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
+				"Feu d'Enfer" :feudenferE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName)
 func CheckSuccess(Attacker,PokemonAttaqueName) :
 	var ARandom = RandomNumberGenerator.new()
 	ARandom.randomize()
@@ -1657,7 +1684,7 @@ var List = {
 	"Lance-Soleil" : LanceSoleil,
 	"Feu d'Enfer" : FeudEnfer,
 	"Ouragan" : Ouragan,
-	"Piqué" : Pique,
+	"Pique" : Pique,
 	"Combo-Griffe" : ComboGriffe,
 	"Hydrocanon" : Hydrocanon
 	}
