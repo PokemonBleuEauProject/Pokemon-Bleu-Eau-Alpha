@@ -108,7 +108,6 @@ func _input(_event) :
 				4 :
 					get_tree().paused = true
 					Save.saveGame()
-					print("ok")
 				5 :
 					get_tree().paused = false
 					self.hide()

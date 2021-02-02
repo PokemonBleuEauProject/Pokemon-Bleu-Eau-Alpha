@@ -1,11 +1,10 @@
 extends ColorRect
 
 var NewGameSur = false
-var TypeOfPressed = "Credits"
+var TypeOfPressed = ""
 var CantChange = false
 
 func _ready():
-	Save.saveGame()
 	$Continuer/NomJoueur.text = PG.PlayerName
 	$Continuer/Temps.text = str(PG.GameTime.Hours) + ":" + str(PG.GameTime.Minutes)
 func _input(event):

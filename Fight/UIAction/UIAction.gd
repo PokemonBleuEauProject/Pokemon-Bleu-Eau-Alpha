@@ -197,9 +197,7 @@ func _on_Bag_catchapokemon(PokeballBonus,PokeballName):
 		yield(UiFight_ShowText,"animation_finished")
 		UiFight.changeText(Pokedex.CheckNewPokemonDiscover(PokemonEnnemi.PokemonEnnemi.Name))
 		yield(UiFight_ShowText,"animation_finished")
-		get_node("/root/FightScene/AnimationPlayer").play("EndOfFight")
-		yield(get_node("/root/FightScene/AnimationPlayer"),"animation_finished")
-		PG.UnUsed = get_tree().change_scene(UIFight.SceneAfterFight)
+		yield(EndOfFight(),"completed")
 	else :
 		UiAttaque.hide()
 		Attaque.IsPlayerTheFirstAttacker = false
@@ -228,3 +226,10 @@ func ChangingPokemonAfterCatch(Something) :
 			PG.Pokemon5 = EG.Pokemon1
 		6 :
 			PG.Pokemon1 = EG.Pokemon1
+
+func EndOfFight() :
+	yield(get_tree().create_timer(0.5),"timeout")
+	get_node("/root/FightScene/AnimationPlayer").play("EndOfFight")
+	yield(get_node("/root/FightScene/AnimationPlayer"),"animation_finished")
+	Save.saveGame()
+	PG.UnUsed = get_tree().change_scene(UIFight.SceneAfterFight)

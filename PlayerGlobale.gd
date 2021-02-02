@@ -152,7 +152,7 @@ export (Dictionary) var Badge = {
 }
 #Others
 export (int) var Argent = 154800
-export (String) var PlayerName = "No"
+export (String) var PlayerName = "TEST"
 export (Dictionary) var GameTime = {
 	Minutes = 0,
 	Hours = 0,
@@ -186,10 +186,10 @@ func CheckDictionnaryPokemonFree() :
 #Global VAr for Player's position
 var CantMoveCauseChangingScene
 var CantMoveCauseJumping
-export (String) var NodePositionPath = "Spawn"
+export (String) var NodePositionPath
 export (Vector2) var Last_position
 export (String) var ActualScene
-export (String) var ActualPlace = "Bourg Palette"
+export (String) var ActualPlace
 
 #GLOBAL VAR FOR SPEED PLAYER
 export (bool) var IsShoesEquip = false

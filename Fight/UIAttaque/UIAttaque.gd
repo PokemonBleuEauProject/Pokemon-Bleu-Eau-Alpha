@@ -368,7 +368,7 @@ func ProcessRepeatOthers() :
 	if Attaque.CheckPokemonStatut(PokemonPlayer.PokemonPlayer) :
 			UiFight.changeText(Attaque.StatutSentence)
 			yield(UiFight_ShowText,"animation_finished")
-			AttaqueAnimation.play(PokemonEnnemi.PokemonEnnemi.Statut)
+			AttaqueAnimation.play(PokemonPlayer.PokemonPlayer.Statut)
 			yield(get_tree().create_timer(1),"timeout")
 			CheckSomeoneDead(PokemonPlayer.PokemonPlayer,PokemonEnnemi.PokemonEnnemi)
 			emit_signal("LoadValues")

@@ -8,7 +8,8 @@ func _ready():
 #PROCESS ABOUT INTERRACTION
 
 func _process(_delta):
-	pass
+	PG.Last_position = GetActualPosition()
+	print("The name is " + PG.PlayerName)
 
 #PROCESS ABOUT PHYSIC AND ANIMATION
 
@@ -106,11 +107,10 @@ func _on_Player_tree_entered():
 	UIFight.IsFightLaunch = false
 	PG.ActualScene = str(get_tree().current_scene.get_path())
 	if PG.ActualScene == "/root/Map" :
-		if PG.NodePositionPath == "LastPosition" :
-			self.position = PG.Last_position
-		else :
-			self.position = get_node("/root/Map/Positions/" + PG.NodePositionPath).position
-	else :
-		if PG.ActualScene == "/root/ForetDeJade" : self.position = PG.Last_position
-		elif PG.ActualScene != null and PG.NodePositionPath != null and PG.NodePositionPath != "Spawn" :
+		if PG.NodePositionPath == "LastPosition" : self.position = PG.Last_position
+		else : self.position = get_node("/root/Map/Positions/" + PG.NodePositionPath).position
+	elif PG.ActualScene == "/root/ForetDeJade" :
+		if PG.NodePositionPath == "LastPosition" : self.position = PG.Last_position 
+		else :  self.position = get_node(PG.ActualScene + "/" + PG.NodePositionPath).position
+	elif PG.ActualScene != null and PG.NodePositionPath != null and PG.NodePositionPath != "Spawn" :
 			self.position = get_node(PG.ActualScene + "/" + PG.NodePositionPath).position
