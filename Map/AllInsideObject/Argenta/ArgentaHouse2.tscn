@@ -22,7 +22,7 @@
 [ext_resource path="res://GUI/Overlay/ShowSomething.tscn" type="PackedScene" id=20]
 [ext_resource path="res://img Pokemon/img Map/Environnement/Texture Cartes/ArgentaShow.png" type="Texture" id=21]
 
-[node name="StartHouse2" type="Node2D"]
+[node name="ArgentaHouse2" type="Node2D"]
 
 [node name="BigWall1" parent="." instance=ExtResource( 12 )]
 position = Vector2( 30.1154, -192.206 )

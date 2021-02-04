@@ -40,6 +40,7 @@ func _on_Sure_confirmed():
 		CantChange = true
 		$AnimationPlayer.play("ChangeScene")
 		yield($AnimationPlayer,"animation_finished")
+		Save.FirstTimeSave = true
 		PG.UnUsed = get_tree().change_scene("res://Map/map.tscn")
 	else :
 		NewGameSur = true
@@ -47,7 +48,7 @@ func _on_NewGameForSur_confirmed():
 	NewGameSur = false
 	$AnimationPlayer.play("ChangeScene")
 	yield($AnimationPlayer,"animation_finished")
-	Save.deleteSave()
+	Save.restartGame()
 	PG.UnUsed = get_tree().change_scene("res://Others/NewGame/NewGame.tscn")
 func _on_MenuSysteme_tree_entered():
 	Save.loadGame()

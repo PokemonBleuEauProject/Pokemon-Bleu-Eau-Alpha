@@ -9,7 +9,6 @@ func _ready():
 
 func _process(_delta):
 	PG.Last_position = GetActualPosition()
-	print("The name is " + PG.PlayerName)
 
 #PROCESS ABOUT PHYSIC AND ANIMATION
 
@@ -106,6 +105,11 @@ func GetActualPosition() :
 func _on_Player_tree_entered():
 	UIFight.IsFightLaunch = false
 	PG.ActualScene = str(get_tree().current_scene.get_path())
+	if Save.FirstTimeSave :
+		Save.loadGame()
+		Save.saveGame(false)
+		Save.FirstTimeSave = false
+	else : Save.saveGame(false)
 	if PG.ActualScene == "/root/Map" :
 		if PG.NodePositionPath == "LastPosition" : self.position = PG.Last_position
 		else : self.position = get_node("/root/Map/Positions/" + PG.NodePositionPath).position
