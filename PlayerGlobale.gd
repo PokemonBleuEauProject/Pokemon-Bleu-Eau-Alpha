@@ -183,13 +183,15 @@ func CheckDictionnaryPokemonFree() :
 		if x == null :
 			return c
 
-#Global VAr for Player's position
+#IDLE AND ANIMATION
 var CantMoveCauseChangingScene
 var CantMoveCauseJumping
+#POSITION AND SCENE
 export (String) var NodePositionPath
 export (Vector2) var Last_position
 export (String) var ActualScene
 export (String) var ActualPlace
+export (String) var ActualSceneFile
 
 #GLOBAL VAR FOR SPEED PLAYER
 export (bool) var IsShoesEquip = false

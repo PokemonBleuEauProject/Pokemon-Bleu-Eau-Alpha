@@ -104,12 +104,16 @@ func GetActualPosition() :
 
 func _on_Player_tree_entered():
 	UIFight.IsFightLaunch = false
+	#Save Position
 	PG.ActualScene = str(get_tree().current_scene.get_path())
+	PG.ActualSceneFile = str(get_tree().current_scene.filename)
+	#save on entering in a scene
 	if Save.FirstTimeSave :
 		Save.loadGame()
 		Save.saveGame(false)
 		Save.FirstTimeSave = false
 	else : Save.saveGame(false)
+	#Position
 	if PG.ActualScene == "/root/Map" :
 		if PG.NodePositionPath == "LastPosition" : self.position = PG.Last_position
 		else : self.position = get_node("/root/Map/Positions/" + PG.NodePositionPath).position
@@ -117,4 +121,5 @@ func _on_Player_tree_entered():
 		if PG.NodePositionPath == "LastPosition" : self.position = PG.Last_position 
 		else :  self.position = get_node(PG.ActualScene + "/" + PG.NodePositionPath).position
 	elif PG.ActualScene != null and PG.NodePositionPath != null and PG.NodePositionPath != "Spawn" :
-			self.position = get_node(PG.ActualScene + "/" + PG.NodePositionPath).position
+		self.position = get_node(PG.ActualScene + "/" + PG.NodePositionPath).position
+	else : pass
