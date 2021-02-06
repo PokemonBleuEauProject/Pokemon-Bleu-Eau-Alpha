@@ -102,11 +102,11 @@ position = Vector2( -555.54, 86.0087 )
 position = Vector2( -166.8, 46.9872 )
 Scene = "res://Map/AllInsideObject/Argenta/MuseeTop.tscn"
 
+[node name="Plante" parent="TileMap" instance=ExtResource( 12 )]
+position = Vector2( 13.0971, 86.0228 )
+
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( -29.8351, 62.2938 )
-
-[node name="Plante" parent="." instance=ExtResource( 12 )]
-position = Vector2( 13.0971, 86.0228 )
 
 [node name="Musee" type="Position2D" parent="."]
 position = Vector2( -28.9585, 73.1236 )

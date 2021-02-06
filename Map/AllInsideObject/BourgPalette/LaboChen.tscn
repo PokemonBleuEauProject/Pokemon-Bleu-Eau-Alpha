@@ -102,6 +102,17 @@ position = Vector2( -138.079, -169.362 )
 TXT1 = "A quoi ça peut bien servir ? Mieux vaut ne pas y toucher !"
 TheTexture = ExtResource( 18 )
 
+[node name="Tableau" parent="TileMap" instance=ExtResource( 12 )]
+position = Vector2( -19.553, -312.65 )
+TXT1 = "I pour ouvrir le menu !"
+TheTexture = ExtResource( 13 )
+
+[node name="Tableau2" parent="TileMap" instance=ExtResource( 12 )]
+position = Vector2( 14.5, -312.65 )
+TXT1 = "Tous les pokémons ont des points faibles !"
+TXT2 = "Ils sont également tous puissants face à un certain élément."
+TheTexture = ExtResource( 13 )
+
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 2.67596, 50.4325 )
 
@@ -109,15 +120,4 @@ position = Vector2( 2.67596, 50.4325 )
 position = Vector2( 1.71478, 67.7324 )
 
 [node name="GUITotal" parent="." instance=ExtResource( 2 )]
-
-[node name="Tableau" parent="." instance=ExtResource( 12 )]
-position = Vector2( -19.553, -312.65 )
-TXT1 = "I pour ouvrir le menu !"
-TheTexture = ExtResource( 13 )
-
-[node name="Tableau2" parent="." instance=ExtResource( 12 )]
-position = Vector2( 14.5, -312.65 )
-TXT1 = "Tous les pokémons ont des points faibles !"
-TXT2 = "Ils sont également tous puissants face à un certain élément."
-TheTexture = ExtResource( 13 )
 [connection signal="tree_entered" from="Player" to="Player" method="_on_Player_tree_entered"]

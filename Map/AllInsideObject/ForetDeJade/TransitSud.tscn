@@ -85,7 +85,7 @@ TheAction = "ui_down"
 NodePosition = "EntreeForetJade"
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( -70.6319, 58.9652 )
+position = Vector2( -1.76511, 69.0244 )
 
 [node name="EntreeForetJade" type="Position2D" parent="."]
 position = Vector2( -16.4522, -149.199 )

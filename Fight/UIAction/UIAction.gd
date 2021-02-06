@@ -231,5 +231,5 @@ func EndOfFight() :
 	yield(get_tree().create_timer(0.5),"timeout")
 	get_node("/root/FightScene/AnimationPlayer").play("EndOfFight")
 	yield(get_node("/root/FightScene/AnimationPlayer"),"animation_finished")
-	Save.saveGame()
+	Save.saveGame(false)
 	PG.UnUsed = get_tree().change_scene(UIFight.SceneAfterFight)

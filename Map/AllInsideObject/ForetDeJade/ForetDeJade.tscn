@@ -839,7 +839,7 @@ NodePositionPath = "EntreeForetJade"
 MoveToChange = "ui_down"
 
 [node name="EntreeForetJade" type="Position2D" parent="."]
-position = Vector2( 134.638, -46.427 )
+position = Vector2( 2.78168, 1.21857 )
 
 [node name="LastPosition" type="Position2D" parent="."]
 position = Vector2( 150.114, -10.833 )

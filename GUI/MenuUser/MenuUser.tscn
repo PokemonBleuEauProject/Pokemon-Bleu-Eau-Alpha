@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://img Pokemon/img MenuUser/bg.png" type="Texture" id=1]
 [ext_resource path="res://Font/45Font.tres" type="DynamicFont" id=2]
 [ext_resource path="res://img Pokemon/img Fight/Graphique/Arrow.png" type="Texture" id=3]
 [ext_resource path="res://GUI/MenuUser/MenuUser.gd" type="Script" id=4]
+[ext_resource path="res://GUI/LoadingSave/LoadingSave.tscn" type="PackedScene" id=5]
 
 [sub_resource type="Animation" id=1]
 resource_name = "ChangeScene"
@@ -35,6 +36,7 @@ tracks/1/keys = {
 
 [node name="MenuUser" type="Popup"]
 pause_mode = 2
+visible = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 725.0
@@ -191,6 +193,13 @@ text = "RETOUR"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="LoadingSave" parent="." instance=ExtResource( 5 )]
+visible = false
+margin_left = 10.0
+margin_top = 425.0
+margin_right = -8.0
+margin_bottom = 39.0
 
 [node name="UIInfo" type="ColorRect" parent="."]
 anchor_left = -2.408

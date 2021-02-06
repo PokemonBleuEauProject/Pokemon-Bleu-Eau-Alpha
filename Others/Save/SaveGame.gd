@@ -72,7 +72,7 @@ func saveData() :
 	"PG.ActualScene" : PG.ActualScene,
 	"PG.ActualSceneFile" : PG.ActualSceneFile,
 	"PG.Last_position" : PG.Last_position,
-	"PG.NodePositionPath" : PG.NodePositionPath,
+	"PG.NodePositionPath" : "LastPosition",
 	"PG.ActualPlace" : PG.ActualPlace,
 	}
 

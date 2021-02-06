@@ -98,6 +98,7 @@ func _on_Control_tree_entered():
 	while !ChangeName :
 		yield(get_tree().create_timer(0.1),"timeout")
 	PG.PlayerName = Name
+	if Name == "1" : PG.PlayerName = "2"
 	$LineEdit.visible = false
 	changeText("Formidable ! Tu t'appelles donc " + PG.PlayerName + ".")
 	yield($UISpeack/ShowText,"animation_finished")

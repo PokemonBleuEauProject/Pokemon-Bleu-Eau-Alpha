@@ -1,6 +1,5 @@
 extends Control
 
-
 func _on_Menu_tree_entered():
 	$AnimationPlayer.play("BGAnimation")
 func _input(event):

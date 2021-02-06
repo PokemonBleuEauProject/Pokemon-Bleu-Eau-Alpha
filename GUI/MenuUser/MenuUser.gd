@@ -107,6 +107,7 @@ func _input(_event) :
 					get_tree().paused = true
 				4 :
 					get_tree().paused = true
+					yield(get_node("LoadingSave").loading(),"completed")
 					Save.saveGame(false)
 				5 :
 					get_tree().paused = false
