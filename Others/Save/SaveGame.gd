@@ -34,7 +34,7 @@ var DefaulValue = {
 	"EG.RivaleName" : "2",
 	"PG.Badge" : {BadgeRoche = false,BadgeCascade = false,BadgeFoudre = false,BadgePrisme = false,BadgeAme = false,BadgeMarais = false,BadgeVolcan = false,BadgeTerre = false},
 	"PG.Argent" : 0,
-	"PG.ActualScene" : "/root/StartHouse1-Top.tscn",
+	"PG.ActualScene" : "/root/StartHouse1-Top",
 	"PG.ActualSceneFile" : "res://Map/AllInsideObject/BourgPalette/StartHouse1-Top.tscn",
 	"PG.Last_position" : null,
 	"PG.NodePositionPath" : "StartHouse1",
@@ -73,7 +73,7 @@ func saveData() :
 	"PG.ActualSceneFile" : PG.ActualSceneFile,
 	"PG.Last_position" : PG.Last_position,
 	"PG.NodePositionPath" : PG.NodePositionPath,
-	"PG.ActualPlace" : PG.ActualPlace
+	"PG.ActualPlace" : PG.ActualPlace,
 	}
 
 #Load Game -> Get Var in a file and load value in Dictionnary
@@ -93,9 +93,7 @@ func loadActualData(TheData) :
 	save.open(save_path, File.READ)
 	match TheData :
 		"PG.PlayerName" : PG.PlayerName = AllData[TheData]
-		"PG.Pokemon1" : 
-			print("Pokemon1")
-			PG.Pokemon1 = AllData[TheData]
+		"PG.Pokemon1" : PG.Pokemon1 = AllData[TheData]
 		"PG.Pokemon2" : PG.Pokemon2 = AllData[TheData]
 		"PG.Pokemon3" : PG.Pokemon3 = AllData[TheData]
 		"PG.Pokemon4" : PG.Pokemon4 = AllData[TheData]
@@ -106,6 +104,7 @@ func loadActualData(TheData) :
 		"PG.Badge" : PG.Badge = AllData[TheData]
 		"PG.Argent" : PG.Argent = AllData[TheData]
 		"PG.ActualScene" : PG.ActualScene = AllData[TheData]
+		"PG.ActualSceneFile" : PG.ActualSceneFile = AllData[TheData]
 		"PG.Last_position" : PG.Last_position = AllData[TheData]
 		"PG.NodePositionPath" : PG.NodePositionPath = AllData[TheData]
 		"PG.ActualPlace" : PG.ActualPlace = AllData[TheData]
