@@ -1,6 +1,6 @@
 extends Node
 
-var save_path = "user://saves/save.txt"
+var save_path = "user://saves/save.dat"
 var dir_save_path = "user://saves"
 
 var FirstTimeSave = false
@@ -36,7 +36,7 @@ var DefaulValue = {
 	"PG.Argent" : 0,
 	"PG.ActualScene" : "/root/StartHouse1-Top",
 	"PG.ActualSceneFile" : "res://Map/AllInsideObject/BourgPalette/StartHouse1-Top.tscn",
-	"PG.Last_position" : null,
+	"PG.Last_position" : Vector2(0,0),
 	"PG.NodePositionPath" : "StartHouse1",
 	"PG.ActualPlace" : "Bourg-Palette"}
 

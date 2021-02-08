@@ -33,6 +33,7 @@ UIAction="*res://UIActionGlobale.gd"
 Attaque="*res://Attaque.gd"
 Save="*res://Others/Save/SaveGame.gd"
 Pokedex="*res://PokedexAutoload.gd"
+Event="*res://Others/Events/Event.gd"
 
 [compression]
 

@@ -884,10 +884,9 @@ ListPokemon = [ {
 shape = SubResource( 9 )
 
 [node name="Positions" type="Node2D" parent="."]
-visible = false
 
 [node name="Spawn" type="Position2D" parent="Positions"]
-position = Vector2( 185.085, -74.7684 )
+position = Vector2( 351.499, 6344.82 )
 
 [node name="StartHouse1" type="Position2D" parent="Positions"]
 position = Vector2( 175.207, 6316.73 )
