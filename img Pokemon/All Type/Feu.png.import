@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/VosPokemonBox.png-30b116f587cbe538a6627e7828245109.stex"
+path="res://.import/Feu.png-af328c5a2fe60462b25ef64a3c99203f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://img Pokemon/img PC/VosPokemonBox.png"
-dest_files=[ "res://.import/VosPokemonBox.png-30b116f587cbe538a6627e7828245109.stex" ]
+source_file="res://img Pokemon/All Type/Feu.png"
+dest_files=[ "res://.import/Feu.png-af328c5a2fe60462b25ef64a3c99203f.stex" ]
 
 [params]
 

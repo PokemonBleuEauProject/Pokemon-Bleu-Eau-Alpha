@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/BoxPCPokemon.png-ee570422aaad8b5cbc72a504f90256c7.stex"
+path="res://.import/BoxPCPokemon.png-521ddfe1f0425a7b5a2589f20fdab150.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://img Pokemon/img PC/BoxPCPokemon.png"
-dest_files=[ "res://.import/BoxPCPokemon.png-ee570422aaad8b5cbc72a504f90256c7.stex" ]
+source_file="res://img Pokemon/img PC/ListePokemons/BoxPCPokemon.png"
+dest_files=[ "res://.import/BoxPCPokemon.png-521ddfe1f0425a7b5a2589f20fdab150.stex" ]
 
 [params]
 

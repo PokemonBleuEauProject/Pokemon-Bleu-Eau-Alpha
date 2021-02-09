@@ -8,9 +8,14 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "TextureButton",
+"class": "ButtonPokemonPC",
+"language": "GDScript",
+"path": "res://Class/TextureButtonClassPC.gd"
+} ]
 _global_script_class_icons={
-
+"ButtonPokemonPC": ""
 }
 
 [application]

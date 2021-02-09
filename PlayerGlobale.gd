@@ -182,7 +182,10 @@ func CheckDictionnaryPokemonFree() :
 		c = c + 1
 		if x == null :
 			return c
-
+#Function : reload ditionnary
+func ReloadDictionnary() :
+	ListPokemon = [Pokemon1,Pokemon2,Pokemon3,Pokemon4,Pokemon5,Pokemon6]
+	return ListPokemon
 #IDLE AND ANIMATION
 var CantMoveCauseChangingScene
 var CantMoveCauseJumping

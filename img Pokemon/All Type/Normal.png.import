@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/DonneePokemonChoisis.png-c8ac97a04df27a99a29c9a17fd67c35f.stex"
+path="res://.import/Normal.png-3b9a0f7fed32240e6809fa1f0076f307.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://img Pokemon/img PC/DonneePokemonChoisis.png"
-dest_files=[ "res://.import/DonneePokemonChoisis.png-c8ac97a04df27a99a29c9a17fd67c35f.stex" ]
+source_file="res://img Pokemon/All Type/Normal.png"
+dest_files=[ "res://.import/Normal.png-3b9a0f7fed32240e6809fa1f0076f307.stex" ]
 
 [params]
 
