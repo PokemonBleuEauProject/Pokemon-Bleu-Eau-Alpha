@@ -4,18 +4,22 @@ var UnUsed
 
 #Pokemon Of the player
 export (Dictionary) var PokemonTypical = {
+	#First Information
 	Name = null,
+	Lvl = null,
 	Hp = null,
 	MaxHp = null,
-	Lvl = null,
+	#Experience
 	Experience = null,
 	ExperienceNeededToLvlUp = null,
-	Statut = null,
+	LvlNeededToEvolve = null,
+	#Stats
 	Puissance = null,
 	AttaqueSpecial = null,
 	Defense = null,
 	DefenseSpecial = null,
 	Vitesse = null,
+	#Attaque Information
 	Attaque1 = null,
 	Attaque2 = null,
 	Attaque3 = null,
@@ -24,22 +28,28 @@ export (Dictionary) var PokemonTypical = {
 	ActualPPAttaque2 = null,
 	ActualPPAttaque3 = null,
 	ActualPPAttaque4 = null,
-	TextureOverworld = null
+	#Type of the Pokemon
+	Type1 = null,
+	Type2 = null,
+	#Others
+	Statut = null
 }
 export (Dictionary) var Pokemon1 = {
 	Name = "Carapuce",
+	Lvl = 3,
 	Hp = 19,
 	MaxHp = 19,
-	Lvl = 3,
+	
 	Experience = 20,
 	ExperienceNeededToLvlUp = 30,
-	Statut = "",
+	LvlNeededToEvolve = 16,
+	
 	Puissance = 48,
 	Defense = 65,
 	AttaqueSpecial = 50,
 	DefenseSpecial = 64,
 	Vitesse = 1000,
-	LvlNeededToEvolve = 16,
+	
 	Attaque1 = "Lance-Soleil",
 	Attaque2 = "Feu d'Enfer",
 	Attaque3 = "Ouragan",
@@ -48,7 +58,11 @@ export (Dictionary) var Pokemon1 = {
 	ActualPPAttaque2 = 20,
 	ActualPPAttaque3 = 20,
 	ActualPPAttaque4 = 20,
-	TextureOverworld = "res://img Pokemon/All Pokemon/Overworld/7.png"}
+	
+	Type1 = "Eau",
+	Type2 = null,
+	
+	Statut = ""}
 export (Dictionary) var Pokemon2 = {
 	Name = "Salameche",
 	Lvl = 5,
@@ -62,9 +76,6 @@ export (Dictionary) var Pokemon2 = {
 	Experience = 0,
 	LvlNeededToEvolve = 16,
 	ExperienceNeededToLvlUp = 30,
-	Statut = "",
-	Type1 = "Feu",
-	Type2 = "-",
 	Attaque1 = "Griffe",
 	Attaque2 = "Rugissement",
 	Attaque3 = "-",
@@ -73,23 +84,22 @@ export (Dictionary) var Pokemon2 = {
 	ActualPPAttaque2 = 20,
 	ActualPPAttaque3 = 20,
 	ActualPPAttaque4 = 20,
-	TextureOverworld = "res://img Pokemon/All Pokemon/Overworld/4.png"}
+	Type1 = "Feu",
+	Type2 = null,
+	Statut = ""}
 export (Dictionary) var Pokemon3 = {
-	Name = "Salameche",
+	Name = "Bulbizarre",
 	Lvl = 5,
-	Hp = 25,
+	Hp = 20,
 	MaxHp = 25,
 	Puissance = 48,
 	Defense = 65,
 	AttaqueSpecial = 50,
 	DefenseSpecial = 64,
 	Vitesse = 60,
-	Experience = 0,
+	Experience = 20,
 	LvlNeededToEvolve = 16,
 	ExperienceNeededToLvlUp = 30,
-	Statut = "",
-	Type1 = "Feu",
-	Type2 = "-",
 	Attaque1 = "Griffe",
 	Attaque2 = "Rugissement",
 	Attaque3 = "-",
@@ -98,7 +108,9 @@ export (Dictionary) var Pokemon3 = {
 	ActualPPAttaque2 = 20,
 	ActualPPAttaque3 = 20,
 	ActualPPAttaque4 = 20,
-	TextureOverworld = "res://img Pokemon/All Pokemon/Overworld/4.png"}
+	Type1 = "Plante",
+	Type2 = "Poison",
+	Statut = ""}
 export (Dictionary) var Pokemon4 = null
 export (Dictionary) var Pokemon5 = null
 export (Dictionary) var Pokemon6 = null

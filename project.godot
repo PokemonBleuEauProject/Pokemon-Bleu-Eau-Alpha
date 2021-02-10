@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Pokemon Bleu Eau"
-config/description="A Pokemon version like of Red Fire and Green Leaf"
+config/description="A Pokemon Remaster version of Red Fire and Green Leaf"
 run/main_scene="res://GUI/StartMenu/Menu.tscn"
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://img Pokemon/All Pokemon/Front/9.png"
@@ -31,14 +31,15 @@ config/windows_native_icon="res://img Pokemon/9.ico"
 
 Pokemon="*res://Pokemon.gd"
 PG="*res://PlayerGlobale.gd"
-EG="*res://EnnemiGlobale.gd"
-UISpeack="*res://UISpeackGlobale.gd"
-UIFight="*res://UIFightGlobale.gd"
-UIAction="*res://UIActionGlobale.gd"
-Attaque="*res://Attaque.gd"
-Save="*res://Others/Save/SaveGame.gd"
+PSS="*res://PokemonStorageSystem.gd"
 Pokedex="*res://PokedexAutoload.gd"
+Attaque="*res://Attaque.gd"
+EG="*res://EnnemiGlobale.gd"
 Event="*res://Others/Events/Event.gd"
+Save="*res://Others/Save/SaveGame.gd"
+UIAction="*res://UIActionGlobale.gd"
+UIFight="*res://UIFightGlobale.gd"
+UISpeack="*res://UISpeackGlobale.gd"
 
 [compression]
 

@@ -21,7 +21,8 @@ var AllData = {
 	"PG.ActualSceneFile" : PG.ActualSceneFile,
 	"PG.Last_position" : PG.Last_position,
 	"PG.NodePositionPath" : PG.NodePositionPath,
-	"PG.ActualPlace" : PG.ActualPlace}
+	"PG.ActualPlace" : PG.ActualPlace,
+	"PSS.PSSList" : PSS.PSSList}
 var DefaulValue = {
 	"PG.PlayerName" : "1",
 	"PG.Pokemon1" : null,
@@ -31,14 +32,15 @@ var DefaulValue = {
 	"PG.Pokemon5" : null,
 	"PG.Pokemon6" : null,
 	"PG.GameTime" : {Minutes = 0,Hours = 0,Days = 0},
-	"EG.RivaleName" : "2",
+	"EG.RivaleName" : "Rival",
 	"PG.Badge" : {BadgeRoche = false,BadgeCascade = false,BadgeFoudre = false,BadgePrisme = false,BadgeAme = false,BadgeMarais = false,BadgeVolcan = false,BadgeTerre = false},
 	"PG.Argent" : 0,
 	"PG.ActualScene" : "/root/StartHouse1-Top",
 	"PG.ActualSceneFile" : "res://Map/AllInsideObject/BourgPalette/StartHouse1-Top.tscn",
 	"PG.Last_position" : Vector2(0,0),
 	"PG.NodePositionPath" : "StartHouse1",
-	"PG.ActualPlace" : "Bourg-Palette"}
+	"PG.ActualPlace" : "Bourg-Palette",
+	"PSS.PSSList" : [null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null]}
 
 #Save Game -> Get all importants values and add the dictionnary to a file -> path = user://saves/save.txt
 func saveGame(restart) :
@@ -96,6 +98,7 @@ func saveData() :
 	"PG.Last_position" : PG.Last_position,
 	"PG.NodePositionPath" : "LastPosition",
 	"PG.ActualPlace" : PG.ActualPlace,
+	"PSS.PSSList" : PSS.PSSList
 	}
 
 #Load Game -> Get Var in a file and load value in Dictionnary
@@ -130,6 +133,7 @@ func loadActualData(TheData) :
 		"PG.Last_position" : PG.Last_position = AllData[TheData]
 		"PG.NodePositionPath" : PG.NodePositionPath = AllData[TheData]
 		"PG.ActualPlace" : PG.ActualPlace = AllData[TheData]
+		"PSS.PSSList" : PSS.PSSList = AllData[TheData]
 	save.close()
 
 #New Game -> To start a new game, replacing all values for default

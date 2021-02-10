@@ -32,4 +32,4 @@ func loadTexture(TextureToLoad) :
 	TextureToLoad.texture = TextureFight
 
 #Others
-export (String) var RivalName = "Test"
+export (String) var RivalName

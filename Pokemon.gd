@@ -14,6 +14,35 @@ func CheckLvlUp(ThePokemon,ExpWin) :
 func CheckExpWin(ThePokemon) :
 	return (ThePokemon.Lvl/7) *  ThePokemon.BaseLvl
 
+#Ressources about pokemons
+func GetNumberPokedex(Name) :
+	match Name :
+		"Bulbizarre" : return 1
+		"Herbizarre" : return 2
+		"Florizarre" : return 3
+		"Salameche" : return 4
+		"Reptincel" : return 5
+		"Dracaufeu" : return 6
+		"Carapuce" : return 7
+		"Carabaffe" : return 8
+		"Tortank" : return 9
+		"Chenipan" : return 10
+		"Chrysacier" : return 11
+		"Papilusion" : return 12
+		"Aspicot" : return 13
+		"Coconfort" : return 14
+		"Dardagnan" : return 15
+		"Roucool" : return 16
+		"Roucoups" : return 17
+		"Roucarnage" : return 18
+		"Rattata" : return 19
+		"Rattatac" : return 20
+#Images
+func GetImageFront(Name) : if Name != null : return load("res://img Pokemon/All Pokemon/Front/"+str(GetNumberPokedex(Name))+".png")
+func GetImageBack(Name) : if Name != null : return load("res://img Pokemon/All Pokemon/back/"+str(GetNumberPokedex(Name))+".png")
+func GetImageOverworld(Name) : if Name != null : return load("res://img Pokemon/All Pokemon/Overworld/"+str(GetNumberPokedex(Name))+".png")
+func GetImageType(Type) : if Type != null : return load("res://img Pokemon/All Type/"+str(Type)+".png")
+
 # All Pokemon in order with all informations -> extends into PlayerPokemon and EnnemiPokemon
 #1
 class Bulbizarre :

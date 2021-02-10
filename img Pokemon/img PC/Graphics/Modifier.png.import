@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/9.png-b1cd656c659027882d09c7c233dbcc84.stex"
+path="res://.import/Modifier.png-4ee521f72cb800539c7d26c6e04c1144.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://img Pokemon/9.png"
-dest_files=[ "res://.import/9.png-b1cd656c659027882d09c7c233dbcc84.stex" ]
+source_file="res://img Pokemon/img PC/Graphics/Modifier.png"
+dest_files=[ "res://.import/Modifier.png-4ee521f72cb800539c7d26c6e04c1144.stex" ]
 
 [params]
 

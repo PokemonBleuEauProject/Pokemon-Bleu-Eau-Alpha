@@ -38,6 +38,7 @@ func VerifyPokemon() :
 		PG.NodePositionPath = "LastPosition"
 #		FIGHT
 		UIFight.IsFightLaunch = true
+		UIFight.CantPassTxt = false
 		loadParameters(ListPokemon[Random].Name,ListPokemon[Random].Lvl)
 		animationFight.play("LaunchingFight")
 		yield(animationFight,"animation_finished")
@@ -48,7 +49,7 @@ func VerifyPokemon() :
 
 func loadParameters(ThePokemon,TheLvl) :
 #	Pokemon
-	EG.Pokemon1 = {Name = ThePokemon, Lvl = TheLvl, Hp = null, MaxHp = null, Exp = null, Attaque1 = null, Attaque2 = null,Attaque3 = null,Attaque4 = null, ActualPPAttaque1 = null, ActualPPAttaque2 = null,ActualPPAttaque3 = null,ActualPPAttaque4 = null}
+	EG.Pokemon1 = {Name = ThePokemon, Lvl = TheLvl, Hp = null, MaxHp = null, Exp = null, Attaque1 = null, Attaque2 = null,Attaque3 = null,Attaque4 = null, ActualPPAttaque1 = null, ActualPPAttaque2 = null,ActualPPAttaque3 = null,ActualPPAttaque4 = null,Puissance = null,Defense = null,AttaqueSpecial = null,DefenseSpecial = null,Vitesse = null}
 #	Information
 	EG.EnnemiName = ""
 	UIFight.TypeOfFight = "Savage"
