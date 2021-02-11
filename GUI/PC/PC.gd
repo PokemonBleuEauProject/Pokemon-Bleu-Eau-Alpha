@@ -1,11 +1,18 @@
 extends Control
 
+#Controls Variables
 var displayStats = false
 var displayDetails = false
 var disableDetails = false
+var confirmationDialog = false
+#Pokemons Variables
 var ThePokemonFocused = null
-var ThePokemonSelected = null
+var TheFirstPokemonSelected = null
+var TheSecondPokemonSelected = null
+var TheNameFirstPokemonSelected = null
+var TheNameSecondPokemonSelected = null
 var ChangeActivated = false
+
 
 func _ready():
 	ThePokemonFocused = null
@@ -18,11 +25,23 @@ func _input(event):
 		var focused = get_focus_owner()
 		if focused is ButtonPokemonPC :
 			searchPokemonDictionnary(focused.DictionnaryToLoad)
-			if ThePokemonFocused != null : $Graphic/Modifier.visible = true
-			else : $Graphic/Modifier.visible = false
+			if ChangeActivated : 
+				TheNameSecondPokemonSelected = focused.DictionnaryToLoad
+				TheSecondPokemonSelected = ThePokemonFocused
+				confirmationDialog = true
+				$ConfirmDialog.popup()
+				ChangeActivated = false
+				$Graphic/Modifier.texture_normal = load("res://img Pokemon/img PC/Graphics/Modifier.png")
+			elif ThePokemonFocused != null : 
+				TheNameFirstPokemonSelected = focused.DictionnaryToLoad
+				$Graphic/Modifier.visible = true
+				$Graphic/Details.visible = true
+			else : 
+				TheNameFirstPokemonSelected = focused.DictionnaryToLoad
+				$Graphic/Modifier.visible = false
+				$Graphic/Details.visible = false
 			LoadAllParameterFocus()
-	elif Input.is_action_just_pressed("ui_accept") :
-		ThePokemonSelected = ThePokemonFocused
+
 #Graphic and Stats informations
 func LoadAllParameterFocus() :
 	if ThePokemonFocused == null : 
@@ -71,7 +90,7 @@ func LoadAllImages() :
 	for x in range(1,16) :
 		for y in range(1,5) :
 			PokemonNumberNode = PokemonNumberNode + 1
-			PokemonNode = get_node("/root/PC-GUI/AllPokemon/VBoxContainer/"+str(x)+"/Pokemon"+str(PokemonNumberNode)+"/Image")
+			PokemonNode = get_node(PG.ActualScene + "/GUITotal/PC-GUI/AllPokemon/VBoxContainer/"+str(x)+"/Pokemon"+str(PokemonNumberNode)+"/Image")
 			searchPokemonDictionnary(PokemonNode.DictionnaryToLoad)
 			if ThePokemonFocused == null : 
 				PokemonNode.texture_normal = null
@@ -153,6 +172,76 @@ func searchPokemonDictionnary(Name) :
 func UnLoad() :
 	$Graphic/ImageInfo/PokemonImage.texture = null
 
+#Scripts Functions for changing pokemon
+func setPokemonDictionnary(Name,Dico) :
+	match Name :
+		"PG.Pokemon1" : PG.Pokemon1 = Dico
+		"PG.Pokemon2" : PG.Pokemon2 = Dico
+		"PG.Pokemon3" : PG.Pokemon3 = Dico
+		"PG.Pokemon4" : PG.Pokemon4 = Dico
+		"PG.Pokemon5" : PG.Pokemon5 = Dico
+		"PG.Pokemon6" : PG.Pokemon6 = Dico
+		"PC.Pokemon1" : PSS.Pokemon1 = Dico
+		"PC.Pokemon2" : PSS.Pokemon2 = Dico
+		"PC.Pokemon3" : PSS.Pokemon3 = Dico
+		"PC.Pokemon4" : PSS.Pokemon4 = Dico
+		"PC.Pokemon5" : PSS.Pokemon5 = Dico
+		"PC.Pokemon6" : PSS.Pokemon6 = Dico
+		"PC.Pokemon7" : PSS.Pokemon7 = Dico
+		"PC.Pokemon8" : PSS.Pokemon8 = Dico
+		"PC.Pokemon9" : PSS.Pokemon9 = Dico
+		"PC.Pokemon10" : PSS.Pokemon10 = Dico
+		"PC.Pokemon11" : PSS.Pokemon11 = Dico
+		"PC.Pokemon12" : PSS.Pokemon12 = Dico
+		"PC.Pokemon13" : PSS.Pokemon13 = Dico
+		"PC.Pokemon14" : PSS.Pokemon14 = Dico
+		"PC.Pokemon15" : PSS.Pokemon15 = Dico
+		"PC.Pokemon16" : PSS.Pokemon16 = Dico
+		"PC.Pokemon17" : PSS.Pokemon17 = Dico
+		"PC.Pokemon18" : PSS.Pokemon18 = Dico
+		"PC.Pokemon19" : PSS.Pokemon19 = Dico
+		"PC.Pokemon20" : PSS.Pokemon20 = Dico
+		"PC.Pokemon21" : PSS.Pokemon21 = Dico
+		"PC.Pokemon22" : PSS.Pokemon22 = Dico
+		"PC.Pokemon23" : PSS.Pokemon23 = Dico
+		"PC.Pokemon24" : PSS.Pokemon24 = Dico
+		"PC.Pokemon25" : PSS.Pokemon25 = Dico
+		"PC.Pokemon26" : PSS.Pokemon26 = Dico
+		"PC.Pokemon27" : PSS.Pokemon27 = Dico
+		"PC.Pokemon28" : PSS.Pokemon28 = Dico
+		"PC.Pokemon29" : PSS.Pokemon29 = Dico
+		"PC.Pokemon30" : PSS.Pokemon30 = Dico
+		"PC.Pokemon31" : PSS.Pokemon31 = Dico
+		"PC.Pokemon32" : PSS.Pokemon32 = Dico
+		"PC.Pokemon33" : PSS.Pokemon33 = Dico
+		"PC.Pokemon34" : PSS.Pokemon34 = Dico
+		"PC.Pokemon35" : PSS.Pokemon35 = Dico
+		"PC.Pokemon36" : PSS.Pokemon36 = Dico
+		"PC.Pokemon37" : PSS.Pokemon37 = Dico
+		"PC.Pokemon38" : PSS.Pokemon38 = Dico
+		"PC.Pokemon39" : PSS.Pokemon39 = Dico
+		"PC.Pokemon40" : PSS.Pokemon40 = Dico
+		"PC.Pokemon41" : PSS.Pokemon41 = Dico
+		"PC.Pokemon42" : PSS.Pokemon42 = Dico
+		"PC.Pokemon43" : PSS.Pokemon43 = Dico
+		"PC.Pokemon44" : PSS.Pokemon44 = Dico
+		"PC.Pokemon45" : PSS.Pokemon45 = Dico
+		"PC.Pokemon46" : PSS.Pokemon46 = Dico
+		"PC.Pokemon47" : PSS.Pokemon47 = Dico
+		"PC.Pokemon48" : PSS.Pokemon48 = Dico
+		"PC.Pokemon49" : PSS.Pokemon49 = Dico
+		"PC.Pokemon50" : PSS.Pokemon50 = Dico
+		"PC.Pokemon51" : PSS.Pokemon51 = Dico
+		"PC.Pokemon52" : PSS.Pokemon52 = Dico
+		"PC.Pokemon53" : PSS.Pokemon53 = Dico
+		"PC.Pokemon54" : PSS.Pokemon54 = Dico
+		"PC.Pokemon55" : PSS.Pokemon55 = Dico
+		"PC.Pokemon56" : PSS.Pokemon56 = Dico
+		"PC.Pokemon57" : PSS.Pokemon57 = Dico
+		"PC.Pokemon58" : PSS.Pokemon58 = Dico
+		"PC.Pokemon59" : PSS.Pokemon59 = Dico
+		"PC.Pokemon60" : PSS.Pokemon60 = Dico
+
 #UI BUTTON FOR EXITING, DISPLAY AND OTHERS
 func _on_Details_pressed():
 	if disableDetails : pass
@@ -170,7 +259,36 @@ func _on_LeaveDetails_pressed():
 	displayDetails = false
 	$Donnee.hide()
 func _on_OutsideButton_pressed():
-	self.visible = false
+	if PG.Pokemon1 == null : $Warning.popup()
+	else :
+		self.visible = false
+		get_tree().paused = false
+		Save.saveGame(false)
 func _on_Modifier_pressed():
-	ChangeActivated = true
-	ThePokemonSelected = ThePokemonFocused
+	if ChangeActivated : 
+		UnLoad()
+		$ConfirmDialog.visible = false
+		$Graphic/Modifier.visible = false
+		ChangeActivated = false
+		TheFirstPokemonSelected = null
+		TheSecondPokemonSelected = null
+		$Graphic/Modifier.texture_normal = load("res://img Pokemon/img PC/Graphics/Modifier.png")
+	else : 
+		$Graphic/Modifier.texture_normal = load("res://img Pokemon/img PC/Graphics/ModifierConfirm.png")
+		ChangeActivated = true
+		TheFirstPokemonSelected = ThePokemonFocused
+func _on_ConfirmDialog_confirmed():
+	if confirmationDialog :
+		setPokemonDictionnary(TheNameFirstPokemonSelected,TheSecondPokemonSelected)
+		setPokemonDictionnary(TheNameSecondPokemonSelected,TheFirstPokemonSelected)
+		LoadAllImages()
+		Save.saveGame(false)
+		confirmationDialog = false
+		ChangeActivated = false
+		TheFirstPokemonSelected = null
+		TheSecondPokemonSelected = null
+	else : 
+		confirmationDialog = false
+		ChangeActivated = false
+		TheFirstPokemonSelected = null
+		TheSecondPokemonSelected = null
