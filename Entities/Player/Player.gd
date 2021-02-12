@@ -9,7 +9,6 @@ func _ready():
 
 func _process(_delta):
 	PG.Last_position = GetActualPosition()
-#	print(PG.Last_position)
 
 #PROCESS ABOUT PHYSIC AND ANIMATION
 

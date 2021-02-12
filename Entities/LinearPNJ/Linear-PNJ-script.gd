@@ -86,7 +86,6 @@ func _on_Area2D_body_entered(body):
 				PG.ActualScene = "/root/FightScene"
 				yield(animationFight,"animation_finished")
 				PG.UnUsed = get_tree().change_scene("res://Fight/FightScene.tscn")
-
 func _on_Area2D2_body_entered(body):
 	if (body == player) :
 		LaunchFight()

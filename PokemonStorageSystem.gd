@@ -97,7 +97,9 @@ func PssList() :
 	return PSSList
 
 func CheckFreeDico() :
+	var c = 0
+	PG.UnUsed = PssList()
 	for x in PSSList :
-		if x == null : 
-#			Insert code here
-			break
+		c = c + 1
+		if x == null :
+			return c

@@ -125,7 +125,6 @@ func ChangePokemon(Number) :
 			PokemonPlayer = Pokemon.List[x].new()
 	#	Load all settings of the personnal pokemon
 	loadSettings(PG.Pokemon1)
-	
 
 func FirstPokemonAssignement(Pokemon1) :
 	for x in Pokemon.List :

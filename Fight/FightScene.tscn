@@ -1,4 +1,4 @@
-[gd_scene load_steps=205 format=2]
+[gd_scene load_steps=204 format=2]
 
 [ext_resource path="res://Fight/UIListPokemon/UIListPokemon.gd" type="Script" id=1]
 [ext_resource path="res://Fight/UIAction/UIAction.tscn" type="PackedScene" id=2]
@@ -16,7 +16,6 @@
 [ext_resource path="res://img Pokemon/img Fight/Graphique/PlayerImg/PlayerLaunchPokemon3.png" type="Texture" id=14]
 [ext_resource path="res://img Pokemon/img Fight/Graphique/PlayerImg/PlayerLaunchPokemon2.png" type="Texture" id=15]
 [ext_resource path="res://img Pokemon/img Fight/Graphique/PlayerImg/PlayerLaunchPokemon4.png" type="Texture" id=16]
-[ext_resource path="res://Fight/AnimationPlayer.gd" type="Script" id=17]
 [ext_resource path="res://img Pokemon/img Fight/Graphique/CercleFightWhite.png" type="Texture" id=18]
 [ext_resource path="res://img Pokemon/img Fight/Graphique/Pokeball.png" type="Texture" id=19]
 [ext_resource path="res://img Pokemon/img Fight/Graphique/PokeballOpen.png" type="Texture" id=20]
@@ -6098,7 +6097,7 @@ tracks/1/keys = {
 "values": [ Vector2( 770, 150 ), Vector2( 750, 150 ), Vector2( 770, 150 ), Vector2( 790, 150 ), Vector2( 770, 150 ), Vector2( 750, 150 ), Vector2( 770, 150 ) ]
 }
 
-[sub_resource type="Animation" id=115]
+[sub_resource type="Animation" id=59]
 resource_name = "Feu d'Enfer"
 length = 2.0
 tracks/0/type = "value"
@@ -6198,7 +6197,7 @@ tracks/7/keys = {
 "values": [ Vector2( 770, 150 ), Vector2( 790, 150 ), Vector2( 770, 150 ), Vector2( 790, 150 ), Vector2( 770, 150 ) ]
 }
 
-[sub_resource type="Animation" id=116]
+[sub_resource type="Animation" id=60]
 resource_name = "Feu d'Enfer E"
 length = 2.0
 tracks/0/type = "value"
@@ -6298,7 +6297,7 @@ tracks/7/keys = {
 "values": [ Vector2( 315, 365 ), Vector2( 330, 365 ), Vector2( 315, 365 ), Vector2( 330, 365 ), Vector2( 315, 365 ), Vector2( 330, 365 ), Vector2( 315, 365 ), Vector2( 330, 365 ), Vector2( 315, 365 ) ]
 }
 
-[sub_resource type="Animation" id=59]
+[sub_resource type="Animation" id=61]
 length = 2.8
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
@@ -6529,7 +6528,7 @@ tracks/18/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=60]
+[sub_resource type="Animation" id=62]
 length = 2.8
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
@@ -6760,7 +6759,7 @@ tracks/18/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=61]
+[sub_resource type="Animation" id=63]
 length = 1.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("PokemonPlayer:position")
@@ -6907,7 +6906,7 @@ tracks/11/keys = {
 "values": [ Vector2( 125, 125 ) ]
 }
 
-[sub_resource type="Animation" id=62]
+[sub_resource type="Animation" id=64]
 length = 1.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
@@ -7066,7 +7065,7 @@ tracks/12/keys = {
 "values": [ Vector2( 1.5, 1.5 ), Vector2( 1.5, 1.5 ), Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=63]
+[sub_resource type="Animation" id=65]
 length = 1.8
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
@@ -7273,7 +7272,7 @@ tracks/16/keys = {
 "values": [ Color( 1, 1, 1, 0.999998 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.999998 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.999998 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.999998 ) ]
 }
 
-[sub_resource type="Animation" id=64]
+[sub_resource type="Animation" id=66]
 length = 1.8
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
@@ -7516,7 +7515,7 @@ tracks/19/keys = {
 "values": [ Vector2( 315, 365 ), Vector2( 335, 365 ), Vector2( 315, 365 ), Vector2( 335, 365 ), Vector2( 315, 365 ), Vector2( 335, 365 ), Vector2( 315, 365 ) ]
 }
 
-[sub_resource type="Animation" id=65]
+[sub_resource type="Animation" id=67]
 length = 1.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
@@ -7603,7 +7602,7 @@ tracks/6/keys = {
 "values": [ Vector2( 150, 150 ) ]
 }
 
-[sub_resource type="Animation" id=66]
+[sub_resource type="Animation" id=68]
 length = 1.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
@@ -7690,8 +7689,7 @@ tracks/6/keys = {
 "values": [ Vector2( 150, 150 ) ]
 }
 
-[sub_resource type="Animation" id=67]
-resource_name = "Hydrocanon"
+[sub_resource type="Animation" id=69]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("BG/SpecialBG:texture")
@@ -7850,8 +7848,7 @@ tracks/12/keys = {
 "values": [ Vector2( 200, 150 ) ]
 }
 
-[sub_resource type="Animation" id=68]
-resource_name = "Hydrocanon E"
+[sub_resource type="Animation" id=70]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("BG/SpecialBG:texture")
@@ -8010,7 +8007,7 @@ tracks/12/keys = {
 "values": [ Vector2( 200, 150 ) ]
 }
 
-[sub_resource type="Animation" id=69]
+[sub_resource type="Animation" id=71]
 length = 2.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
@@ -8181,7 +8178,7 @@ tracks/13/keys = {
 "values": [ Vector2( 280, 100 ) ]
 }
 
-[sub_resource type="Animation" id=70]
+[sub_resource type="Animation" id=72]
 length = 2.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
@@ -8352,7 +8349,7 @@ tracks/13/keys = {
 "values": [ Vector2( 280, 100 ) ]
 }
 
-[sub_resource type="Animation" id=71]
+[sub_resource type="Animation" id=73]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
@@ -8547,7 +8544,7 @@ tracks/15/keys = {
 "values": [ Color( 1, 1, 1, 0.999998 ), Color( 0.662745, 0.180392, 0.878431, 1 ), Color( 1, 1, 1, 0.999998 ), Color( 0.917647, 0.27451, 0.803922, 1 ), Color( 1, 1, 1, 0.999998 ), Color( 0.74902, 0.113725, 0.901961, 1 ), Color( 1, 1, 1, 0.999998 ) ]
 }
 
-[sub_resource type="Animation" id=72]
+[sub_resource type="Animation" id=74]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
@@ -8742,7 +8739,7 @@ tracks/15/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 0.760784, 0.0862745, 0.901961, 1 ), Color( 1, 1, 1, 1 ), Color( 0.662745, 0.0588235, 0.74902, 1 ), Color( 1, 1, 1, 1 ), Color( 0.792157, 0.0823529, 0.698039, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=73]
+[sub_resource type="Animation" id=75]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:visible")
@@ -8853,7 +8850,7 @@ tracks/8/keys = {
 "values": [ Vector2( 633, 186 ), Vector2( 633, 186 ) ]
 }
 
-[sub_resource type="Animation" id=74]
+[sub_resource type="Animation" id=76]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:visible")
@@ -8964,7 +8961,7 @@ tracks/8/keys = {
 "values": [ Vector2( 633, 186 ) ]
 }
 
-[sub_resource type="Animation" id=111]
+[sub_resource type="Animation" id=77]
 resource_name = "Lance-Soleil"
 length = 1.5
 tracks/0/type = "value"
@@ -9160,7 +9157,7 @@ tracks/15/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=112]
+[sub_resource type="Animation" id=78]
 resource_name = "Lance-Soleil 2"
 length = 2.0
 tracks/0/type = "value"
@@ -9320,7 +9317,7 @@ tracks/12/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=75]
+[sub_resource type="Animation" id=79]
 length = 2.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("BG:modulate")
@@ -9491,7 +9488,7 @@ tracks/13/keys = {
 "values": [ Color( 1, 0.999998, 0.999998, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 0.999998, 0.999998, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 0.999998, 0.999998, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 0.999998, 0.999998, 1 ) ]
 }
 
-[sub_resource type="Animation" id=76]
+[sub_resource type="Animation" id=80]
 length = 2.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("BG:modulate")
@@ -9662,7 +9659,7 @@ tracks/13/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=77]
+[sub_resource type="Animation" id=81]
 length = 2.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("PokemonPlayer:position")
@@ -9689,7 +9686,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0.403922, 0.403922, 0.917647, 1 ), Color( 0, 0.392157, 1, 1 ), Color( 0.392157, 0.392157, 0.686275, 1 ), Color( 0, 0.392157, 1, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=78]
+[sub_resource type="Animation" id=82]
 length = 2.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("PokemonEnnemi:position")
@@ -9716,7 +9713,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0, 0.0196078, 1, 1 ), Color( 0.176471, 0.556863, 0.862745, 1 ), Color( 0.223529, 0.235294, 0.815686, 1 ), Color( 0.196078, 0, 1, 1 ), Color( 0.12549, 0.133333, 0.482353, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=79]
+[sub_resource type="Animation" id=83]
 length = 1.7
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
@@ -9887,7 +9884,7 @@ tracks/13/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=80]
+[sub_resource type="Animation" id=84]
 length = 1.7
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
@@ -10058,7 +10055,7 @@ tracks/13/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=81]
+[sub_resource type="Animation" id=85]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:visible")
@@ -10169,7 +10166,7 @@ tracks/8/keys = {
 "values": [ Vector2( 200, 200 ) ]
 }
 
-[sub_resource type="Animation" id=82]
+[sub_resource type="Animation" id=86]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:visible")
@@ -10280,7 +10277,7 @@ tracks/8/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=113]
+[sub_resource type="Animation" id=87]
 resource_name = "Pique"
 tracks/0/type = "value"
 tracks/0/path = NodePath("PokemonPlayer:position")
@@ -10319,7 +10316,7 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 0.988235, 0.654902, 1 ), Color( 1, 0.988235, 0.654902, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=114]
+[sub_resource type="Animation" id=88]
 resource_name = "Pique 2"
 length = 3.0
 tracks/0/type = "value"
@@ -10455,7 +10452,7 @@ tracks/10/keys = {
 "values": [ Vector2( 770, 150 ), Vector2( 790, 150 ), Vector2( 770, 150 ), Vector2( 790, 150 ), Vector2( 770, 150 ), Vector2( 790, 150 ), Vector2( 770, 150 ) ]
 }
 
-[sub_resource type="Animation" id=83]
+[sub_resource type="Animation" id=89]
 length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
@@ -10686,7 +10683,7 @@ tracks/18/keys = {
 "values": [ Vector2( 110, 110 ) ]
 }
 
-[sub_resource type="Animation" id=84]
+[sub_resource type="Animation" id=90]
 length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
@@ -10917,7 +10914,7 @@ tracks/18/keys = {
 "values": [ Vector2( 110, 110 ) ]
 }
 
-[sub_resource type="Animation" id=85]
+[sub_resource type="Animation" id=91]
 length = 1.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
@@ -11148,7 +11145,7 @@ tracks/18/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 0.772549, 0.0784314, 0.964706, 1 ), Color( 1, 1, 1, 1 ), Color( 0.737255, 0.0823529, 0.921569, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=86]
+[sub_resource type="Animation" id=92]
 length = 1.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
@@ -11379,7 +11376,7 @@ tracks/18/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 0.654902, 0.0705882, 0.921569, 1 ), Color( 1, 1, 1, 1 ), Color( 0.647059, 0.0823529, 0.933333, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=87]
+[sub_resource type="Animation" id=93]
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
 tracks/0/interp = 1
@@ -11609,7 +11606,7 @@ tracks/18/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=88]
+[sub_resource type="Animation" id=94]
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
 tracks/0/interp = 1
@@ -11839,7 +11836,7 @@ tracks/18/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=89]
+[sub_resource type="Animation" id=95]
 length = 1.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
@@ -11950,7 +11947,7 @@ tracks/8/keys = {
 "values": [ Vector2( 100, 80 ) ]
 }
 
-[sub_resource type="Animation" id=90]
+[sub_resource type="Animation" id=96]
 length = 1.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
@@ -12061,7 +12058,7 @@ tracks/8/keys = {
 "values": [ Vector2( 315, 365 ), Vector2( 330, 365 ), Vector2( 315, 365 ), Vector2( 330, 365 ), Vector2( 315, 365 ) ]
 }
 
-[sub_resource type="Animation" id=91]
+[sub_resource type="Animation" id=97]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
@@ -12268,7 +12265,7 @@ tracks/16/keys = {
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=92]
+[sub_resource type="Animation" id=98]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
@@ -12463,7 +12460,7 @@ tracks/15/keys = {
 "values": [ Vector2( 94, 79 ) ]
 }
 
-[sub_resource type="Animation" id=93]
+[sub_resource type="Animation" id=99]
 length = 2.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
@@ -12670,7 +12667,7 @@ tracks/16/keys = {
 "values": [ Color( 1, 1, 1, 0.999998 ), Color( 0.12549, 0.870588, 0.92549, 1 ), Color( 1, 1, 1, 0.999998 ), Color( 0.203922, 0.721569, 0.976471, 1 ), Color( 1, 1, 1, 0.999998 ), Color( 0.141176, 0.886275, 0.764706, 1 ), Color( 1, 1, 1, 0.999998 ) ]
 }
 
-[sub_resource type="Animation" id=94]
+[sub_resource type="Animation" id=100]
 length = 2.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
@@ -12877,7 +12874,7 @@ tracks/16/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 0.00392157, 0.858824, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0.454902, 1, 0.921569, 1 ), Color( 1, 1, 1, 1 ), Color( 0.407843, 0.705882, 1, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=95]
+[sub_resource type="Animation" id=101]
 length = 2.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
@@ -12976,7 +12973,7 @@ tracks/7/keys = {
 "values": [ Color( 1, 0.999998, 0.999998, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 0.999998, 0.999998, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 0.999998, 0.999998, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 0.999998, 0.999998, 1 ) ]
 }
 
-[sub_resource type="Animation" id=96]
+[sub_resource type="Animation" id=102]
 length = 2.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
@@ -13075,7 +13072,7 @@ tracks/7/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=97]
+[sub_resource type="Animation" id=103]
 length = 4.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
@@ -13294,7 +13291,7 @@ tracks/17/keys = {
 "values": [ Vector2( 256, 256 ) ]
 }
 
-[sub_resource type="Animation" id=98]
+[sub_resource type="Animation" id=104]
 length = 4.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
@@ -13501,7 +13498,7 @@ tracks/16/keys = {
 "values": [ Vector2( 256, 256 ) ]
 }
 
-[sub_resource type="Animation" id=99]
+[sub_resource type="Animation" id=105]
 length = 1.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
@@ -13600,7 +13597,7 @@ tracks/7/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=100]
+[sub_resource type="Animation" id=106]
 length = 1.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
@@ -13699,7 +13696,7 @@ tracks/7/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=101]
+[sub_resource type="Animation" id=107]
 length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
@@ -13918,7 +13915,7 @@ tracks/17/keys = {
 "values": [ Vector2( 50, 45 ) ]
 }
 
-[sub_resource type="Animation" id=102]
+[sub_resource type="Animation" id=108]
 length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
@@ -14137,7 +14134,7 @@ tracks/17/keys = {
 "values": [ Vector2( 50, 45 ) ]
 }
 
-[sub_resource type="Animation" id=103]
+[sub_resource type="Animation" id=109]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("BG:color")
@@ -14368,7 +14365,7 @@ tracks/18/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 0.25, 0.25 ), Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=104]
+[sub_resource type="Animation" id=110]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("BG:color")
@@ -14599,7 +14596,7 @@ tracks/18/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 0.25, 0.25 ), Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=105]
+[sub_resource type="Animation" id=111]
 length = 2.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("BG/SpecialBG:texture")
@@ -14722,7 +14719,7 @@ tracks/9/keys = {
 "values": [ Vector2( 164, 164 ) ]
 }
 
-[sub_resource type="Animation" id=106]
+[sub_resource type="Animation" id=112]
 length = 2.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("BG/SpecialBG:texture")
@@ -14845,7 +14842,7 @@ tracks/9/keys = {
 "values": [ Vector2( 164, 164 ) ]
 }
 
-[sub_resource type="Animation" id=107]
+[sub_resource type="Animation" id=113]
 tracks/0/type = "value"
 tracks/0/path = NodePath("PokemonPlayer:position")
 tracks/0/interp = 1
@@ -14883,7 +14880,7 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 0.999998 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.999998 ), Color( 1, 1, 1, 0.999998 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.999998 ) ]
 }
 
-[sub_resource type="Animation" id=108]
+[sub_resource type="Animation" id=114]
 tracks/0/type = "value"
 tracks/0/path = NodePath("PokemonPlayer:modulate")
 tracks/0/interp = 1
@@ -14921,7 +14918,7 @@ tracks/2/keys = {
 "values": [ Vector2( 770, 150 ), Vector2( 650, 180 ), Vector2( 770, 150 ) ]
 }
 
-[sub_resource type="Animation" id=109]
+[sub_resource type="Animation" id=115]
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
 tracks/0/interp = 1
@@ -15007,7 +15004,7 @@ tracks/6/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 0.25, 1 ), Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=110]
+[sub_resource type="Animation" id=116]
 tracks/0/type = "value"
 tracks/0/path = NodePath("AttaqueAnimation/Texture1:texture")
 tracks/0/interp = 1
@@ -15255,7 +15252,6 @@ frames = SubResource( 7 )
 animation = "LaunchPokemon"
 
 [node name="Pokeball" type="Sprite" parent="Player"]
-visible = false
 position = Vector2( 370.727, -168.218 )
 texture = ExtResource( 19 )
 
@@ -15281,6 +15277,7 @@ __meta__ = {
 }
 
 [node name="PokemonEnnemi" type="Sprite" parent="."]
+visible = false
 position = Vector2( 770, 150 )
 scale = Vector2( 3.5, 3.5 )
 texture = ExtResource( 59 )
@@ -15307,7 +15304,6 @@ anims/LaunchFight-Savage-EnterTree = SubResource( 21 )
 anims/LeaveMenuPokemon = SubResource( 22 )
 anims/PokemonDead-Ennemi-Normal = SubResource( 23 )
 anims/PokemonDead-Player-Normal = SubResource( 24 )
-script = ExtResource( 17 )
 
 [node name="ChangePokemon" type="ColorRect" parent="AnimationPlayer"]
 visible = false
@@ -15383,64 +15379,64 @@ anims/Ecume = SubResource( 55 )
 "anims/Ecume E" = SubResource( 56 )
 anims/Empoisonne = SubResource( 57 )
 "anims/Empoisonne E" = SubResource( 58 )
-"anims/Feu d'Enfer" = SubResource( 115 )
-"anims/Feu d'Enfer E" = SubResource( 116 )
-anims/Flammeche = SubResource( 59 )
-"anims/Flammeche E" = SubResource( 60 )
-"anims/Fouet Lianes" = SubResource( 61 )
-"anims/Fouet Lianes E" = SubResource( 62 )
-anims/Furie = SubResource( 63 )
-"anims/Furie E" = SubResource( 64 )
-anims/Griffe = SubResource( 65 )
-"anims/Griffe E" = SubResource( 66 )
-anims/Hydrocanon = SubResource( 67 )
-"anims/Hydrocanon E" = SubResource( 68 )
-anims/Hydroqueue = SubResource( 69 )
-"anims/Hydroqueue E" = SubResource( 70 )
-"anims/Jet de sable" = SubResource( 71 )
-"anims/Jet de sable E" = SubResource( 72 )
-"anims/Lance Flamme" = SubResource( 73 )
-"anims/Lance Flamme E" = SubResource( 74 )
-anims/Lance-Soleil = SubResource( 111 )
-"anims/Lance-Soleil 2" = SubResource( 112 )
-anims/Machouille = SubResource( 75 )
-"anims/Machouille E" = SubResource( 76 )
-"anims/Mimi Queue" = SubResource( 77 )
-"anims/Mimi Queue E" = SubResource( 78 )
-anims/Morsure = SubResource( 79 )
-"anims/Morsure E" = SubResource( 80 )
-anims/Ouragan = SubResource( 81 )
-"anims/Ouragan E" = SubResource( 82 )
-anims/Pique = SubResource( 113 )
-"anims/Pique 2" = SubResource( 114 )
-"anims/Pistolet a O" = SubResource( 83 )
-"anims/Pistolet a O E" = SubResource( 84 )
-"anims/Poudre Toxik" = SubResource( 85 )
-"anims/Poudre Toxik E" = SubResource( 86 )
-anims/Puissance = SubResource( 87 )
-"anims/Puissance E" = SubResource( 88 )
-"anims/Rebondi Feu" = SubResource( 89 )
-"anims/Rebondi Feu E" = SubResource( 90 )
-anims/Rugissement = SubResource( 91 )
-"anims/Rugissement E" = SubResource( 92 )
-anims/Secretion = SubResource( 93 )
-"anims/Secretion E" = SubResource( 94 )
-anims/Tornade = SubResource( 95 )
-"anims/Tornade E" = SubResource( 96 )
-anims/Tranch'Herbe = SubResource( 97 )
-"anims/Tranch'Herbe E" = SubResource( 98 )
-anims/UseVol = SubResource( 99 )
-anims/UseVolE = SubResource( 100 )
-anims/Vampigraine = SubResource( 101 )
-"anims/Vampigraine E" = SubResource( 102 )
-anims/VampigraineDrain = SubResource( 103 )
-"anims/VampigraineDrain E" = SubResource( 104 )
-anims/Vibraqua = SubResource( 105 )
-"anims/Vibraqua E" = SubResource( 106 )
-"anims/Vive Attaque" = SubResource( 107 )
-"anims/Vive Attaque E" = SubResource( 108 )
-anims/Vol = SubResource( 109 )
-"anims/Vol E" = SubResource( 110 )
+"anims/Feu d'Enfer" = SubResource( 59 )
+"anims/Feu d'Enfer E" = SubResource( 60 )
+anims/Flammeche = SubResource( 61 )
+"anims/Flammeche E" = SubResource( 62 )
+"anims/Fouet Lianes" = SubResource( 63 )
+"anims/Fouet Lianes E" = SubResource( 64 )
+anims/Furie = SubResource( 65 )
+"anims/Furie E" = SubResource( 66 )
+anims/Griffe = SubResource( 67 )
+"anims/Griffe E" = SubResource( 68 )
+anims/Hydrocanon = SubResource( 69 )
+"anims/Hydrocanon E" = SubResource( 70 )
+anims/Hydroqueue = SubResource( 71 )
+"anims/Hydroqueue E" = SubResource( 72 )
+"anims/Jet de sable" = SubResource( 73 )
+"anims/Jet de sable E" = SubResource( 74 )
+"anims/Lance Flamme" = SubResource( 75 )
+"anims/Lance Flamme E" = SubResource( 76 )
+anims/Lance-Soleil = SubResource( 77 )
+"anims/Lance-Soleil 2" = SubResource( 78 )
+anims/Machouille = SubResource( 79 )
+"anims/Machouille E" = SubResource( 80 )
+"anims/Mimi Queue" = SubResource( 81 )
+"anims/Mimi Queue E" = SubResource( 82 )
+anims/Morsure = SubResource( 83 )
+"anims/Morsure E" = SubResource( 84 )
+anims/Ouragan = SubResource( 85 )
+"anims/Ouragan E" = SubResource( 86 )
+anims/Pique = SubResource( 87 )
+"anims/Pique 2" = SubResource( 88 )
+"anims/Pistolet a O" = SubResource( 89 )
+"anims/Pistolet a O E" = SubResource( 90 )
+"anims/Poudre Toxik" = SubResource( 91 )
+"anims/Poudre Toxik E" = SubResource( 92 )
+anims/Puissance = SubResource( 93 )
+"anims/Puissance E" = SubResource( 94 )
+"anims/Rebondi Feu" = SubResource( 95 )
+"anims/Rebondi Feu E" = SubResource( 96 )
+anims/Rugissement = SubResource( 97 )
+"anims/Rugissement E" = SubResource( 98 )
+anims/Secretion = SubResource( 99 )
+"anims/Secretion E" = SubResource( 100 )
+anims/Tornade = SubResource( 101 )
+"anims/Tornade E" = SubResource( 102 )
+anims/Tranch'Herbe = SubResource( 103 )
+"anims/Tranch'Herbe E" = SubResource( 104 )
+anims/UseVol = SubResource( 105 )
+anims/UseVolE = SubResource( 106 )
+anims/Vampigraine = SubResource( 107 )
+"anims/Vampigraine E" = SubResource( 108 )
+anims/VampigraineDrain = SubResource( 109 )
+"anims/VampigraineDrain E" = SubResource( 110 )
+anims/Vibraqua = SubResource( 111 )
+"anims/Vibraqua E" = SubResource( 112 )
+"anims/Vive Attaque" = SubResource( 113 )
+"anims/Vive Attaque E" = SubResource( 114 )
+anims/Vol = SubResource( 115 )
+"anims/Vol E" = SubResource( 116 )
 
 [node name="Black" type="ColorRect" parent="AttaqueAnimation"]
 visible = false
@@ -15498,26 +15494,14 @@ visible = false
 modulate = Color( 1, 1, 1, 0 )
 
 [node name="GameTime" parent="." instance=ExtResource( 53 )]
-[connection signal="ChangeEnnemiPokemon" from="UIFight" to="UIFight" method="_on_UIFight_ChangeEnnemiPokemon"]
-[connection signal="ChangeEnnemiPokemon" from="UIFight" to="AnimationPlayer" method="_on_UIFight_ChangeEnnemiPokemon"]
-[connection signal="ChangePokemon" from="UIFight" to="UIFight" method="_on_UIFight_ChangePokemon"]
-[connection signal="ChangePokemon" from="UIFight" to="AnimationPlayer" method="_on_UIFight_ChangePokemon"]
-[connection signal="EnterTreeAnimation" from="UIFight" to="UIListPokemonEnnemi" method="_on_UIFight_EnterTreeAnimation"]
-[connection signal="EnterTreeAnimation" from="UIFight" to="UIListPokemon" method="_on_UIFight_EnterTreeAnimation"]
-[connection signal="EnterTreeAnimation" from="UIFight" to="AnimationPlayer" method="_on_UIFight_EnterTreeAnimation"]
-[connection signal="EnterTreeAnimation2" from="UIFight" to="AnimationPlayer" method="_on_UIFight_EnterTreeAnimation2"]
-[connection signal="EnterTreeChangePokemon" from="UIFight" to="UIFight" method="_on_UIFight_EnterTreeChangePokemon"]
-[connection signal="EnterTreeChangePokemon" from="UIFight" to="AnimationPlayer" method="_on_UIFight_EnterTreeChangePokemon"]
-[connection signal="ChangePokemon" from="UIAction" to="AnimationPlayer" method="_on_UIAction_ChangePokemon"]
-[connection signal="ChangePokemonReturn" from="UIAction" to="AnimationPlayer" method="_on_UIAction_ChangePokemonReturn"]
 [connection signal="DisplayUIAttaque" from="UIAction" to="UIAttaque" method="DisplayUIAttaque"]
 [connection signal="DisplayUIPokemonBox" from="UIAction" to="UIPokemonBox" method="DisplayUIPokemonBox"]
 [connection signal="AboutLoadingValues" from="UIAttaque" to="UIPokemonBox" method="_on_UIAttaque_AboutLoadingValues"]
 [connection signal="AboutLoadingValues" from="UIAttaque" to="UIPokemonBoxEnnemi" method="_on_UIAttaque_AboutLoadingValues"]
 [connection signal="ChangeStatut" from="UIAttaque" to="UIPokemonBox" method="_on_UIAttaque_ChangeStatut"]
 [connection signal="ChangeStatutE" from="UIAttaque" to="UIPokemonBoxEnnemi" method="_on_UIAttaque_ChangeStatutE"]
-[connection signal="LoadValues" from="UIAttaque" to="PokemonPlayer" method="_on_UIAttaque_LoadValues"]
 [connection signal="LoadValues" from="UIAttaque" to="PokemonEnnemi" method="_on_UIAttaque_LoadValues"]
+[connection signal="LoadValues" from="UIAttaque" to="PokemonPlayer" method="_on_UIAttaque_LoadValues"]
 [connection signal="tree_entered" from="PokemonPlayer" to="PokemonPlayer" method="_on_PokemonPlayer_tree_entered"]
 [connection signal="tree_entered" from="PokemonEnnemi" to="PokemonEnnemi" method="_on_PokemonEnnemi_tree_entered"]
 [connection signal="catchapokemon" from="Bag" to="UIAction" method="_on_Bag_catchapokemon"]

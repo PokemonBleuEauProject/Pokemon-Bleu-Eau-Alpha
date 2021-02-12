@@ -38,6 +38,5 @@ func _on_UIAttaque_ChangeStatut(TheStatut):
 		$Statut.texture = null
 	else :
 		$Statut.texture = load("res://img Pokemon/img Animation/Animation - Statut/" + TheStatut + ".png")
-
 func _on_UIAttaque_AboutLoadingValues():
 	ActualLife = PokemonPlayer.PokemonPlayer.Hp
