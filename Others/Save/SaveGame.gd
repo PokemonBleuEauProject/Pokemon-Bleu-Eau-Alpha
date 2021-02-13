@@ -22,7 +22,8 @@ var AllData = {
 	"PG.Last_position" : PG.Last_position,
 	"PG.NodePositionPath" : PG.NodePositionPath,
 	"PG.ActualPlace" : PG.ActualPlace,
-	"PSS.PSSList" : PSS.PSSList}
+	"PSS.PSSList" : PSS.PSSList,
+	"PG.AllObject" : PG.AllObject}
 var DefaulValue = {
 	"PG.PlayerName" : "1",
 	"PG.Pokemon1" : null,
@@ -40,7 +41,12 @@ var DefaulValue = {
 	"PG.Last_position" : Vector2(0,0),
 	"PG.NodePositionPath" : "StartHouse1",
 	"PG.ActualPlace" : "Bourg-Palette",
-	"PSS.PSSList" : [null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null]}
+	"PSS.PSSList" : [null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],
+	"PG.AllObject" : { 
+		"NumberObject" : {Potion = 0,SuperPotion = 0,HyperPotion = 0,MaxPotion = 0,Guerison = 0,Rappel = 0,RappelMax = 0,Antidote = 0,AntiPara = 0,AntiBrule = 0,Reveil = 0,TotalSoin = 0,Elixir = 0,MaxElixir = 0,Huile = 0,MaxHuile = 0,Eau = 0,Soda = 0,Limonade = 0,Lait = 0,Pokeball = 0,SuperBall = 0,HyperBall = 0,ChronoBall = 0,FiletBall = 0,FaibloBall = 0,MasterBall = 0,Repousse = 0,SuperRepousse = 0},
+		"Unlock" : {
+		ChaussuresDeCourse = false,
+		OrbeMysterieuse = false}}}
 
 #Save Game -> Get all importants values and add the dictionnary to a file -> path = user://saves/save.txt
 func saveGame(restart) :
@@ -100,7 +106,8 @@ func saveData() :
 	"PG.Last_position" : PG.Last_position,
 	"PG.NodePositionPath" : "LastPosition",
 	"PG.ActualPlace" : PG.ActualPlace,
-	"PSS.PSSList" : PSS.PSSList
+	"PSS.PSSList" : PSS.PSSList,
+	"PG.AllObject" : PG.AllObject
 	}
 
 #Load Game -> Get Var in a file and load value in Dictionnary
@@ -136,6 +143,7 @@ func loadActualData(TheData) :
 		"PG.NodePositionPath" : PG.NodePositionPath = AllData[TheData]
 		"PG.ActualPlace" : PG.ActualPlace = AllData[TheData]
 		"PSS.PSSList" : PSS.PSSList = AllData[TheData]
+		"PG.AllObject" : PG.AllObject = AllData[TheData]
 	save.close()
 
 #New Game -> To start a new game, replacing all values for default

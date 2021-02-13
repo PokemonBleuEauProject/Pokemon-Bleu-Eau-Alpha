@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/386fr.png-0971bd8618c968f81b0c800debd6e313.stex"
+path="res://.import/384.png-0932f5b06bb6575fb8c8fbf25e2a477a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://img Pokemon/All Pokemon/Front/386fr.png"
-dest_files=[ "res://.import/386fr.png-0971bd8618c968f81b0c800debd6e313.stex" ]
+source_file="res://img Pokemon/All Pokemon/Overworld/384.png"
+dest_files=[ "res://.import/384.png-0932f5b06bb6575fb8c8fbf25e2a477a.stex" ]
 
 [params]
 

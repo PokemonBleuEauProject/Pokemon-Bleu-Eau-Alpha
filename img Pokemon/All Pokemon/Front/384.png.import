@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/386lg.png-291984ba1af569fcea295efadeb5602c.stex"
+path="res://.import/384.png-562a8bc1e22dae04608236256cf381d0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://img Pokemon/All Pokemon/Front/386lg.png"
-dest_files=[ "res://.import/386lg.png-291984ba1af569fcea295efadeb5602c.stex" ]
+source_file="res://img Pokemon/All Pokemon/Front/384.png"
+dest_files=[ "res://.import/384.png-562a8bc1e22dae04608236256cf381d0.stex" ]
 
 [params]
 

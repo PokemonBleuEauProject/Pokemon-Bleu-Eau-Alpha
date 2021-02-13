@@ -33,6 +33,7 @@ tracks/1/keys = {
 }
 
 [node name="Notification" type="Popup"]
+pause_mode = 2
 visible = true
 margin_left = 20.0
 margin_top = -70.0

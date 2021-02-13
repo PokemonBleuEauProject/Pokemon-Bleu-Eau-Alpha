@@ -57,8 +57,6 @@ func _input(_event) :
 	elif (Input.is_action_just_pressed("ui_accept") and ChangePokemon) :
 		match ActualPosition :
 			0 : 
-				$ChangeScene.play("Exit")
-				yield($ChangeScene,"animation_finished")
 				self.visible = false
 				get_tree().paused = false
 				ChangePokemon = false
@@ -719,7 +717,7 @@ func LeaveAndChangePokemon(boole) :
 	Choice = null
 	TempPokemon = null
 	ActualPosition = null
-	get_node("/root/FightScene/AnimationPlayer").play("LeaveMenuPokemon")
+	self.visible = false
 func repeatUsingObject(ThePokemon,StringObject) :
 	match StringObject :
 		"Potion" :

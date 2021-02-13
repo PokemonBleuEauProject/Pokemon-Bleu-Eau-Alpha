@@ -92,7 +92,8 @@ func _on_UtiliserButton_pressed():
 			"Pokeball","SuperBall","HyperBall","ChronoBall","FiletBall","FaibloBall","MasterBall" :
 				pass
 			"Carte" :
-				pass
+				$ChoicePopup.hide()
+				$Carte.visible = true
 			"ChaussuresDeCourse" :
 				if (PG.IsShoesEquip) :
 					PG.IsShoesEquip = false
@@ -115,10 +116,6 @@ func _on_UtiliserButton_pressed():
 							CatchAPokemonInFight(1,ActualObject)
 						"MasterBall" :
 							CatchAPokemonInFight(255,ActualObject)
-			"Carte" :
-				pass
-			"ChaussuresDeCourse" :
-				pass
 func _on_JeterButton_pressed():
 	if (!UseObjectInFight) :
 		match ActualSection :
@@ -146,66 +143,35 @@ func _on_LineEdit_text_entered(new_text):
 			$JeterPopup/LineEdit.text = "Erreur !"
 		else :
 			match ActualObject :
-				"Potion" :
-					PG.AllObject["NumberObject"].NumberPotion -= int(new_text)
-				"SuperPotion" :
-					PG.AllObject["NumberObject"].NumberSuperPotion-= int(new_text)
-				"HyperPotion" :
-					PG.AllObject["NumberObject"].NumberHyperPotion-= int(new_text)
-				"MaxPotion" :
-					PG.AllObject["NumberObject"].NumberMaxPotion-= int(new_text)
-				"Guerison" :
-					PG.AllObject["NumberObject"].NumberGuerison-= int(new_text)
-				"Rappel" :
-					PG.AllObject["NumberObject"].NumberRappel-= int(new_text)
-				"RappelMax" :
-					PG.AllObject["NumberObject"].NumberRappelMax-= int(new_text)
-				"Antidote" :
-					PG.AllObject["NumberObject"].NumberAntidote-= int(new_text)
-				"AntiPara" :
-					PG.AllObject["NumberObject"].NumberAntiPara-= int(new_text)
-				"AntiBrule" :
-					PG.AllObject["NumberObject"].NumberAntiBrule-= int(new_text)
-				"Reveil" :
-					PG.AllObject["NumberObject"].NumberReveil-= int(new_text)
-				"TotalSoin" :
-					PG.AllObject["NumberObject"].NumberTotalSoin-= int(new_text)
-				"Elixir" :
-					PG.AllObject["NumberObject"].NumberElixir-= int(new_text)
-				"MaxElixir" :
-					PG.AllObject["NumberObject"].NumberMaxElixir-= int(new_text)
-				"Huile" :
-					PG.AllObject["NumberObject"].NumberHuile -= int(new_text)
-				"MaxHuile" :
-					PG.AllObject["NumberObject"].NumberMaxHuile -= int(new_text)
-				"Eau" :
-					PG.AllObject["NumberObject"].NumberEau -= int(new_text)
-				"Soda" :
-					PG.AllObject["NumberObject"].NumberSoda -= int(new_text)
-				"Limonade" :
-					PG.AllObject["NumberObject"].NumberLimonade -= int(new_text)
-				"Lait" :
-					PG.AllObject["NumberObject"].NumberLait -= int(new_text)
-				"Pokeball" :
-					PG.AllObject["NumberObject"].NumberPokeball -= int(new_text)
-				"SuperBall" :
-					PG.AllObject["NumberObject"].NumberSuperBall -= int(new_text)
-				"HyperBall" :
-					PG.AllObject["NumberObject"].NumberHyperBall -= int(new_text)
-				"ChronoBall" :
-					PG.AllObject["NumberObject"].NumberChronoBall -= int(new_text)
-				"FiletBall" :
-					PG.AllObject["NumberObject"].NumberFiletBall -= int(new_text)
-				"FaibloBall" :
-					PG.AllObject["NumberObject"].NumberFaibloBall -= int(new_text)
-				"MasterBall" :
-					PG.AllObject["NumberObject"].NumberMasterBall -= int(new_text)
-				"CordeDeSortie" :
-					PG.AllObject["NumberObject"].NumberCordeDeSortie -= int(new_text)
-				"Repousse" :
-					PG.AllObject["NumberObject"].NumberRepousse -= int(new_text)
-				"SuperRepousse" :
-					PG.AllObject["NumberObject"].NumberSuperRepousse -= int(new_text)
+				"Potion" : PG.AllObject["NumberObject"].Potion -= int(new_text)
+				"SuperPotion" : PG.AllObject["NumberObject"].SuperPotion-= int(new_text)
+				"HyperPotion" : PG.AllObject["NumberObject"].HyperPotion-= int(new_text)
+				"MaxPotion" : PG.AllObject["NumberObject"].MaxPotion-= int(new_text)
+				"Guerison" : PG.AllObject["NumberObject"].Guerison-= int(new_text)
+				"Rappel" : PG.AllObject["NumberObject"].Rappel-= int(new_text)
+				"RappelMax" : PG.AllObject["NumberObject"].RappelMax-= int(new_text)
+				"Antidote" : PG.AllObject["NumberObject"].Antidote-= int(new_text)
+				"AntiPara" : PG.AllObject["NumberObject"].AntiPara-= int(new_text)
+				"AntiBrule" : PG.AllObject["NumberObject"].AntiBrule-= int(new_text)
+				"Reveil" : PG.AllObject["NumberObject"].Reveil-= int(new_text)
+				"TotalSoin" : PG.AllObject["NumberObject"].TotalSoin-= int(new_text)
+				"Elixir" : PG.AllObject["NumberObject"].Elixir-= int(new_text)
+				"MaxElixir" : PG.AllObject["NumberObject"].MaxElixir-= int(new_text)
+				"Huile" : PG.AllObject["NumberObject"].Huile -= int(new_text)
+				"MaxHuile" : PG.AllObject["NumberObject"].MaxHuile -= int(new_text)
+				"Eau" : PG.AllObject["NumberObject"].Eau -= int(new_text)
+				"Soda" : PG.AllObject["NumberObject"].Soda -= int(new_text)
+				"Limonade" : PG.AllObject["NumberObject"].Limonade -= int(new_text)
+				"Lait" : PG.AllObject["NumberObject"].Lait -= int(new_text)
+				"Pokeball" : PG.AllObject["NumberObject"].Pokeball -= int(new_text)
+				"SuperBall" : PG.AllObject["NumberObject"].SuperBall -= int(new_text)
+				"HyperBall" : PG.AllObject["NumberObject"].HyperBall -= int(new_text)
+				"ChronoBall" : PG.AllObject["NumberObject"].ChronoBall -= int(new_text)
+				"FiletBall" : PG.AllObject["NumberObject"].FiletBall -= int(new_text)
+				"FaibloBall" : PG.AllObject["NumberObject"].FaibloBall -= int(new_text)
+				"MasterBall" : PG.AllObject["NumberObject"].MasterBall -= int(new_text)
+				"Repousse" : PG.AllObject["NumberObject"].Repousse -= int(new_text)
+				"SuperRepousse" : PG.AllObject["NumberObject"].SuperRepousse -= int(new_text)
 			$JeterPopup.hide()
 		loadValues()
 	else :
@@ -424,12 +390,9 @@ func _on_Lait_pressed():
 
 #Pokeballs
 func _on_Pokeball_pressed():
-	if PG.ActualScene == "/root/FightScene" :
-		ActualTextureSelection = PG.ActualScene +"/Bag/PokeballBox/ScrollContainer/VBoxContainer/Pokeball1/Pokeball/Pokeball"
-	else :
-		ActualTextureSelection = PG.ActualScene +"/GUITotal/Bag/PokeballBox/ScrollContainer/VBoxContainer/Pokeball1/Pokeball/Pokeball"
-	if (get_node(ActualTextureSelection).modulate == Color.black) :
-		pass
+	if PG.ActualScene == "/root/FightScene" : ActualTextureSelection = PG.ActualScene +"/Bag/PokeballBox/ScrollContainer/VBoxContainer/Pokeball1/Pokeball/Pokeball"
+	else : ActualTextureSelection = PG.ActualScene +"/GUITotal/Bag/PokeballBox/ScrollContainer/VBoxContainer/Pokeball1/Pokeball/Pokeball"
+	if (get_node(ActualTextureSelection).modulate == Color.black) : pass
 	else :
 		Same("Permet de capturer des Pokémon")
 		ActualObject = "Pokeball"
@@ -495,16 +458,6 @@ func _on_MasterBall_pressed():
 		ActualObject = "MasterBall"
 
 #Objects
-func _on_CordeDeSortie_pressed():
-	if PG.ActualScene == "/root/FightScene" :
-		pass
-	else :
-		ActualTextureSelection = PG.ActualScene +"/GUITotal/Bag/ObjectBox/ScrollContainer/VBoxContainer/Objet1/CordeDeSortie/CordeDeSortie"
-		if (get_node(ActualTextureSelection).modulate == Color.black) :
-			pass
-		else :
-			Same("Permet de revenir à l'entrée d'une grotte ou d'un lieu")
-			ActualObject = "CordeDeSortie"
 func _on_Repousse_pressed():
 	if PG.ActualScene == "/root/FightScene" :
 		pass
@@ -516,220 +469,145 @@ func _on_Repousse_pressed():
 			Same("Empeche la rencontre de Pokemon Ennemi pendant quelques instants")
 			ActualObject = "Repousse"
 func _on_SuperRepousse_pressed():
-	if PG.ActualScene == "/root/FightScene" :
-		pass
+	if PG.ActualScene == "/root/FightScene" : pass
 	else :
 		ActualTextureSelection = PG.ActualScene +"/GUITotal/Bag/ObjectBox/ScrollContainer/VBoxContainer/Objet1/SuperRepousse/SuperRepousse"
-		if (get_node(ActualTextureSelection).modulate == Color.black) :
-			pass
+		if (get_node(ActualTextureSelection).modulate == Color.black) : pass
 		else :
 			Same("Empeche la rencontre de Pokemon Ennemi pendant un plus long instant")
 			ActualObject = "SuperRepousse"
 
 #RareObjects
 func _on_Carte_pressed():
-	if PG.ActualScene == "/root/FightScene" :
-		pass
+	if PG.ActualScene == "/root/FightScene" : pass
 	else :
+		ActualObject = "Carte"
 		ActualTextureSelection = PG.ActualScene +"/GUITotal/Bag/RareObjectBox/ScrollContainer/VBoxContainer/ObjetsRares1/Carte/Carte"
 		Same("Une carte très pratique indiquant votre position actuelle")
 func _on_ChaussuresDeCourse_pressed():
-	if PG.ActualScene == "/root/FightScene" :
-		pass
+	if PG.ActualScene == "/root/FightScene" : pass
 	else :
 		ActualTextureSelection = PG.ActualScene +"/GUITotal/Bag/RareObjectBox/ScrollContainer/VBoxContainer/ObjetsRares1/ChaussuresDeCourse/ChaussuresDeCourse"
-		ActualObject = "ChaussuresDeCourse"
-		Same("Permet de courir plus rapidement")
-func _on_BoiteCT_pressed():
-	if PG.ActualScene == "/root/FightScene" :
-		pass
-	else :
-		ActualTextureSelection = PG.ActualScene +"/GUITotal/Bag/RareObjectBox/ScrollContainer/VBoxContainer/ObjetsRares1/BoiteCT/BoiteCT"
-		Same("Une boîte pour ranger les CT et CS")
-		ActualObject = "BoiteCT"
+		if (get_node(ActualTextureSelection).modulate == Color.black) : pass
+		else :
+			ActualObject = "ChaussuresDeCourse"
+			Same("Permet de courir plus rapidement")
 func _on_OrbeMysterieuse_pressed():
-	if PG.ActualScene == "/root/FightScene" :
-		pass
+	if PG.ActualScene == "/root/FightScene" :pass
 	else :
 		ActualTextureSelection = PG.ActualScene +"/GUITotal/Bag/RareObjectBox/ScrollContainer/VBoxContainer/ObjetsRares1/OrbeMysterieuse/OrbeMysterieuse"
-		Same("Une etrange orbe verte que Chen vous a donné lorsque vous avez commencé votre aventure")
-func _on_Velo_pressed():
-	if PG.ActualScene == "/root/FightScene" :
-		pass
-	else :
-		ActualTextureSelection = PG.ActualScene +"/GUITotal/Bag/RareObjectBox/ScrollContainer/VBoxContainer/ObjetsRares2/Velo/Velo"
-		Same("Un formidable velo vous permettant d'aller plus vite qu'à pied")
-func _on_ColisDeChen_pressed():
-	if PG.ActualScene == "/root/FightScene" :
-		pass
-	else :
-		ActualTextureSelection = PG.ActualScene +"/GUITotal/Bag/RareObjectBox/ScrollContainer/VBoxContainer/ObjetsRares2/Colis/Colis"
-		Same("Un paquet à livrer au Prof")
+		if (get_node(ActualTextureSelection).modulate == Color.black) : pass
+		else :
+			ActualObject = "OrbeMysterieuse"
+			Same("Une etrange orbe verte que Chen vous a donné lorsque vous avez commencé votre aventure")
 
 #OTHERS FUNCTIONS
 #LOAD FUNCTIONS
 func loadValues() :
-	$MedicamentBox/ScrollContainer/VBoxContainer/Potions/Potion/Number.text = "X" + str(PG.AllObject["NumberObject"].NumberPotion)
-	$MedicamentBox/ScrollContainer/VBoxContainer/Potions/SuperPotion/Number.text = "X" + str(PG.AllObject["NumberObject"].NumberSuperPotion)
-	$MedicamentBox/ScrollContainer/VBoxContainer/Potions/HyperPotion/Number.text = "X" + str(PG.AllObject["NumberObject"].NumberHyperPotion)
-	$MedicamentBox/ScrollContainer/VBoxContainer/Potions/MaxPotion/Number.text = "X" + str(PG.AllObject["NumberObject"].NumberMaxPotion)
-	$MedicamentBox/ScrollContainer/VBoxContainer/Potions/Guerison/Number.text = "X" + str(PG.AllObject["NumberObject"].NumberGuerison)
-	$MedicamentBox/ScrollContainer/VBoxContainer/Rappels/Rappel/Number.text = "X" + str(PG.AllObject["NumberObject"].NumberRappel)
-	$MedicamentBox/ScrollContainer/VBoxContainer/Rappels/RappelMax/Number.text = "X" + str(PG.AllObject["NumberObject"].NumberRappelMax)
-	$MedicamentBox/ScrollContainer/VBoxContainer/Antidotes/Antidote/Number.text = "X" + str(PG.AllObject["NumberObject"].NumberAntidote)
-	$MedicamentBox/ScrollContainer/VBoxContainer/Antidotes/AntiPara/Number.text = "X" + str(PG.AllObject["NumberObject"].NumberAntiPara)
-	$MedicamentBox/ScrollContainer/VBoxContainer/Antidotes/AntiBrule/Number.text = "X" + str(PG.AllObject["NumberObject"].NumberAntiBrule)
-	$MedicamentBox/ScrollContainer/VBoxContainer/Antidotes/Reveil/Number.text = "X" + str(PG.AllObject["NumberObject"].NumberReveil)
-	$MedicamentBox/ScrollContainer/VBoxContainer/Antidotes/TotalSoin/Number.text = "X" + str(PG.AllObject["NumberObject"].NumberTotalSoin)
-	$MedicamentBox/ScrollContainer/VBoxContainer/ElixirsHuiles/Elixir/Number.text = "X" + str(PG.AllObject["NumberObject"].NumberElixir)
-	$MedicamentBox/ScrollContainer/VBoxContainer/ElixirsHuiles/MaxElixir/Number.text = "X" + str(PG.AllObject["NumberObject"].NumberMaxElixir)
-	$MedicamentBox/ScrollContainer/VBoxContainer/ElixirsHuiles/Huile/Number.text = "X" + str(PG.AllObject["NumberObject"].NumberHuile)
-	$MedicamentBox/ScrollContainer/VBoxContainer/ElixirsHuiles/MaxHuile/Number.text = "X" + str(PG.AllObject["NumberObject"].NumberMaxHuile)
-	$MedicamentBox/ScrollContainer/VBoxContainer/Autres/Eau/Number.text = "X" + str(PG.AllObject["NumberObject"].NumberEau)
-	$MedicamentBox/ScrollContainer/VBoxContainer/Autres/Soda/Number.text = "X" + str(PG.AllObject["NumberObject"].NumberSoda)
-	$MedicamentBox/ScrollContainer/VBoxContainer/Autres/Limonade/Number.text = "X" + str(PG.AllObject["NumberObject"].NumberLimonade)
-	$MedicamentBox/ScrollContainer/VBoxContainer/Autres/Lait/Number.text = "X" + str(PG.AllObject["NumberObject"].NumberLait)
-	$PokeballBox/ScrollContainer/VBoxContainer/Pokeball1/Pokeball/Number.text = "X" + str(PG.AllObject["NumberObject"].NumberPokeball)
-	$PokeballBox/ScrollContainer/VBoxContainer/Pokeball1/SuperBall/Number.text = "X" + str(PG.AllObject["NumberObject"].NumberSuperBall)
-	$PokeballBox/ScrollContainer/VBoxContainer/Pokeball1/HyperBall/Number.text = "X" + str(PG.AllObject["NumberObject"].NumberHyperBall)
-	$PokeballBox/ScrollContainer/VBoxContainer/Pokeball2/ChronoBall/Number.text = "X" + str(PG.AllObject["NumberObject"].NumberChronoBall)
-	$PokeballBox/ScrollContainer/VBoxContainer/Pokeball2/FiletBall/Number.text = "X" + str(PG.AllObject["NumberObject"].NumberFiletBall)
-	$PokeballBox/ScrollContainer/VBoxContainer/Pokeball2/FaibloBall/Number.text = "X" + str(PG.AllObject["NumberObject"].NumberFaibloBall)
-	$PokeballBox/ScrollContainer/VBoxContainer/Pokeball3/MasterBall/Number.text = "X" + str(PG.AllObject["NumberObject"].NumberMasterBall)
-	$ObjectBox/ScrollContainer/VBoxContainer/Objet1/CordeDeSortie/Number.text = "X" + str(PG.AllObject["NumberObject"].NumberCordeDeSortie)
-	$ObjectBox/ScrollContainer/VBoxContainer/Objet1/Repousse/Number.text = "X" + str(PG.AllObject["NumberObject"].NumberRepousse)
-	$ObjectBox/ScrollContainer/VBoxContainer/Objet1/SuperRepousse/Number.text = "X" + str(PG.AllObject["NumberObject"].NumberSuperRepousse)
+	$MedicamentBox/ScrollContainer/VBoxContainer/Potions/Potion/Number.text = "X" + str(PG.AllObject["NumberObject"].Potion)
+	$MedicamentBox/ScrollContainer/VBoxContainer/Potions/SuperPotion/Number.text = "X" + str(PG.AllObject["NumberObject"].SuperPotion)
+	$MedicamentBox/ScrollContainer/VBoxContainer/Potions/HyperPotion/Number.text = "X" + str(PG.AllObject["NumberObject"].HyperPotion)
+	$MedicamentBox/ScrollContainer/VBoxContainer/Potions/MaxPotion/Number.text = "X" + str(PG.AllObject["NumberObject"].MaxPotion)
+	$MedicamentBox/ScrollContainer/VBoxContainer/Potions/Guerison/Number.text = "X" + str(PG.AllObject["NumberObject"].Guerison)
+	$MedicamentBox/ScrollContainer/VBoxContainer/Rappels/Rappel/Number.text = "X" + str(PG.AllObject["NumberObject"].Rappel)
+	$MedicamentBox/ScrollContainer/VBoxContainer/Rappels/RappelMax/Number.text = "X" + str(PG.AllObject["NumberObject"].RappelMax)
+	$MedicamentBox/ScrollContainer/VBoxContainer/Antidotes/Antidote/Number.text = "X" + str(PG.AllObject["NumberObject"].Antidote)
+	$MedicamentBox/ScrollContainer/VBoxContainer/Antidotes/AntiPara/Number.text = "X" + str(PG.AllObject["NumberObject"].AntiPara)
+	$MedicamentBox/ScrollContainer/VBoxContainer/Antidotes/AntiBrule/Number.text = "X" + str(PG.AllObject["NumberObject"].AntiBrule)
+	$MedicamentBox/ScrollContainer/VBoxContainer/Antidotes/Reveil/Number.text = "X" + str(PG.AllObject["NumberObject"].Reveil)
+	$MedicamentBox/ScrollContainer/VBoxContainer/Antidotes/TotalSoin/Number.text = "X" + str(PG.AllObject["NumberObject"].TotalSoin)
+	$MedicamentBox/ScrollContainer/VBoxContainer/ElixirsHuiles/Elixir/Number.text = "X" + str(PG.AllObject["NumberObject"].Elixir)
+	$MedicamentBox/ScrollContainer/VBoxContainer/ElixirsHuiles/MaxElixir/Number.text = "X" + str(PG.AllObject["NumberObject"].MaxElixir)
+	$MedicamentBox/ScrollContainer/VBoxContainer/ElixirsHuiles/Huile/Number.text = "X" + str(PG.AllObject["NumberObject"].Huile)
+	$MedicamentBox/ScrollContainer/VBoxContainer/ElixirsHuiles/MaxHuile/Number.text = "X" + str(PG.AllObject["NumberObject"].MaxHuile)
+	$MedicamentBox/ScrollContainer/VBoxContainer/Autres/Eau/Number.text = "X" + str(PG.AllObject["NumberObject"].Eau)
+	$MedicamentBox/ScrollContainer/VBoxContainer/Autres/Soda/Number.text = "X" + str(PG.AllObject["NumberObject"].Soda)
+	$MedicamentBox/ScrollContainer/VBoxContainer/Autres/Limonade/Number.text = "X" + str(PG.AllObject["NumberObject"].Limonade)
+	$MedicamentBox/ScrollContainer/VBoxContainer/Autres/Lait/Number.text = "X" + str(PG.AllObject["NumberObject"].Lait)
+	$PokeballBox/ScrollContainer/VBoxContainer/Pokeball1/Pokeball/Number.text = "X" + str(PG.AllObject["NumberObject"].Pokeball)
+	$PokeballBox/ScrollContainer/VBoxContainer/Pokeball1/SuperBall/Number.text = "X" + str(PG.AllObject["NumberObject"].SuperBall)
+	$PokeballBox/ScrollContainer/VBoxContainer/Pokeball1/HyperBall/Number.text = "X" + str(PG.AllObject["NumberObject"].HyperBall)
+	$PokeballBox/ScrollContainer/VBoxContainer/Pokeball2/ChronoBall/Number.text = "X" + str(PG.AllObject["NumberObject"].ChronoBall)
+	$PokeballBox/ScrollContainer/VBoxContainer/Pokeball2/FiletBall/Number.text = "X" + str(PG.AllObject["NumberObject"].FiletBall)
+	$PokeballBox/ScrollContainer/VBoxContainer/Pokeball2/FaibloBall/Number.text = "X" + str(PG.AllObject["NumberObject"].FaibloBall)
+	$PokeballBox/ScrollContainer/VBoxContainer/Pokeball3/MasterBall/Number.text = "X" + str(PG.AllObject["NumberObject"].MasterBall)
+	$ObjectBox/ScrollContainer/VBoxContainer/Objet1/Repousse/Number.text = "X" + str(PG.AllObject["NumberObject"].Repousse)
+	$ObjectBox/ScrollContainer/VBoxContainer/Objet1/SuperRepousse/Number.text = "X" + str(PG.AllObject["NumberObject"].SuperRepousse)
 	for x in PG.AllObject["NumberObject"] :
 		if PG.AllObject["NumberObject"][x] == 0 :
 			SetAndGetModulate(str(x)).modulate = Color.black
+	for x in PG.AllObject["Unlock"] :
+		if !PG.AllObject["Unlock"][x] :
+			SetAndGetModulate(str(x)).modulate = Color.black
+		
 #CHECK COLORS FUCNTIONS
 func SetAndGetModulate(x) :
 	var ThePath
 	match x :
-		"NumberPotion" :
-			ThePath = $MedicamentBox/ScrollContainer/VBoxContainer/Potions/Potion/Potion
-		"NumberSuperPotion" :
-			ThePath = $MedicamentBox/ScrollContainer/VBoxContainer/Potions/SuperPotion/SuperPotion
-		"NumberHyperPotion" :
-			ThePath = $MedicamentBox/ScrollContainer/VBoxContainer/Potions/HyperPotion/HyperPotion
-		"NumberMaxPotion" :
-			ThePath = $MedicamentBox/ScrollContainer/VBoxContainer/Potions/MaxPotion/MaxPotion
-		"NumberGuerison" :
-			ThePath = $MedicamentBox/ScrollContainer/VBoxContainer/Potions/Guerison/Guerison
-		"NumberRappel" :
-			ThePath = $MedicamentBox/ScrollContainer/VBoxContainer/Rappels/Rappel/Rappel
-		"NumberRappelMax" :
-			ThePath = $MedicamentBox/ScrollContainer/VBoxContainer/Rappels/RappelMax/RappelMax
-		"NumberAntidote" :
-			ThePath = $MedicamentBox/ScrollContainer/VBoxContainer/Antidotes/Antidote/Antidote
-		"NumberAntiPara" :
-			ThePath = $MedicamentBox/ScrollContainer/VBoxContainer/Antidotes/AntiPara/AntiPara
-		"NumberAntiBrule" :
-			ThePath = $MedicamentBox/ScrollContainer/VBoxContainer/Antidotes/AntiBrule/AntiBrule
-		"NumberReveil" :
-			ThePath = $MedicamentBox/ScrollContainer/VBoxContainer/Antidotes/Reveil/Reveil
-		"NumberTotalSoin" :
-			ThePath = $MedicamentBox/ScrollContainer/VBoxContainer/Antidotes/TotalSoin/TotalSoin
-		"NumberElixir" :
-			ThePath = $MedicamentBox/ScrollContainer/VBoxContainer/ElixirsHuiles/Elixir/Elixir
-		"NumberMaxElixir" :
-			ThePath = $MedicamentBox/ScrollContainer/VBoxContainer/ElixirsHuiles/MaxElixir/MaxElixir
-		"NumberHuile" :
-			ThePath = $MedicamentBox/ScrollContainer/VBoxContainer/ElixirsHuiles/Huile/Huile
-		"NumberMaxHuile" :
-			ThePath = $MedicamentBox/ScrollContainer/VBoxContainer/ElixirsHuiles/MaxHuile/MaxHuile
-		"NumberEau" :
-			ThePath = $MedicamentBox/ScrollContainer/VBoxContainer/Autres/Eau/Eau
-		"NumberSoda" :
-			ThePath = $MedicamentBox/ScrollContainer/VBoxContainer/Autres/Soda/Soda
-		"NumberLimonade" :
-			ThePath = $MedicamentBox/ScrollContainer/VBoxContainer/Autres/Limonade/Limonade
-		"NumberLait" :
-			ThePath = $MedicamentBox/ScrollContainer/VBoxContainer/Autres/Lait/Lait
-		"NumberPokeball" :
-			ThePath = $PokeballBox/ScrollContainer/VBoxContainer/Pokeball1/Pokeball/Pokeball
-		"NumberSuperBall" :
-			ThePath = $PokeballBox/ScrollContainer/VBoxContainer/Pokeball1/SuperBall/SuperBall
-		"NumberHyperBall" :
-			ThePath = $PokeballBox/ScrollContainer/VBoxContainer/Pokeball1/HyperBall/HyperBall
-		"NumberChronoBall" :
-			ThePath = $PokeballBox/ScrollContainer/VBoxContainer/Pokeball2/ChronoBall/ChronoBall
-		"NumberFiletBall" :
-			ThePath = $PokeballBox/ScrollContainer/VBoxContainer/Pokeball2/FiletBall/FiletBall
-		"NumberFaibloBall" :
-			ThePath = $PokeballBox/ScrollContainer/VBoxContainer/Pokeball2/FaibloBall/FaibloBall
-		"NumberMasterBall" :
-			ThePath = $PokeballBox/ScrollContainer/VBoxContainer/Pokeball3/MasterBall/MasterBall
-		"NumberCordeDeSortie" :
-			ThePath = $ObjectBox/ScrollContainer/VBoxContainer/Objet1/CordeDeSortie/CordeDeSortie
-		"NumberRepousse" :
-			ThePath = $ObjectBox/ScrollContainer/VBoxContainer/Objet1/Repousse/Repousse
-		"NumberSuperRepousse" :
-			ThePath = $ObjectBox/ScrollContainer/VBoxContainer/Objet1/SuperRepousse/SuperRepousse
+		"Potion" : ThePath = $MedicamentBox/ScrollContainer/VBoxContainer/Potions/Potion/Potion
+		"SuperPotion" : ThePath = $MedicamentBox/ScrollContainer/VBoxContainer/Potions/SuperPotion/SuperPotion
+		"HyperPotion" : ThePath = $MedicamentBox/ScrollContainer/VBoxContainer/Potions/HyperPotion/HyperPotion
+		"MaxPotion" : ThePath = $MedicamentBox/ScrollContainer/VBoxContainer/Potions/MaxPotion/MaxPotion
+		"Guerison" : ThePath = $MedicamentBox/ScrollContainer/VBoxContainer/Potions/Guerison/Guerison
+		"Rappel" : ThePath = $MedicamentBox/ScrollContainer/VBoxContainer/Rappels/Rappel/Rappel
+		"RappelMax" : ThePath = $MedicamentBox/ScrollContainer/VBoxContainer/Rappels/RappelMax/RappelMax
+		"Antidote" : ThePath = $MedicamentBox/ScrollContainer/VBoxContainer/Antidotes/Antidote/Antidote
+		"AntiPara" : ThePath = $MedicamentBox/ScrollContainer/VBoxContainer/Antidotes/AntiPara/AntiPara
+		"AntiBrule" : ThePath = $MedicamentBox/ScrollContainer/VBoxContainer/Antidotes/AntiBrule/AntiBrule
+		"Reveil" : ThePath = $MedicamentBox/ScrollContainer/VBoxContainer/Antidotes/Reveil/Reveil
+		"TotalSoin" : ThePath = $MedicamentBox/ScrollContainer/VBoxContainer/Antidotes/TotalSoin/TotalSoin
+		"Elixir" : ThePath = $MedicamentBox/ScrollContainer/VBoxContainer/ElixirsHuiles/Elixir/Elixir
+		"MaxElixir" : ThePath = $MedicamentBox/ScrollContainer/VBoxContainer/ElixirsHuiles/MaxElixir/MaxElixir
+		"Huile" : ThePath = $MedicamentBox/ScrollContainer/VBoxContainer/ElixirsHuiles/Huile/Huile
+		"MaxHuile" : ThePath = $MedicamentBox/ScrollContainer/VBoxContainer/ElixirsHuiles/MaxHuile/MaxHuile
+		"Eau" : ThePath = $MedicamentBox/ScrollContainer/VBoxContainer/Autres/Eau/Eau
+		"Soda" : ThePath = $MedicamentBox/ScrollContainer/VBoxContainer/Autres/Soda/Soda
+		"Limonade" : ThePath = $MedicamentBox/ScrollContainer/VBoxContainer/Autres/Limonade/Limonade
+		"Lait" : ThePath = $MedicamentBox/ScrollContainer/VBoxContainer/Autres/Lait/Lait
+		"Pokeball" : ThePath = $PokeballBox/ScrollContainer/VBoxContainer/Pokeball1/Pokeball/Pokeball
+		"SuperBall" : ThePath = $PokeballBox/ScrollContainer/VBoxContainer/Pokeball1/SuperBall/SuperBall
+		"HyperBall" : ThePath = $PokeballBox/ScrollContainer/VBoxContainer/Pokeball1/HyperBall/HyperBall
+		"ChronoBall" : ThePath = $PokeballBox/ScrollContainer/VBoxContainer/Pokeball2/ChronoBall/ChronoBall
+		"FiletBall" : ThePath = $PokeballBox/ScrollContainer/VBoxContainer/Pokeball2/FiletBall/FiletBall
+		"FaibloBall" : ThePath = $PokeballBox/ScrollContainer/VBoxContainer/Pokeball2/FaibloBall/FaibloBall
+		"MasterBall" : ThePath = $PokeballBox/ScrollContainer/VBoxContainer/Pokeball3/MasterBall/MasterBall
+		"Repousse" : ThePath = $ObjectBox/ScrollContainer/VBoxContainer/Objet1/Repousse/Repousse
+		"SuperRepousse" : ThePath = $ObjectBox/ScrollContainer/VBoxContainer/Objet1/SuperRepousse/SuperRepousse
+		"ChaussuresDeCourse" : ThePath = $RareObjectBox/ScrollContainer/VBoxContainer/ObjetsRares1/ChaussuresDeCourse/ChaussuresDeCourse
+		"OrbeMysterieuse" : ThePath = $RareObjectBox/ScrollContainer/VBoxContainer/ObjetsRares1/OrbeMysterieuse/OrbeMysterieuse
 	return ThePath
 #GET DICTIONNARY OBJECT
 func GetDictionnaryValue(TheObject : String) :
 	match TheObject :
-		"Potion" :
-			return PG.AllObject["NumberObject"].NumberPotion
-		"SuperPotion" :
-			return PG.AllObject["NumberObject"].NumberSuperPotion
-		"HyperPotion" :
-			return PG.AllObject["NumberObject"].NumberHyperPotion
-		"MaxPotion" :
-			return PG.AllObject["NumberObject"].NumberMaxPotion
-		"Guerison" :
-			return PG.AllObject["NumberObject"].NumberGuerison
-		"Rappel" :
-			return PG.AllObject["NumberObject"].NumberRappel
-		"RappelMax" :
-			return PG.AllObject["NumberObject"].NumberRappelMax
-		"Antidote" :
-			return PG.AllObject["NumberObject"].NumberAntidote
-		"AntiPara" :
-			return PG.AllObject["NumberObject"].NumberAntiPara
-		"AntiBrule" :
-			return PG.AllObject["NumberObject"].NumberAntiBrule
-		"Reveil" :
-			return PG.AllObject["NumberObject"].NumberReveil
-		"TotalSoin" :
-			return PG.AllObject["NumberObject"].NumberTotalSoin
-		"Elixir" :
-			return PG.AllObject["NumberObject"].NumberElixir
-		"MaxElixir" :
-			return PG.AllObject["NumberObject"].NumberMaxElixir
-		"Huile" :
-			return PG.AllObject["NumberObject"].NumberHuile
-		"MaxHuile" :
-			return PG.AllObject["NumberObject"].NumberMaxHuile
-		"Eau" :
-			return PG.AllObject["NumberObject"].NumberEau
-		"Soda" :
-			return PG.AllObject["NumberObject"].NumberSoda
-		"Limonade" :
-			return PG.AllObject["NumberObject"].NumberLimonade
-		"Lait" :
-			return PG.AllObject["NumberObject"].NumberLait
-		"Pokeball" :
-			return PG.AllObject["NumberObject"].NumberPokeball
-		"SuperBall" :
-			return PG.AllObject["NumberObject"].NumberSuperBall
-		"HyperBall" :
-			return PG.AllObject["NumberObject"].NumberHyperBall
-		"ChronoBall" :
-			return PG.AllObject["NumberObject"].NumberChronoBall
-		"FiletBall" :
-			return PG.AllObject["NumberObject"].NumberFiletBall
-		"FaibloBall" :
-			return PG.AllObject["NumberObject"].NumberFaibloBall
-		"MasterBall" :
-			return PG.AllObject["NumberObject"].NumberMasterBall
-		"CordeDeSortie" :
-			return PG.AllObject["NumberObject"].NumberCordeDeSortie
-		"Repousse" :
-			return PG.AllObject["NumberObject"].NumberRepousse
-		"SuperRepousse" :
-			return PG.AllObject["NumberObject"].NumberSuperRepousse
+		"Potion" : return PG.AllObject["NumberObject"].Potion
+		"SuperPotion" : return PG.AllObject["NumberObject"].SuperPotion
+		"HyperPotion" : return PG.AllObject["NumberObject"].HyperPotion
+		"MaxPotion" : return PG.AllObject["NumberObject"].MaxPotion
+		"Guerison" : return PG.AllObject["NumberObject"].Guerison
+		"Rappel" : return PG.AllObject["NumberObject"].Rappel
+		"RappelMax" : return PG.AllObject["NumberObject"].RappelMax
+		"Antidote" : return PG.AllObject["NumberObject"].Antidote
+		"AntiPara" : return PG.AllObject["NumberObject"].AntiPara
+		"AntiBrule" : return PG.AllObject["NumberObject"].AntiBrule
+		"Reveil" : return PG.AllObject["NumberObject"].Reveil
+		"TotalSoin" : return PG.AllObject["NumberObject"].TotalSoin
+		"Elixir" : return PG.AllObject["NumberObject"].Elixir
+		"MaxElixir" : return PG.AllObject["NumberObject"].MaxElixir
+		"Huile" : return PG.AllObject["NumberObject"].Huile
+		"MaxHuile" : return PG.AllObject["NumberObject"].MaxHuile
+		"Eau" : return PG.AllObject["NumberObject"].Eau
+		"Soda" : return PG.AllObject["NumberObject"].Soda
+		"Limonade" : return PG.AllObject["NumberObject"].Limonade
+		"Lait" : return PG.AllObject["NumberObject"].Lait
+		"Pokeball" : return PG.AllObject["NumberObject"].Pokeball
+		"SuperBall" : return PG.AllObject["NumberObject"].SuperBall
+		"HyperBall" : return PG.AllObject["NumberObject"].HyperBall
+		"ChronoBall" : return PG.AllObject["NumberObject"].ChronoBall
+		"FiletBall" : return PG.AllObject["NumberObject"].FiletBall
+		"FaibloBall" : return PG.AllObject["NumberObject"].FaibloBall
+		"MasterBall" : return PG.AllObject["NumberObject"].MasterBall
+		"Repousse" : return PG.AllObject["NumberObject"].Repousse
+		"SuperRepousse" : return PG.AllObject["NumberObject"].SuperRepousse
 #REPEAT ACTIONS
 func quit_scene() :
 	PG.CantdisplayMenu = false

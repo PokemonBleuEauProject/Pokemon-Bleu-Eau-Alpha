@@ -119,38 +119,40 @@ export (Dictionary) var ListPokemon = [Pokemon1,Pokemon2,Pokemon3,Pokemon4,Pokem
 export (Dictionary) var AllObject = {
 	"NumberObject" : {
 	#	Number Medicaments
-		NumberPotion = 3,
-		NumberSuperPotion = 0,
-		NumberHyperPotion = 0,
-		NumberMaxPotion = 0,
-		NumberGuerison = 0,
-		NumberRappel = 0,
-		NumberRappelMax = 0,
-		NumberAntidote = 0,
-		NumberAntiPara = 0,
-		NumberAntiBrule = 0,
-		NumberReveil = 0,
-		NumberTotalSoin = 0,
-		NumberElixir = 0,
-		NumberMaxElixir = 0,
-		NumberHuile = 0,
-		NumberMaxHuile = 0,
-		NumberEau = 0,
-		NumberSoda = 0,
-		NumberLimonade = 0,
-		NumberLait = 0,
+		Potion = 3,
+		SuperPotion = 0,
+		HyperPotion = 0,
+		MaxPotion = 0,
+		Guerison = 0,
+		Rappel = 0,
+		RappelMax = 0,
+		Antidote = 0,
+		AntiPara = 0,
+		AntiBrule = 0,
+		Reveil = 0,
+		TotalSoin = 0,
+		Elixir = 0,
+		MaxElixir = 0,
+		Huile = 0,
+		MaxHuile = 0,
+		Eau = 0,
+		Soda = 0,
+		Limonade = 0,
+		Lait = 0,
 	#	Number Pokeball
-		NumberPokeball = 5,
-		NumberSuperBall = 0,
-		NumberHyperBall = 0,
-		NumberChronoBall = 0,
-		NumberFiletBall = 0,
-		NumberFaibloBall = 0,
-		NumberMasterBall = 1,
+		Pokeball = 5,
+		SuperBall = 0,
+		HyperBall = 0,
+		ChronoBall = 0,
+		FiletBall = 0,
+		FaibloBall = 0,
+		MasterBall = 1,
 	#	Number Others objects
-		NumberCordeDeSortie = 0,
-		NumberRepousse = 0,
-		NumberSuperRepousse = 0}
+		Repousse = 0,
+		SuperRepousse = 0},
+	"Unlock" : {
+		ChaussuresDeCourse = false,
+		OrbeMysterieuse = false}
 }
 export (Dictionary) var Badge = {
 	BadgeRoche = false,
@@ -163,7 +165,7 @@ export (Dictionary) var Badge = {
 	BadgeTerre = false
 }
 #Others
-export (int) var Argent = 154800
+export (int) var Argent = 0
 export (String) var PlayerName = "TEST"
 export (Dictionary) var GameTime = {
 	Minutes = 0,

@@ -15,7 +15,7 @@ func restorePP(ThePokemon):
 	ThePokemon.ActualPPAttaque4 = Attaque.GetAttaqueMaxPP(ThePokemon.Attaque4)
 #Experiences
 func CalculLvlToLvlUp(ThePokemon,Lvl) :
-	ThePokemon.ExperienceNeededToLvlUp = 0.8 * pow(Lvl,3)
+	ThePokemon.ExperienceNeededToLvlUp = 0.5 * pow(Lvl,3)
 func CheckLvlUp(ThePokemon,ExpWin) :
 	CalculLvlToLvlUp(ThePokemon,ThePokemon.Lvl)
 	if ExpWin+ThePokemon.Experience >= ThePokemon.ExperienceNeededToLvlUp :
@@ -49,6 +49,7 @@ func GetNumberPokedex(Name) :
 		"Roucarnage" : return 18
 		"Rattata" : return 19
 		"Rattatac" : return 20
+		"Rayquaza" : return 384
 #Images
 func GetImageFront(Name) : if Name != null : return load("res://img Pokemon/All Pokemon/Front/"+str(GetNumberPokedex(Name))+".png")
 func GetImageBack(Name) : if Name != null : return load("res://img Pokemon/All Pokemon/back/"+str(GetNumberPokedex(Name))+".png")
@@ -1075,6 +1076,45 @@ class Mewtwo :
 class Mew :
 	var Name : String = "Mew"
 
+class Rayquaza :
+#Important Information
+	var Name : String = "Rayquaza"
+	var Prop = null
+	var Lvl : int = 50
+#Stat Information
+#	Life
+	var Hp : int = 210
+	var MaxHp : int = 210
+#Attaque
+	var Puissance : int = 220
+	var Defense : int = 160
+	var AttaqueSpecial : int = 220
+	var DefenseSpecial : int = 160
+	var Vitesse : int = 140
+#	Others
+	var Experience : int = 0
+	var LvlNeededToEvolve : int = 100
+	var ExperienceNeededToLvlUp : int = 62500
+	var BaseLvl : int = 220
+	var Statut : String = ""
+	var CatchRate : int = 3
+#	Attaque Information
+	var Attaque1 : String = "Ouragan"
+	var Attaque2 : String = "Hydrocanon"
+	var Attaque3 : String = "Feu d'Enfer"
+	var Attaque4 : String = "Pique"
+	var ActualPPAttaque1 : int = 0
+	var ActualPPAttaque2 : int = 0
+	var ActualPPAttaque3 : int = 0
+	var ActualPPAttaque4 : int = 0
+#Type of the Pokemon
+	var Type1 : String = "Dragon"
+	var Type2 : String = "Vol"
+#Textures
+	var TextureFront = "res://img Pokemon/All Pokemon/Front/384.png"
+	var TextureBack = "res://img Pokemon/All Pokemon/back/384.png"
+	var TextureOverworld = "res://img Pokemon/All Pokemon/Overworld/384.png"
+
 var List = {
 "Bulbizarre" : self.Bulbizarre,
 "Herbizarre" : self.Herbizarre,
@@ -1095,5 +1135,6 @@ var List = {
 "Roucoups" : self.Roucoups,
 "Roucarnage" : self.Roucarnage,
 "Rattata" : self.Rattata,
-"Rattatac" : self.Rattatac
+"Rattatac" : self.Rattatac,
+"Rayquaza" : self.Rayquaza
 }
