@@ -1,5 +1,18 @@
 extends Node
 
+#Health
+func health(ThePokemon) :
+	ThePokemon.Hp = ThePokemon.MaxHp
+	ThePokemon.ActualPPAttaque1 = Attaque.GetAttaqueMaxPP(ThePokemon.Attaque1)
+	ThePokemon.ActualPPAttaque2 = Attaque.GetAttaqueMaxPP(ThePokemon.Attaque2)
+	ThePokemon.ActualPPAttaque3 = Attaque.GetAttaqueMaxPP(ThePokemon.Attaque3)
+	ThePokemon.ActualPPAttaque4 = Attaque.GetAttaqueMaxPP(ThePokemon.Attaque4)
+	ThePokemon.Statut = ""
+func restorePP(ThePokemon):
+	ThePokemon.ActualPPAttaque1 = Attaque.GetAttaqueMaxPP(ThePokemon.Attaque1)
+	ThePokemon.ActualPPAttaque2 = Attaque.GetAttaqueMaxPP(ThePokemon.Attaque2)
+	ThePokemon.ActualPPAttaque3 = Attaque.GetAttaqueMaxPP(ThePokemon.Attaque3)
+	ThePokemon.ActualPPAttaque4 = Attaque.GetAttaqueMaxPP(ThePokemon.Attaque4)
 #Experiences
 func CalculLvlToLvlUp(ThePokemon,Lvl) :
 	ThePokemon.ExperienceNeededToLvlUp = 0.8 * pow(Lvl,3)
@@ -13,7 +26,6 @@ func CheckLvlUp(ThePokemon,ExpWin) :
 		ThePokemon.Experience += ExpWin
 func CheckExpWin(ThePokemon) :
 	return (ThePokemon.Lvl/7) *  ThePokemon.BaseLvl
-
 #Ressources about pokemons
 func GetNumberPokedex(Name) :
 	match Name :

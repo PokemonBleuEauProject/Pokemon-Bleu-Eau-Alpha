@@ -217,21 +217,27 @@ func ChangingPokemonAfterCatch(Something) :
 	match Something :
 		1 :
 			PG.Pokemon1 = EG.Pokemon1
+			Pokemon.restorePP(PG.Pokemon1)
 			return true
 		2 :
 			PG.Pokemon2 = EG.Pokemon1
+			Pokemon.restorePP(PG.Pokemon2)
 			return true
 		3 :
 			PG.Pokemon3 = EG.Pokemon1
+			Pokemon.restorePP(PG.Pokemon3)
 			return true
 		4 :
 			PG.Pokemon4 = EG.Pokemon1
+			Pokemon.restorePP(PG.Pokemon4)
 			return true
 		5 :
 			PG.Pokemon5 = EG.Pokemon1
+			Pokemon.restorePP(PG.Pokemon5)
 			return true
 		6 :
 			PG.Pokemon6 = EG.Pokemon1
+			Pokemon.restorePP(PG.Pokemon6)
 			return true
 		_ : return false
 func ChangingPokemonAfterCatchPC(Something) :
@@ -239,183 +245,243 @@ func ChangingPokemonAfterCatchPC(Something) :
 	match Something :
 		1 : 
 			PSS.Pokemon1 = EG.Pokemon1
+			Pokemon.health(PSS.Pokemon1)
 			return true
 		2 : 
 			PSS.Pokemon2 = EG.Pokemon1
+			Pokemon.health(PSS.Pokemon2)
 			return true
 		3 : 
 			PSS.Pokemon3 = EG.Pokemon1
+			Pokemon.health(PSS.Pokemon3)
 			return true
 		4 : 
 			PSS.Pokemon4 = EG.Pokemon1
+			Pokemon.health(PSS.Pokemon4)
 			return true
 		5 : 
 			PSS.Pokemon5 = EG.Pokemon1
+			Pokemon.health(PSS.Pokemon5)
 			return true
 		6 : 
 			PSS.Pokemon6 = EG.Pokemon1
+			Pokemon.health(PSS.Pokemon6)
 			return true
 		7 : 
 			PSS.Pokemon7 = EG.Pokemon1
+			Pokemon.health(PSS.Pokemon7)
 			return true
 		8 : 
 			PSS.Pokemon8 = EG.Pokemon1
+			Pokemon.health(PSS.Pokemon8)
 			return true
 		9 : 
 			PSS.Pokemon9 = EG.Pokemon1
+			Pokemon.health(PSS.Pokemon9)
 			return true
 		10 : 
 			PSS.Pokemon10 = EG.Pokemon1
+			Pokemon.health(PSS.Pokemon10)
 			return true
 		11 : 
 			PSS.Pokemon11 = EG.Pokemon1
+			Pokemon.health(PSS.Pokemon11)
 			return true
 		12 : 
 			PSS.Pokemon12 = EG.Pokemon1
+			Pokemon.health(PSS.Pokemon12)
 			return true
 		13 : 
 			PSS.Pokemon13 = EG.Pokemon1
+			Pokemon.health(PSS.Pokemon13)
 			return true
 		14 : 
 			PSS.Pokemon14 = EG.Pokemon1
+			Pokemon.health(PSS.Pokemon14)
 			return true
 		15 : 
 			PSS.Pokemon15 = EG.Pokemon1
+			Pokemon.health(PSS.Pokemon15)
 			return true
 		16 : 
 			PSS.Pokemon16 = EG.Pokemon1
+			Pokemon.health(PSS.Pokemon16)
 			return true
 		17 : 
 			PSS.Pokemon17 = EG.Pokemon1
+			Pokemon.health(PSS.Pokemon17)
 			return true
 		18 : 
 			PSS.Pokemon18 = EG.Pokemon1
+			Pokemon.health(PSS.Pokemon18)
 			return true
 		19 : 
 			PSS.Pokemon19 = EG.Pokemon1
+			Pokemon.health(PSS.Pokemon19)
 			return true
 		20 : 
 			PSS.Pokemon20 = EG.Pokemon1
+			Pokemon.health(PSS.Pokemon20)
 			return true
 		21 : 
 			PSS.Pokemon21 = EG.Pokemon1
+			Pokemon.health(PSS.Pokemon21)
 			return true
 		22 : 
 			PSS.Pokemon22 = EG.Pokemon1
+			Pokemon.health(PSS.Pokemon22)
 			return true
 		23 : 
 			PSS.Pokemon23 = EG.Pokemon1
+			Pokemon.health(PSS.Pokemon23)
 			return true
 		24 : 
 			PSS.Pokemon24 = EG.Pokemon1
+			Pokemon.health(PSS.Pokemon24)
 			return true
 		25 : 
 			PSS.Pokemon25 = EG.Pokemon1
+			Pokemon.health(PSS.Pokemon25)
 			return true
 		26 : 
 			PSS.Pokemon26 = EG.Pokemon1
+			Pokemon.health(PSS.Pokemon1)
 			return true
 		27 : 
 			PSS.Pokemon27 = EG.Pokemon1
+			Pokemon.health(PSS.Pokemon27)
 			return true
 		28 : 
 			PSS.Pokemon28 = EG.Pokemon1
+			Pokemon.health(PSS.Pokemon28)
 			return true
 		29 : 
 			PSS.Pokemon29 = EG.Pokemon1
+			Pokemon.health(PSS.Pokemon29)
 			return true
 		30 : 
 			PSS.Pokemon30 = EG.Pokemon1
+			Pokemon.health(PSS.Pokemon30)
 			return true
 		31 : 
 			PSS.Pokemon31 = EG.Pokemon1
+			Pokemon.health(PSS.Pokemon31)
 			return true
 		32 : 
 			PSS.Pokemon32 = EG.Pokemon1
+			Pokemon.health(PSS.Pokemon32)
 			return true
 		33 : 
 			PSS.Pokemon33 = EG.Pokemon1
+			Pokemon.health(PSS.Pokemon33)
 			return true
 		34 : 
 			PSS.Pokemon34 = EG.Pokemon1
+			Pokemon.health(PSS.Pokemon34)
 			return true
 		35 : 
 			PSS.Pokemon35 = EG.Pokemon1
+			Pokemon.health(PSS.Pokemon35)
 			return true
 		36 : 
 			PSS.Pokemon36 = EG.Pokemon1
+			Pokemon.health(PSS.Pokemon36)
 			return true
 		37 : 
 			PSS.Pokemon37 = EG.Pokemon1
+			Pokemon.health(PSS.Pokemon37)
 			return true
 		38 : 
 			PSS.Pokemon38 = EG.Pokemon1
+			Pokemon.health(PSS.Pokemon38)
 			return true
 		39 : 
 			PSS.Pokemon39 = EG.Pokemon1
+			Pokemon.health(PSS.Pokemon39)
 			return true
 		40 : 
 			PSS.Pokemon40 = EG.Pokemon1
+			Pokemon.health(PSS.Pokemon40)
 			return true
 		41 : 
 			PSS.Pokemon41 = EG.Pokemon1
+			Pokemon.health(PSS.Pokemon41)
 			return true
 		42 : 
 			PSS.Pokemon42 = EG.Pokemon1
+			Pokemon.health(PSS.Pokemon42)
 			return true
 		43 : 
 			PSS.Pokemon43 = EG.Pokemon1
+			Pokemon.health(PSS.Pokemon43)
 			return true
 		44 : 
 			PSS.Pokemon44 = EG.Pokemon1
+			Pokemon.health(PSS.Pokemon44)
 			return true
 		45 : 
 			PSS.Pokemon45 = EG.Pokemon1
+			Pokemon.health(PSS.Pokemon45)
 			return true
 		46 : 
 			PSS.Pokemon46 = EG.Pokemon1
+			Pokemon.health(PSS.Pokemon46)
 			return true
 		47 : 
 			PSS.Pokemon47 = EG.Pokemon1
+			Pokemon.health(PSS.Pokemon47)
 			return true
 		48 : 
 			PSS.Pokemon48 = EG.Pokemon1
+			Pokemon.health(PSS.Pokemon48)
 			return true
 		49 : 
 			PSS.Pokemon49 = EG.Pokemon1
+			Pokemon.health(PSS.Pokemon49)
 			return true
 		50 : 
 			PSS.Pokemon50 = EG.Pokemon1
+			Pokemon.health(PSS.Pokemon50)
 			return true
 		51 : 
 			PSS.Pokemon51 = EG.Pokemon1
+			Pokemon.health(PSS.Pokemon51)
 			return true
 		52 : 
 			PSS.Pokemon52 = EG.Pokemon1
+			Pokemon.health(PSS.Pokemon52)
 			return true
 		53 : 
 			PSS.Pokemon53 = EG.Pokemon1
+			Pokemon.health(PSS.Pokemon53)
 			return true
 		54 : 
 			PSS.Pokemon54 = EG.Pokemon1
+			Pokemon.health(PSS.Pokemon54)
 			return true
 		55 : 
 			PSS.Pokemon55 = EG.Pokemon1
+			Pokemon.health(PSS.Pokemon55)
 			return true
 		56 : 
 			PSS.Pokemon56 = EG.Pokemon1
+			Pokemon.health(PSS.Pokemon56)
 			return true
 		57 : 
 			PSS.Pokemon57 = EG.Pokemon1
+			Pokemon.health(PSS.Pokemon57)
 			return true
 		58 : 
 			PSS.Pokemon58 = EG.Pokemon1
+			Pokemon.health(PSS.Pokemon58)
 			return true
 		59 : 
 			PSS.Pokemon59 = EG.Pokemon1
+			Pokemon.health(PSS.Pokemon59)
 			return true
 		60 : 
 			PSS.Pokemon60 = EG.Pokemon1
+			Pokemon.health(PSS.Pokemon60)
 			return true
 		_ : return false
 func EndOfFight() :
