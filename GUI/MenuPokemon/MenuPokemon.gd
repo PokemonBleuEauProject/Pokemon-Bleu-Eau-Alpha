@@ -722,21 +722,21 @@ func repeatUsingObject(ThePokemon,StringObject) :
 	match StringObject :
 		"Potion" :
 			APotion(StringObject,20,ThePokemon.Hp,ThePokemon.MaxHp)
+		"SuperPotion" :
+			APotion(StringObject,50,ThePokemon.Hp,ThePokemon.MaxHp)
 	#OBJECT FUNCTIONS
 func APotion(StringObject,Number,Life,MaxLife) :
 	Life += Number
 	UsingObject = false
-	if (CheckLife(Life,MaxLife)) :
-		self.visible = false
-		emit_signal("ChangeNumberObject",StringObject)
-	elif (!CheckLife(Life,MaxLife)) :
-		Life = MaxLife
-		self.visible = false
-		emit_signal("ChangeNumberObject",StringObject)
-	elif (CheckLife(Life,MaxLife) == "dead") :
+	if (CheckLife(Life,MaxLife) == "dead") :
 		UsingObject = true
 		Life = 0
 		$UIInfo/RichTextLabel.text = "Impossible d'utiliser cette objet sur un pokemon KO !"
+	elif (!CheckLife(Life,MaxLife)) :
+		print("ok")
+		Life = MaxLife
+		self.visible = false
+		emit_signal("ChangeNumberObject",StringObject)
 	else : 
 		UsingObject = true
 		$UIInfo/RichTextLabel.text = "Erreur !"
@@ -745,7 +745,7 @@ func APotion(StringObject,Number,Life,MaxLife) :
 func CheckLife(Life,MaxLife) :
 	if Life < 0 :
 		return "dead"
-	elif Life < MaxLife :
+	elif Life <= MaxLife :
 		return false
 	else :
 		return true
