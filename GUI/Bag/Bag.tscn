@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=2]
+[gd_scene load_steps=88 format=2]
 
 [ext_resource path="res://img Pokemon/img Bag/Graphic/BagLeft.png" type="Texture" id=1]
 [ext_resource path="res://img Pokemon/img Bag/Graphic/BagShadow.png" type="Texture" id=2]
@@ -18,10 +18,7 @@
 [ext_resource path="res://img Pokemon/img Bag/Object/Medicament/antibrule.png" type="Texture" id=16]
 [ext_resource path="res://img Pokemon/img Bag/Object/Medicament/reveil.png" type="Texture" id=17]
 [ext_resource path="res://img Pokemon/img Bag/Object/Medicament/totalsoin.png" type="Texture" id=18]
-[ext_resource path="res://img Pokemon/img Bag/Object/Medicament/Elixir.png" type="Texture" id=19]
-[ext_resource path="res://img Pokemon/img Bag/Object/Medicament/MaxElixir.png" type="Texture" id=20]
-[ext_resource path="res://img Pokemon/img Bag/Object/Medicament/Huile.png" type="Texture" id=21]
-[ext_resource path="res://img Pokemon/img Bag/Object/Medicament/MaxHuile.png" type="Texture" id=22]
+[ext_resource path="res://img Pokemon/img Animation/Animation - Statut/Empoisonne.png" type="Texture" id=19]
 [ext_resource path="res://img Pokemon/img Bag/Object/Medicament/eaufraiche.png" type="Texture" id=23]
 [ext_resource path="res://img Pokemon/img Bag/Object/Medicament/sodacool.png" type="Texture" id=24]
 [ext_resource path="res://img Pokemon/img Bag/Object/Medicament/limonade.png" type="Texture" id=25]
@@ -58,7 +55,13 @@
 [ext_resource path="res://img Pokemon/img Bag/Graphic/Under.png" type="Texture" id=56]
 [ext_resource path="res://img Pokemon/img Bag/Graphic/TextureProgress-Green.png" type="Texture" id=57]
 
-[sub_resource type="StyleBoxEmpty" id=19]
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=4]
 
 [sub_resource type="StyleBoxEmpty" id=5]
 
@@ -88,6 +91,8 @@
 
 [sub_resource type="StyleBoxEmpty" id=18]
 
+[sub_resource type="StyleBoxEmpty" id=19]
+
 [sub_resource type="StyleBoxEmpty" id=20]
 
 [sub_resource type="StyleBoxEmpty" id=21]
@@ -110,16 +115,7 @@
 
 [sub_resource type="StyleBoxEmpty" id=30]
 
-[sub_resource type="StyleBoxEmpty" id=31]
-
-[sub_resource type="StyleBoxEmpty" id=32]
-
-[sub_resource type="StyleBoxEmpty" id=33]
-
-[sub_resource type="StyleBoxEmpty" id=34]
-
-[sub_resource type="Animation" id=1]
-resource_name = "Exit"
+[sub_resource type="Animation" id=31]
 length = 0.99
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
@@ -134,7 +130,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=32]
 length = 0.6
 loop = true
 tracks/0/type = "value"
@@ -162,7 +158,7 @@ tracks/1/keys = {
 "values": [ Vector2( 15, 275 ), Vector2( 5, 275 ), Vector2( 15, 275 ) ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=33]
 length = 0.4
 loop = true
 tracks/0/type = "method"
@@ -641,136 +637,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ElixirsHuiles" type="HBoxContainer" parent="MedicamentBox/ScrollContainer/VBoxContainer"]
+[node name="Autres" type="HBoxContainer" parent="MedicamentBox/ScrollContainer/VBoxContainer"]
 margin_top = 312.0
 margin_right = 516.0
 margin_bottom = 412.0
-
-[node name="Elixir" type="Control" parent="MedicamentBox/ScrollContainer/VBoxContainer/ElixirsHuiles"]
-margin_right = 100.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 100, 100 )
-
-[node name="Elixir" type="TextureButton" parent="MedicamentBox/ScrollContainer/VBoxContainer/ElixirsHuiles/Elixir"]
-margin_left = 10.0
-margin_top = 10.0
-margin_right = 90.0
-margin_bottom = 90.0
-texture_normal = ExtResource( 19 )
-texture_focused = ExtResource( 29 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Number" type="Label" parent="MedicamentBox/ScrollContainer/VBoxContainer/ElixirsHuiles/Elixir"]
-margin_left = 30.0
-margin_top = 90.0
-margin_right = 70.0
-margin_bottom = 123.0
-custom_fonts/font = ExtResource( 11 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "X1"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="MaxElixir" type="Control" parent="MedicamentBox/ScrollContainer/VBoxContainer/ElixirsHuiles"]
-margin_left = 104.0
-margin_right = 204.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 100, 100 )
-focus_neighbour_left = NodePath("../Potion")
-
-[node name="MaxElixir" type="TextureButton" parent="MedicamentBox/ScrollContainer/VBoxContainer/ElixirsHuiles/MaxElixir"]
-margin_left = 10.0
-margin_top = 10.0
-margin_right = 90.0
-margin_bottom = 90.0
-texture_normal = ExtResource( 20 )
-texture_focused = ExtResource( 29 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Number" type="Label" parent="MedicamentBox/ScrollContainer/VBoxContainer/ElixirsHuiles/MaxElixir"]
-margin_left = 33.2853
-margin_top = 88.2853
-margin_right = 71.2853
-margin_bottom = 121.285
-custom_fonts/font = ExtResource( 11 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
-text = "X1"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Huile" type="Control" parent="MedicamentBox/ScrollContainer/VBoxContainer/ElixirsHuiles"]
-margin_left = 208.0
-margin_right = 308.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 100, 100 )
-focus_neighbour_left = NodePath("../Potion")
-
-[node name="Huile" type="TextureButton" parent="MedicamentBox/ScrollContainer/VBoxContainer/ElixirsHuiles/Huile"]
-margin_left = 10.0
-margin_top = 10.0
-margin_right = 90.0
-margin_bottom = 90.0
-texture_normal = ExtResource( 21 )
-texture_focused = ExtResource( 29 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Number" type="Label" parent="MedicamentBox/ScrollContainer/VBoxContainer/ElixirsHuiles/Huile"]
-margin_left = 33.2853
-margin_top = 88.2853
-margin_right = 71.2853
-margin_bottom = 121.285
-custom_fonts/font = ExtResource( 11 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
-text = "X1"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="MaxHuile" type="Control" parent="MedicamentBox/ScrollContainer/VBoxContainer/ElixirsHuiles"]
-margin_left = 312.0
-margin_right = 412.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 100, 100 )
-focus_neighbour_left = NodePath("../Potion")
-
-[node name="MaxHuile" type="TextureButton" parent="MedicamentBox/ScrollContainer/VBoxContainer/ElixirsHuiles/MaxHuile"]
-margin_left = 10.0
-margin_top = 10.0
-margin_right = 90.0
-margin_bottom = 90.0
-texture_normal = ExtResource( 22 )
-texture_focused = ExtResource( 29 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Number" type="Label" parent="MedicamentBox/ScrollContainer/VBoxContainer/ElixirsHuiles/MaxHuile"]
-margin_left = 33.2853
-margin_top = 88.2853
-margin_right = 71.2853
-margin_bottom = 121.285
-custom_fonts/font = ExtResource( 11 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
-text = "X1"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Autres" type="HBoxContainer" parent="MedicamentBox/ScrollContainer/VBoxContainer"]
-margin_top = 416.0
-margin_right = 516.0
-margin_bottom = 516.0
 
 [node name="Eau" type="Control" parent="MedicamentBox/ScrollContainer/VBoxContainer/Autres"]
 margin_right = 100.0
@@ -892,6 +762,16 @@ text = "X1"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Null" type="HBoxContainer" parent="MedicamentBox/ScrollContainer/VBoxContainer"]
+margin_top = 416.0
+margin_right = 516.0
+margin_bottom = 516.0
+
+[node name="Null" type="Control" parent="MedicamentBox/ScrollContainer/VBoxContainer/Null"]
+margin_right = 100.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
 
 [node name="PokeballBox" type="TextureRect" parent="."]
 visible = false
@@ -1495,11 +1375,11 @@ margin_left = 21.0
 margin_top = 52.0
 margin_right = 365.0
 margin_bottom = 111.0
-custom_styles/hover = SubResource( 19 )
-custom_styles/pressed = SubResource( 5 )
-custom_styles/focus = SubResource( 6 )
-custom_styles/disabled = SubResource( 7 )
-custom_styles/normal = SubResource( 8 )
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/disabled = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1562,16 +1442,30 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Statut" type="TextureRect" parent="UseObjectPopup/Pokemon1"]
+margin_left = 291.0
+margin_top = 32.0
+margin_right = 361.0
+margin_bottom = 57.0
+rect_scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 19 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Pokemon2" type="Button" parent="UseObjectPopup"]
 margin_left = 19.5681
 margin_top = 132.191
 margin_right = 363.568
 margin_bottom = 191.191
-custom_styles/hover = SubResource( 9 )
-custom_styles/pressed = SubResource( 10 )
-custom_styles/focus = SubResource( 11 )
-custom_styles/disabled = SubResource( 12 )
-custom_styles/normal = SubResource( 13 )
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/focus = SubResource( 8 )
+custom_styles/disabled = SubResource( 9 )
+custom_styles/normal = SubResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="TextureOverworld" type="TextureRect" parent="UseObjectPopup/Pokemon2"]
 margin_left = 5.0
@@ -1631,16 +1525,27 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Statut" type="TextureRect" parent="UseObjectPopup/Pokemon2"]
+margin_left = 291.0
+margin_top = 32.0
+margin_right = 361.0
+margin_bottom = 57.0
+rect_scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 19 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Pokemon3" type="Button" parent="UseObjectPopup"]
 margin_left = 18.136
 margin_top = 215.245
 margin_right = 362.136
 margin_bottom = 274.245
-custom_styles/hover = SubResource( 14 )
-custom_styles/pressed = SubResource( 15 )
-custom_styles/focus = SubResource( 16 )
-custom_styles/disabled = SubResource( 17 )
-custom_styles/normal = SubResource( 18 )
+custom_styles/hover = SubResource( 11 )
+custom_styles/pressed = SubResource( 12 )
+custom_styles/focus = SubResource( 13 )
+custom_styles/disabled = SubResource( 14 )
+custom_styles/normal = SubResource( 15 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1703,16 +1608,27 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Statut" type="TextureRect" parent="UseObjectPopup/Pokemon3"]
+margin_left = 291.0
+margin_top = 32.0
+margin_right = 361.0
+margin_bottom = 57.0
+rect_scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 19 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Pokemon4" type="Button" parent="UseObjectPopup"]
 margin_left = 433.408
 margin_top = 52.0
 margin_right = 777.408
 margin_bottom = 111.0
-custom_styles/hover = SubResource( 20 )
-custom_styles/pressed = SubResource( 21 )
-custom_styles/focus = SubResource( 22 )
-custom_styles/disabled = SubResource( 23 )
-custom_styles/normal = SubResource( 24 )
+custom_styles/hover = SubResource( 16 )
+custom_styles/pressed = SubResource( 17 )
+custom_styles/focus = SubResource( 18 )
+custom_styles/disabled = SubResource( 19 )
+custom_styles/normal = SubResource( 20 )
 
 [node name="TextureOverworld" type="TextureRect" parent="UseObjectPopup/Pokemon4"]
 margin_left = 5.0
@@ -1772,16 +1688,27 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Statut" type="TextureRect" parent="UseObjectPopup/Pokemon4"]
+margin_left = 292.0
+margin_top = 32.0
+margin_right = 362.0
+margin_bottom = 57.0
+rect_scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 19 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Pokemon5" type="Button" parent="UseObjectPopup"]
 margin_left = 431.976
 margin_top = 132.191
 margin_right = 775.976
 margin_bottom = 191.191
-custom_styles/hover = SubResource( 25 )
-custom_styles/pressed = SubResource( 26 )
-custom_styles/focus = SubResource( 27 )
-custom_styles/disabled = SubResource( 28 )
-custom_styles/normal = SubResource( 29 )
+custom_styles/hover = SubResource( 21 )
+custom_styles/pressed = SubResource( 22 )
+custom_styles/focus = SubResource( 23 )
+custom_styles/disabled = SubResource( 24 )
+custom_styles/normal = SubResource( 25 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1844,16 +1771,27 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Statut" type="TextureRect" parent="UseObjectPopup/Pokemon5"]
+margin_left = 292.0
+margin_top = 32.0
+margin_right = 362.0
+margin_bottom = 57.0
+rect_scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 19 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Pokemon6" type="Button" parent="UseObjectPopup"]
 margin_left = 434.84
 margin_top = 215.245
 margin_right = 778.84
 margin_bottom = 274.245
-custom_styles/hover = SubResource( 30 )
-custom_styles/pressed = SubResource( 31 )
-custom_styles/focus = SubResource( 32 )
-custom_styles/disabled = SubResource( 33 )
-custom_styles/normal = SubResource( 34 )
+custom_styles/hover = SubResource( 26 )
+custom_styles/pressed = SubResource( 27 )
+custom_styles/focus = SubResource( 28 )
+custom_styles/disabled = SubResource( 29 )
+custom_styles/normal = SubResource( 30 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1916,6 +1854,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Statut" type="TextureRect" parent="UseObjectPopup/Pokemon6"]
+margin_left = 292.0
+margin_top = 32.0
+margin_right = 362.0
+margin_bottom = 57.0
+rect_scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 19 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Outside" type="TextureButton" parent="UseObjectPopup"]
 margin_left = 705.762
 margin_top = -0.151711
@@ -1941,9 +1890,9 @@ __meta__ = {
 visible = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Exit = SubResource( 1 )
-anims/IdleArrows = SubResource( 2 )
-anims/IdleSelectChoice = SubResource( 3 )
+anims/Exit = SubResource( 31 )
+anims/IdleArrows = SubResource( 32 )
+anims/IdleSelectChoice = SubResource( 33 )
 [connection signal="pressed" from="MedicamentBox/ScrollContainer/VBoxContainer/Potions/Potion/Potion" to="." method="_on_Potion_pressed"]
 [connection signal="pressed" from="MedicamentBox/ScrollContainer/VBoxContainer/Potions/SuperPotion/SuperPotion" to="." method="_on_SuperPotion_pressed"]
 [connection signal="pressed" from="MedicamentBox/ScrollContainer/VBoxContainer/Potions/HyperPotion/HyperPotion" to="." method="_on_HyperPotion_pressed"]
@@ -1956,10 +1905,6 @@ anims/IdleSelectChoice = SubResource( 3 )
 [connection signal="pressed" from="MedicamentBox/ScrollContainer/VBoxContainer/Antidotes/AntiBrule/AntiBrule" to="." method="_on_AntiBrule_pressed"]
 [connection signal="pressed" from="MedicamentBox/ScrollContainer/VBoxContainer/Antidotes/Reveil/Reveil" to="." method="_on_Reveil_pressed"]
 [connection signal="pressed" from="MedicamentBox/ScrollContainer/VBoxContainer/Antidotes/TotalSoin/TotalSoin" to="." method="_on_TotalSoin_pressed"]
-[connection signal="pressed" from="MedicamentBox/ScrollContainer/VBoxContainer/ElixirsHuiles/Elixir/Elixir" to="." method="_on_Elixir_pressed"]
-[connection signal="pressed" from="MedicamentBox/ScrollContainer/VBoxContainer/ElixirsHuiles/MaxElixir/MaxElixir" to="." method="_on_MaxElixir_pressed"]
-[connection signal="pressed" from="MedicamentBox/ScrollContainer/VBoxContainer/ElixirsHuiles/Huile/Huile" to="." method="_on_Huile_pressed"]
-[connection signal="pressed" from="MedicamentBox/ScrollContainer/VBoxContainer/ElixirsHuiles/MaxHuile/MaxHuile" to="." method="_on_MaxHuile_pressed"]
 [connection signal="pressed" from="MedicamentBox/ScrollContainer/VBoxContainer/Autres/Eau/Eau" to="." method="_on_Eau_pressed"]
 [connection signal="pressed" from="MedicamentBox/ScrollContainer/VBoxContainer/Autres/Soda/Soda" to="." method="_on_Soda_pressed"]
 [connection signal="pressed" from="MedicamentBox/ScrollContainer/VBoxContainer/Autres/Limonade/Limonade" to="." method="_on_Limonade_pressed"]
@@ -1982,5 +1927,10 @@ anims/IdleSelectChoice = SubResource( 3 )
 [connection signal="pressed" from="ChoicePopup/JeterButton" to="." method="_on_JeterButton_pressed"]
 [connection signal="pressed" from="ChoicePopup/SortirButton" to="." method="_on_SortirButton_pressed"]
 [connection signal="text_entered" from="JeterPopup/LineEdit" to="." method="_on_LineEdit_text_entered"]
+[connection signal="pressed" from="UseObjectPopup/Pokemon1" to="." method="_on_Pokemon1_pressed"]
+[connection signal="pressed" from="UseObjectPopup/Pokemon2" to="." method="_on_Pokemon2_pressed"]
+[connection signal="pressed" from="UseObjectPopup/Pokemon3" to="." method="_on_Pokemon3_pressed"]
+[connection signal="pressed" from="UseObjectPopup/Pokemon4" to="." method="_on_Pokemon4_pressed"]
+[connection signal="pressed" from="UseObjectPopup/Pokemon5" to="." method="_on_Pokemon5_pressed"]
 [connection signal="pressed" from="UseObjectPopup/Outside" to="." method="_on_Outside_pressed"]
 [connection signal="pressed" from="OutsideButton" to="." method="_on_OutsideButton_pressed"]

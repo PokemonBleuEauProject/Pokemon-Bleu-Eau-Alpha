@@ -43,7 +43,7 @@ var DefaulValue = {
 	"PG.ActualPlace" : "Bourg-Palette",
 	"PSS.PSSList" : [null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],
 	"PG.AllObject" : { 
-		"NumberObject" : {Potion = 0,SuperPotion = 0,HyperPotion = 0,MaxPotion = 0,Guerison = 0,Rappel = 0,RappelMax = 0,Antidote = 0,AntiPara = 0,AntiBrule = 0,Reveil = 0,TotalSoin = 0,Elixir = 0,MaxElixir = 0,Huile = 0,MaxHuile = 0,Eau = 0,Soda = 0,Limonade = 0,Lait = 0,Pokeball = 0,SuperBall = 0,HyperBall = 0,ChronoBall = 0,FiletBall = 0,FaibloBall = 0,MasterBall = 0,Repousse = 0,SuperRepousse = 0},
+		"NumberObject" : {Potion = 2,SuperPotion = 1,HyperPotion = 1,MaxPotion =1,Guerison = 1,Rappel = 1,RappelMax = 1,Antidote = 100,AntiPara = 1000,AntiBrule = 10,Reveil = 1,TotalSoin = 1,Eau = 1,Soda = 1,Limonade = 1,Lait = 1,Pokeball = 1,SuperBall = 1,HyperBall = 0,ChronoBall = 0,FiletBall = 0,FaibloBall = 0,MasterBall = 0,Repousse = 0,SuperRepousse = 0},
 		"Unlock" : {
 		ChaussuresDeCourse = false,
 		OrbeMysterieuse = false}}}
@@ -69,12 +69,12 @@ func saveData() :
 	"PG.PlayerName" : PG.PlayerName,
 	"PG.Pokemon1" : {
 	Name = "Bulbizarre",
-	Hp = 19,
+	Hp = 0,
 	MaxHp = 19,
 	Lvl = 3,
 	Experience = 20,
 	ExperienceNeededToLvlUp = 30,
-	Statut = "",
+	Statut = "Brule",
 	Puissance = 48,
 	Defense = 65,
 	AttaqueSpecial = 50,
