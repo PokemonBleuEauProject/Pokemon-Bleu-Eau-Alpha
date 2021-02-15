@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Map/AllObject/Others/TableauCarte.tscn" type="PackedScene" id=1]
 [ext_resource path="res://GUI/Overlay/ShowSomething.tscn" type="PackedScene" id=2]
@@ -22,6 +22,7 @@
 [ext_resource path="res://img Pokemon/img Map/Environnement/Texture Object/siege4-OtherColor.png" type="Texture" id=20]
 [ext_resource path="res://img Pokemon/img Map/Environnement/Texture Cartes/ArgentaShow.png" type="Texture" id=21]
 [ext_resource path="res://img Pokemon/img Map/Environnement/Texture Object/siege4.png" type="Texture" id=22]
+[ext_resource path="res://Entities/StaticPNJ/Static-PNJ-scene.tscn" type="PackedScene" id=23]
 
 [node name="PokemonCenter" type="Node2D"]
 
@@ -86,6 +87,27 @@ Message = "Une CARTE."
 
 [node name="StairPokemonCenter" parent="TileMap" instance=ExtResource( 7 )]
 position = Vector2( -249.634, -0.393829 )
+
+[node name="StaticPNJ4" parent="TileMap" instance=ExtResource( 23 )]
+position = Vector2( -201, -133 )
+TXT1 = "[Baille]"
+TXT2 = "Lorsque RONDOUDOU chante, tous les pokemons piquent du nez..."
+TXT3 = "... Moi aussi ... [Zzzzzz] ..."
+
+[node name="StaticPNJ" parent="TileMap" instance=ExtResource( 23 )]
+position = Vector2( -119, 74 )
+TXT1 = "Quoi!?"
+TXT2 = "La TEAM ROCKET est au MONT SELENITE!"
+TXT3 = "Damnation!"
+
+[node name="StaticPNJ3" parent="TileMap" instance=ExtResource( 23 )]
+position = Vector2( 76, 44 )
+TXT1 = "Je veux vraiment un Pikachu, ça te dit un Mélofée en échange?"
+
+[node name="StaticPNJ2" parent="TileMap" instance=ExtResource( 23 )]
+position = Vector2( 199, 11 )
+TXT1 = "J'échange des pokemons avec ce gamin."
+TXT2 = "Comme j'avais deux pikachu, j'en ai échangé un!"
 
 [node name="InsideOutside" parent="TileMap" instance=ExtResource( 10 )]
 margin_left = -30.2036

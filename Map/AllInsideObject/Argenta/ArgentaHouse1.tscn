@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Entities/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://GUI/GUI-Total.tscn" type="PackedScene" id=2]
@@ -21,6 +21,7 @@
 [ext_resource path="res://img Pokemon/img Map/Environnement/Texture Object/cuisine.png" type="Texture" id=19]
 [ext_resource path="res://GUI/Overlay/ShowSomething.tscn" type="PackedScene" id=20]
 [ext_resource path="res://img Pokemon/img Map/Environnement/Texture Cartes/ArgentaShow.png" type="Texture" id=21]
+[ext_resource path="res://Entities/StaticPNJ/Static-PNJ-scene.tscn" type="PackedScene" id=22]
 
 [node name="StartHouse2" type="Node2D"]
 
@@ -101,4 +102,15 @@ position = Vector2( 1.02599, 78.6536 )
 [node name="GUITotal" parent="." instance=ExtResource( 2 )]
 
 [node name="ShowSomething" parent="GUITotal" instance=ExtResource( 20 )]
+
+[node name="StaticPNJ" parent="." instance=ExtResource( 22 )]
+position = Vector2( -12, -81 )
+TXT1 = "NIDORAN, assis!"
+TXT2 = "NIDORAN: nidoni!"
+
+[node name="StaticPNJ2" parent="." instance=ExtResource( 22 )]
+position = Vector2( -158, -149 )
+TXT1 = "Notre pokemon est échangé. Il est difficile à maitriser."
+TXT2 = "Un échangé est un pokemon échangé avec un autre joueur."
+TXT3 = "Il grandit vite mais n'en fait qu'à sa tête lors des combats."
 [connection signal="tree_entered" from="Player" to="Player" method="_on_Player_tree_entered"]

@@ -1,9 +1,8 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://Map/TileMap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Entities/Player/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://img Pokemon/All PNJ/Overworld/Joggeur/Joggeur.png" type="Texture" id=3]
-[ext_resource path="res://Entities/LinearPNJ/Linear-PNJ-scene.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Entities/LinearPNJ/Linear-PNJ-scene.tscn" type="PackedScene" id=3]
 [ext_resource path="res://GUI/GUI-Total.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Map/AllMapObject/Argenta/ArgentaHouse.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Entities/StaticPNJ/Static-PNJ-scene.tscn" type="PackedScene" id=7]
@@ -32,34 +31,36 @@
 [ext_resource path="res://Map/AllMountains/Route2-Grotte.tscn" type="PackedScene" id=30]
 [ext_resource path="res://Map/AllMapObject/Argenta/BatimentMusee.tscn" type="PackedScene" id=31]
 [ext_resource path="res://img Pokemon/All PNJ/Overworld/Montagnard/Overworld_Ruinemaniac_RFVF.png" type="Texture" id=32]
-[ext_resource path="res://img Pokemon/All PNJ/InFight/Artiste/Sprite_Peintre_RFVF.png" type="Texture" id=33]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 5, 50 )
-
-[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 109.092, 108.992 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 31.2689, 120.56 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 89.9036, 58.7813 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 93.9446, 75.9639 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 97.7567, 96.98 )
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 108.211, 77.6339 )
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 124.166, 54.4678 )
 
-[sub_resource type="RectangleShape2D" id=9]
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 203.253, 72.9302 )
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 10, 77.4688 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 63.8316, 10 )
 
 [node name="Map" type="Node2D"]
 
@@ -540,56 +541,6 @@ position = Vector2( -94.5906, -878.225 )
 ] instance=ExtResource( 2 )]
 position = Vector2( 196.023, 6338.38 )
 
-[node name="AllPNJ" type="Node2D" parent="."]
-
-[node name="StaticPNJ" parent="AllPNJ" instance=ExtResource( 7 )]
-position = Vector2( 51.5323, -145.997 )
-TXT1 = "Hello"
-TXT2 = "How Are u today ?"
-TheTexture = ExtResource( 32 )
-
-[node name="LinearPNJ" parent="AllPNJ" instance=ExtResource( 4 )]
-position = Vector2( 258.396, -248.978 )
-vitesse = 1.0
-TXT = "Hello"
-TXTIntro = "Salut le mec"
-EnnemiName = "Joggeur"
-TheTexture = ExtResource( 3 )
-TheInFightTexture = ExtResource( 33 )
-POKEMON1 = {
-"ActualPPAttaque1": 20,
-"ActualPPAttaque2": 20,
-"ActualPPAttaque3": 20,
-"ActualPPAttaque4": 20,
-"Attaque1": "Dard Venin",
-"Attaque2": "Crocs Feu",
-"Attaque3": "Rebondi Feu",
-"Attaque4": "-",
-"AttaqueSpecial": 50,
-"Defense": 65,
-"DefenseSpecial": 64,
-"Experience": 0,
-"ExperienceNeededToLvlUp": 30,
-"Hp": 25,
-"Lvl": 5,
-"LvlNeededToEvolve": 16,
-"MaxHp": 25,
-"Name": "Salameche",
-"Puissance": 48,
-"Statut": "",
-"Type1": "Feu",
-"Type2": "-",
-"Vitesse": 60
-}
-
-[node name="Area2D" type="Area2D" parent="AllPNJ/LinearPNJ"]
-
-[node name="Area2D2" type="Area2D" parent="AllPNJ/LinearPNJ"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AllPNJ/LinearPNJ/Area2D2"]
-position = Vector2( 0, 40 )
-shape = SubResource( 1 )
-
 [node name="WildAreas" type="Node2D" parent="."]
 
 [node name="WildArea1" parent="WildAreas" instance=ExtResource( 15 )]
@@ -631,7 +582,7 @@ ListPokemon = [ {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WildAreas/WildArea1"]
 position = Vector2( 9.5, -15.2 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="WildArea9" parent="WildAreas" instance=ExtResource( 15 )]
 position = Vector2( 354.463, 5889 )
@@ -672,7 +623,7 @@ ListPokemon = [ {
 } ]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="WildAreas/WildArea9"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="WildArea4" parent="WildAreas" instance=ExtResource( 15 )]
 position = Vector2( 516.628, 5728.11 )
@@ -712,7 +663,7 @@ ListPokemon = [ {
 } ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WildAreas/WildArea4"]
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 
 [node name="WildArea5" parent="WildAreas" instance=ExtResource( 15 )]
 position = Vector2( 481.637, 5424.86 )
@@ -736,7 +687,7 @@ ListPokemon = [ {
 } ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WildAreas/WildArea5"]
-shape = SubResource( 5 )
+shape = SubResource( 4 )
 
 [node name="WildArea6" parent="WildAreas" instance=ExtResource( 15 )]
 position = Vector2( 577.947, 4961.41 )
@@ -772,7 +723,8 @@ ListPokemon = [ {
 } ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WildAreas/WildArea6"]
-shape = SubResource( 6 )
+position = Vector2( -0.445496, -3.56348 )
+shape = SubResource( 5 )
 
 [node name="WildArea8" parent="WildAreas" instance=ExtResource( 15 )]
 position = Vector2( 209.833, 2098.95 )
@@ -797,7 +749,7 @@ ListPokemon = [ {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WildAreas/WildArea8"]
 position = Vector2( -0.663422, -1.3269 )
-shape = SubResource( 7 )
+shape = SubResource( 6 )
 
 [node name="WildArea" parent="WildAreas" instance=ExtResource( 15 )]
 position = Vector2( 128.471, 5728.98 )
@@ -837,7 +789,7 @@ ListPokemon = [ {
 } ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WildAreas/WildArea"]
-shape = SubResource( 8 )
+shape = SubResource( 7 )
 
 [node name="AWildArea" parent="WildAreas" instance=ExtResource( 15 )]
 position = Vector2( 467.754, 4722.08 )
@@ -881,7 +833,60 @@ ListPokemon = [ {
 } ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WildAreas/AWildArea"]
+shape = SubResource( 8 )
+
+[node name="AllPNJ" type="Node2D" parent="."]
+
+[node name="StaticPNJ4" parent="AllPNJ" instance=ExtResource( 7 )]
+position = Vector2( 228.663, 3203.81 )
+TXT1 = "Ah... Un p'tit somme, un bon café et hop! C'est parti pour la journée! Mais j'ai dû le faire trop fort. J'ai la migraine maintenant."
+TXT2 = "Au fait, est-ce que tu remplis ton pokedex? "
+TXT3 = "Pense à bien affaiblir les pokemons avant de les attraper."
+
+[node name="StaticPNJ5" parent="AllPNJ" instance=ExtResource( 7 )]
+position = Vector2( 176.99, 3376.64 )
+TXT1 = "Je passe par la FORET DE JADE pour faire mes courses à ARGENTA."
+
+[node name="StaticPNJ7" parent="AllPNJ" instance=ExtResource( 7 )]
+position = Vector2( 338.845, 6589.53 )
+TXT1 = "Le progès... C'est dément"
+TXT2 = "On peut désormais stocker et même retirer des objets ou des pokemons via un PC!"
+
+[node name="StaticPNJ6" parent="AllPNJ" instance=ExtResource( 7 )]
+position = Vector2( 39.1647, 6351.69 )
+TXT1 = "J'élève des pokemons, moi aussi!"
+TXT2 = "Une fois forts, ils pourront me protéger!"
+
+[node name="LinearPNJ2" parent="AllPNJ" instance=ExtResource( 3 )]
+position = Vector2( 144.392, 5548.83 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AllPNJ/LinearPNJ2"]
+position = Vector2( -1.05945, 60.269 )
+shape = SubResource( 10 )
+
+[node name="LinearPNJ" parent="AllPNJ" instance=ExtResource( 3 )]
+position = Vector2( 593.658, 4940.34 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AllPNJ/LinearPNJ"]
+position = Vector2( -48.5322, 6.13037 )
 shape = SubResource( 9 )
+
+[node name="StaticPNJ2" parent="AllPNJ" instance=ExtResource( 7 )]
+position = Vector2( 593.857, -595.683 )
+TXT1 = "T'as déjà visité le musée?"
+TXT2 = "Les fossiles du MONT SELENITE sont intéressant hein?"
+
+[node name="StaticPNJ3" parent="AllPNJ" instance=ExtResource( 7 )]
+position = Vector2( -208.818, -664.018 )
+TXT1 = "On raconte que les MELOFEE sont des habitants de la Lune."
+TXT2 = "Ils sont apparus après la chute de la pierre Lune sur le MONT SELENITE."
+
+[node name="StaticPNJ" parent="AllPNJ" instance=ExtResource( 7 )]
+position = Vector2( 208.376, -275.476 )
+TXT1 = "Il n'y a pas vraiment de dresseurs serieux par ici."
+TXT2 = "Ils s'intéressent surtout aux insectes ici, rien de passionnant."
+TXT3 = "Mais PIERRE d'ARGENTA n'est pas comme ça, pas du tout."
+TheTexture = ExtResource( 32 )
 
 [node name="Positions" type="Node2D" parent="."]
 visible = false
@@ -1063,5 +1068,18 @@ visible = false
 [node name="GoSomeWhere" parent="GUITotal" instance=ExtResource( 13 )]
 
 [node name="Fight" parent="GUITotal" instance=ExtResource( 12 )]
+
+[node name="StaticPNJ" parent="." instance=ExtResource( 7 )]
+position = Vector2( 20.1922, 3788.24 )
+TXT1 = "C'est une pokéball que je vois! T'as aussi des pokemons?"
+TXT2 = "C'est cool de pouvoir s'en servir quand on veut, hein?"
+
+[node name="StaticPNJ" parent="StaticPNJ" instance=ExtResource( 7 )]
+position = Vector2( -358.141, 64.1445 )
+
+[node name="StaticPNJ2" parent="StaticPNJ" instance=ExtResource( 7 )]
+position = Vector2( 637.883, 128.289 )
+TXT1 = "Tu veux tout savoir sur les deux types de pokemons chenilles?"
+TXT2 = "Contrairement à Chenipan, Aspicot est venimeux."
+TXT3 = "Attention à son DARD-VENIN!"
 [connection signal="tree_entered" from="Player" to="Player" method="_on_Player_tree_entered"]
-[connection signal="body_entered" from="AllPNJ/LinearPNJ/Area2D2" to="AllPNJ/LinearPNJ" method="_on_Area2D2_body_entered"]

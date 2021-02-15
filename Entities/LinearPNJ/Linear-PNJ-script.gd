@@ -12,31 +12,54 @@ export (Texture) var TheTexture
 export (Texture) var TheInFightTexture
 
 export (Dictionary) var POKEMON1 = {
-	Name = "Salameche",
-	Lvl = 5,
-	Hp = 25,
+	Name = "Racaillou",
+	Lvl = 10,
+	Hp = 31,
 	MaxHp = 25,
-	Puissance = 48,
-	Defense = 65,
-	AttaqueSpecial = 50,
-	DefenseSpecial = 64,
-	Vitesse = 60,
+	Puissance = 80,
+	Defense = 100,
+	AttaqueSpecial = 30,
+	DefenseSpecial = 30,
+	Vitesse = 20,
 	Experience = 0,
 	LvlNeededToEvolve = 16,
 	ExperienceNeededToLvlUp = 30,
 	Statut = "",
-	Type1 = "Feu",
+	Type1 = "Roche",
 	Type2 = "-",
-	Attaque1 = "Griffe",
-	Attaque2 = "Rugissement",
+	Attaque1 = "Boul'Armure",
+	Attaque2 = "Charge",
 	Attaque3 = "-",
 	Attaque4 = "-",
 	ActualPPAttaque1 = 20,
 	ActualPPAttaque2 = 20,
 	ActualPPAttaque3 = 20,
 	ActualPPAttaque4 = 20}
-export (Dictionary) var POKEMON2
-export (Dictionary) var POKEMON3
+export (Dictionary) var POKEMON2 = {
+	Name = "Sabelette",
+	Lvl = 11,
+	Hp = 50,
+	MaxHp = 35,
+	Puissance = 75,
+	Defense = 85,
+	AttaqueSpecial = 20,
+	DefenseSpecial = 30,
+	Vitesse = 40,
+	Experience = 0,
+	LvlNeededToEvolve = 16,
+	ExperienceNeededToLvlUp = 30,
+	Statut = "",
+	Type1 = "Sol",
+	Type2 = "-",
+	Attaque1 = "Griffe",
+	Attaque2 = "Boul'Armure",
+	Attaque3 = "Jet De Sable",
+	Attaque4 = "-",
+	ActualPPAttaque1 = 20,
+	ActualPPAttaque2 = 20,
+	ActualPPAttaque3 = 20,
+	ActualPPAttaque4 = 20}
+export (Dictionary) var POKEMON3 
 export (Dictionary) var POKEMON4
 export (Dictionary) var POKEMON5
 export (Dictionary) var POKEMON6
