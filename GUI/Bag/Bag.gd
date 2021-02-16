@@ -14,8 +14,9 @@ var NumberPokemonSelection = 0
 var UsingObject = false
 var ActualObject = ""
 var IsTheButtonPushed = false
-#SIGNAL
+#SIGNALS
 signal catchapokemon(PokeballBonus,PokeballName)
+signal theobjecthasbeenused()
 
 func _ready():
 	yield(get_tree().create_timer(0.2),"timeout")
@@ -121,8 +122,7 @@ func _on_UtiliserButton_pressed():
 			"Potion","SuperPotion","HyperPotion","Guerison","MaxPotion","Antidote","AntiPara","Reveil","AntiBrule","TotalSoin","Eau","Soda","Limonade","Lait" :
 				RepeatUse1()
 			"Pokeball","SuperBall","HyperBall","ChronoBall","FiletBall","FaibloBall","MasterBall" :
-				if UIFight.TypeOfFight == "FightDresseur" :
-					pass
+				if UIFight.TypeOfFight == "FightDresseur" : pass
 				else :
 					match ActualObject :
 						"Pokeball" :
@@ -485,7 +485,7 @@ func loadValues() :
 	$ObjectBox/ScrollContainer/VBoxContainer/Objet1/Repousse/Number.text = "X" + str(PG.AllObject["NumberObject"].Repousse)
 	$ObjectBox/ScrollContainer/VBoxContainer/Objet1/SuperRepousse/Number.text = "X" + str(PG.AllObject["NumberObject"].SuperRepousse)
 	for x in PG.AllObject["NumberObject"] :
-		if PG.AllObject["NumberObject"][x] == 0 :
+		if PG.AllObject["NumberObject"][x] == 0 or PG.AllObject["NumberObject"][x] < 0  :
 			SetAndGetModulate(str(x)).modulate = Color.black
 	for x in PG.AllObject["Unlock"] :
 		if !PG.AllObject["Unlock"][x] :
@@ -580,57 +580,79 @@ func GetPokemonTarget() :
 	#MAIN FUNCTION
 func UseAnObject(ThePokemon,StringObject) :
 	match StringObject :
-		"Potion" : APotion(StringObject,20,ThePokemon.Hp,ThePokemon.MaxHp)
-		"SuperPotion" : APotion(StringObject,50,ThePokemon.Hp,ThePokemon.MaxHp)
-		"HyperPotion": APotion(StringObject,200,ThePokemon.Hp,ThePokemon.MaxHp)
-		"MaxPotion" : APotion(StringObject,ThePokemon.MaxHp-ThePokemon.Hp,ThePokemon.Hp,ThePokemon.MaxHp)
+		"Potion" : APotion(StringObject,20)
+		"SuperPotion" : APotion(StringObject,50)
+		"HyperPotion": APotion(StringObject,200)
+		"MaxPotion" : APotion(StringObject,ThePokemon.MaxHp-ThePokemon.Hp)
 		"Guerison" : 
-			APotion(StringObject,ThePokemon.MaxHp-ThePokemon.Hp,ThePokemon.Hp,ThePokemon.MaxHp)
-			AnAndidote(StringObject,"",ThePokemon.Statut,true)
-		"Rappel" : ARevive(StringObject,ThePokemon.Hp,ThePokemon.MaxHp,2)
-		"RappelMax" : ARevive(StringObject,ThePokemon.Hp,ThePokemon.MaxHp,1)
-		"Antidote" : AnAndidote(StringObject,"Empoisonne",ThePokemon.Statut,false)
-		"AntiBrule" : AnAndidote(StringObject,"Brule",ThePokemon.Statut,false)
-		"Reveil" : AnAndidote(StringObject,"Endormi",ThePokemon.Statut,false)
-		"AntiPara" : AnAndidote(StringObject,"Paralyse",ThePokemon.Statut,false)
-		"TotalSoin" : AnAndidote(StringObject,"",ThePokemon.Statut,true)
-		"Eau" : APotion(StringObject,50,ThePokemon.Hp,ThePokemon.MaxHp)
-		"Soda" : APotion(StringObject,60,ThePokemon.Hp,ThePokemon.MaxHp)
-		"Limonade" : APotion(StringObject,80,ThePokemon.Hp,ThePokemon.MaxHp)
-		"Lait" : APotion(StringObject,100,ThePokemon.Hp,ThePokemon.MaxHp)
+			APotion(StringObject,ThePokemon.MaxHp-ThePokemon.Hp)
+			AnAndidote(StringObject,"",true)
+		"Rappel" : ARevive(StringObject,2)
+		"RappelMax" : ARevive(StringObject,1)
+		"Antidote" : AnAndidote(StringObject,"Empoisonne",false)
+		"AntiBrule" : AnAndidote(StringObject,"Brule",false)
+		"Reveil" : AnAndidote(StringObject,"Endormi",false)
+		"AntiPara" : AnAndidote(StringObject,"Paralyse",false)
+		"TotalSoin" : AnAndidote(StringObject,"",true)
+		"Eau" : APotion(StringObject,50)
+		"Soda" : APotion(StringObject,60)
+		"Limonade" : APotion(StringObject,80)
+		"Lait" : APotion(StringObject,100)
+
 	#SECONDARY OBJECTS
-func APotion(StringObject,Number,Life,MaxLife) :
-	UsingObject = false
-	if (str(CheckLife(Life,MaxLife)) == "dead") :
+func APotion(StringObject,Number) :
+	UsingObject = true
+	if (str(CheckLife(GetPokemonTarget().Hp,GetPokemonTarget().MaxHp)) == "dead") :
 		UsingObject = true
-		Life = 0
+		GetPokemonTarget().Hp = 0
 		$InformationText.text = "Impossible d'utiliser ce(tte) "+ StringObject + " sur un pokemon KO !"
-	elif (!CheckLife(Life,MaxLife)) :
-		Life += Number
-		if Life > MaxLife : Life = MaxLife
+	elif GetPokemonTarget().Hp == GetPokemonTarget().MaxHp :
+		UsingObject = true
+		$InformationText.text = StringObject + " ne fonctionne pas sur un pokemon en parfaite santé !"
+	elif (!CheckLife(GetPokemonTarget().Hp,GetPokemonTarget().MaxHp)) :
+		GetPokemonTarget().Hp += Number
+		if GetPokemonTarget().Hp > GetPokemonTarget().MaxHp : GetPokemonTarget().Hp = GetPokemonTarget().MaxHp
 		$UseObjectPopup.hide()
+		$AnimationPlayer.stop()
+		$ChoicePopup.hide()
+		ActualObject = ""
+		UsingObject = false
+		ChangeNumberObject(StringObject)
 	else : 
 		UsingObject = true
 		$InformationText.text = "Erreur !"
-func AnAndidote(StringObject,TheStatut,ThePokemonStatut,BoolStatut) : 
-	UsingObject = false
-	if TheStatut == ThePokemonStatut or BoolStatut :
-		ThePokemonStatut = ""
+	loadValues()
+	Save.saveGame(false)
+func AnAndidote(StringObject,TheStatut,BoolStatut) : 
+	UsingObject = true
+	if TheStatut == GetPokemonTarget().Statut or BoolStatut :
+		GetPokemonTarget().Statut = ""
 		UsingObject = false
 		$UseObjectPopup.hide()
+		ChangeNumberObject(StringObject)
+		$AnimationPlayer.stop()
+		$ChoicePopup.hide()
+		ActualObject = ""
 	else :
 		$InformationText.text = StringObject + " ne fonctionne pas sur un pokemon avec ce statut !"
 		UsingObject = true
-func ARevive(StringObject,Life,MaxLife,Factor) :
-	UsingObject = false
-	if (str(CheckLife(Life,MaxLife)) == "dead") :
+	loadValues()
+	Save.saveGame(false)
+func ARevive(StringObject,Factor) :
+	UsingObject = true
+	if (str(CheckLife(GetPokemonTarget().Hp,GetPokemonTarget().MaxHp)) == "dead") :
+		GetPokemonTarget().Hp = GetPokemonTarget().MaxHp/Factor
 		$UseObjectPopup.hide()
-		loadValues()
-		Life = MaxLife/Factor
 		UsingObject = false
+		ChangeNumberObject(StringObject)
+		$AnimationPlayer.stop()
+		$ChoicePopup.hide()
+		ActualObject = ""
 	else : 
 		UsingObject = true
 		$InformationText.text = StringObject + " ne fonctionne pas sur un pokemon en pleine forme !"
+	loadValues()
+	Save.saveGame(false)
 
 	#OTHERS
 func CheckLife(Life,MaxLife) :
@@ -648,7 +670,6 @@ func quit_scene() :
 	$ChoicePopup.hide()
 	$JeterPopup.hide()
 	$UseObjectPopup.hide()
-	$ListeAttaquePopup.hide()
 	self.visible = false
 	get_tree().paused = false
 
@@ -701,12 +722,15 @@ func ChangeNumberObject(Name):
 		"Repousse" :PG.AllObject["NumberObject"].Repousse-= 1
 		"SuperRepousse" :PG.AllObject["NumberObject"].SuperRepousse-= 1
 	for x in PG.AllObject["NumberObject"] :
-		if PG.AllObject["NumberObject"][x] == 0 :
+		if PG.AllObject["NumberObject"][x] == 0 or PG.AllObject["NumberObject"][x] < 0 :
 			SetAndGetModulate(str(x)).modulate = Color.black
 func _on_Outside_pressed():
 	$UseObjectPopup.visible = false
 	UseObjectInFight = false
 	UsingObject = false
+	$AnimationPlayer.stop()
+	$ChoicePopup.hide()
+	ActualObject = ""
 func _on_OutsideButton_pressed():
 	quit_scene()
 	if PG.ActualScene == "/root/FightScene" :

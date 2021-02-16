@@ -188,9 +188,8 @@ __meta__ = {
 }
 
 [node name="BG-Down" type="ColorRect" parent="."]
-margin_left = 1.0
 margin_top = 450.0
-margin_right = 1027.0
+margin_right = 1026.0
 margin_bottom = 600.0
 color = Color( 0.0941176, 0.313726, 0.690196, 1 )
 __meta__ = {
@@ -1352,7 +1351,6 @@ __meta__ = {
 }
 
 [node name="UseObjectPopup" type="Popup" parent="."]
-visible = true
 margin_left = 140.0
 margin_top = 100.0
 margin_right = 940.0

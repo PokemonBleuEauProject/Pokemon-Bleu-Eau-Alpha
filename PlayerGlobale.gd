@@ -32,8 +32,7 @@ export (Dictionary) var PokemonTypical = {
 	Type1 = null,
 	Type2 = null,
 	#Others
-	Statut = null
-}
+	Statut = null}
 export (Dictionary) var Pokemon1 = {
 	Name = "Carapuce",
 	Lvl = 3,
@@ -119,7 +118,7 @@ export (Dictionary) var ListPokemon = [Pokemon1,Pokemon2,Pokemon3,Pokemon4,Pokem
 export (Dictionary) var AllObject = {
 	"NumberObject" : {
 	#	Number Medicaments
-		Potion = 3,
+		Potion = 0,
 		SuperPotion = 0,
 		HyperPotion = 0,
 		MaxPotion = 0,
@@ -136,13 +135,13 @@ export (Dictionary) var AllObject = {
 		Limonade = 0,
 		Lait = 0,
 	#	Number Pokeball
-		Pokeball = 5,
+		Pokeball = 0,
 		SuperBall = 0,
 		HyperBall = 0,
 		ChronoBall = 0,
 		FiletBall = 0,
 		FaibloBall = 0,
-		MasterBall = 1,
+		MasterBall = 0,
 	#	Number Others objects
 		Repousse = 0,
 		SuperRepousse = 0},
@@ -158,16 +157,14 @@ export (Dictionary) var Badge = {
 	BadgeAme = false,
 	BadgeMarais = false,
 	BadgeVolcan = false,
-	BadgeTerre = false
-}
+	BadgeTerre = false}
 #Others
 export (int) var Argent = 0
-export (String) var PlayerName = "TEST"
+export (String) var PlayerName = "1"
 export (Dictionary) var GameTime = {
 	Minutes = 0,
 	Hours = 0,
-	Days = 0
-}
+	Days = 0}
 #Function : Count Pokemon
 func CheckNumberOfPokemon() :
 	ListPokemon = [Pokemon1,Pokemon2,Pokemon3,Pokemon4,Pokemon5,Pokemon6]

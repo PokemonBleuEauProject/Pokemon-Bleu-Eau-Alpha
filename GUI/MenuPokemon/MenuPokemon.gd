@@ -18,8 +18,6 @@ var TempPokemon
 #For Bag
 var UsingObject = false
 var TheObject
-#Signals 
-signal ChangeNumberObject(Name)
 
 func _ready():
 	pass
@@ -30,10 +28,8 @@ func _input(_event) :
 		if ChangePokemonInFight :
 			$UIInfo/RichTextLabel.text = "Remplacer votre pokemon ?"
 		elif ChangePokemon :
-			$ChangeScene.play("Enter")
 			$UIInfo/RichTextLabel.text = "Changer l'ordre de vos pokemons ?"
 		elif UsingObject :
-			$ChangeScene.play("Enter")
 			$UIInfo/RichTextLabel.text = "Utiliser un objet ?"
 		else :
 			pass
@@ -170,25 +166,6 @@ func _input(_event) :
 				else : pass
 				loadsValues(PG.CheckNumberOfPokemon())
 			_ : pass
-	elif (Input.is_action_just_pressed("ui_accept") and UsingObject) :
-		match ActualPosition :
-			0 : 
-				UsingObject = false
-				self.visible = false
-				BagScene.visible = true
-			1 :
-				repeatUsingObject(PG.Pokemon6,TheObject)
-			2 :
-				repeatUsingObject(PG.Pokemon5,TheObject)
-			3 :
-				repeatUsingObject(PG.Pokemon4,TheObject)
-			4 :
-				repeatUsingObject(PG.Pokemon3,TheObject)
-			5 :
-				repeatUsingObject(PG.Pokemon2,TheObject)
-			6 :
-				repeatUsingObject(PG.Pokemon1,TheObject)
-			_ : UsingObject = false
 	elif (Input.is_action_just_pressed("ui_accept") and PokemonChoice) :
 		match ActualPosition :
 			1 :
@@ -412,8 +389,6 @@ func _input(_event) :
 		match ActualPosition :
 			0 :
 				PG.CantdisplayMenu = false
-				$ChangeScene.play("Exit")
-				yield($ChangeScene,"animation_finished")
 				self.visible = false
 				get_tree().paused = false
 				ChangePokemon = false
@@ -718,29 +693,6 @@ func LeaveAndChangePokemon(boole) :
 	TempPokemon = null
 	ActualPosition = null
 	self.visible = false
-func repeatUsingObject(ThePokemon,StringObject) :
-	match StringObject :
-		"Potion" :
-			APotion(StringObject,20,ThePokemon.Hp,ThePokemon.MaxHp)
-		"SuperPotion" :
-			APotion(StringObject,50,ThePokemon.Hp,ThePokemon.MaxHp)
-	#OBJECT FUNCTIONS
-func APotion(StringObject,Number,Life,MaxLife) :
-	Life += Number
-	UsingObject = false
-	if (CheckLife(Life,MaxLife) == "dead") :
-		UsingObject = true
-		Life = 0
-		$UIInfo/RichTextLabel.text = "Impossible d'utiliser cette objet sur un pokemon KO !"
-	elif (!CheckLife(Life,MaxLife)) :
-		print("ok")
-		Life = MaxLife
-		self.visible = false
-		emit_signal("ChangeNumberObject",StringObject)
-	else : 
-		UsingObject = true
-		$UIInfo/RichTextLabel.text = "Erreur !"
-
 #OTHERS FUNCTIONS
 func CheckLife(Life,MaxLife) :
 	if Life < 0 :
