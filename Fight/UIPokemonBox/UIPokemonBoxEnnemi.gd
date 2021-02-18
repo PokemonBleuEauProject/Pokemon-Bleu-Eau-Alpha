@@ -30,7 +30,6 @@ func load_values(NamePlayer,LvlPlayer,LifePlayer,MaxLifePlayer) :
 
 func _on_UIAttaque_AboutLoadingValues():
 	ActualLife = PokemonEnnemi.PokemonEnnemi.Hp
-
 func _on_UIAttaque_ChangeStatutE(TheStatut):
 	if TheStatut == "-" or TheStatut == "" :
 		$Statut.texture = null

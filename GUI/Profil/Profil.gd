@@ -21,7 +21,7 @@ func _on_BG2_pressed():
 		$BG2.visible = false
 		$BG1.visible = true
 func _on_TextureButton_pressed():
-	$AnimationPlayer.play("Exit")
+	self.visible = false
 	get_tree().paused = false
 	PG.CantdisplayMenu = false
 

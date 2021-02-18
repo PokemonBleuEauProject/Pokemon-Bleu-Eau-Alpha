@@ -9,7 +9,7 @@ func _input(_event) :
 	if PG.CantdisplayMenu :
 		pass
 	elif UIFight.IsFightLaunch : pass
-	elif (Input.is_action_just_pressed("ui_MenuUser")) :
+	elif (Input.is_action_just_pressed("ui_menu_user")) :
 		popup()
 		get_tree().paused = true
 	elif visible :
@@ -107,7 +107,8 @@ func _input(_event) :
 					get_tree().paused = true
 				4 :
 					get_tree().paused = true
-					Save.saveGame()
+					yield(get_node("LoadingSave").loading(),"completed")
+					Save.saveGame(false)
 				5 :
 					get_tree().paused = false
 					self.hide()

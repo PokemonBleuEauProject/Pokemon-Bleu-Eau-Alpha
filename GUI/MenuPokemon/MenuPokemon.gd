@@ -1,7 +1,5 @@
 extends ColorRect
 
-#Scene
-var BagScene
 #Position
 var ActualPosition
 var ActualPositionConfirmChoice = 0
@@ -18,11 +16,6 @@ var TempPokemon
 #For Bag
 var UsingObject = false
 var TheObject
-#Signals 
-signal ChangeNumberObject(Name)
-
-func _ready():
-	pass
 
 func _input(_event) :
 	loadsValues(PG.CheckNumberOfPokemon())
@@ -30,10 +23,8 @@ func _input(_event) :
 		if ChangePokemonInFight :
 			$UIInfo/RichTextLabel.text = "Remplacer votre pokemon ?"
 		elif ChangePokemon :
-			$ChangeScene.play("Enter")
 			$UIInfo/RichTextLabel.text = "Changer l'ordre de vos pokemons ?"
 		elif UsingObject :
-			$ChangeScene.play("Enter")
 			$UIInfo/RichTextLabel.text = "Utiliser un objet ?"
 		else :
 			pass
@@ -57,8 +48,6 @@ func _input(_event) :
 	elif (Input.is_action_just_pressed("ui_accept") and ChangePokemon) :
 		match ActualPosition :
 			0 : 
-				$ChangeScene.play("Exit")
-				yield($ChangeScene,"animation_finished")
 				self.visible = false
 				get_tree().paused = false
 				ChangePokemon = false
@@ -172,25 +161,6 @@ func _input(_event) :
 				else : pass
 				loadsValues(PG.CheckNumberOfPokemon())
 			_ : pass
-	elif (Input.is_action_just_pressed("ui_accept") and UsingObject) :
-		match ActualPosition :
-			0 : 
-				UsingObject = false
-				self.visible = false
-				BagScene.visible = true
-			1 :
-				repeatUsingObject(PG.Pokemon6,TheObject)
-			2 :
-				repeatUsingObject(PG.Pokemon5,TheObject)
-			3 :
-				repeatUsingObject(PG.Pokemon4,TheObject)
-			4 :
-				repeatUsingObject(PG.Pokemon3,TheObject)
-			5 :
-				repeatUsingObject(PG.Pokemon2,TheObject)
-			6 :
-				repeatUsingObject(PG.Pokemon1,TheObject)
-			_ : UsingObject = false
 	elif (Input.is_action_just_pressed("ui_accept") and PokemonChoice) :
 		match ActualPosition :
 			1 :
@@ -414,8 +384,6 @@ func _input(_event) :
 		match ActualPosition :
 			0 :
 				PG.CantdisplayMenu = false
-				$ChangeScene.play("Exit")
-				yield($ChangeScene,"animation_finished")
 				self.visible = false
 				get_tree().paused = false
 				ChangePokemon = false
@@ -560,7 +528,7 @@ func loadsValues(NumberOfPokemon) :
 			$Pokemon1/Hp/TextureProgress.value = PG.Pokemon1.Hp
 			$Pokemon1/Hp/TextureProgress.max_value = PG.Pokemon1.MaxHp
 			$Pokemon1/HpScript.text = str(PG.Pokemon1.Hp) + "/" + str(PG.Pokemon1.MaxHp)
-			$Pokemon1/PokemonTexture.texture = load(PG.Pokemon1.TextureOverworld)
+			$Pokemon1/PokemonTexture.texture = Pokemon.GetImageOverworld(PG.Pokemon1.Name)
 			$Pokemon2.visible = false
 			$Pokemon3.visible = false
 			$Pokemon4.visible = false
@@ -572,13 +540,13 @@ func loadsValues(NumberOfPokemon) :
 			$Pokemon1/Hp/TextureProgress.value = PG.Pokemon1.Hp
 			$Pokemon1/Hp/TextureProgress.max_value = PG.Pokemon1.MaxHp
 			$Pokemon1/HpScript.text = str(PG.Pokemon1.Hp) + "/" + str(PG.Pokemon1.MaxHp)
-			$Pokemon1/PokemonTexture.texture = load(PG.Pokemon1.TextureOverworld)
+			$Pokemon1/PokemonTexture.texture = Pokemon.GetImageOverworld(PG.Pokemon1.Name)
 			$Pokemon2/Name.text = PG.Pokemon2.Name
 			$Pokemon2/Lvl.text = "NV." + str(PG.Pokemon2.Lvl)
 			$Pokemon2/Hp/TextureProgress.value = PG.Pokemon2.Hp
 			$Pokemon2/Hp/TextureProgress.max_value = PG.Pokemon2.MaxHp
 			$Pokemon2/HpScript.text = str(PG.Pokemon2.Hp) + "/" + str(PG.Pokemon2.MaxHp)
-			$Pokemon2/PokemonTexture.texture = load(PG.Pokemon2.TextureOverworld)
+			$Pokemon2/PokemonTexture.texture = Pokemon.GetImageOverworld(PG.Pokemon2.Name)
 			$Pokemon3.visible = false
 			$Pokemon4.visible = false
 			$Pokemon5.visible = false
@@ -589,19 +557,19 @@ func loadsValues(NumberOfPokemon) :
 			$Pokemon1/Hp/TextureProgress.value = PG.Pokemon1.Hp
 			$Pokemon1/Hp/TextureProgress.max_value = PG.Pokemon1.MaxHp
 			$Pokemon1/HpScript.text = str(PG.Pokemon1.Hp) + "/" + str(PG.Pokemon1.MaxHp)
-			$Pokemon1/PokemonTexture.texture = load(PG.Pokemon1.TextureOverworld)
+			$Pokemon1/PokemonTexture.texture = Pokemon.GetImageOverworld(PG.Pokemon1.Name)
 			$Pokemon2/Name.text = PG.Pokemon2.Name
 			$Pokemon2/Lvl.text = "NV." + str(PG.Pokemon2.Lvl)
 			$Pokemon2/Hp/TextureProgress.value = PG.Pokemon2.Hp
 			$Pokemon2/Hp/TextureProgress.max_value = PG.Pokemon2.MaxHp
 			$Pokemon2/HpScript.text = str(PG.Pokemon2.Hp) + "/" + str(PG.Pokemon2.MaxHp)
-			$Pokemon2/PokemonTexture.texture = load(PG.Pokemon2.TextureOverworld)
+			$Pokemon2/PokemonTexture.texture = Pokemon.GetImageOverworld(PG.Pokemon2.Name)
 			$Pokemon3/Name.text = PG.Pokemon3.Name
 			$Pokemon3/Lvl.text = "NV." + str(PG.Pokemon3.Lvl)
 			$Pokemon3/Hp/TextureProgress.value = PG.Pokemon3.Hp
 			$Pokemon3/Hp/TextureProgress.max_value = PG.Pokemon3.MaxHp
 			$Pokemon3/HpScript.text = str(PG.Pokemon3.Hp) + "/" + str(PG.Pokemon3.MaxHp)
-			$Pokemon3/PokemonTexture.texture = load(PG.Pokemon3.TextureOverworld)
+			$Pokemon3/PokemonTexture.texture = Pokemon.GetImageOverworld(PG.Pokemon3.Name)
 			$Pokemon4.visible = false
 			$Pokemon5.visible = false
 			$Pokemon6.visible = false
@@ -611,25 +579,25 @@ func loadsValues(NumberOfPokemon) :
 			$Pokemon1/Hp/TextureProgress.value = PG.Pokemon1.Hp
 			$Pokemon1/Hp/TextureProgress.max_value = PG.Pokemon1.MaxHp
 			$Pokemon1/HpScript.text = str(PG.Pokemon1.Hp) + "/" + str(PG.Pokemon1.MaxHp)
-			$Pokemon1/PokemonTexture.texture = load(PG.Pokemon1.TextureOverworld)
+			$Pokemon1/PokemonTexture.texture = Pokemon.GetImageOverworld(PG.Pokemon1.Name)
 			$Pokemon2/Name.text = PG.Pokemon2.Name
 			$Pokemon2/Lvl.text = "NV." + str(PG.Pokemon2.Lvl)
 			$Pokemon2/Hp/TextureProgress.value = PG.Pokemon2.Hp
 			$Pokemon2/Hp/TextureProgress.max_value = PG.Pokemon2.MaxHp
 			$Pokemon2/HpScript.text = str(PG.Pokemon2.Hp) + "/" + str(PG.Pokemon2.MaxHp)
-			$Pokemon2/PokemonTexture.texture = load(PG.Pokemon2.TextureOverworld)
+			$Pokemon2/PokemonTexture.texture = Pokemon.GetImageOverworld(PG.Pokemon2.Name)
 			$Pokemon3/Name.text = PG.Pokemon3.Name
 			$Pokemon3/Lvl.text = "NV." + str(PG.Pokemon3.Lvl)
 			$Pokemon3/Hp/TextureProgress.value = PG.Pokemon3.Hp
 			$Pokemon3/Hp/TextureProgress.max_value = PG.Pokemon3.MaxHp
 			$Pokemon3/HpScript.text = str(PG.Pokemon3.Hp) + "/" + str(PG.Pokemon3.MaxHp)
-			$Pokemon3/PokemonTexture.texture = load(PG.Pokemon3.TextureOverworld)
+			$Pokemon3/PokemonTexture.texture = Pokemon.GetImageOverworld(PG.Pokemon3.Name)
 			$Pokemon4/Name.text = PG.Pokemon4.Name
 			$Pokemon4/Lvl.text = "NV." + str(PG.Pokemon4.Lvl)
 			$Pokemon4/Hp/TextureProgress.value = PG.Pokemon4.Hp
 			$Pokemon4/Hp/TextureProgress.max_value = PG.Pokemon4.MaxHp
 			$Pokemon4/HpScript.text = str(PG.Pokemon4.Hp) + "/" + str(PG.Pokemon4.MaxHp)
-			$Pokemon4/PokemonTexture.texture = load(PG.Pokemon4.TextureOverworld)
+			$Pokemon4/PokemonTexture.texture = Pokemon.GetImageOverworld(PG.Pokemon4.Name)
 			$Pokemon5.visible = false
 			$Pokemon6.visible = false
 		5 :
@@ -638,31 +606,31 @@ func loadsValues(NumberOfPokemon) :
 			$Pokemon1/Hp/TextureProgress.value = PG.Pokemon1.Hp
 			$Pokemon1/Hp/TextureProgress.max_value = PG.Pokemon1.MaxHp
 			$Pokemon1/HpScript.text = str(PG.Pokemon1.Hp) + "/" + str(PG.Pokemon1.MaxHp)
-			$Pokemon1/PokemonTexture.texture = load(PG.Pokemon1.TextureOverworld)
+			$Pokemon1/PokemonTexture.texture = Pokemon.GetImageOverworld(PG.Pokemon1.Name)
 			$Pokemon2/Name.text = PG.Pokemon2.Name
 			$Pokemon2/Lvl.text = "NV." + str(PG.Pokemon2.Lvl)
 			$Pokemon2/Hp/TextureProgress.value = PG.Pokemon2.Hp
 			$Pokemon2/Hp/TextureProgress.max_value = PG.Pokemon2.MaxHp
 			$Pokemon2/HpScript.text = str(PG.Pokemon2.Hp) + "/" + str(PG.Pokemon2.MaxHp)
-			$Pokemon2/PokemonTexture.texture = load(PG.Pokemon2.TextureOverworld)
+			$Pokemon2/PokemonTexture.texture = Pokemon.GetImageOverworld(PG.Pokemon2.Name)
 			$Pokemon3/Name.text = PG.Pokemon3.Name
 			$Pokemon3/Lvl.text = "NV." + str(PG.Pokemon3.Lvl)
 			$Pokemon3/Hp/TextureProgress.value = PG.Pokemon3.Hp
 			$Pokemon3/Hp/TextureProgress.max_value = PG.Pokemon3.MaxHp
 			$Pokemon3/HpScript.text = str(PG.Pokemon3.Hp) + "/" + str(PG.Pokemon3.MaxHp)
-			$Pokemon3/PokemonTexture.texture = load(PG.Pokemon3.TextureOverworld)
+			$Pokemon3/PokemonTexture.texture = Pokemon.GetImageOverworld(PG.Pokemon3.Name)
 			$Pokemon4/Name.text = PG.Pokemon4.Name
 			$Pokemon4/Lvl.text = "NV." + str(PG.Pokemon4.Lvl)
 			$Pokemon4/Hp/TextureProgress.value = PG.Pokemon4.Hp
 			$Pokemon4/Hp/TextureProgress.max_value = PG.Pokemon4.MaxHp
 			$Pokemon4/HpScript.text = str(PG.Pokemon4.Hp) + "/" + str(PG.Pokemon4.MaxHp)
-			$Pokemon4/PokemonTexture.texture = load(PG.Pokemon4.TextureOverworld)
+			$Pokemon4/PokemonTexture.texture = Pokemon.GetImageOverworld(PG.Pokemon4.Name)
 			$Pokemon5/Name.text = PG.Pokemon5.Name
 			$Pokemon5/Lvl.text = "NV." + str(PG.Pokemon5.Lvl)
 			$Pokemon5/Hp/TextureProgress.value = PG.Pokemon5.Hp
 			$Pokemon5/Hp/TextureProgress.max_value = PG.Pokemon5.MaxHp
 			$Pokemon5/HpScript.text = str(PG.Pokemon5.Hp) + "/" + str(PG.Pokemon5.MaxHp)
-			$Pokemon5/PokemonTexture.texture = load(PG.Pokemon5.TextureOverworld)
+			$Pokemon5/PokemonTexture.texture = Pokemon.GetImageOverworld(PG.Pokemon5.Name)
 			$Pokemon6.visible = false
 		6 :
 			$Pokemon1/Name.text = PG.Pokemon1.Name
@@ -670,37 +638,37 @@ func loadsValues(NumberOfPokemon) :
 			$Pokemon1/Hp/TextureProgress.value = PG.Pokemon1.Hp
 			$Pokemon1/Hp/TextureProgress.max_value = PG.Pokemon1.MaxHp
 			$Pokemon1/HpScript.text = str(PG.Pokemon1.Hp) + "/" + str(PG.Pokemon1.MaxHp)
-			$Pokemon1/PokemonTexture.texture = load(PG.Pokemon1.TextureOverworld)
+			$Pokemon1/PokemonTexture.texture = Pokemon.GetImageOverworld(PG.Pokemon1.Name)
 			$Pokemon2/Name.text = PG.Pokemon2.Name
 			$Pokemon2/Lvl.text = "NV." + str(PG.Pokemon2.Lvl)
 			$Pokemon2/Hp/TextureProgress.value = PG.Pokemon2.Hp
 			$Pokemon2/Hp/TextureProgress.max_value = PG.Pokemon2.MaxHp
 			$Pokemon2/HpScript.text = str(PG.Pokemon2.Hp) + "/" + str(PG.Pokemon2.MaxHp)
-			$Pokemon2/PokemonTexture.texture = load(PG.Pokemon2.TextureOverworld)
+			$Pokemon2/PokemonTexture.texture = Pokemon.GetImageOverworld(PG.Pokemon2.Name)
 			$Pokemon3/Name.text = PG.Pokemon3.Name
 			$Pokemon3/Lvl.text = "NV." + str(PG.Pokemon3.Lvl)
 			$Pokemon3/Hp/TextureProgress.value = PG.Pokemon3.Hp
 			$Pokemon3/Hp/TextureProgress.max_value = PG.Pokemon3.MaxHp
 			$Pokemon3/HpScript.text = str(PG.Pokemon3.Hp) + "/" + str(PG.Pokemon3.MaxHp)
-			$Pokemon3/PokemonTexture.texture = load(PG.Pokemon3.TextureOverworld)
+			$Pokemon3/PokemonTexture.texture = Pokemon.GetImageOverworld(PG.Pokemon3.Name)
 			$Pokemon4/Name.text = PG.Pokemon4.Name
 			$Pokemon4/Lvl.text = "NV." + str(PG.Pokemon4.Lvl)
 			$Pokemon4/Hp/TextureProgress.value = PG.Pokemon4.Hp
 			$Pokemon4/Hp/TextureProgress.max_value = PG.Pokemon4.MaxHp
 			$Pokemon4/HpScript.text = str(PG.Pokemon4.Hp) + "/" + str(PG.Pokemon4.MaxHp)
-			$Pokemon4/PokemonTexture.texture = load(PG.Pokemon4.TextureOverworld)
+			$Pokemon4/PokemonTexture.texture = Pokemon.GetImageOverworld(PG.Pokemon4.Name)
 			$Pokemon5/Name.text = PG.Pokemon5.Name
 			$Pokemon5/Lvl.text = "NV." + str(PG.Pokemon5.Lvl)
 			$Pokemon5/Hp/TextureProgress.value = PG.Pokemon5.Hp
 			$Pokemon5/Hp/TextureProgress.max_value = PG.Pokemon5.MaxHp
 			$Pokemon5/HpScript.text = str(PG.Pokemon5.Hp) + "/" + str(PG.Pokemon5.MaxHp)
-			$Pokemon5/PokemonTexture.texture = load(PG.Pokemon5.TextureOverworld)
+			$Pokemon5/PokemonTexture.texture = Pokemon.GetImageOverworld(PG.Pokemon5.Name)
 			$Pokemon6/Name.text = PG.Pokemon6.Name
 			$Pokemon6/Lvl.text = "NV." + str(PG.Pokemon6.Lvl)
 			$Pokemon6/Hp/TextureProgress.value = PG.Pokemon6.Hp
 			$Pokemon6/Hp/TextureProgress.max_value = PG.Pokemon6.MaxHp
 			$Pokemon6/HpScript.text = str(PG.Pokemon6.Hp) + "/" + str(PG.Pokemon6.MaxHp)
-			$Pokemon6/PokemonTexture.texture = load(PG.Pokemon6.TextureOverworld)
+			$Pokemon6/PokemonTexture.texture = Pokemon.GetImageOverworld(PG.Pokemon6.Name)
 		_ :
 			$Pokemon1.visible = false
 			$Pokemon2.visible = false
@@ -719,35 +687,12 @@ func LeaveAndChangePokemon(boole) :
 	Choice = null
 	TempPokemon = null
 	ActualPosition = null
-	get_node("/root/FightScene/AnimationPlayer").play("LeaveMenuPokemon")
-func repeatUsingObject(ThePokemon,StringObject) :
-	match StringObject :
-		"Potion" :
-			APotion(StringObject,20,ThePokemon.Hp,ThePokemon.MaxHp)
-	#OBJECT FUNCTIONS
-func APotion(StringObject,Number,Life,MaxLife) :
-	Life += Number
-	UsingObject = false
-	if (CheckLife(Life,MaxLife)) :
-		self.visible = false
-		emit_signal("ChangeNumberObject",StringObject)
-	elif (!CheckLife(Life,MaxLife)) :
-		Life = MaxLife
-		self.visible = false
-		emit_signal("ChangeNumberObject",StringObject)
-	elif (CheckLife(Life,MaxLife) == "dead") :
-		UsingObject = true
-		Life = 0
-		$UIInfo/RichTextLabel.text = "Impossible d'utiliser cette objet sur un pokemon KO !"
-	else : 
-		UsingObject = true
-		$UIInfo/RichTextLabel.text = "Erreur !"
-
+	self.visible = false
 #OTHERS FUNCTIONS
 func CheckLife(Life,MaxLife) :
 	if Life < 0 :
 		return "dead"
-	elif Life < MaxLife :
+	elif Life <= MaxLife :
 		return false
 	else :
 		return true

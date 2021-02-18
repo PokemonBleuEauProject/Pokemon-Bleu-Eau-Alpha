@@ -8,9 +8,14 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "TextureButton",
+"class": "ButtonPokemonPC",
+"language": "GDScript",
+"path": "res://Class/TextureButtonClassPC.gd"
+} ]
 _global_script_class_icons={
-
+"ButtonPokemonPC": ""
 }
 
 [application]
@@ -27,12 +32,13 @@ config/windows_native_icon="res://img Pokemon/9.ico"
 Pokemon="*res://Pokemon.gd"
 PG="*res://PlayerGlobale.gd"
 EG="*res://EnnemiGlobale.gd"
+PSS="*res://PokemonStorageSystem.gd"
+Pokedex="*res://PokedexAutoload.gd"
+Save="*res://Others/Save/SaveGame.gd"
+Attaque="*res://Attaque.gd"
 UISpeack="*res://UISpeackGlobale.gd"
 UIFight="*res://UIFightGlobale.gd"
 UIAction="*res://UIActionGlobale.gd"
-Attaque="*res://Attaque.gd"
-Save="*res://Others/Save/SaveGame.gd"
-Pokedex="*res://PokedexAutoload.gd"
 
 [compression]
 

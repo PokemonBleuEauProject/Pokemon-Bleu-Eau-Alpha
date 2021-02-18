@@ -1,8 +1,21 @@
 extends Node
 
+#Health
+func health(ThePokemon) :
+	ThePokemon.Hp = ThePokemon.MaxHp
+	ThePokemon.ActualPPAttaque1 = Attaque.GetAttaqueMaxPP(ThePokemon.Attaque1)
+	ThePokemon.ActualPPAttaque2 = Attaque.GetAttaqueMaxPP(ThePokemon.Attaque2)
+	ThePokemon.ActualPPAttaque3 = Attaque.GetAttaqueMaxPP(ThePokemon.Attaque3)
+	ThePokemon.ActualPPAttaque4 = Attaque.GetAttaqueMaxPP(ThePokemon.Attaque4)
+	ThePokemon.Statut = ""
+func restorePP(ThePokemon):
+	ThePokemon.ActualPPAttaque1 = Attaque.GetAttaqueMaxPP(ThePokemon.Attaque1)
+	ThePokemon.ActualPPAttaque2 = Attaque.GetAttaqueMaxPP(ThePokemon.Attaque2)
+	ThePokemon.ActualPPAttaque3 = Attaque.GetAttaqueMaxPP(ThePokemon.Attaque3)
+	ThePokemon.ActualPPAttaque4 = Attaque.GetAttaqueMaxPP(ThePokemon.Attaque4)
 #Experiences
 func CalculLvlToLvlUp(ThePokemon,Lvl) :
-	ThePokemon.ExperienceNeededToLvlUp = 0.8 * pow(Lvl,3)
+	ThePokemon.ExperienceNeededToLvlUp = 0.5 * pow(Lvl,3)
 func CheckLvlUp(ThePokemon,ExpWin) :
 	CalculLvlToLvlUp(ThePokemon,ThePokemon.Lvl)
 	if ExpWin+ThePokemon.Experience >= ThePokemon.ExperienceNeededToLvlUp :
@@ -13,6 +26,35 @@ func CheckLvlUp(ThePokemon,ExpWin) :
 		ThePokemon.Experience += ExpWin
 func CheckExpWin(ThePokemon) :
 	return (ThePokemon.Lvl/7) *  ThePokemon.BaseLvl
+#Ressources about pokemons
+func GetNumberPokedex(Name) :
+	match Name :
+		"Bulbizarre" : return 1
+		"Herbizarre" : return 2
+		"Florizarre" : return 3
+		"Salameche" : return 4
+		"Reptincel" : return 5
+		"Dracaufeu" : return 6
+		"Carapuce" : return 7
+		"Carabaffe" : return 8
+		"Tortank" : return 9
+		"Chenipan" : return 10
+		"Chrysacier" : return 11
+		"Papilusion" : return 12
+		"Aspicot" : return 13
+		"Coconfort" : return 14
+		"Dardagnan" : return 15
+		"Roucool" : return 16
+		"Roucoups" : return 17
+		"Roucarnage" : return 18
+		"Rattata" : return 19
+		"Rattatac" : return 20
+		"Rayquaza" : return 384
+#Images
+func GetImageFront(Name) : if Name != null : return load("res://img Pokemon/All Pokemon/Front/"+str(GetNumberPokedex(Name))+".png")
+func GetImageBack(Name) : if Name != null : return load("res://img Pokemon/All Pokemon/back/"+str(GetNumberPokedex(Name))+".png")
+func GetImageOverworld(Name) : if Name != null : return load("res://img Pokemon/All Pokemon/Overworld/"+str(GetNumberPokedex(Name))+".png")
+func GetImageType(Type) : if Type != null : return load("res://img Pokemon/All Type/"+str(Type)+".png")
 
 # All Pokemon in order with all informations -> extends into PlayerPokemon and EnnemiPokemon
 #1
@@ -1034,6 +1076,45 @@ class Mewtwo :
 class Mew :
 	var Name : String = "Mew"
 
+class Rayquaza :
+#Important Information
+	var Name : String = "Rayquaza"
+	var Prop = null
+	var Lvl : int = 50
+#Stat Information
+#	Life
+	var Hp : int = 210
+	var MaxHp : int = 210
+#Attaque
+	var Puissance : int = 220
+	var Defense : int = 160
+	var AttaqueSpecial : int = 220
+	var DefenseSpecial : int = 160
+	var Vitesse : int = 140
+#	Others
+	var Experience : int = 0
+	var LvlNeededToEvolve : int = 100
+	var ExperienceNeededToLvlUp : int = 62500
+	var BaseLvl : int = 220
+	var Statut : String = ""
+	var CatchRate : int = 3
+#	Attaque Information
+	var Attaque1 : String = "Ouragan"
+	var Attaque2 : String = "Hydrocanon"
+	var Attaque3 : String = "Feu d'Enfer"
+	var Attaque4 : String = "Pique"
+	var ActualPPAttaque1 : int = 0
+	var ActualPPAttaque2 : int = 0
+	var ActualPPAttaque3 : int = 0
+	var ActualPPAttaque4 : int = 0
+#Type of the Pokemon
+	var Type1 : String = "Dragon"
+	var Type2 : String = "Vol"
+#Textures
+	var TextureFront = "res://img Pokemon/All Pokemon/Front/384.png"
+	var TextureBack = "res://img Pokemon/All Pokemon/back/384.png"
+	var TextureOverworld = "res://img Pokemon/All Pokemon/Overworld/384.png"
+
 var List = {
 "Bulbizarre" : self.Bulbizarre,
 "Herbizarre" : self.Herbizarre,
@@ -1054,5 +1135,6 @@ var List = {
 "Roucoups" : self.Roucoups,
 "Roucarnage" : self.Roucarnage,
 "Rattata" : self.Rattata,
-"Rattatac" : self.Rattatac
+"Rattatac" : self.Rattatac,
+"Rayquaza" : self.Rayquaza
 }

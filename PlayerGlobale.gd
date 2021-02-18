@@ -4,18 +4,22 @@ var UnUsed
 
 #Pokemon Of the player
 export (Dictionary) var PokemonTypical = {
+	#First Information
 	Name = null,
+	Lvl = null,
 	Hp = null,
 	MaxHp = null,
-	Lvl = null,
+	#Experience
 	Experience = null,
 	ExperienceNeededToLvlUp = null,
-	Statut = null,
+	LvlNeededToEvolve = null,
+	#Stats
 	Puissance = null,
 	AttaqueSpecial = null,
 	Defense = null,
 	DefenseSpecial = null,
 	Vitesse = null,
+	#Attaque Information
 	Attaque1 = null,
 	Attaque2 = null,
 	Attaque3 = null,
@@ -24,22 +28,27 @@ export (Dictionary) var PokemonTypical = {
 	ActualPPAttaque2 = null,
 	ActualPPAttaque3 = null,
 	ActualPPAttaque4 = null,
-	TextureOverworld = null
-}
+	#Type of the Pokemon
+	Type1 = null,
+	Type2 = null,
+	#Others
+	Statut = null}
 export (Dictionary) var Pokemon1 = {
 	Name = "Carapuce",
+	Lvl = 3,
 	Hp = 19,
 	MaxHp = 19,
-	Lvl = 3,
+	
 	Experience = 20,
 	ExperienceNeededToLvlUp = 30,
-	Statut = "",
+	LvlNeededToEvolve = 16,
+	
 	Puissance = 48,
 	Defense = 65,
 	AttaqueSpecial = 50,
 	DefenseSpecial = 64,
 	Vitesse = 1000,
-	LvlNeededToEvolve = 16,
+	
 	Attaque1 = "Lance-Soleil",
 	Attaque2 = "Feu d'Enfer",
 	Attaque3 = "Ouragan",
@@ -48,7 +57,11 @@ export (Dictionary) var Pokemon1 = {
 	ActualPPAttaque2 = 20,
 	ActualPPAttaque3 = 20,
 	ActualPPAttaque4 = 20,
-	TextureOverworld = "res://img Pokemon/All Pokemon/Overworld/7.png"}
+	
+	Type1 = "Eau",
+	Type2 = null,
+	
+	Statut = ""}
 export (Dictionary) var Pokemon2 = {
 	Name = "Salameche",
 	Lvl = 5,
@@ -62,9 +75,6 @@ export (Dictionary) var Pokemon2 = {
 	Experience = 0,
 	LvlNeededToEvolve = 16,
 	ExperienceNeededToLvlUp = 30,
-	Statut = "",
-	Type1 = "Feu",
-	Type2 = "-",
 	Attaque1 = "Griffe",
 	Attaque2 = "Rugissement",
 	Attaque3 = "-",
@@ -73,23 +83,22 @@ export (Dictionary) var Pokemon2 = {
 	ActualPPAttaque2 = 20,
 	ActualPPAttaque3 = 20,
 	ActualPPAttaque4 = 20,
-	TextureOverworld = "res://img Pokemon/All Pokemon/Overworld/4.png"}
+	Type1 = "Feu",
+	Type2 = null,
+	Statut = ""}
 export (Dictionary) var Pokemon3 = {
-	Name = "Salameche",
+	Name = "Bulbizarre",
 	Lvl = 5,
-	Hp = 25,
+	Hp = 20,
 	MaxHp = 25,
 	Puissance = 48,
 	Defense = 65,
 	AttaqueSpecial = 50,
 	DefenseSpecial = 64,
 	Vitesse = 60,
-	Experience = 0,
+	Experience = 20,
 	LvlNeededToEvolve = 16,
 	ExperienceNeededToLvlUp = 30,
-	Statut = "",
-	Type1 = "Feu",
-	Type2 = "-",
 	Attaque1 = "Griffe",
 	Attaque2 = "Rugissement",
 	Attaque3 = "-",
@@ -98,7 +107,9 @@ export (Dictionary) var Pokemon3 = {
 	ActualPPAttaque2 = 20,
 	ActualPPAttaque3 = 20,
 	ActualPPAttaque4 = 20,
-	TextureOverworld = "res://img Pokemon/All Pokemon/Overworld/4.png"}
+	Type1 = "Plante",
+	Type2 = "Poison",
+	Statut = ""}
 export (Dictionary) var Pokemon4 = null
 export (Dictionary) var Pokemon5 = null
 export (Dictionary) var Pokemon6 = null
@@ -107,38 +118,35 @@ export (Dictionary) var ListPokemon = [Pokemon1,Pokemon2,Pokemon3,Pokemon4,Pokem
 export (Dictionary) var AllObject = {
 	"NumberObject" : {
 	#	Number Medicaments
-		NumberPotion = 3,
-		NumberSuperPotion = 0,
-		NumberHyperPotion = 0,
-		NumberMaxPotion = 0,
-		NumberGuerison = 0,
-		NumberRappel = 0,
-		NumberRappelMax = 0,
-		NumberAntidote = 0,
-		NumberAntiPara = 0,
-		NumberAntiBrule = 0,
-		NumberReveil = 0,
-		NumberTotalSoin = 0,
-		NumberElixir = 0,
-		NumberMaxElixir = 0,
-		NumberHuile = 0,
-		NumberMaxHuile = 0,
-		NumberEau = 0,
-		NumberSoda = 0,
-		NumberLimonade = 0,
-		NumberLait = 0,
+		Potion = 0,
+		SuperPotion = 0,
+		HyperPotion = 0,
+		MaxPotion = 0,
+		Guerison = 0,
+		Rappel = 0,
+		RappelMax = 0,
+		Antidote = 0,
+		AntiPara = 0,
+		AntiBrule = 0,
+		Reveil = 0,
+		TotalSoin = 0,
+		Eau = 0,
+		Soda = 0,
+		Limonade = 0,
+		Lait = 0,
 	#	Number Pokeball
-		NumberPokeball = 5,
-		NumberSuperBall = 0,
-		NumberHyperBall = 0,
-		NumberChronoBall = 0,
-		NumberFiletBall = 0,
-		NumberFaibloBall = 0,
-		NumberMasterBall = 1,
+		Pokeball = 0,
+		SuperBall = 0,
+		HyperBall = 0,
+		FiletBall = 0,
+		FaibloBall = 0,
+		MasterBall = 0,
 	#	Number Others objects
-		NumberCordeDeSortie = 0,
-		NumberRepousse = 0,
-		NumberSuperRepousse = 0}
+		Repousse = 0,
+		SuperRepousse = 0},
+	"Unlock" : {
+		ChaussuresDeCourse = false,
+		OrbeMysterieuse = false}
 }
 export (Dictionary) var Badge = {
 	BadgeRoche = false,
@@ -148,16 +156,14 @@ export (Dictionary) var Badge = {
 	BadgeAme = false,
 	BadgeMarais = false,
 	BadgeVolcan = false,
-	BadgeTerre = false
-}
+	BadgeTerre = false}
 #Others
-export (int) var Argent = 154800
-export (String) var PlayerName = "TEST"
+export (int) var Argent = 0
+export (String) var PlayerName = "1"
 export (Dictionary) var GameTime = {
 	Minutes = 0,
 	Hours = 0,
-	Days = 0
-}
+	Days = 0}
 #Function : Count Pokemon
 func CheckNumberOfPokemon() :
 	ListPokemon = [Pokemon1,Pokemon2,Pokemon3,Pokemon4,Pokemon5,Pokemon6]
@@ -182,14 +188,19 @@ func CheckDictionnaryPokemonFree() :
 		c = c + 1
 		if x == null :
 			return c
-
-#Global VAr for Player's position
+#Function : reload ditionnary
+func ReloadDictionnary() :
+	ListPokemon = [Pokemon1,Pokemon2,Pokemon3,Pokemon4,Pokemon5,Pokemon6]
+	return ListPokemon
+#IDLE AND ANIMATION
 var CantMoveCauseChangingScene
 var CantMoveCauseJumping
+#POSITION AND SCENE
 export (String) var NodePositionPath
 export (Vector2) var Last_position
 export (String) var ActualScene
 export (String) var ActualPlace
+export (String) var ActualSceneFile
 
 #GLOBAL VAR FOR SPEED PLAYER
 export (bool) var IsShoesEquip = false

@@ -9,7 +9,6 @@ func _ready():
 
 func _process(_delta):
 	PG.Last_position = GetActualPosition()
-	print("The name is " + PG.PlayerName)
 
 #PROCESS ABOUT PHYSIC AND ANIMATION
 
@@ -105,12 +104,23 @@ func GetActualPosition() :
 
 func _on_Player_tree_entered():
 	UIFight.IsFightLaunch = false
+	#Save Position
 	PG.ActualScene = str(get_tree().current_scene.get_path())
-	if PG.ActualScene == "/root/Map" :
-		if PG.NodePositionPath == "LastPosition" : self.position = PG.Last_position
-		else : self.position = get_node("/root/Map/Positions/" + PG.NodePositionPath).position
-	elif PG.ActualScene == "/root/ForetDeJade" :
-		if PG.NodePositionPath == "LastPosition" : self.position = PG.Last_position 
-		else :  self.position = get_node(PG.ActualScene + "/" + PG.NodePositionPath).position
-	elif PG.ActualScene != null and PG.NodePositionPath != null and PG.NodePositionPath != "Spawn" :
-			self.position = get_node(PG.ActualScene + "/" + PG.NodePositionPath).position
+	PG.ActualSceneFile = str(get_tree().current_scene.filename)
+	#save on entering in a scene
+	if Save.FirstTimeSave :
+		Save.loadGame()
+		Save.saveGame(false)
+		Save.FirstTimeSave = false
+	else : Save.saveGame(false)
+	#Position
+	if PG.NodePositionPath == "LastPosition" :
+		print("ok")
+		self.position = PG.Last_position
+	elif PG.ActualScene == "/root/Map" and PG.NodePositionPath != null :self.position = get_node("/root/Map/Positions/" + PG.NodePositionPath).position
+	elif PG.ActualScene == "/root/ForetDeJade" and PG.NodePositionPath != null :self.position = get_node(PG.ActualScene + "/" + PG.NodePositionPath).position
+	elif PG.ActualScene != null and PG.NodePositionPath != null and PG.NodePositionPath != "Spawn" : self.position = get_node(PG.ActualScene + "/" + PG.NodePositionPath).position
+	elif PG.Last_position == Vector2(0,0) and PG.ActualScene == "/root/Map" : self.position = get_node("/root/Map/Positions/Spawn").position
+	else : 
+		self.position = Vector2(0,0)
+	Save.saveGame(false)
