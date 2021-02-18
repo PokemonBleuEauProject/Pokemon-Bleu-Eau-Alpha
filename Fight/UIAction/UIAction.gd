@@ -46,13 +46,17 @@ func _input(_event):
 				Cantmove = true
 				MenuPokemon.PokemonHasChanged = null
 				while(MenuPokemon.PokemonHasChanged == null) : yield(get_tree().create_timer(0.1),"timeout")
+				self.popup()
+				UiFight.visible = true
+				UiPokemonBox.visible = true
+				UiPokemonBoxE.visible = true
 				if MenuPokemon.PokemonHasChanged :
-					yield(get_tree().create_timer(1.5),"timeout")
+					yield(get_tree().create_timer(0.5),"timeout")
 					Attaque.IsPlayerTheFirstAttacker = true
 					UiFight.changeText(PokemonPlayer.PokemonPlayer.Name + " revient !")
 					yield(get_tree().create_timer(0.6),"timeout")
 					AllAnimation.play("ChangePokemon-Return")
-					yield(get_tree().create_timer(1.5),"timeout")
+					yield(AllAnimation,"animation_finished")
 					match MenuPokemon.PokemonToChanged :
 						"2" :
 							PokemonPlayer.ChangePokemon("2")
@@ -67,7 +71,7 @@ func _input(_event):
 					UiFight.changeText(PokemonPlayer.PokemonPlayer.Name + " ! Go !")
 					AllAnimation.play("ChangePokemon-Normal")
 					get_node("/root/FightScene/UIPokemonBox").load_values(PokemonPlayer.PokemonPlayer.Name,PokemonPlayer.PokemonPlayer.Lvl,PokemonPlayer.PokemonPlayer.Hp,PokemonPlayer.PokemonPlayer.MaxHp,PokemonPlayer.PokemonPlayer.Experience,PokemonPlayer.PokemonPlayer.ExperienceNeededToLvlUp)
-					yield(get_tree().create_timer(2),"timeout")
+					yield(AllAnimation,"animation_finished")
 					yield(UiAttaque.ProcessRepeat(false,null,true,"Ennemi"),"completed")
 					Cantmove = false
 					UiFight.changeText("Que va faire " + PokemonPlayer.PokemonPlayer.Name + " ?")
@@ -207,7 +211,23 @@ func _on_Bag_catchapokemon(PokeballBonus,PokeballName):
 		UiAction.popup()
 		UiAttaque.actual_arrow = null
 		Cantmove = false
-
+func _on_Bag_theobjecthasbeenused(ObjectName):
+	self.popup()
+	UiFight.popup()
+	UiPokemonBox.popup()
+	UiPokemonBoxE.popup()
+	UiAttaque.hide()
+	UiFight.changeText("Vous utilisez un(e) " + ObjectName)
+	yield(UiFight_ShowText,"animation_finished")
+	Attaque.IsPlayerTheFirstAttacker = false
+	yield(UiAttaque.ProcessRepeat(false,null,true,"Ennemi"),"completed")
+	UiAttaque.CheckSomeoneDead(PokemonPlayer.PokemonPlayer,PokemonEnnemi.PokemonEnnemi)
+	UiAttaque.emit_signal("LoadValues")
+	UiFight_Text.text = "Que va faire " + PokemonPlayer.PokemonPlayer.Name + " ?"
+	UiAttaque.hide()
+	UiAction.popup()
+	UiAttaque.actual_arrow = null
+	Cantmove = false
 #PRINT FUNCTIONS
 func ShowExpWin(EXP,Name) :
 	pass
@@ -492,3 +512,8 @@ func EndOfFight() :
 	Cantmove = false
 	Save.saveGame(false)
 	PG.UnUsed = get_tree().change_scene(UIFight.SceneAfterFight)
+
+
+
+
+

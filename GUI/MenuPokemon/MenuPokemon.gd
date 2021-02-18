@@ -1,7 +1,5 @@
 extends ColorRect
 
-#Scene
-var BagScene
 #Position
 var ActualPosition
 var ActualPositionConfirmChoice = 0
@@ -18,9 +16,6 @@ var TempPokemon
 #For Bag
 var UsingObject = false
 var TheObject
-
-func _ready():
-	pass
 
 func _input(_event) :
 	loadsValues(PG.CheckNumberOfPokemon())

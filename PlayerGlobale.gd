@@ -138,7 +138,6 @@ export (Dictionary) var AllObject = {
 		Pokeball = 0,
 		SuperBall = 0,
 		HyperBall = 0,
-		ChronoBall = 0,
 		FiletBall = 0,
 		FaibloBall = 0,
 		MasterBall = 0,

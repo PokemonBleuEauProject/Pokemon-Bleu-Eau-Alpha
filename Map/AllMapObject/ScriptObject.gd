@@ -1,9 +1,9 @@
 extends StaticBody2D
 
-onready var player = get_node(PG.ActualScene + "/Player")
-onready var playerAnimation = get_node(PG.ActualScene + "/Player/Animation")
-onready var playerTexture = get_node(PG.ActualScene + "/Player/TexturePlayer")
-onready var animationGoSomeWhere = get_node(PG.ActualScene + "/GUITotal/GoSomeWhere")
+var player
+var playerAnimation
+var playerTexture
+var animationGoSomeWhere
 
 export (String) var Scene
 export (String) var NodePositionPath
@@ -11,6 +11,13 @@ export (String) var MoveToChange
 var IsIn = false
 var Velocity = Vector2(0,-1)
 var HaveToMove = false
+
+func _ready():
+	if PG.ActualScene != "/root/FightScene" :
+		player = get_node(PG.ActualScene + "/Player")
+		playerAnimation = get_node(PG.ActualScene + "/Player/Animation")
+		playerTexture = get_node(PG.ActualScene + "/Player/TexturePlayer")
+		animationGoSomeWhere = get_node(PG.ActualScene + "/GUITotal/GoSomeWhere")
 
 func _physics_process(delta):
 	if HaveToMove :

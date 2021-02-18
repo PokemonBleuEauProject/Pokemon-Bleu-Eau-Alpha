@@ -44,6 +44,8 @@ func VerifyPokemon() :
 		yield(animationFight,"animation_finished")
 #		SCENE
 		PG.ActualScene = "/root/FightScene"
+		PG.Last_position = Player.GetActualPosition()
+		Save.saveGame(false)
 		PokemonRNG = 0
 		PG.UnUsed = get_tree().change_scene("res://Fight/FightScene.tscn")
 

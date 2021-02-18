@@ -15155,6 +15155,7 @@ margin_bottom = 602.296
 popup_exclusive = true
 
 [node name="UIPokemonBox" parent="." instance=ExtResource( 9 )]
+visible = false
 margin_left = 625.0
 margin_top = 270.0
 margin_right = 1025.0
@@ -15194,6 +15195,7 @@ margin_bottom = 139.0
 texture_progress = ExtResource( 54 )
 
 [node name="UIPokemonBoxEnnemi" parent="." instance=ExtResource( 11 )]
+visible = false
 popup_exclusive = true
 script = ExtResource( 21 )
 
@@ -15490,7 +15492,6 @@ visible = false
 modulate = Color( 1, 1, 1, 0 )
 
 [node name="MenuPokemon" parent="." instance=ExtResource( 49 )]
-visible = false
 modulate = Color( 1, 1, 1, 0 )
 
 [node name="GameTime" parent="." instance=ExtResource( 53 )]
@@ -15500,8 +15501,9 @@ modulate = Color( 1, 1, 1, 0 )
 [connection signal="AboutLoadingValues" from="UIAttaque" to="UIPokemonBoxEnnemi" method="_on_UIAttaque_AboutLoadingValues"]
 [connection signal="ChangeStatut" from="UIAttaque" to="UIPokemonBox" method="_on_UIAttaque_ChangeStatut"]
 [connection signal="ChangeStatutE" from="UIAttaque" to="UIPokemonBoxEnnemi" method="_on_UIAttaque_ChangeStatutE"]
-[connection signal="LoadValues" from="UIAttaque" to="PokemonEnnemi" method="_on_UIAttaque_LoadValues"]
 [connection signal="LoadValues" from="UIAttaque" to="PokemonPlayer" method="_on_UIAttaque_LoadValues"]
+[connection signal="LoadValues" from="UIAttaque" to="PokemonEnnemi" method="_on_UIAttaque_LoadValues"]
 [connection signal="tree_entered" from="PokemonPlayer" to="PokemonPlayer" method="_on_PokemonPlayer_tree_entered"]
 [connection signal="tree_entered" from="PokemonEnnemi" to="PokemonEnnemi" method="_on_PokemonEnnemi_tree_entered"]
 [connection signal="catchapokemon" from="Bag" to="UIAction" method="_on_Bag_catchapokemon"]
+[connection signal="theobjecthasbeenused" from="Bag" to="UIAction" method="_on_Bag_theobjecthasbeenused" binds= [ "" ]]

@@ -1,9 +1,13 @@
 extends StaticBody2D
 
-onready var player = get_node(PG.ActualScene + "/Player")
+var player
 
 var HaveToMove = false
 var Velocity : Vector2
+
+func _ready():
+	if PG.ActualScene != "/root/FightScene" :
+		player = get_node(PG.ActualScene + "/Player")
 
 func _physics_process(delta):
 	if HaveToMove :

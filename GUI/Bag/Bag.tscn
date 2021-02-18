@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=2]
+[gd_scene load_steps=87 format=2]
 
 [ext_resource path="res://img Pokemon/img Bag/Graphic/BagLeft.png" type="Texture" id=1]
 [ext_resource path="res://img Pokemon/img Bag/Graphic/BagShadow.png" type="Texture" id=2]
@@ -28,7 +28,6 @@
 [ext_resource path="res://img Pokemon/img Bag/Graphic/cadre.png" type="Texture" id=29]
 [ext_resource path="res://img Pokemon/img Bag/Object/Pokeball/superpokeball.png" type="Texture" id=30]
 [ext_resource path="res://img Pokemon/img Bag/Object/Pokeball/hyperpokeball.png" type="Texture" id=31]
-[ext_resource path="res://img Pokemon/img Bag/Object/Pokeball/chronoball.png" type="Texture" id=32]
 [ext_resource path="res://img Pokemon/img Bag/Object/Pokeball/fileball.png" type="Texture" id=33]
 [ext_resource path="res://img Pokemon/img Bag/Object/Pokeball/faibloball.png" type="Texture" id=34]
 [ext_resource path="res://img Pokemon/img Bag/Object/Pokeball/masterball.png" type="Texture" id=35]
@@ -912,34 +911,6 @@ __meta__ = {
 margin_top = 104.0
 margin_right = 308.0
 margin_bottom = 204.0
-
-[node name="ChronoBall" type="Control" parent="PokeballBox/ScrollContainer/VBoxContainer/Pokeball2"]
-margin_right = 100.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 100, 100 )
-
-[node name="ChronoBall" type="TextureButton" parent="PokeballBox/ScrollContainer/VBoxContainer/Pokeball2/ChronoBall"]
-margin_left = 10.0
-margin_top = 10.0
-margin_right = 90.0
-margin_bottom = 90.0
-texture_normal = ExtResource( 32 )
-texture_focused = ExtResource( 29 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Number" type="Label" parent="PokeballBox/ScrollContainer/VBoxContainer/Pokeball2/ChronoBall"]
-margin_left = 30.0
-margin_top = 90.0
-margin_right = 70.0
-margin_bottom = 123.0
-custom_fonts/font = ExtResource( 11 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "X1"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="FiletBall" type="Control" parent="PokeballBox/ScrollContainer/VBoxContainer/Pokeball2"]
 margin_left = 104.0
@@ -1910,7 +1881,6 @@ anims/IdleSelectChoice = SubResource( 33 )
 [connection signal="pressed" from="PokeballBox/ScrollContainer/VBoxContainer/Pokeball1/Pokeball/Pokeball" to="." method="_on_Pokeball_pressed"]
 [connection signal="pressed" from="PokeballBox/ScrollContainer/VBoxContainer/Pokeball1/SuperBall/SuperBall" to="." method="_on_SuperBall_pressed"]
 [connection signal="pressed" from="PokeballBox/ScrollContainer/VBoxContainer/Pokeball1/HyperBall/HyperBall" to="." method="_on_HyperBall_pressed"]
-[connection signal="pressed" from="PokeballBox/ScrollContainer/VBoxContainer/Pokeball2/ChronoBall/ChronoBall" to="." method="_on_ChronoBall_pressed"]
 [connection signal="pressed" from="PokeballBox/ScrollContainer/VBoxContainer/Pokeball2/FiletBall/FiletBall" to="." method="_on_FiletBall_pressed"]
 [connection signal="pressed" from="PokeballBox/ScrollContainer/VBoxContainer/Pokeball2/FaibloBall/FaibloBall" to="." method="_on_FaibloBall_pressed"]
 [connection signal="pressed" from="PokeballBox/ScrollContainer/VBoxContainer/Pokeball3/MasterBall/MasterBall" to="." method="_on_MasterBall_pressed"]
@@ -1930,5 +1900,6 @@ anims/IdleSelectChoice = SubResource( 33 )
 [connection signal="pressed" from="UseObjectPopup/Pokemon3" to="." method="_on_Pokemon3_pressed"]
 [connection signal="pressed" from="UseObjectPopup/Pokemon4" to="." method="_on_Pokemon4_pressed"]
 [connection signal="pressed" from="UseObjectPopup/Pokemon5" to="." method="_on_Pokemon5_pressed"]
+[connection signal="pressed" from="UseObjectPopup/Pokemon6" to="." method="_on_Pokemon6_pressed"]
 [connection signal="pressed" from="UseObjectPopup/Outside" to="." method="_on_Outside_pressed"]
 [connection signal="pressed" from="OutsideButton" to="." method="_on_OutsideButton_pressed"]

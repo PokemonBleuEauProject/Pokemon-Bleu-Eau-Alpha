@@ -1,9 +1,10 @@
 extends ColorRect
 
 #VAR NODE
-onready var MenuPokemonScene
 onready var player
 onready var NodeTextureSelection
+onready var PokemonEnnemi
+onready var PokemonPlayer
 
 #VAR SELECTION
 var ActualSection
@@ -16,17 +17,17 @@ var ActualObject = ""
 var IsTheButtonPushed = false
 #SIGNALS
 signal catchapokemon(PokeballBonus,PokeballName)
-signal theobjecthasbeenused()
+signal theobjecthasbeenused(ObjectName)
 
 func _ready():
-	yield(get_tree().create_timer(0.2),"timeout")
+	if PG.ActualScene == "/root/FightScene" : 
+		PokemonPlayer = get_node("/root/FightScene/PokemonPlayer")
+		PokemonEnnemi = get_node("/root/FightScene/PokemonEnnemi")
 	loadValues()
 	$InformationText.text = ""
 	ActualSection = "Medicaments"
 	$MedicamentBox.visible = true
 	$AnimationPlayer.play("IdleArrows")
-	if PG.ActualScene == "/root/FightScene" : var MenuPokemonScene = get_node("/root/FightScene/MenuPokemon")
-	else : MenuPokemonScene = get_node(PG.ActualScene + "/GUITotal/MenuPokemon")
 	if PG.ActualScene != "/root/FightScene" : player = get_node(PG.ActualScene + "/Player")
 
 func _input(event) :
@@ -37,6 +38,10 @@ func _input(event) :
 				if !IsTheButtonPushed : 
 					IsTheButtonPushed = true
 		elif IsTheButtonPushed : pass
+
+func _process(delta):
+	if visible :
+		loadValues()
 
 #IMPORTANT BUTTONS
 func _on_ArrowLeft_pressed():
@@ -103,7 +108,7 @@ func _on_UtiliserButton_pressed():
 		match ActualObject :
 			"Potion","SuperPotion","HyperPotion","Guerison","MaxPotion","Antidote","AntiPara","Reveil","AntiBrule","TotalSoin","Eau","Soda","Limonade","Lait","Rappel","RappelMax" :
 				RepeatUse1()
-			"Pokeball","SuperBall","HyperBall","ChronoBall","FiletBall","FaibloBall","MasterBall" :
+			"Pokeball","SuperBall","HyperBall","FiletBall","FaibloBall","MasterBall" :
 				pass
 			"Carte" :
 				$ChoicePopup.hide()
@@ -119,16 +124,18 @@ func _on_UtiliserButton_pressed():
 #	IN FIGHT
 	elif (UseObjectInFight) :
 		match ActualObject :
-			"Potion","SuperPotion","HyperPotion","Guerison","MaxPotion","Antidote","AntiPara","Reveil","AntiBrule","TotalSoin","Eau","Soda","Limonade","Lait" :
+			"Potion","SuperPotion","HyperPotion","Guerison","MaxPotion","Antidote","AntiPara","Reveil","AntiBrule","TotalSoin","Eau","Soda","Limonade","Lait","Rappel","RappelMax" :
 				RepeatUse1()
-			"Pokeball","SuperBall","HyperBall","ChronoBall","FiletBall","FaibloBall","MasterBall" :
+			"Pokeball","SuperBall","HyperBall","FiletBall","FaibloBall","MasterBall" :
 				if UIFight.TypeOfFight == "FightDresseur" : pass
 				else :
 					match ActualObject :
-						"Pokeball" :
-							CatchAPokemonInFight(1,ActualObject)
-						"MasterBall" :
-							CatchAPokemonInFight(255,ActualObject)
+						"Pokeball" : CatchAPokemonInFight(1,ActualObject)
+						"SuperBall" : CatchAPokemonInFight(1.5,ActualObject)
+						"HyperBall" : CatchAPokemonInFight(2,ActualObject)
+						"FiletBall" : CatchAPokemonInFight(CalculFiletBallBonus(PokemonEnnemi.PokemonEnnemi.Type1,PokemonEnnemi.PokemonEnnemi.Type2),ActualObject)
+						"FaibloBall" :  CatchAPokemonInFight(CalculFaibloBallBonus(PokemonEnnemi.PokemonEnnemi.Lvl),ActualObject)
+						"MasterBall" : CatchAPokemonInFight(255,ActualObject)
 func _on_JeterButton_pressed():
 	if (!UseObjectInFight) :
 		match ActualSection :
@@ -168,7 +175,6 @@ func _on_LineEdit_text_entered(new_text):
 				"Pokeball" : PG.AllObject["NumberObject"].Pokeball -= int(new_text)
 				"SuperBall" : PG.AllObject["NumberObject"].SuperBall -= int(new_text)
 				"HyperBall" : PG.AllObject["NumberObject"].HyperBall -= int(new_text)
-				"ChronoBall" : PG.AllObject["NumberObject"].ChronoBall -= int(new_text)
 				"FiletBall" : PG.AllObject["NumberObject"].FiletBall -= int(new_text)
 				"FaibloBall" : PG.AllObject["NumberObject"].FaibloBall -= int(new_text)
 				"MasterBall" : PG.AllObject["NumberObject"].MasterBall -= int(new_text)
@@ -370,16 +376,6 @@ func _on_HyperBall_pressed():
 	else :
 		Same("Version améliorée de la SuperBall")
 		ActualObject = "HyperBall"
-func _on_ChronoBall_pressed():
-	if PG.ActualScene == "/root/FightScene" :
-		ActualTextureSelection = PG.ActualScene +"/Bag/PokeballBox/ScrollContainer/VBoxContainer/Pokeball2/ChronoBall/ChronoBall"
-	else :
-		ActualTextureSelection = PG.ActualScene +"/GUITotal/Bag/PokeballBox/ScrollContainer/VBoxContainer/Pokeball2/ChronoBall/ChronoBall"
-	if (get_node(ActualTextureSelection).modulate == Color.black) :
-		pass
-	else :
-		Same("Plus le combat est long, plus la Ball est efficace")
-		ActualObject = "ChronoBall"
 func _on_FiletBall_pressed():
 	if PG.ActualScene == "/root/FightScene" :
 		ActualTextureSelection = PG.ActualScene +"/Bag/PokeballBox/ScrollContainer/VBoxContainer/Pokeball2/FiletBall/FiletBall"
@@ -458,7 +454,8 @@ func _on_OrbeMysterieuse_pressed():
 #GRAPHIC AND LOADING FUNCTIONS
 	#LOAD FUNCTIONS GRAPHIC
 func loadValues() :
-	#FOR ALL OBJECTS
+	SetNumberObject()
+	#FOR ALL OBJECTS3
 	$MedicamentBox/ScrollContainer/VBoxContainer/Potions/Potion/Number.text = "X" + str(PG.AllObject["NumberObject"].Potion)
 	$MedicamentBox/ScrollContainer/VBoxContainer/Potions/SuperPotion/Number.text = "X" + str(PG.AllObject["NumberObject"].SuperPotion)
 	$MedicamentBox/ScrollContainer/VBoxContainer/Potions/HyperPotion/Number.text = "X" + str(PG.AllObject["NumberObject"].HyperPotion)
@@ -478,7 +475,6 @@ func loadValues() :
 	$PokeballBox/ScrollContainer/VBoxContainer/Pokeball1/Pokeball/Number.text = "X" + str(PG.AllObject["NumberObject"].Pokeball)
 	$PokeballBox/ScrollContainer/VBoxContainer/Pokeball1/SuperBall/Number.text = "X" + str(PG.AllObject["NumberObject"].SuperBall)
 	$PokeballBox/ScrollContainer/VBoxContainer/Pokeball1/HyperBall/Number.text = "X" + str(PG.AllObject["NumberObject"].HyperBall)
-	$PokeballBox/ScrollContainer/VBoxContainer/Pokeball2/ChronoBall/Number.text = "X" + str(PG.AllObject["NumberObject"].ChronoBall)
 	$PokeballBox/ScrollContainer/VBoxContainer/Pokeball2/FiletBall/Number.text = "X" + str(PG.AllObject["NumberObject"].FiletBall)
 	$PokeballBox/ScrollContainer/VBoxContainer/Pokeball2/FaibloBall/Number.text = "X" + str(PG.AllObject["NumberObject"].FaibloBall)
 	$PokeballBox/ScrollContainer/VBoxContainer/Pokeball3/MasterBall/Number.text = "X" + str(PG.AllObject["NumberObject"].MasterBall)
@@ -495,16 +491,24 @@ func loadValues() :
 	for x in range(1,7) :
 		var TheDico = PG.ListPokemon[x-1]
 		var TheNode
-		if PG.ActualPlace == "/root/FightScene" : TheNode = PG.ActualScene + "/Bag/UseObjectPopup/Pokemon"+str(x)
+		if PG.ActualScene== "/root/FightScene" : TheNode = PG.ActualScene + "/Bag/UseObjectPopup/Pokemon"+str(x)
 		else : TheNode = PG.ActualScene + "/GUITotal/Bag/UseObjectPopup/Pokemon"+str(x)
 		if TheDico == null : get_node(TheNode).visible = false
 		else :
-			get_node(TheNode + "/TextureOverworld").texture = Pokemon.GetImageOverworld(TheDico.Name)
-			get_node(TheNode + "/Name").text = TheDico.Name
-			get_node(TheNode + "/Life").text = str(TheDico.Hp) + "/" + str(TheDico.MaxHp)
-			get_node(TheNode + "/Progress").max_value = TheDico.MaxHp
-			get_node(TheNode + "/Progress").value = TheDico.Hp
-			get_node(TheNode + "/Statut").texture = load("res://img Pokemon/img Animation/Animation - Statut/"+TheDico.Statut+".png")
+			if PG.ActualScene == "/root/FightScene" and x == 1 :
+				get_node(TheNode + "/TextureOverworld").texture = Pokemon.GetImageOverworld(PokemonPlayer.PokemonPlayer.Name)
+				get_node(TheNode + "/Name").text = PokemonPlayer.PokemonPlayer.Name
+				get_node(TheNode + "/Life").text = str(PokemonPlayer.PokemonPlayer.Hp) + "/" + str(PokemonPlayer.PokemonPlayer.MaxHp)
+				get_node(TheNode + "/Progress").max_value = PokemonPlayer.PokemonPlayer.MaxHp
+				get_node(TheNode + "/Progress").value = PokemonPlayer.PokemonPlayer.Hp
+				get_node(TheNode + "/Statut").texture = load("res://img Pokemon/img Animation/Animation - Statut/"+PokemonPlayer.PokemonPlayer.Statut+".png")
+			else :
+				get_node(TheNode + "/TextureOverworld").texture = Pokemon.GetImageOverworld(TheDico.Name)
+				get_node(TheNode + "/Name").text = TheDico.Name
+				get_node(TheNode + "/Life").text = str(TheDico.Hp) + "/" + str(TheDico.MaxHp)
+				get_node(TheNode + "/Progress").max_value = TheDico.MaxHp
+				get_node(TheNode + "/Progress").value = TheDico.Hp
+				get_node(TheNode + "/Statut").texture = load("res://img Pokemon/img Animation/Animation - Statut/"+TheDico.Statut+".png")
 
 	#CHECK COLORS FUCNTIONS
 func SetAndGetModulate(x) :
@@ -529,7 +533,6 @@ func SetAndGetModulate(x) :
 		"Pokeball" : ThePath = $PokeballBox/ScrollContainer/VBoxContainer/Pokeball1/Pokeball/Pokeball
 		"SuperBall" : ThePath = $PokeballBox/ScrollContainer/VBoxContainer/Pokeball1/SuperBall/SuperBall
 		"HyperBall" : ThePath = $PokeballBox/ScrollContainer/VBoxContainer/Pokeball1/HyperBall/HyperBall
-		"ChronoBall" : ThePath = $PokeballBox/ScrollContainer/VBoxContainer/Pokeball2/ChronoBall/ChronoBall
 		"FiletBall" : ThePath = $PokeballBox/ScrollContainer/VBoxContainer/Pokeball2/FiletBall/FiletBall
 		"FaibloBall" : ThePath = $PokeballBox/ScrollContainer/VBoxContainer/Pokeball2/FaibloBall/FaibloBall
 		"MasterBall" : ThePath = $PokeballBox/ScrollContainer/VBoxContainer/Pokeball3/MasterBall/MasterBall
@@ -538,6 +541,10 @@ func SetAndGetModulate(x) :
 		"ChaussuresDeCourse" : ThePath = $RareObjectBox/ScrollContainer/VBoxContainer/ObjetsRares1/ChaussuresDeCourse/ChaussuresDeCourse
 		"OrbeMysterieuse" : ThePath = $RareObjectBox/ScrollContainer/VBoxContainer/ObjetsRares1/OrbeMysterieuse/OrbeMysterieuse
 	return ThePath
+func SetNumberObject():
+	for x in PG.AllObject["NumberObject"] :
+		if PG.AllObject["NumberObject"][x] < 0  :
+			PG.AllObject["NumberObject"][x] = 0
 	#GET DICTIONNARY OBJECT
 func GetDictionnaryValue(TheObject : String) :
 	match TheObject :
@@ -560,7 +567,6 @@ func GetDictionnaryValue(TheObject : String) :
 		"Pokeball" : return PG.AllObject["NumberObject"].Pokeball
 		"SuperBall" : return PG.AllObject["NumberObject"].SuperBall
 		"HyperBall" : return PG.AllObject["NumberObject"].HyperBall
-		"ChronoBall" : return PG.AllObject["NumberObject"].ChronoBall
 		"FiletBall" : return PG.AllObject["NumberObject"].FiletBall
 		"FaibloBall" : return PG.AllObject["NumberObject"].FaibloBall
 		"MasterBall" : return PG.AllObject["NumberObject"].MasterBall
@@ -615,9 +621,11 @@ func APotion(StringObject,Number) :
 		$UseObjectPopup.hide()
 		$AnimationPlayer.stop()
 		$ChoicePopup.hide()
-		ActualObject = ""
 		UsingObject = false
-		ChangeNumberObject(StringObject)
+		ChangeObjectNumber(StringObject)
+		quit_scene()
+		if PG.ActualScene == "/root/FightScene" : emit_signal("theobjecthasbeenused",ActualObject)
+		ActualObject = ""
 	else : 
 		UsingObject = true
 		$InformationText.text = "Erreur !"
@@ -629,9 +637,11 @@ func AnAndidote(StringObject,TheStatut,BoolStatut) :
 		GetPokemonTarget().Statut = ""
 		UsingObject = false
 		$UseObjectPopup.hide()
-		ChangeNumberObject(StringObject)
 		$AnimationPlayer.stop()
 		$ChoicePopup.hide()
+		UsingObject = false
+		ChangeObjectNumber(StringObject)
+		if PG.ActualScene == "/root/FightScene" : emit_signal("theobjecthasbeenused",ActualObject)
 		ActualObject = ""
 	else :
 		$InformationText.text = StringObject + " ne fonctionne pas sur un pokemon avec ce statut !"
@@ -643,10 +653,12 @@ func ARevive(StringObject,Factor) :
 	if (str(CheckLife(GetPokemonTarget().Hp,GetPokemonTarget().MaxHp)) == "dead") :
 		GetPokemonTarget().Hp = GetPokemonTarget().MaxHp/Factor
 		$UseObjectPopup.hide()
-		UsingObject = false
-		ChangeNumberObject(StringObject)
 		$AnimationPlayer.stop()
 		$ChoicePopup.hide()
+		UsingObject = false
+		ChangeObjectNumber(StringObject)
+		quit_scene()
+		if PG.ActualScene == "/root/FightScene" : emit_signal("theobjecthasbeenused",ActualObject)
 		ActualObject = ""
 	else : 
 		UsingObject = true
@@ -662,7 +674,6 @@ func CheckLife(Life,MaxLife) :
 		return false
 	else :
 		return true
-
 
 #REPEAT ACTIONS
 func quit_scene() :
@@ -684,17 +695,21 @@ func RepeatUse1() :
 func CatchAPokemonInFight(PokeballBonus,PokeballName) :
 	quit_scene()
 	emit_signal("catchapokemon",PokeballBonus,PokeballName)
-
-#ANIMATIONS 
+func CalculFiletBallBonus(Type1,Type2) :
+	if Type1 == "Eau" or Type2 == "Eau" or Type1 == "Insecte" or Type2 == "Insecte" :
+		return 3
+	else : return 1
+func CalculFaibloBallBonus(LvlEnnemi) :
+	return (40-LvlEnnemi)/10
+#ANIMATIONS
 func AnimateSelectChoice() :
 	NodeTextureSelection.modulate = Color.white
 	yield(get_tree().create_timer(0.2),"timeout")
 	NodeTextureSelection.modulate = Color.black
 	yield(get_tree().create_timer(0.1),"timeout")
 	NodeTextureSelection.modulate = Color.white
-
 #SIGNAL FUNCTIONS
-func ChangeNumberObject(Name):
+func ChangeObjectNumber(Name) :
 	match Name:
 		"Potion" : PG.AllObject["NumberObject"].Potion -= 1
 		"SuperPotion" : PG.AllObject["NumberObject"].SuperPotion -= 1
@@ -715,7 +730,6 @@ func ChangeNumberObject(Name):
 		"Pokeball" :PG.AllObject["NumberObject"].Pokeball-= 1
 		"SuperBall" :PG.AllObject["NumberObject"].SuperBall-= 1
 		"HyperBall" :PG.AllObject["NumberObject"].HyperBall-= 1
-		"ChronoBall" :PG.AllObject["NumberObject"].ChronoBall-= 1
 		"FiletBall" :PG.AllObject["NumberObject"].FiletBall-= 1
 		"FaibloBall" :PG.AllObject["NumberObject"].FaibloBall-= 1
 		"MasterBall" :PG.AllObject["NumberObject"].MasterBall-= 1
@@ -724,6 +738,7 @@ func ChangeNumberObject(Name):
 	for x in PG.AllObject["NumberObject"] :
 		if PG.AllObject["NumberObject"][x] == 0 or PG.AllObject["NumberObject"][x] < 0 :
 			SetAndGetModulate(str(x)).modulate = Color.black
+
 func _on_Outside_pressed():
 	$UseObjectPopup.visible = false
 	UseObjectInFight = false

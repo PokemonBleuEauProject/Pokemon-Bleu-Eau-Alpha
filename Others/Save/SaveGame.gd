@@ -43,7 +43,7 @@ var DefaulValue = {
 	"PG.ActualPlace" : "Bourg-Palette",
 	"PSS.PSSList" : [null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],
 	"PG.AllObject" : { 
-		"NumberObject" : {Potion = 2,SuperPotion = 1,HyperPotion = 1,MaxPotion =1,Guerison = 1,Rappel = 1,RappelMax = 1,Antidote = 100,AntiPara = 1000,AntiBrule = 10,Reveil = 1,TotalSoin = 1,Eau = 1,Soda = 1,Limonade = 1,Lait = 1,Pokeball = 1,SuperBall = 1,HyperBall = 0,ChronoBall = 0,FiletBall = 0,FaibloBall = 0,MasterBall = 0,Repousse = 0,SuperRepousse = 0},
+		"NumberObject" : {Potion = 2,SuperPotion = 1,HyperPotion = 1,MaxPotion =1,Guerison = 1,Rappel = 1,RappelMax = 1,Antidote = 100,AntiPara = 1000,AntiBrule = 10,Reveil = 1,TotalSoin = 1,Eau = 1,Soda = 1,Limonade = 1,Lait = 1,Pokeball = 1,SuperBall = 1,HyperBall = 0,FiletBall = 0,FaibloBall = 0,MasterBall = 0,Repousse = 0,SuperRepousse = 0},
 		"Unlock" : {
 		ChaussuresDeCourse = false,
 		OrbeMysterieuse = false}}}
