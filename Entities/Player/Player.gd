@@ -114,9 +114,7 @@ func _on_Player_tree_entered():
 		Save.FirstTimeSave = false
 	else : Save.saveGame(false)
 	#Position
-	if PG.NodePositionPath == "LastPosition" :
-		print("ok")
-		self.position = PG.Last_position
+	if PG.NodePositionPath == "LastPosition" : self.position = PG.Last_position
 	elif PG.ActualScene == "/root/Map" and PG.NodePositionPath != null :self.position = get_node("/root/Map/Positions/" + PG.NodePositionPath).position
 	elif PG.ActualScene == "/root/ForetDeJade" and PG.NodePositionPath != null :self.position = get_node(PG.ActualScene + "/" + PG.NodePositionPath).position
 	elif PG.ActualScene != null and PG.NodePositionPath != null and PG.NodePositionPath != "Spawn" : self.position = get_node(PG.ActualScene + "/" + PG.NodePositionPath).position

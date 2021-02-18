@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Entities/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://GUI/GUI-Total.tscn" type="PackedScene" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://Map/AllObject/Others/MachineChen.tscn" type="PackedScene" id=17]
 [ext_resource path="res://img Pokemon/img Map/Environnement/Texture Object/MachineChen.png" type="Texture" id=18]
 [ext_resource path="res://Entities/StaticPNJ/Static-PNJ-scene.tscn" type="PackedScene" id=19]
+[ext_resource path="res://img Pokemon/All PNJ/Overworld/Intello/Overworld_Intello_RFVF.png" type="Texture" id=20]
 
 [node name="StartHouse2" type="Node2D"]
 
@@ -123,15 +124,18 @@ TXT2 = "Ils sont également tous puissants face à un certain élément."
 TheTexture = ExtResource( 13 )
 
 [node name="StaticPNJ" parent="." instance=ExtResource( 19 )]
-position = Vector2( -151.087, 14.6758 )
+position = Vector2( -159.519, 26.2647 )
 TXT1 = "Le PROF.CHEN est une célébrité dans le monde des POKEMONS."
 TXT2 = "Nombreux sont les dresseurs qui lui portent un grand respect."
+TheTexture = ExtResource( 20 )
 
 [node name="StaticPNJ2" parent="." instance=ExtResource( 19 )]
-position = Vector2( -117.184, 71.8868 )
+position = Vector2( -117.184, 79.0736 )
 TXT1 = "J'assiste le PROF.CHEN. Je suis donc son... ASSISTANT!"
+TheTexture = ExtResource( 20 )
 
 [node name="StaticPNJ3" parent="." instance=ExtResource( 19 )]
 position = Vector2( 144.503, 27.3894 )
 TXT1 = "J'assiste le PROF.CHEN. Je suis donc son... ASSISTANT!"
+TheTexture = ExtResource( 20 )
 [connection signal="tree_entered" from="Player" to="Player" method="_on_Player_tree_entered"]

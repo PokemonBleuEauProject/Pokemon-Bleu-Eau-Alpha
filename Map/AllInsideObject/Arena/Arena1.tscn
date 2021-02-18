@@ -58,25 +58,6 @@ position = Vector2( -17.282, -334.011 )
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( -15.3038, 71.7665 )
 
-[node name="StatueArene" parent="." instance=ExtResource( 11 )]
-position = Vector2( 48, 0 )
-script = ExtResource( 12 )
-TXT1 = "Arene Pokemon d'Argenta         Champion : PIERRE"
-TXT2 = "Vainqueurs : "
-TheTexture = ExtResource( 13 )
-
-[node name="StatueArene1" parent="." instance=ExtResource( 11 )]
-position = Vector2( -80, 0 )
-script = ExtResource( 12 )
-TXT1 = "Arene Pokemon d'Argenta         Champion : PIERRE"
-TXT2 = "Vainqueurs : "
-TheTexture = ExtResource( 13 )
-
-[node name="Arena1" type="Position2D" parent="."]
-position = Vector2( -15.5596, 76.6633 )
-
-[node name="GUITotal" parent="." instance=ExtResource( 2 )]
-
 [node name="StaticPNJ" parent="." instance=ExtResource( 17 )]
 position = Vector2( 17, 8 )
 TXT1 = "Salut graine de Champion!"
@@ -95,4 +76,23 @@ TheInFightTexture = ExtResource( 15 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dresseur"]
 position = Vector2( 97.2663, -0.374573 )
 shape = SubResource( 1 )
+
+[node name="StatueArene" parent="." instance=ExtResource( 11 )]
+position = Vector2( 48, 0 )
+script = ExtResource( 12 )
+TXT1 = "Arene Pokemon d'Argenta         Champion : PIERRE"
+TXT2 = "Vainqueurs : "
+TheTexture = ExtResource( 13 )
+
+[node name="StatueArene1" parent="." instance=ExtResource( 11 )]
+position = Vector2( -80, 0 )
+script = ExtResource( 12 )
+TXT1 = "Arene Pokemon d'Argenta         Champion : PIERRE"
+TXT2 = "Vainqueurs : "
+TheTexture = ExtResource( 13 )
+
+[node name="Arena1" type="Position2D" parent="."]
+position = Vector2( -15.5596, 76.6633 )
+
+[node name="GUITotal" parent="." instance=ExtResource( 2 )]
 [connection signal="tree_entered" from="Player" to="Player" method="_on_Player_tree_entered"]

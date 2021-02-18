@@ -19,6 +19,4 @@ func talk() :
 		UISpeack.ListOfTxt = [TXT1,TXT2]
 	else :
 		UISpeack.ListOfTxt = [TXT1,TXT2,TXT3]
-	UISpeack.ListOfTxt = [TXT1,TXT2,TXT3]
 	UISpeackScene.display()
-
