@@ -22,7 +22,7 @@
 [ext_resource path="res://img Pokemon/img Map/Environnement/Texture Object/siege4-OtherColor.png" type="Texture" id=20]
 [ext_resource path="res://img Pokemon/img Map/Environnement/Texture Cartes/ArgentaShow.png" type="Texture" id=21]
 [ext_resource path="res://img Pokemon/img Map/Environnement/Texture Object/siege4.png" type="Texture" id=22]
-[ext_resource path="res://GUI/PC/PC.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Entities/StaticPNJ/Static-PNJ-scene.tscn" type="PackedScene" id=23]
 
 [node name="PokemonCenter" type="Node2D"]
 
@@ -46,9 +46,7 @@ tile_data = PoolIntArray( -1703918, 8, 0, -1376258, 3, 0, -1376246, 5, 0, -78645
 [node name="Comptoir" parent="TileMap" instance=ExtResource( 3 )]
 position = Vector2( -16.8521, -146.088 )
 
-[node name="PC" parent="TileMap" groups=[
-"StaticMessage",
-] instance=ExtResource( 11 )]
+[node name="PC" parent="TileMap" instance=ExtResource( 11 )]
 position = Vector2( 99.7155, -172.032 )
 
 [node name="Bibliotheque" parent="TileMap" instance=ExtResource( 6 )]
@@ -90,6 +88,27 @@ Message = "Une CARTE."
 [node name="StairPokemonCenter" parent="TileMap" instance=ExtResource( 7 )]
 position = Vector2( -249.634, -0.393829 )
 
+[node name="StaticPNJ4" parent="TileMap" instance=ExtResource( 23 )]
+position = Vector2( -201, -133 )
+TXT1 = "[Baille]"
+TXT2 = "Lorsque RONDOUDOU chante, tous les pokemons piquent du nez..."
+TXT3 = "... Moi aussi ... [Zzzzzz] ..."
+
+[node name="StaticPNJ" parent="TileMap" instance=ExtResource( 23 )]
+position = Vector2( -119, 74 )
+TXT1 = "Quoi!?"
+TXT2 = "La TEAM ROCKET est au MONT SELENITE!"
+TXT3 = "Damnation!"
+
+[node name="StaticPNJ3" parent="TileMap" instance=ExtResource( 23 )]
+position = Vector2( 76, 44 )
+TXT1 = "Je veux vraiment un Pikachu, ça te dit un Mélofée en échange?"
+
+[node name="StaticPNJ2" parent="TileMap" instance=ExtResource( 23 )]
+position = Vector2( 199, 11 )
+TXT1 = "J'échange des pokemons avec ce gamin."
+TXT2 = "Comme j'avais deux pikachu, j'en ai échangé un!"
+
 [node name="InsideOutside" parent="TileMap" instance=ExtResource( 10 )]
 margin_left = -30.2036
 margin_top = 80.2546
@@ -107,9 +126,6 @@ position = Vector2( -5.12981, 63.653 )
 position = Vector2( -4.46999, 69.5832 )
 
 [node name="GUITotal" parent="." instance=ExtResource( 14 )]
-
-[node name="PC-GUI" parent="GUITotal" instance=ExtResource( 23 )]
-visible = false
 
 [node name="ShowSomething" parent="GUITotal" instance=ExtResource( 2 )]
 [connection signal="tree_entered" from="Player" to="Player" method="_on_Player_tree_entered"]

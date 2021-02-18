@@ -47,7 +47,6 @@ formats/zstd/window_log_size=30
 
 [debug]
 
-settings/crash_handler/message="An error has occurred. Please restart or try to install/reinstall"
 gdscript/warnings/unused_variable=false
 gdscript/warnings/unused_argument=false
 gdscript/warnings/unused_signal=false
@@ -157,7 +156,3 @@ Controle={
 [locale]
 
 locale_filter=[ 0, [  ] ]
-
-[logging]
-
-file_logging/enable_file_logging=true

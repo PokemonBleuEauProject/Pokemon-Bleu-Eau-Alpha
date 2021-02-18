@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Entities/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://GUI/GUI-Total.tscn" type="PackedScene" id=2]
@@ -13,6 +13,14 @@
 [ext_resource path="res://Map/AllObject/Decoration/Statue-Arene1.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Map/AllObject/Decoration/Statue-Arene1.gd" type="Script" id=12]
 [ext_resource path="res://img Pokemon/img Map/Environnement/Texture Object/Statue-Arene1.png" type="Texture" id=13]
+[ext_resource path="res://Entities/LinearPNJ/Linear-PNJ-scene.tscn" type="PackedScene" id=14]
+[ext_resource path="res://img Pokemon/All PNJ/InFight/Fan de Camping/Sprite_Campeur_RFVF.png" type="Texture" id=15]
+[ext_resource path="res://img Pokemon/All PNJ/Overworld/Fan de Camping/Overworld_Campeur_RFVF.png" type="Texture" id=16]
+[ext_resource path="res://Entities/StaticPNJ/Static-PNJ-scene.tscn" type="PackedScene" id=17]
+[ext_resource path="res://img Pokemon/All PNJ/Overworld/Electricien/Overworld_Jongleur_RFVF.png" type="Texture" id=18]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 82.3454, 10 )
 
 [node name="Arena1" type="Node2D"]
 
@@ -68,4 +76,23 @@ TheTexture = ExtResource( 13 )
 position = Vector2( -15.5596, 76.6633 )
 
 [node name="GUITotal" parent="." instance=ExtResource( 2 )]
+
+[node name="StaticPNJ" parent="." instance=ExtResource( 17 )]
+position = Vector2( 17, 8 )
+TXT1 = "Salut graine de Champion!"
+TXT2 = "Je ne suis pas dresseur mais mes conseils sont bien avisés."
+TXT3 = "J'en trouverai un plus tard."
+TheTexture = ExtResource( 18 )
+
+[node name="Dresseur" parent="." instance=ExtResource( 14 )]
+position = Vector2( -110.612, -110.516 )
+TXT = "Une minute! Tu es encore loin de te battre contre Pierre."
+TXTIntro = "Tu vas devoir d'abord me combattre!"
+EnnemiName = "Campeur Elvin"
+TheTexture = ExtResource( 16 )
+TheInFightTexture = ExtResource( 15 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dresseur"]
+position = Vector2( 97.2663, -0.374573 )
+shape = SubResource( 1 )
 [connection signal="tree_entered" from="Player" to="Player" method="_on_Player_tree_entered"]

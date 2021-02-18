@@ -79,8 +79,5 @@ position = Vector2( 46.2277, -81.6831 )
 [node name="StairsTop" type="Position2D" parent="."]
 position = Vector2( 219.307, -196.745 )
 
-[node name="StartHouse1" type="Position2D" parent="."]
-position = Vector2( 45.1239, -78.5171 )
-
 [node name="GUITotal" parent="." instance=ExtResource( 5 )]
 [connection signal="tree_entered" from="Player" to="Player" method="_on_Player_tree_entered"]

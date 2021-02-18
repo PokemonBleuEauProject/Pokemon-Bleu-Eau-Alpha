@@ -22,7 +22,7 @@
 [ext_resource path="res://Map/AllObject/Meubles/ComptoirPokemonCenter.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Map/AllObject/Meubles/PC.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Map/Inside-Outside/StairsPokemonCenter/StairsDown.tscn" type="PackedScene" id=22]
-[ext_resource path="res://GUI/PC/PC.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Entities/StaticPNJ/Static-PNJ-scene.tscn" type="PackedScene" id=23]
 
 [node name="PokemonCenter" type="Node2D"]
 
@@ -46,9 +46,7 @@ tile_data = PoolIntArray( -1703918, 8, 0, -1376258, 3, 0, -1376246, 5, 0, -78645
 [node name="Comptoir" parent="TileMap" instance=ExtResource( 20 )]
 position = Vector2( -16.8521, -146.088 )
 
-[node name="PC" parent="TileMap" groups=[
-"StaticMessage",
-] instance=ExtResource( 21 )]
+[node name="PC" parent="TileMap" instance=ExtResource( 21 )]
 position = Vector2( 99.7155, -172.032 )
 
 [node name="Bibliotheque" parent="TileMap" instance=ExtResource( 9 )]
@@ -108,8 +106,19 @@ position = Vector2( -17.075, 73.5637 )
 
 [node name="GUITotal" parent="." instance=ExtResource( 2 )]
 
-[node name="PC-GUI" parent="GUITotal" instance=ExtResource( 23 )]
-visible = false
-
 [node name="ShowSomething" parent="GUITotal" instance=ExtResource( 18 )]
+
+[node name="StaticPNJ" parent="." instance=ExtResource( 23 )]
+position = Vector2( -128, 35 )
+TXT1 = "Il y a un CENTRE POKEMON dans chaque grande ville."
+TXT2 = "Tu peux y soigner gratuitement tes pokemons!"
+
+[node name="StaticPNJ" parent="StaticPNJ" instance=ExtResource( 23 )]
+position = Vector2( -61, -157 )
+TXT1 = "Les CENTRES POKEMONS soignent les pokemons blessés ou KO!"
+
+[node name="StaticPNJ" parent="StaticPNJ/StaticPNJ" instance=ExtResource( 23 )]
+position = Vector2( 341, 109 )
+TXT1 = "Tu peux utiliser le PC."
+TXT2 = "C'est l'hotesse qui me l'a dit, elle est mignonne en plus!"
 [connection signal="tree_entered" from="Player" to="Player" method="_on_Player_tree_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Entities/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://GUI/GUI-Total.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Map/AllObject/Walls/Wall7-Musee-Reste.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Map/AllObject/Decoration/NavetteExposition.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Map/Inside-Outside/StairsMusee/TopStairs.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Entities/StaticPNJ/Static-PNJ-scene.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Map/AllObject/Nature/Plante.tscn" type="PackedScene" id=12]
 [ext_resource path="res://GUI/Overlay/ShowSomething.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Map/AllObject/Decoration/VitrineMusee.tscn" type="PackedScene" id=14]
@@ -75,4 +76,28 @@ position = Vector2( -138.978, 50.582 )
 [node name="GUITotal" parent="." instance=ExtResource( 2 )]
 
 [node name="ShowSomething" parent="GUITotal" instance=ExtResource( 13 )]
+
+[node name="StaticPNJ" parent="." instance=ExtResource( 9 )]
+position = Vector2( -79, 12 )
+TXT1 = "Je veux un PIKACHU! "
+TXT2 = "Mon papa va m'en capturer un!"
+
+[node name="StaticPNJ2" parent="." instance=ExtResource( 9 )]
+position = Vector2( -47.8216, 11.9405 )
+TXT1 = "Oui, oui un pikachu... c'est ça.."
+
+[node name="StaticPNJ3" parent="." instance=ExtResource( 9 )]
+position = Vector2( -209.044, -51.3952 )
+TXT1 = "Nous faisons une exposition sur l'espace."
+
+[node name="StaticPNJ" parent="StaticPNJ3" instance=ExtResource( 9 )]
+position = Vector2( -351.212, 28.0758 )
+TXT1 = "20 Juillet 1969!"
+TXT2 = "L'Homme a marché sur la Lune!"
+TXT3 = "J'ai acheté une télé couleur pour voir toutes les nuances de la Lune!"
+
+[node name="StaticPNJ" parent="StaticPNJ3/StaticPNJ" instance=ExtResource( 9 )]
+position = Vector2( 128.725, 100.119 )
+TXT1 = "PIERRE LUNE?"
+TXT2 = "Ouais? Et alors?"
 [connection signal="tree_entered" from="Player" to="Player" method="_on_Player_tree_entered"]
