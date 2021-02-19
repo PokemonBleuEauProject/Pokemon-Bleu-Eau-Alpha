@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Entities/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://GUI/GUI-Total.tscn" type="PackedScene" id=2]
@@ -18,6 +18,9 @@
 [ext_resource path="res://img Pokemon/All PNJ/Overworld/Fan de Camping/Overworld_Campeur_RFVF.png" type="Texture" id=16]
 [ext_resource path="res://Entities/StaticPNJ/Static-PNJ-scene.tscn" type="PackedScene" id=17]
 [ext_resource path="res://img Pokemon/All PNJ/Overworld/Electricien/Overworld_Jongleur_RFVF.png" type="Texture" id=18]
+[ext_resource path="res://Entities/ArenaChampionPNJ/ArenaChampion-PNJ-scene.tscn" type="PackedScene" id=19]
+[ext_resource path="res://img Pokemon/All PNJ/InFight/ChampionArene/Sprite_Pierre_RFVF.png" type="Texture" id=20]
+[ext_resource path="res://img Pokemon/All PNJ/Overworld/ChampionArene/Overworld_Pierre_RFVF.png" type="Texture" id=21]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 82.3454, 10 )
@@ -65,10 +68,18 @@ TXT2 = "Je ne suis pas dresseur mais mes conseils sont bien avisés."
 TXT3 = "J'en trouverai un plus tard."
 TheTexture = ExtResource( 18 )
 
+[node name="Pierre" parent="." instance=ExtResource( 19 )]
+position = Vector2( -15.3894, -204.779 )
+TXTIntro = "Un combat a été lancé contre le champion d'arène PIERRE !"
+EnnemiName = "Pierre"
+TheTexture = ExtResource( 21 )
+TheInFightTexture = ExtResource( 20 )
+Badge = "Roche"
+
 [node name="Dresseur" parent="." instance=ExtResource( 14 )]
 position = Vector2( -110.612, -110.516 )
 TXT = "Une minute! Tu es encore loin de te battre contre Pierre."
-TXTIntro = "Tu vas devoir d'abord me combattre!"
+TXTIntro = "Un combat a été lancé contre Campeur Elvin"
 EnnemiName = "Campeur Elvin"
 TheTexture = ExtResource( 16 )
 TheInFightTexture = ExtResource( 15 )

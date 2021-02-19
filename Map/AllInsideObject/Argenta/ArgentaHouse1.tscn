@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Entities/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://GUI/GUI-Total.tscn" type="PackedScene" id=2]
@@ -22,8 +22,10 @@
 [ext_resource path="res://GUI/Overlay/ShowSomething.tscn" type="PackedScene" id=20]
 [ext_resource path="res://img Pokemon/img Map/Environnement/Texture Cartes/ArgentaShow.png" type="Texture" id=21]
 [ext_resource path="res://Entities/StaticPNJ/Static-PNJ-scene.tscn" type="PackedScene" id=22]
+[ext_resource path="res://img Pokemon/All PNJ/Overworld/Gamin/Overworld_Gamin3_RFVF.png" type="Texture" id=23]
+[ext_resource path="res://img Pokemon/All PNJ/Overworld/Joueur/Overworld_Croupier_RFVF.png" type="Texture" id=24]
 
-[node name="StartHouse2" type="Node2D"]
+[node name="ArgentaHouse1" type="Node2D"]
 
 [node name="BigWall1" parent="." instance=ExtResource( 12 )]
 position = Vector2( 30.1154, -192.206 )
@@ -96,21 +98,23 @@ NodePosition = "ArgentaHouse1"
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 0.618286, 61.8152 )
 
+[node name="StaticPNJ" parent="." instance=ExtResource( 22 )]
+position = Vector2( -79, -92 )
+TXT1 = "Un pokemon apprend des attaques par gain de niveaux! "
+TXT2 = "Mais certaines attaques ne sont enseignées que par certaines personnes!"
+TheTexture = ExtResource( 24 )
+
+[node name="StaticPNJ2" parent="." instance=ExtResource( 22 )]
+position = Vector2( -17, -93 )
+TXT1 = "Les pokemons sont plus faciles à attraper quand ils ont un problème de statut."
+TXT2 = "Sommeil, poison, brûlure ou paralysie sont très efficaces.  "
+TXT3 = "Mais attraper un pokemon, ce n'est jamais du tout cuit!"
+TheTexture = ExtResource( 23 )
+
 [node name="ArgentaHouse1" type="Position2D" parent="."]
 position = Vector2( 1.02599, 78.6536 )
 
 [node name="GUITotal" parent="." instance=ExtResource( 2 )]
 
 [node name="ShowSomething" parent="GUITotal" instance=ExtResource( 20 )]
-
-[node name="StaticPNJ" parent="." instance=ExtResource( 22 )]
-position = Vector2( -12, -81 )
-TXT1 = "NIDORAN, assis!"
-TXT2 = "NIDORAN: nidoni!"
-
-[node name="StaticPNJ2" parent="." instance=ExtResource( 22 )]
-position = Vector2( -158, -149 )
-TXT1 = "Notre pokemon est échangé. Il est difficile à maitriser."
-TXT2 = "Un échangé est un pokemon échangé avec un autre joueur."
-TXT3 = "Il grandit vite mais n'en fait qu'à sa tête lors des combats."
 [connection signal="tree_entered" from="Player" to="Player" method="_on_Player_tree_entered"]

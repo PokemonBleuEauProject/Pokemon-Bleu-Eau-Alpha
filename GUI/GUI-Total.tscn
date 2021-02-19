@@ -37,4 +37,3 @@ visible = false
 [node name="Fight" parent="." instance=ExtResource( 7 )]
 
 [node name="GameTime" parent="." instance=ExtResource( 10 )]
-[connection signal="ChangeNumberObject" from="MenuPokemon" to="Bag" method="_on_MenuPokemon_ChangeNumberObject"]

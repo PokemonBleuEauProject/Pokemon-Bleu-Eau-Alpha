@@ -1,0 +1,51 @@
+[gd_scene format=2]
+
+[node name="CheatConsole" type="ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -426.0
+margin_bottom = -300.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Position" type="Button" parent="."]
+margin_left = 16.0
+margin_top = 20.0
+margin_right = 216.0
+margin_bottom = 70.0
+text = "Modifier votre Position"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Objets" type="Button" parent="."]
+margin_left = 16.0
+margin_top = 80.0
+margin_right = 216.0
+margin_bottom = 130.0
+text = "Ajouter des objets"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pokemons" type="Button" parent="."]
+margin_left = 16.0
+margin_top = 140.0
+margin_right = 216.0
+margin_bottom = 190.0
+text = "Ajouter des Pokemons"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Argent" type="Button" parent="."]
+margin_left = 16.0
+margin_top = 200.0
+margin_right = 216.0
+margin_bottom = 250.0
+text = "Ajouter de l'Argent"
+__meta__ = {
+"_edit_use_anchors_": false
+}

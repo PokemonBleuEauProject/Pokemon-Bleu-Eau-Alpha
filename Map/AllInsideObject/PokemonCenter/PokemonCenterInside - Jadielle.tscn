@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Entities/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://GUI/GUI-Total.tscn" type="PackedScene" id=2]
@@ -23,6 +23,10 @@
 [ext_resource path="res://Map/AllObject/Meubles/PC.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Map/Inside-Outside/StairsPokemonCenter/StairsDown.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Entities/StaticPNJ/Static-PNJ-scene.tscn" type="PackedScene" id=23]
+[ext_resource path="res://img Pokemon/All PNJ/Overworld/Gamin/Overworld_Gamin_RFVF.png" type="Texture" id=24]
+[ext_resource path="res://img Pokemon/All PNJ/Overworld/Gentleman/Overworld_Gentleman_RFVF.png" type="Texture" id=25]
+[ext_resource path="res://img Pokemon/All PNJ/Overworld/Gamin/Overworld_Gamin2_RFVF.png" type="Texture" id=26]
+[ext_resource path="res://GUI/PC/PC.tscn" type="PackedScene" id=27]
 
 [node name="PokemonCenter" type="Node2D"]
 
@@ -101,24 +105,30 @@ NodePosition = "PokemonCenterJadielle"
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( -17.0714, 55.6919 )
 
+[node name="StaticPNJ" parent="." instance=ExtResource( 23 )]
+position = Vector2( -128, 35 )
+TXT1 = "Il y a un CENTRE POKEMON dans chaque grande ville."
+TXT2 = "Tu peux y soigner gratuitement tes pokemons!"
+TheTexture = ExtResource( 26 )
+
+[node name="StaticPNJ2" parent="." instance=ExtResource( 23 )]
+position = Vector2( -189, -122 )
+TXT1 = "Les CENTRES POKEMONS soignent les pokemons blessés ou KO!"
+TheTexture = ExtResource( 24 )
+
+[node name="StaticPNJ3" parent="." instance=ExtResource( 23 )]
+position = Vector2( 152, -13 )
+TXT1 = "Tu peux utiliser le PC."
+TXT2 = "C'est l'hotesse qui me l'a dit, elle est mignonne en plus!"
+TheTexture = ExtResource( 25 )
+
 [node name="PokemonCenterJadielle" type="Position2D" parent="."]
 position = Vector2( -17.075, 73.5637 )
 
 [node name="GUITotal" parent="." instance=ExtResource( 2 )]
 
+[node name="PC-GUI" parent="GUITotal" instance=ExtResource( 27 )]
+visible = false
+
 [node name="ShowSomething" parent="GUITotal" instance=ExtResource( 18 )]
-
-[node name="StaticPNJ" parent="." instance=ExtResource( 23 )]
-position = Vector2( -128, 35 )
-TXT1 = "Il y a un CENTRE POKEMON dans chaque grande ville."
-TXT2 = "Tu peux y soigner gratuitement tes pokemons!"
-
-[node name="StaticPNJ" parent="StaticPNJ" instance=ExtResource( 23 )]
-position = Vector2( -61, -157 )
-TXT1 = "Les CENTRES POKEMONS soignent les pokemons blessés ou KO!"
-
-[node name="StaticPNJ" parent="StaticPNJ/StaticPNJ" instance=ExtResource( 23 )]
-position = Vector2( 341, 109 )
-TXT1 = "Tu peux utiliser le PC."
-TXT2 = "C'est l'hotesse qui me l'a dit, elle est mignonne en plus!"
 [connection signal="tree_entered" from="Player" to="Player" method="_on_Player_tree_entered"]

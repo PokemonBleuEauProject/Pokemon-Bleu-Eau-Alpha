@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Entities/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://GUI/GUI-Total.tscn" type="PackedScene" id=2]
@@ -21,6 +21,8 @@
 [ext_resource path="res://Map/AllObject/Decoration/Fenetre.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Map/Inside-Outside/StairsMusee/DownStairs.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Entities/StaticPNJ/Static-PNJ-scene.tscn" type="PackedScene" id=21]
+[ext_resource path="res://img Pokemon/All PNJ/Overworld/Joueur/Overworld_Croupier_RFVF.png" type="Texture" id=22]
+[ext_resource path="res://img Pokemon/All PNJ/Overworld/Intello/Overworld_Intello_RFVF.png" type="Texture" id=23]
 
 [node name="Musee" type="Node2D"]
 
@@ -118,17 +120,19 @@ position = Vector2( -210.471, 57.9976 )
 [node name="BatimentMusee" type="Position2D" parent="."]
 position = Vector2( 192.645, 77.0907 )
 
-[node name="GUITotal" parent="." instance=ExtResource( 2 )]
-
-[node name="ShowSomething" parent="GUITotal" instance=ExtResource( 13 )]
-
 [node name="StaticPNJ" parent="." instance=ExtResource( 21 )]
 position = Vector2( 48, -58 )
 
 [node name="StaticPNJ2" parent="." instance=ExtResource( 21 )]
 position = Vector2( 270, -88 )
+TheTexture = ExtResource( 23 )
 
 [node name="StaticPNJ3" parent="." instance=ExtResource( 21 )]
 position = Vector2( -502, -85 )
 TXT1 = "Je ne pensais pas vivre suffisament vieux pour voir des fossiles de dragon."
+TheTexture = ExtResource( 22 )
+
+[node name="GUITotal" parent="." instance=ExtResource( 2 )]
+
+[node name="ShowSomething" parent="GUITotal" instance=ExtResource( 13 )]
 [connection signal="tree_entered" from="Player" to="Player" method="_on_Player_tree_entered"]

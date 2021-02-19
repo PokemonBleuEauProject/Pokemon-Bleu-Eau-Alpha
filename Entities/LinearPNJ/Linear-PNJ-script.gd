@@ -43,13 +43,14 @@ export (Dictionary) var POKEMON6
 
 onready var player = get_node(PG.ActualScene + "/Player")
 onready var UISpeackScene = get_node(PG.ActualScene + "/GUITotal").get_node("UISpeackPopUp")
-onready var animationFight = get_node("/root/Map/GUITotal").get_node("Fight")
+onready var animationFight
 
 var Velocity = Vector2()
 var IsFightLaunch = false
 
 func _ready():
 	if TheTexture != null : $Sprite.texture = TheTexture
+	animationFight = get_node(PG.ActualScene + "/GUITotal/Fight")
 
 func _physics_process(_delta):
 	if (IsFightLaunch) :

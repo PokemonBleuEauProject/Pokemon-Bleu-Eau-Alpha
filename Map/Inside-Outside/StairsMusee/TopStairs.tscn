@@ -19,10 +19,12 @@ NodePosition = "MuseeTop"
 texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( -4.5, 0 )
 shape = SubResource( 1 )
 
 [node name="Area2D" type="Area2D" parent="."]
+visible = false
 position = Vector2( 30.315, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]

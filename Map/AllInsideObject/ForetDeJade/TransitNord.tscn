@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Entities/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://GUI/GUI-Total.tscn" type="PackedScene" id=2]
@@ -12,6 +12,9 @@
 [ext_resource path="res://Map/AllObject/Meubles/Table.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Map/AllObject/Walls/Wall3.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Entities/StaticPNJ/Static-PNJ-scene.tscn" type="PackedScene" id=12]
+[ext_resource path="res://img Pokemon/All PNJ/Overworld/Topdresseur/Overworld_Topdresseur_♀_RFVF.png" type="Texture" id=13]
+[ext_resource path="res://img Pokemon/All PNJ/Overworld/Gamin/Overworld_Gamin_RFVF.png" type="Texture" id=14]
+[ext_resource path="res://img Pokemon/All PNJ/Overworld/Joueur/Overworld_Croupier_RFVF.png" type="Texture" id=15]
 
 [node name="TransitNord" type="Node2D"]
 
@@ -97,18 +100,21 @@ position = Vector2( -12.0757, -149.506 )
 [node name="GUITotal" parent="." instance=ExtResource( 2 )]
 
 [node name="StaticPNJ" parent="." instance=ExtResource( 12 )]
-position = Vector2( -161.082, -30.5543 )
+position = Vector2( -110.082, -11.5542 )
 TXT1 = "As-tu remarqué les buissons sur la route?"
 TXT2 = "Une technique secrète de pokemon peut les couper."
+TheTexture = ExtResource( 15 )
 
 [node name="StaticPNJ2" parent="." instance=ExtResource( 12 )]
 position = Vector2( 53.3465, -50.7358 )
 TXT1 = "Tu peux empêcher un pokemon d'évoluer."
 TXT2 = "Quand un pokemon évolue, tu peux stopper le processus."
 TXT3 = "c'est une technique pour qu'ils restent comme ils sont."
+TheTexture = ExtResource( 13 )
 
 [node name="StaticPNJ3" parent="." instance=ExtResource( 12 )]
 position = Vector2( -110.628, -85.2125 )
 TXT1 = "De nombreux pokemons vivent uniquement dans les forêts ou les cavernes. "
 TXT2 = "Cherche bien partout pour tous les attraper!"
+TheTexture = ExtResource( 14 )
 [connection signal="tree_entered" from="Player" to="Player" method="_on_Player_tree_entered"]

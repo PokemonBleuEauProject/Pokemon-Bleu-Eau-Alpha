@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=50 format=2]
 
 [ext_resource path="res://Map/TileMap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Entities/Player/Player.tscn" type="PackedScene" id=2]
@@ -31,8 +31,15 @@
 [ext_resource path="res://Map/AllMapObject/Others/Barriere.tscn" type="PackedScene" id=29]
 [ext_resource path="res://Map/AllMountains/Route2-Grotte.tscn" type="PackedScene" id=30]
 [ext_resource path="res://Map/AllMapObject/Argenta/BatimentMusee.tscn" type="PackedScene" id=31]
-[ext_resource path="res://img Pokemon/All PNJ/Overworld/Montagnard/Overworld_Ruinemaniac_RFVF.png" type="Texture" id=32]
+[ext_resource path="res://img Pokemon/All PNJ/Overworld/Fillette/Overworld_Fillette_RFVF.png" type="Texture" id=32]
 [ext_resource path="res://img Pokemon/All PNJ/InFight/Artiste/Sprite_Peintre_RFVF.png" type="Texture" id=33]
+[ext_resource path="res://img Pokemon/All PNJ/Overworld/LeGros/LeGros.png" type="Texture" id=34]
+[ext_resource path="res://img Pokemon/All PNJ/Overworld/Kinesiste/Overworld_Kinésiste_♀_RFVF.png" type="Texture" id=35]
+[ext_resource path="res://img Pokemon/All PNJ/Overworld/Marchand/Marchand Route1.png" type="Texture" id=36]
+[ext_resource path="res://img Pokemon/All PNJ/Overworld/Gamin/Overworld_Gamin_RFVF.png" type="Texture" id=37]
+[ext_resource path="res://img Pokemon/All PNJ/Overworld/Gamin/Overworld_Gamin2_RFVF.png" type="Texture" id=38]
+[ext_resource path="res://img Pokemon/All PNJ/Overworld/Joueur/Overworld_Croupier_RFVF.png" type="Texture" id=39]
+[ext_resource path="res://img Pokemon/All PNJ/Overworld/Artiste/Overworld_Fillette_RFVF.png" type="Texture" id=40]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 5, 50 )
@@ -88,13 +95,13 @@ MoveToChange = "ui_up"
 [node name="BatimentMusee" parent="TileMap" instance=ExtResource( 31 )]
 position = Vector2( 367.438, -1023.66 )
 
-[node name="ArgentaHouse" parent="TileMap" instance=ExtResource( 6 )]
+[node name="ArgentaHouse2" parent="TileMap" instance=ExtResource( 6 )]
 position = Vector2( 639.851, -784.311 )
 Scene = "res://Map/AllInsideObject/Argenta/ArgentaHouse2.tscn"
 NodePositionPath = "ArgentaHouse2"
 MoveToChange = "ui_up"
 
-[node name="ArgentaHouse2" parent="TileMap" instance=ExtResource( 6 )]
+[node name="ArgentaHouse1" parent="TileMap" instance=ExtResource( 6 )]
 position = Vector2( -160.012, -240.023 )
 Scene = "res://Map/AllInsideObject/Argenta/ArgentaHouse1.tscn"
 NodePositionPath = "ArgentaHouse1"
@@ -542,12 +549,6 @@ position = Vector2( 196.023, 6338.38 )
 
 [node name="AllPNJ" type="Node2D" parent="."]
 
-[node name="StaticPNJ" parent="AllPNJ" instance=ExtResource( 7 )]
-position = Vector2( 51.5323, -145.997 )
-TXT1 = "Hello"
-TXT2 = "How Are u today ?"
-TheTexture = ExtResource( 32 )
-
 [node name="LinearPNJ" parent="AllPNJ" instance=ExtResource( 4 )]
 position = Vector2( 258.396, -248.978 )
 vitesse = 1.0
@@ -589,6 +590,74 @@ POKEMON1 = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AllPNJ/LinearPNJ/Area2D2"]
 position = Vector2( 0, 40 )
 shape = SubResource( 1 )
+
+[node name="StaticPNJ" parent="AllPNJ" instance=ExtResource( 7 )]
+position = Vector2( 179.408, -249.386 )
+TXT1 = "Il n'y a pas vraiment de dresseurs sérieux par ici."
+TXT2 = "Ils s'intéressent surtout aux INSECTES, rien de passionnant."
+TXT3 = "Mais PIERRE d'Argenta n'est pas comme ça, pas du tout !"
+TheTexture = ExtResource( 34 )
+
+[node name="StaticPNJ2" parent="AllPNJ" instance=ExtResource( 7 )]
+position = Vector2( 413.699, 6627.26 )
+TXT1 = "Le progrès ... C'est dément !"
+TXT2 = "On peut désormais stocker et meme retirer des pbjets ou des Pokemons via un PC !"
+TheTexture = ExtResource( 34 )
+
+[node name="StaticPNJ3" parent="AllPNJ" instance=ExtResource( 7 )]
+position = Vector2( 19.8603, 6320.46 )
+TXT1 = "J'élève des Pokemons, moi aussi !"
+TXT2 = "Une fois forts, ils pourront me protéger !"
+TheTexture = ExtResource( 35 )
+
+[node name="StaticPNJ4" parent="AllPNJ" instance=ExtResource( 7 )]
+position = Vector2( 156.51, 5510.33 )
+TXT1 = "Venez voir notre boutique à Jadielle !"
+TXT2 = "On y vend pleins de choses : PokeBalls, Potions, Antidotes ..."
+TheTexture = ExtResource( 36 )
+
+[node name="StaticPNJ5" parent="AllPNJ" instance=ExtResource( 7 )]
+position = Vector2( 656.291, 3917.83 )
+TXT1 = "Voilà de précieuses informations concernant les pokemons chenille !"
+TXT2 = "Contrairement à Chenipan, Aspicot est venimeux ! Attetntion à son attaque dard venin !"
+TheTexture = ExtResource( 37 )
+
+[node name="StaticPNJ6" parent="AllPNJ" instance=ExtResource( 7 )]
+position = Vector2( 30.8523, 3765.66 )
+TXT1 = "C'est une Pokeball que je vois ? Alors t'as aussi des Pokemons !"
+TXT2 = "C'est vraiment cool de pouvoir s'en servir quand on veut, hein ?"
+TheTexture = ExtResource( 38 )
+
+[node name="StaticPNJ7" parent="AllPNJ" instance=ExtResource( 7 )]
+position = Vector2( 739.682, 3287.85 )
+TXT1 = "Ah ! Vous aussi vous souhaitez affronter le dernier champion d'arène ?"
+TXT2 = "Cela va faire 55 ans que j'attend et personne n'ouvre ..."
+TXT3 = "Si vous conaissez le champion, dites-lui bien que j'ai déjà vaincu tout les autres champions d'arène !"
+TheTexture = ExtResource( 39 )
+
+[node name="StaticPNJ8" parent="AllPNJ" instance=ExtResource( 7 )]
+position = Vector2( 182.547, 3311.22 )
+TXT1 = "Je passe par la FORET DE JADE pour faire mes courses à Argenta !"
+TheTexture = ExtResource( 40 )
+
+[node name="StaticPNJ9" parent="AllPNJ" instance=ExtResource( 7 )]
+position = Vector2( 227.352, 3122.26 )
+TXT1 = "Attention à vous ! La foret de Jade abritait autrefois un pokemon sournois venus des cieux !"
+TXT2 = "Si j'ai un petit conseil à vous donner, prenez garde à vous et soyez pret !"
+TXT3 = "Bonne chance cher dresseur !"
+TheTexture = ExtResource( 39 )
+
+[node name="StaticPNJ10" parent="AllPNJ" instance=ExtResource( 7 )]
+position = Vector2( 608.482, -608.829 )
+TXT1 = "T'as déjà visité le Musée d'Argenta ?"
+TXT2 = "Si tu ne l'as pas encore fait, je te le recommande vivement !"
+TheTexture = ExtResource( 36 )
+
+[node name="StaticPNJ11" parent="AllPNJ" instance=ExtResource( 7 )]
+position = Vector2( -210.381, -608.829 )
+TXT1 = "On raconte que les MELOFEE sont des habitants de la lune !"
+TXT2 = "Ils seraient apparus après la chute de la Pierre Lune sur le Mont Selenite."
+TheTexture = ExtResource( 32 )
 
 [node name="WildAreas" type="Node2D" parent="."]
 
@@ -971,11 +1040,10 @@ position = Vector2( 357.22, 6069.46 )
 NameNotification = "Bourg-Palette"
 
 [node name="Overlay" type="Node2D" parent="."]
-visible = false
 
 [node name="Panneau1" parent="Overlay" instance=ExtResource( 11 )]
-TXT1 = "Hello"
-TXT2 = "Test 2"
+TXT1 = "ASTUCE"
+TXT2 = "Chaque Pokemon prenant part au combat, meme une seconde, gagne des points EXP."
 
 [node name="Panneau2" parent="Overlay" instance=ExtResource( 11 )]
 position = Vector2( 399.121, 562.983 )

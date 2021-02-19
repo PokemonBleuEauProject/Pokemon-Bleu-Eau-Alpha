@@ -41,3 +41,4 @@ texture = ExtResource( 1 )
 frames = SubResource( 3 )
 animation = "open"
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Entities/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://GUI/GUI-Total.tscn" type="PackedScene" id=2]
@@ -23,6 +23,8 @@
 [ext_resource path="res://img Pokemon/img Map/Environnement/Texture Mur/Panneau2.png" type="Texture" id=21]
 [ext_resource path="res://Map/AllObject/Others/CarteSpawn.tscn" type="PackedScene" id=22]
 [ext_resource path="res://img Pokemon/img Map/Environnement/Texture Others/CarteSpawn.png" type="Texture" id=23]
+[ext_resource path="res://Entities/StaticPNJ/Static-PNJ-scene.tscn" type="PackedScene" id=24]
+[ext_resource path="res://img Pokemon/All PNJ/Overworld/Mere du Rival/Mere du Rival Right.png" type="Texture" id=25]
 
 [node name="StartHouse2" type="Node2D"]
 
@@ -85,6 +87,7 @@ TheTexture = ExtResource( 13 )
 position = Vector2( -20.0873, -47.3052 )
 TXT1 = "C'est une carte du monde !"
 TXT2 = "Ca peut etre utile !"
+TXT3 = "Oh ! Vous en avez deja une avec vous !"
 TheTexture = ExtResource( 23 )
 
 [node name="Tableau" parent="TileMap" instance=ExtResource( 20 )]
@@ -104,6 +107,12 @@ NodePosition = "StartHouse2"
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( -70.6319, 58.9652 )
+
+[node name="MereDuRival" parent="." instance=ExtResource( 24 )]
+position = Vector2( -60.0002, -55.0002 )
+TXT1 = "Comme les gens, les Pokemons sont des etres vivants."
+TXT2 = "Ils doivent aussi se reposer quand ils sont fatigues."
+TheTexture = ExtResource( 25 )
 
 [node name="StartHouse2" type="Position2D" parent="."]
 position = Vector2( -70.2242, 80.5536 )
