@@ -660,6 +660,7 @@ TXT2 = "Ils seraient apparus après la chute de la Pierre Lune sur le Mont Selen
 TheTexture = ExtResource( 32 )
 
 [node name="WildAreas" type="Node2D" parent="."]
+visible = false
 
 [node name="WildArea1" parent="WildAreas" instance=ExtResource( 15 )]
 position = Vector2( 69.6078, 382.48 )
@@ -1040,6 +1041,7 @@ position = Vector2( 357.22, 6069.46 )
 NameNotification = "Bourg-Palette"
 
 [node name="Overlay" type="Node2D" parent="."]
+visible = false
 
 [node name="Panneau1" parent="Overlay" instance=ExtResource( 11 )]
 TXT1 = "ASTUCE"

@@ -96,8 +96,7 @@ func loadAllDataFromFile() :
 	save.open(save_path, File.READ)
 	AllData = save.get_var()
 	save.close()
-	if AllData == null : 
-		restartGame()
+	if AllData == null : restartGame()
 func loadActualData(TheData) :
 	var save = File.new()
 	save.open(save_path, File.READ)

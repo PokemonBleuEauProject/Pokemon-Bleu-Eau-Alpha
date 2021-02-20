@@ -51,7 +51,7 @@ func VerifyPokemon() :
 
 func loadParameters(ThePokemon,TheLvl) :
 #	Pokemon
-	EG.Pokemon1 = {Name = ThePokemon, Lvl = TheLvl, Hp = null, MaxHp = null, Exp = null, Attaque1 = null, Attaque2 = null,Attaque3 = null,Attaque4 = null, ActualPPAttaque1 = null, ActualPPAttaque2 = null,ActualPPAttaque3 = null,ActualPPAttaque4 = null,Puissance = null,Defense = null,AttaqueSpecial = null,DefenseSpecial = null,Vitesse = null}
+	EG.Pokemon1 = {Name = ThePokemon, Lvl = TheLvl, Hp = null, MaxHp = null, Exp = null, Attaque1 = null, Attaque2 = null,Attaque3 = null,Attaque4 = null, ActualPPAttaque1 = null, ActualPPAttaque2 = null,ActualPPAttaque3 = null,ActualPPAttaque4 = null,Puissance = null,Defense = null,AttaqueSpecial = null,DefenseSpecial = null,Vitesse = null,Type1 = null,Type2 = null}
 #	Information
 	EG.EnnemiName = ""
 	UIFight.TypeOfFight = "Savage"

@@ -199,7 +199,7 @@ tracks/6/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=6]
 resource_name = "LeaveScene"
 length = 3.0
 tracks/0/type = "value"
@@ -263,7 +263,7 @@ tracks/4/keys = {
 "values": [ Vector2( 429, 77 ), Vector2( 429, 77 ), Vector2( 440, 120 ), Vector2( 440, 120 ), Vector2( 454.847, 172.633 ), Vector2( 454.847, 172.633 ), Vector2( 487.112, 188.592 ), Vector2( 487.112, 188.592 ), Vector2( 494.272, 201.479 ), Vector2( 494.272, 201.479 ), Vector2( 494.272, 201.479 ), Vector2( 429, 77 ) ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=7]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Chen/Pokemon:visible")
 tracks/0/interp = 1
@@ -361,7 +361,7 @@ tracks/7/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=8]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Chen/Pokeball:modulate")
@@ -449,7 +449,6 @@ tracks/6/keys = {
 }
 
 [node name="Control" type="Control"]
-modulate = Color( 0, 0, 0, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 5 )
@@ -543,52 +542,21 @@ __meta__ = {
 [node name="ShowText" type="AnimationPlayer" parent="UISpeack"]
 anims/ShowText = SubResource( 1 )
 
-[node name="ChooseNameRival" type="ColorRect" parent="."]
-visible = false
-margin_left = 264.599
-margin_top = 148.399
-margin_right = 764.599
-margin_bottom = 398.399
-color = Color( 0, 0, 0, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Rodrigue" type="Label" parent="ChooseNameRival"]
-margin_left = 138.28
-margin_top = 34.893
-margin_right = 336.28
-margin_bottom = 79.893
-custom_fonts/font = ExtResource( 4 )
-custom_colors/font_color = Color( 1, 0, 0, 1 )
-text = "RODRIGUE"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Yanis" type="Label" parent="ChooseNameRival"]
-margin_left = 178.342
-margin_top = 102.094
-margin_right = 295.342
-margin_bottom = 147.094
-custom_fonts/font = ExtResource( 4 )
-text = "YANIS"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Mateo" type="Label" parent="ChooseNameRival"]
-margin_left = 169.296
-margin_top = 171.88
-margin_right = 304.296
-margin_bottom = 216.88
-custom_fonts/font = ExtResource( 4 )
-text = "MATEO"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="LineEdit" type="LineEdit" parent="."]
+visible = false
+margin_left = 275.661
+margin_top = 233.569
+margin_right = 761.661
+margin_bottom = 316.569
+custom_fonts/font = ExtResource( 4 )
+text = "Name"
+align = 1
+max_length = 15
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineEdit2" type="LineEdit" parent="."]
 visible = false
 margin_left = 275.661
 margin_top = 233.569
@@ -607,9 +575,9 @@ anims/ChangeCharacter = SubResource( 2 )
 "anims/ChangeCharacter 1" = SubResource( 3 )
 "anims/ChangeCharacter 2" = SubResource( 4 )
 anims/Enter = SubResource( 5 )
-anims/LeaveScene = SubResource( 8 )
-anims/RecallAPokemon = SubResource( 6 )
-anims/ShowAPokemon = SubResource( 7 )
+anims/LeaveScene = SubResource( 6 )
+anims/RecallAPokemon = SubResource( 7 )
+anims/ShowAPokemon = SubResource( 8 )
 
 [node name="LastAnimation" type="TextureRect" parent="AnimationPlayer"]
 visible = false
@@ -624,3 +592,4 @@ __meta__ = {
 }
 [connection signal="tree_entered" from="." to="." method="_on_Control_tree_entered"]
 [connection signal="text_entered" from="LineEdit" to="." method="_on_LineEdit_text_entered"]
+[connection signal="text_entered" from="LineEdit2" to="." method="_on_LineEdit2_text_entered"]

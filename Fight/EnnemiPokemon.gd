@@ -86,6 +86,8 @@ func saveParameters(PokemonToSave) :
 	PokemonToSave["ActualPPAttaque2"] = PokemonEnnemi.ActualPPAttaque2
 	PokemonToSave["ActualPPAttaque3"] = PokemonEnnemi.ActualPPAttaque3
 	PokemonToSave["ActualPPAttaque4"] = PokemonEnnemi.ActualPPAttaque4
+	PokemonToSave["Type1"] = PokemonEnnemi.Type1
+	PokemonToSave["Type2"] = PokemonEnnemi.Type2
 
 func ChangePokemon(Number) :
 #	Save

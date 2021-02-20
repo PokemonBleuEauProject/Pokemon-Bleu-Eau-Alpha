@@ -3,10 +3,7 @@ extends Node
 #Health
 func health(ThePokemon) :
 	ThePokemon.Hp = ThePokemon.MaxHp
-	ThePokemon.ActualPPAttaque1 = Attaque.GetAttaqueMaxPP(ThePokemon.Attaque1)
-	ThePokemon.ActualPPAttaque2 = Attaque.GetAttaqueMaxPP(ThePokemon.Attaque2)
-	ThePokemon.ActualPPAttaque3 = Attaque.GetAttaqueMaxPP(ThePokemon.Attaque3)
-	ThePokemon.ActualPPAttaque4 = Attaque.GetAttaqueMaxPP(ThePokemon.Attaque4)
+	restorePP(ThePokemon)
 	ThePokemon.Statut = ""
 func restorePP(ThePokemon):
 	ThePokemon.ActualPPAttaque1 = Attaque.GetAttaqueMaxPP(ThePokemon.Attaque1)

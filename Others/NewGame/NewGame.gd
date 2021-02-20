@@ -3,43 +3,18 @@ extends Control
 var AcceptUiSpeack = false
 var ChangeName = false
 var Name
+var Name2
 
 var ActualPositionChooseRival = 0
 var ChooseRival = false
 
 func _input(event):
-	if Input.is_action_pressed("ui_accept") :
+	if Input.is_action_just_pressed("ui_accept") and !AcceptUiSpeack :
 		AcceptUiSpeack = true
-		if $ChooseNameRival.visible :
-			ChooseRival = true
-			match ActualPositionChooseRival :
-				0 : EG.RivalName = "Rodrigue"
-				1 : EG.RivalName = "Yanis"
-				2 : EG.RivalName = "Mateo"
-	elif Input.is_action_pressed("ui_down") and $ChooseNameRival.visible :
-		match ActualPositionChooseRival :
-			0 :
-				ActualPositionChooseRival = 1
-				$ChooseNameRival/Rodrigue.add_color_override("font_color",Color.white)
-				$ChooseNameRival/Yanis.add_color_override("font_color",Color.red)
-			1 :
-				ActualPositionChooseRival = 2
-				$ChooseNameRival/Yanis.add_color_override("font_color",Color.white)
-				$ChooseNameRival/Mateo.add_color_override("font_color",Color.red)
-	elif Input.is_action_pressed("ui_up") and $ChooseNameRival.visible :
-		match ActualPositionChooseRival :
-			1 :
-				ActualPositionChooseRival = 0
-				$ChooseNameRival/Rodrigue.add_color_override("font_color",Color.red)
-				$ChooseNameRival/Yanis.add_color_override("font_color",Color.white)
-			2 :
-				ActualPositionChooseRival = 1
-				$ChooseNameRival/Yanis.add_color_override("font_color",Color.red)
-				$ChooseNameRival/Mateo.add_color_override("font_color",Color.white)
 
 func _on_Control_tree_entered():
-	$AnimationPlayer.play("Enter")
-	yield($AnimationPlayer,"animation_finished")
+#	$AnimationPlayer.play("Enter")
+#	yield($AnimationPlayer,"animation_finished")
 #	changeText("Bien le bonjour! Bienvenue dans le monde incroyable des POKEMONS!")
 #	yield($UISpeack/ShowText,"animation_finished")
 #	AcceptUiSpeack = false
@@ -116,10 +91,11 @@ func _on_Control_tree_entered():
 #		yield(get_tree().create_timer(0.1),"timeout")
 #	changeText("... Heu ... C'est quoi son nom deja ?")
 #	yield($UISpeack/ShowText,"animation_finished")
-#	$ChooseNameRival.visible = true
+#	$LineEdit2.visible = true
 #	while !ChooseRival :
 #		yield(get_tree().create_timer(0.1),"timeout")
-#	$ChooseNameRival.visible = false
+#	$LineEdit2.visible = false
+#	EG.RivalName = Name2
 #	changeText("Mais oui, bien sur que je m'en souviens, c'est " + EG.RivalName + " !")
 #	yield($UISpeack/ShowText,"animation_finished")
 #	AcceptUiSpeack = false
@@ -155,3 +131,8 @@ func _on_LineEdit_text_entered(new_text):
 	if str(new_text) != "" or str(new_text) != " " :
 		ChangeName = true
 		Name = str(new_text)
+
+func _on_LineEdit2_text_entered(new_text):
+	if str(new_text) != "" or str(new_text) != " " :
+		ChooseRival = true
+		Name2 = str(new_text)

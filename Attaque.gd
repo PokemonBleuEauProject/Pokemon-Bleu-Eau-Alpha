@@ -1446,8 +1446,7 @@ func GetAttaqueMaxPP(PokemonAttaque) :
 	for x in List :
 		if (x == PokemonAttaque) :
 			return List[x].MaxPP
-		else :
-			pass
+	return null
 func GetAttaqueType(PokemonAttaque) :
 	for x in List :
 		if (x == PokemonAttaque) :
