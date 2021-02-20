@@ -143,8 +143,6 @@ func _on_JeterButton_pressed():
 				pass
 			_ :
 				$JeterPopup.popup()
-	elif (UseObjectInFight) :
-		pass
 
 func _on_LineEdit_text_entered(new_text):
 	if (int(new_text)) :

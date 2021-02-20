@@ -25,6 +25,8 @@
 [ext_resource path="res://img Pokemon/All PNJ/Overworld/Gamin/Overworld_Gamin3_RFVF.png" type="Texture" id=23]
 [ext_resource path="res://img Pokemon/All PNJ/Overworld/Joueur/Overworld_Croupier_RFVF.png" type="Texture" id=24]
 
+
+
 [node name="ArgentaHouse1" type="Node2D"]
 
 [node name="BigWall1" parent="." instance=ExtResource( 12 )]

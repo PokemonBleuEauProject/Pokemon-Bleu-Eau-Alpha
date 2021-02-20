@@ -26,6 +26,8 @@
 [ext_resource path="res://Entities/StaticPNJ/Static-PNJ-scene.tscn" type="PackedScene" id=24]
 [ext_resource path="res://img Pokemon/All PNJ/Overworld/Mere du Rival/Mere du Rival Right.png" type="Texture" id=25]
 
+
+
 [node name="StartHouse2" type="Node2D"]
 
 [node name="BigWall1" parent="." instance=ExtResource( 12 )]

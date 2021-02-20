@@ -29,6 +29,8 @@
 [ext_resource path="res://img Pokemon/All PNJ/Overworld/Gamin/Overworld_Gamin_RFVF.png" type="Texture" id=27]
 [ext_resource path="res://Entities/SpecialEntities/Nurse.tscn" type="PackedScene" id=28]
 
+
+
 [node name="PokemonCenter" type="Node2D"]
 
 [node name="Wall4" parent="." instance=ExtResource( 8 )]

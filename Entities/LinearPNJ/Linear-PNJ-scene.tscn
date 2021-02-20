@@ -4,6 +4,8 @@
 [ext_resource path="res://img Pokemon/All PNJ/Overworld/PointExclamationCombat.png" type="Texture" id=2]
 [ext_resource path="res://img Pokemon/All PNJ/Overworld/Joggeur/Joggeur.png" type="Texture" id=3]
 
+
+
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 20.1057, 18.1096 )
 

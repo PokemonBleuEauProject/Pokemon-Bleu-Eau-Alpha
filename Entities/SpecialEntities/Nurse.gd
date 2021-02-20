@@ -1,4 +1,3 @@
-#   STATIC PNJ : EXAMPLE
 extends StaticBody2D
 
 onready var UISpeackScene = get_node(PG.ActualScene + "/GUITotal").get_node("UISpeackPopUp")

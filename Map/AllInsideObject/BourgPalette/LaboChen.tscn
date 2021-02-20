@@ -22,6 +22,8 @@
 [ext_resource path="res://img Pokemon/All PNJ/Overworld/Intello/Overworld_Intello_RFVF.png" type="Texture" id=20]
 [ext_resource path="res://img Pokemon/All PNJ/Overworld/Aromatherapeute/Overworld_Aroma_RFVF.png" type="Texture" id=21]
 
+
+
 [node name="StartHouse2" type="Node2D"]
 
 [node name="BigWall1" parent="." instance=ExtResource( 9 )]

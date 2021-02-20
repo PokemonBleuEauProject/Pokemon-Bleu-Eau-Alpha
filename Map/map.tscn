@@ -41,6 +41,8 @@
 [ext_resource path="res://img Pokemon/All PNJ/Overworld/Joueur/Overworld_Croupier_RFVF.png" type="Texture" id=39]
 [ext_resource path="res://img Pokemon/All PNJ/Overworld/Artiste/Overworld_Fillette_RFVF.png" type="Texture" id=40]
 
+
+
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 5, 50 )
 

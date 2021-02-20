@@ -10,6 +10,8 @@
 [ext_resource path="res://img Pokemon/All PNJ/Overworld/Gamin/Overworld_Gamin_RFVF.png" type="Texture" id=8]
 [ext_resource path="res://Entities/StaticPNJ/Static-PNJ-scene.tscn" type="PackedScene" id=9]
 
+
+
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 138.32, 135.57 )
 

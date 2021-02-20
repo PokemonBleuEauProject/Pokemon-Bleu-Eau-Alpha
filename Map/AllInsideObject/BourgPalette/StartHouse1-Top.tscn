@@ -19,6 +19,8 @@
 [ext_resource path="res://img Pokemon/img Map/Environnement/Texture Object/commode.png" type="Texture" id=17]
 [ext_resource path="res://img Pokemon/img Map/Environnement/Texture Mur/Panneau.png" type="Texture" id=18]
 
+
+
 [node name="StartHouse1-Top" type="Node2D"]
 
 [node name="TileMap" parent="." instance=ExtResource( 1 )]

@@ -21,6 +21,8 @@
 [ext_resource path="res://img Pokemon/img Map/Environnement/Texture Object/cuisine.png" type="Texture" id=19]
 [ext_resource path="res://Map/AllObject/Decoration/Fenetre.tscn" type="PackedScene" id=20]
 
+
+
 [node name="StartHouse1-Down" type="Node2D"]
 
 [node name="BigWall1" parent="." instance=ExtResource( 12 )]

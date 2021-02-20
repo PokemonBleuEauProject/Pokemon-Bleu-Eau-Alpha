@@ -23,6 +23,8 @@
 [ext_resource path="res://img Pokemon/img Map/Animation/Top/3.png" type="Texture" id=21]
 [ext_resource path="res://img Pokemon/img Map/Animation/Left/3.png" type="Texture" id=22]
 
+
+
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 16 ), ExtResource( 21 ) ],

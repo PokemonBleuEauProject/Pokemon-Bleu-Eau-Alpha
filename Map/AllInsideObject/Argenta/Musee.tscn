@@ -24,6 +24,8 @@
 [ext_resource path="res://img Pokemon/All PNJ/Overworld/Joueur/Overworld_Croupier_RFVF.png" type="Texture" id=22]
 [ext_resource path="res://img Pokemon/All PNJ/Overworld/Intello/Overworld_Intello_RFVF.png" type="Texture" id=23]
 
+
+
 [node name="Musee" type="Node2D"]
 
 [node name="Wall7" parent="." instance=ExtResource( 4 )]

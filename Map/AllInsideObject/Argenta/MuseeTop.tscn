@@ -18,6 +18,8 @@
 [ext_resource path="res://img Pokemon/All PNJ/Overworld/VieilleHomme/VieilleHomme.png" type="Texture" id=16]
 [ext_resource path="res://Map/AllObject/Walls/Wall7-Stairs.tscn" type="PackedScene" id=17]
 
+
+
 [node name="MuseeTop" type="Node2D"]
 
 [node name="TileMap" parent="." instance=ExtResource( 3 )]

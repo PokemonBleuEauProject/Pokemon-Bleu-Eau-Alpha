@@ -21,6 +21,8 @@
 [ext_resource path="res://img Pokemon/All PNJ/Overworld/Mecano/Overworld_Mécano_RFVF.png" type="Texture" id=19]
 [ext_resource path="res://img Pokemon/All Pokemon/Overworld/21.png" type="Texture" id=20]
 
+
+
 [node name="JadielleHouse2" type="Node2D"]
 
 [node name="Wall1" parent="." instance=ExtResource( 7 )]

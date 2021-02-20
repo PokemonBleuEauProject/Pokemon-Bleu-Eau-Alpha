@@ -29,6 +29,8 @@
 [ext_resource path="res://GUI/PC/PC.tscn" type="PackedScene" id=27]
 [ext_resource path="res://Entities/SpecialEntities/Nurse.tscn" type="PackedScene" id=28]
 
+
+
 [node name="PokemonCenter" type="Node2D"]
 
 [node name="Wall4" parent="." instance=ExtResource( 7 )]

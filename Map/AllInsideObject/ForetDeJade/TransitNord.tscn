@@ -16,6 +16,8 @@
 [ext_resource path="res://img Pokemon/All PNJ/Overworld/Gamin/Overworld_Gamin_RFVF.png" type="Texture" id=14]
 [ext_resource path="res://img Pokemon/All PNJ/Overworld/Joueur/Overworld_Croupier_RFVF.png" type="Texture" id=15]
 
+
+
 [node name="TransitNord" type="Node2D"]
 
 [node name="Wall3" parent="." instance=ExtResource( 11 )]

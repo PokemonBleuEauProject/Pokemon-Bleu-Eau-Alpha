@@ -26,6 +26,8 @@
 [ext_resource path="res://img Pokemon/All PNJ/Overworld/Mecano/Overworld_Mécano_RFVF.png" type="Texture" id=24]
 [ext_resource path="res://img Pokemon/All Pokemon/Overworld/30.png" type="Texture" id=25]
 
+
+
 [node name="ArgentaHouse2" type="Node2D"]
 
 [node name="BigWall1" parent="." instance=ExtResource( 12 )]

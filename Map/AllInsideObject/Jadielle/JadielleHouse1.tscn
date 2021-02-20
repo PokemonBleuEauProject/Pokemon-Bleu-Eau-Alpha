@@ -22,6 +22,8 @@
 [ext_resource path="res://img Pokemon/All PNJ/Overworld/Aromatherapeute/Overworld_Aroma_RFVF.png" type="Texture" id=20]
 [ext_resource path="res://img Pokemon/All PNJ/Overworld/Fillette/Overworld_Fillette-Dos_RFVF.png" type="Texture" id=21]
 
+
+
 [node name="JadielleHouse1" type="Node2D"]
 
 [node name="TileMap" parent="." instance=ExtResource( 3 )]

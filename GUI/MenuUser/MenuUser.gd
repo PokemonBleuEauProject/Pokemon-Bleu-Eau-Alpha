@@ -10,8 +10,10 @@ func _input(_event) :
 		pass
 	elif UIFight.IsFightLaunch : pass
 	elif (Input.is_action_just_pressed("ui_menu_user")) :
-		popup()
-		get_tree().paused = true
+		if get_node(PG.ActualScene + "/GUITotal/CheatConsole").visible : pass
+		else :
+			popup()
+			get_tree().paused = true
 	elif visible :
 		match ActualPosition :
 			0 :
