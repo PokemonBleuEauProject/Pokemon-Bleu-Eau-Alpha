@@ -43,11 +43,9 @@ var DefaulValue = {
 	"PG.ActualPlace" : "Bourg-Palette",
 	"PSS.PSSList" : [null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],
 	"PG.AllObject" : { 
-		"NumberObject" : {Potion = 2,SuperPotion = 1,HyperPotion = 1,MaxPotion =1,Guerison = 1,Rappel = 1,RappelMax = 1,Antidote = 100,AntiPara = 1000,AntiBrule = 10,Reveil = 1,TotalSoin = 1,Eau = 1,Soda = 1,Limonade = 1,Lait = 1,Pokeball = 1,SuperBall = 1,HyperBall = 0,FiletBall = 0,FaibloBall = 0,MasterBall = 0,Repousse = 0,SuperRepousse = 0},
-		"Unlock" : {
-		ChaussuresDeCourse = false,
-		OrbeMysterieuse = false}}}
-
+		"NumberObject" : {Potion = 10,SuperPotion = 0,HyperPotion = 0,MaxPotion = 0,Guerison = 0,Rappel = 0,RappelMax = 0,Antidote = 0,AntiPara = 0,AntiBrule = 0,Reveil = 0,TotalSoin = 0,Eau = 0,Soda = 0,Limonade = 0,Lait = 0,Pokeball = 10,SuperBall = 5,HyperBall = 0,FiletBall = 0,FaibloBall = 0,MasterBall = 0,Repousse = 0,SuperRepousse = 0},
+		"Unlock" : {ChaussuresDeCourse = true,OrbeMysterieuse = false}},
+	"PG.PNJActivate" : {"Scout Omar" : true,"Scout Alfred" : true,"Scout Anthony" : true,"Scout Charles" : true,"Scout Sammy" : true}}
 #Save Game -> Get all importants values and add the dictionnary to a file -> path = user://saves/save.txt
 func saveGame(restart) :
 	if restart : 
@@ -83,7 +81,8 @@ func saveData() :
 	"PG.NodePositionPath" : "LastPosition",
 	"PG.ActualPlace" : PG.ActualPlace,
 	"PSS.PSSList" : PSS.PSSList,
-	"PG.AllObject" : PG.AllObject
+	"PG.AllObject" : PG.AllObject,
+	"PG.PNJActivate" : PG.PNJActivate
 	}
 
 #Load Game -> Get Var in a file and load value in Dictionnary
@@ -119,6 +118,7 @@ func loadActualData(TheData) :
 		"PG.ActualPlace" : PG.ActualPlace = AllData[TheData]
 		"PSS.PSSList" : PSS.PSSList = AllData[TheData]
 		"PG.AllObject" : PG.AllObject = AllData[TheData]
+		"PG.PNJActivate" : PG.PNJActivate = AllData[TheData]
 	save.close()
 
 #New Game -> To start a new game, replacing all values for default

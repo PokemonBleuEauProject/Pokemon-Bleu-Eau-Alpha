@@ -10,6 +10,7 @@ export (String) var EnnemiName
 export (Texture) var TheTexture
 export (Texture) var TheInFightTexture
 export (Vector2) var Velocity
+export (bool) var Activated
 
 export (Dictionary) var POKEMON1 = {
 	Name = "",
@@ -177,10 +178,15 @@ func _on_LinearPNJ_tree_entered():
 
 func LaunchFight() :
 #	Animation
-	$Exclamation.visible = true
-	$Exclamation.play("Rouge")
-	IsFightLaunch = true
-	UIFight.IsFightLaunch = true
+	GetActivation()
+	if Activated :
+		$Exclamation.visible = true
+		$Exclamation.play("Rouge")
+		IsFightLaunch = true
+		UIFight.IsFightLaunch = true
+		for x in PG.PNJActivate :
+			if x == EnnemiName :
+				PG.PNJActivate[x] = false
 
 func _on_Area2D_body_entered(body):
 	if (IsFightLaunch and body == player) :
@@ -199,6 +205,14 @@ func _on_Area2D_body_entered(body):
 func _on_Area2D2_body_entered(body):
 	if (body == player) :
 		LaunchFight()
+
+func GetActivation() :
+	if EnnemiName == null or EnnemiName == "" :
+		Activated = false
+	else :
+		for x in PG.PNJActivate :
+			if x == EnnemiName :
+				Activated = PG.PNJActivate[x]
 
 func loadParameters() :
 #	Texture and Graphic

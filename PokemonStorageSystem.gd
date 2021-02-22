@@ -1,35 +1,7 @@
 extends Node
 
 #ALL POKEMON PC DICTIONNARY
-var Pokemon1 = {
-	Name = "Carapuce",
-	Lvl = 3,
-	Hp = 19,
-	MaxHp = 19,
-	
-	Experience = 20,
-	ExperienceNeededToLvlUp = 30,
-	LvlNeededToEvolve = 16,
-	
-	Puissance = 48,
-	Defense = 65,
-	AttaqueSpecial = 50,
-	DefenseSpecial = 64,
-	Vitesse = 1000,
-	
-	Attaque1 = "Lance-Soleil",
-	Attaque2 = "Feu d'Enfer",
-	Attaque3 = "Ouragan",
-	Attaque4 = "Choc Mental",
-	ActualPPAttaque1 = 20,
-	ActualPPAttaque2 = 20,
-	ActualPPAttaque3 = 20,
-	ActualPPAttaque4 = 20,
-	
-	Type1 = "Eau",
-	Type2 = null,
-	
-	Statut = ""}
+var Pokemon1 = null
 var Pokemon2 = null
 var Pokemon3 = null
 var Pokemon4 = null

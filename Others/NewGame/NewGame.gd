@@ -145,7 +145,6 @@ func _on_Control_tree_entered():
 	AcceptUiSpeack = false
 	$AnimationPlayer.play("LeaveScene")
 	yield($AnimationPlayer,"animation_finished")
-	PG.PlayerName = "Autot"
 	Save.saveGame(false)
 	Save.loadGame()
 	PG.UnUsed = get_tree().change_scene("res://Map/AllInsideObject/BourgPalette/StartHouse1-Top.tscn")

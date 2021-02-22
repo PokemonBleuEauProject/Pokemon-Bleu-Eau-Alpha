@@ -738,10 +738,10 @@ func _on_OutsideButton_pressed():
 	quit_scene()
 	if PG.ActualScene == "/root/FightScene" :
 		get_node("/root/FightScene/UIAction").Cantmove = false
-		get_node("/root/FightScene/UIFight").popup()
-		get_node("/root/FightScene/UIAction").popup()
-		get_node("/root/FightScene/UIPokemonBox").popup()
-		get_node("/root/FightScene/UIPokemonBoxEnnemi").popup()
+		get_node("/root/FightScene/UIFight").visible = true
+		get_node("/root/FightScene/UIAction").visible = true
+		get_node("/root/FightScene/UIPokemonBox").visible = true
+		get_node("/root/FightScene/UIPokemonBoxEnnemi").visible = true
 #POKEMONS PRESSED
 func _on_Pokemon1_pressed(): 
 	NumberPokemonSelection = 1
