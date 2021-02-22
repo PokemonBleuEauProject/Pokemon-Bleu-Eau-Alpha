@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Others/CheatConsole/CheatConsole.gd" type="Script" id=1]
 [ext_resource path="res://img Pokemon/img Shop/Object/RappelMax.png" type="Texture" id=2]
@@ -18,6 +18,7 @@
 [ext_resource path="res://img Pokemon/img Shop/Object/SuperRepousse.png" type="Texture" id=16]
 [ext_resource path="res://Font/24Font.tres" type="DynamicFont" id=17]
 [ext_resource path="res://Font/20Font.tres" type="DynamicFont" id=18]
+[ext_resource path="res://img Pokemon/img CheatConsole/BG.png" type="Texture" id=19]
 
 [node name="CheatConsole" type="ColorRect"]
 pause_mode = 2
@@ -29,6 +30,17 @@ margin_right = -226.0
 margin_bottom = -150.0
 color = Color( 0, 0, 0, 1 )
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BG" type="TextureRect" parent="."]
+margin_left = -9.0
+margin_top = -8.0
+margin_right = 610.0
+margin_bottom = 309.0
+texture = ExtResource( 19 )
+expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }

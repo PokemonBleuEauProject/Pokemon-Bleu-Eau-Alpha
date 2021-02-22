@@ -513,7 +513,3 @@ func EndOfFight() :
 	Save.saveGame(false)
 	PG.UnUsed = get_tree().change_scene(UIFight.SceneAfterFight)
 
-
-
-
-

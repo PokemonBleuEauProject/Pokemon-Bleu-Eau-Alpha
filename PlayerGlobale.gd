@@ -169,7 +169,7 @@ func CheckNumberOfPokemon() :
 	ListPokemon = [Pokemon1,Pokemon2,Pokemon3,Pokemon4,Pokemon5,Pokemon6]
 	var NumberOfPokemon = 0
 	for x in ListPokemon :
-		if (x == null or x.Hp == 0) :
+		if (x == null or x.Hp >= 0) :
 			break
 		else :
 			NumberOfPokemon = NumberOfPokemon + 1
@@ -201,7 +201,9 @@ export (Vector2) var Last_position
 export (String) var ActualScene
 export (String) var ActualPlace
 export (String) var ActualSceneFile
-
+#Evolve
+var SomeoneEvolve = false
+var NumberPokemonEvolve = 5
 #GLOBAL VAR FOR SPEED PLAYER
 export (bool) var IsShoesEquip = false
 #MENU USER VAR

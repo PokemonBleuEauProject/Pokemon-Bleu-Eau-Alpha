@@ -1,8 +1,9 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://img Pokemon/img Notification/Background.png" type="Texture" id=1]
+[ext_resource path="res://img Pokemon/img Overlay/Background.png" type="Texture" id=1]
 [ext_resource path="res://GUI/Notification/Notification.gd" type="Script" id=2]
 [ext_resource path="res://Font/45Font.tres" type="DynamicFont" id=3]
+
 
 [sub_resource type="Animation" id=1]
 resource_name = "display"

@@ -1,5 +1,217 @@
 extends Node
 
+#Stats
+func SetMaxLife(TheDico,Lvl,Name) : 
+	var ARandom = RandomNumberGenerator.new()
+	ARandom.randomize()
+	var IV = ARandom.randi_range(15,31)
+	match Name :
+		"Bulbizarre" : TheDico.MaxHp = int(round(IV+(2*BaseStatsBulbizarre.PV)*0.01*Lvl) + Lvl)
+		"Herbizarre" : TheDico.MaxHp = int(round(IV+(2*BaseStatsHerbizarre.PV)*0.01*Lvl) + Lvl)
+		"Florizarre" : TheDico.MaxHp = int(round(IV+(2*BaseStatsFlorizarre.PV)*0.01*Lvl) + Lvl)
+		"Salameche" : TheDico.MaxHp = int(round(IV+(2*BaseStatsSalameche.PV)*0.01*Lvl) + Lvl)
+		"Reptincel" : TheDico.MaxHp = int(round(IV+(2*BaseStatsReptincel.PV)*0.01*Lvl) + Lvl)
+		"Dracaufeu" : TheDico.MaxHp = int(round(IV+(2*BaseStatsDracaufeu.PV)*0.01*Lvl) + Lvl)
+		"Carapuce" : TheDico.MaxHp = int(round(IV+(2*BaseStatsCarapuce.PV)*0.01*Lvl) + Lvl)
+		"Carabaffe" : TheDico.MaxHp = int(round(IV+(2*BaseStatsCarabaffe.PV)*0.01*Lvl) + Lvl)
+		"Tortank" : TheDico.MaxHp = int(round(IV+(2*BaseStatsTortank.PV)*0.01*Lvl) + Lvl)
+		"Chenipan" : TheDico.MaxHp = int(round(IV+(2*BaseStatsChenipan.PV)*0.01*Lvl) + Lvl)
+		"Chrysacier" : TheDico.MaxHp = int(round(IV+(2*BaseStatsChrysacier.PV)*0.01*Lvl) + Lvl)
+		"Papilusion" : TheDico.MaxHp = int(round(IV+(2*BaseStatsPapilusion.PV)*0.01*Lvl) + Lvl)
+		"Aspicot" : TheDico.MaxHp = int(round(IV+(2*BaseStatsAspicot.PV)*0.01*Lvl) + Lvl)
+		"Coconfort" : TheDico.MaxHp = int(round(IV+(2*BaseStatsCoconfort.PV)*0.01*Lvl) + Lvl)
+		"Dardagnan" : TheDico.MaxHp = int(round(IV+(2*BaseStatsDardagnan.PV)*0.01*Lvl) + Lvl)
+		"Roucool" : TheDico.MaxHp = int(round(IV+(2*BaseStatsRoucool.PV)*0.01*Lvl) + Lvl)
+		"Roucoups" : TheDico.MaxHp = int(round(IV+(2*BaseStatsRoucoups.PV)*0.01*Lvl) + Lvl)
+		"Roucarnage" : TheDico.MaxHp = int(round(IV+(2*BaseStatsRoucarnage.PV)*0.01*Lvl) + Lvl)
+		"Rattata" : TheDico.MaxHp = int(round(IV+(2*BaseStatsRattata.PV)*0.01*Lvl) + Lvl)
+		"Rattatac" : TheDico.MaxHp = int(round(IV+(2*BaseStatsRattatac.PV)*0.01*Lvl) + Lvl)
+		"Rayquaza" : TheDico.MaxHp = int(round(IV+(2*BaseStatsRayquaza.PV)*0.01*Lvl) + Lvl)
+func SetAttaque(TheDico,Lvl,Name) : 
+	var ARandom = RandomNumberGenerator.new()
+	ARandom.randomize()
+	var IV = ARandom.randi_range(15,31)
+	match Name :
+		"Bulbizarre" : TheDico.Puissance = int(round(((IV+2*BaseStatsBulbizarre.Puissance)*Lvl*0.01)+5)*2)
+		"Herbizarre" : TheDico.Puissance = int(round(((IV+2*BaseStatsHerbizarre.Puissance)*Lvl*0.01)+5)*2)
+		"Florizarre" : TheDico.Puissance = int(round(((IV+2*BaseStatsFlorizarre.Puissance)*Lvl*0.01)+5)*2)
+		"Salameche" : TheDico.Puissance = int(round(((IV+2*BaseStatsSalameche.Puissance)*Lvl*0.01)+5)*2)
+		"Reptincel" : TheDico.Puissance = int(round(((IV+2*BaseStatsReptincel.Puissance)*Lvl*0.01)+5)*2)
+		"Dracaufeu" :TheDico.Puissance = int(round(((IV+2*BaseStatsDracaufeu.Puissance)*Lvl*0.01)+5)*2)
+		"Carapuce" : TheDico.Puissance = int(round(((IV+2*BaseStatsCarapuce.Puissance)*Lvl*0.01)+5)*2)
+		"Carabaffe" : TheDico.Puissance = int(round(((IV+2*BaseStatsCarabaffe.Puissance)*Lvl*0.01)+5)*2)
+		"Tortank" :TheDico.Puissance = int(round(((IV+2*BaseStatsTortank.Puissance)*Lvl*0.01)+5)*2)
+		"Chenipan" : TheDico.Puissance = int(round(((IV+2*BaseStatsChenipan.Puissance)*Lvl*0.01)+5)*2)
+		"Chrysacier" :TheDico.Puissance = int(round(((IV+2*BaseStatsChrysacier.Puissance)*Lvl*0.01)+5)*2)
+		"Papilusion" : TheDico.Puissance = int(round(((IV+2*BaseStatsPapilusion.Puissance)*Lvl*0.01)+5)*2)
+		"Aspicot" : TheDico.Puissance = int(round(((IV+2*BaseStatsAspicot.Puissance)*Lvl*0.01)+5)*2)
+		"Coconfort" : TheDico.Puissance = int(round(((IV+2*BaseStatsCoconfort.Puissance)*Lvl*0.01)+5)*2)
+		"Dardagnan" : TheDico.Puissance = int(round(((IV+2*BaseStatsDardagnan.Puissance)*Lvl*0.01)+5)*2)
+		"Roucool" : TheDico.Puissance = int(round(((IV+2*BaseStatsRoucool.Puissance)*Lvl*0.01)+5)*2)
+		"Roucoups" : TheDico.Puissance = int(round(((IV+2*BaseStatsRoucoups.Puissance)*Lvl*0.01)+5)*2)
+		"Roucarnage" : TheDico.Puissance = int(round(((IV+2*BaseStatsRoucarnage.Puissance)*Lvl*0.01)+5)*2)
+		"Rattata" : TheDico.Puissance = int(round(((IV+2*BaseStatsRattata.Puissance)*Lvl*0.01)+5)*2)
+		"Rattatac" : TheDico.Puissance = int(round(((IV+2*BaseStatsRattatac.Puissance)*Lvl*0.01)+5)*2)
+		"Rayquaza" : TheDico.Puissance = int(round(((IV+2*BaseStatsRayquaza.Puissance)*Lvl*0.01)+5)*2)
+func SetDefense(TheDico,Lvl,Name) : 
+	var ARandom = RandomNumberGenerator.new()
+	ARandom.randomize()
+	var IV = ARandom.randi_range(15,31)
+	match Name :
+		"Bulbizarre" : TheDico.Defense = int(round(((IV+2*BaseStatsBulbizarre.Defense)*Lvl*0.01)+5)*2)
+		"Herbizarre" : TheDico.Defense = int(round(((IV+2*BaseStatsHerbizarre.Defense)*Lvl*0.01)+5)*2)
+		"Florizarre" : TheDico.Defense = int(round(((IV+2*BaseStatsFlorizarre.Defense)*Lvl*0.01)+5)*2)
+		"Salameche" : TheDico.Defense = int(round(((IV+2*BaseStatsSalameche.Defense)*Lvl*0.01)+5)*2)
+		"Reptincel" : TheDico.Defense = int(round(((IV+2*BaseStatsReptincel.Defense)*Lvl*0.01)+5)*2)
+		"Dracaufeu" :TheDico.Defense = int(round(((IV+2*BaseStatsDracaufeu.Defense)*Lvl*0.01)+5)*2)
+		"Carapuce" : TheDico.Defense = int(round(((IV+2*BaseStatsCarapuce.Defense)*Lvl*0.01)+5)*2)
+		"Carabaffe" : TheDico.Defense = int(round(((IV+2*BaseStatsCarabaffe.Defense)*Lvl*0.01)+5)*2)
+		"Tortank" :TheDico.Defense = int(round(((IV+2*BaseStatsTortank.Defense)*Lvl*0.01)+5)*2)
+		"Chenipan" : TheDico.Defense = int(round(((IV+2*BaseStatsChenipan.Defense)*Lvl*0.01)+5)*2)
+		"Chrysacier" :TheDico.Defense = int(round(((IV+2*BaseStatsChrysacier.Defense)*Lvl*0.01)+5)*2)
+		"Papilusion" : TheDico.Defense = int(round(((IV+2*BaseStatsPapilusion.Defense)*Lvl*0.01)+5)*2)
+		"Aspicot" : TheDico.Defense = int(round(((IV+2*BaseStatsAspicot.Defense)*Lvl*0.01)+5)*2)
+		"Coconfort" : TheDico.Defense = int(round(((IV+2*BaseStatsCoconfort.Defense)*Lvl*0.01)+5)*2)
+		"Dardagnan" : TheDico.Defense = int(round(((IV+2*BaseStatsDardagnan.Defense)*Lvl*0.01)+5)*2)
+		"Roucool" : TheDico.Defense = int(round(((IV+2*BaseStatsRoucool.Defense)*Lvl*0.01)+5)*2)
+		"Roucoups" : TheDico.Defense = int(round(((IV+2*BaseStatsRoucoups.Defense)*Lvl*0.01)+5)*2)
+		"Roucarnage" : TheDico.Defense = int(round(((IV+2*BaseStatsRoucarnage.Defense)*Lvl*0.01)+5)*2)
+		"Rattata" : TheDico.Defense = int(round(((IV+2*BaseStatsRattata.Defense)*Lvl*0.01)+5)*2)
+		"Rattatac" : TheDico.Defense = int(round(((IV+2*BaseStatsRattatac.Defense)*Lvl*0.01)+5)*2)
+		"Rayquaza" : TheDico.Defense = int(round(((IV+2*BaseStatsRayquaza.Defense)*Lvl*0.01)+5)*2)
+func SetAttaqueSpecial(TheDico,Lvl,Name) : 
+	var ARandom = RandomNumberGenerator.new()
+	ARandom.randomize()
+	var IV = ARandom.randi_range(15,31)
+	match Name :
+		"Bulbizarre" : TheDico.AttaqueSpecial = int(round(((IV+2*BaseStatsBulbizarre.AttaqueSpecial)*Lvl*0.01)+5)*2)
+		"Herbizarre" : TheDico.AttaqueSpecial = int(round(((IV+2*BaseStatsHerbizarre.AttaqueSpecial)*Lvl*0.01)+5)*2)
+		"Florizarre" : TheDico.AttaqueSpecial = int(round(((IV+2*BaseStatsFlorizarre.AttaqueSpecial)*Lvl*0.01)+5)*2)
+		"Salameche" : TheDico.AttaqueSpecial = int(round(((IV+2*BaseStatsSalameche.AttaqueSpecial)*Lvl*0.01)+5)*2)
+		"Reptincel" : TheDico.AttaqueSpecial = int(round(((IV+2*BaseStatsReptincel.AttaqueSpecial)*Lvl*0.01)+5)*2)
+		"Dracaufeu" :TheDico.AttaqueSpecial = int(round(((IV+2*BaseStatsDracaufeu.AttaqueSpecial)*Lvl*0.01)+5)*2)
+		"Carapuce" : TheDico.AttaqueSpecial = int(round(((IV+2*BaseStatsCarapuce.AttaqueSpecial)*Lvl*0.01)+5)*2)
+		"Carabaffe" : TheDico.AttaqueSpecial = int(round(((IV+2*BaseStatsCarabaffe.AttaqueSpecial)*Lvl*0.01)+5)*2)
+		"Tortank" :TheDico.AttaqueSpecial = int(round(((IV+2*BaseStatsTortank.AttaqueSpecial)*Lvl*0.01)+5)*2)
+		"Chenipan" : TheDico.AttaqueSpecial = int(round(((IV+2*BaseStatsChenipan.AttaqueSpecial)*Lvl*0.01)+5)*2)
+		"Chrysacier" :TheDico.AttaqueSpecial = int(round(((IV+2*BaseStatsChrysacier.AttaqueSpecial)*Lvl*0.01)+5)*2)
+		"Papilusion" : TheDico.AttaqueSpecial = int(round(((IV+2*BaseStatsPapilusion.AttaqueSpecial)*Lvl*0.01)+5)*2)
+		"Aspicot" : TheDico.AttaqueSpecial = int(round(((IV+2*BaseStatsAspicot.AttaqueSpecial)*Lvl*0.01)+5)*2)
+		"Coconfort" : TheDico.AttaqueSpecial = int(round(((IV+2*BaseStatsCoconfort.AttaqueSpecial)*Lvl*0.01)+5)*2)
+		"Dardagnan" : TheDico.AttaqueSpecial = int(round(((IV+2*BaseStatsDardagnan.AttaqueSpecial)*Lvl*0.01)+5)*2)
+		"Roucool" : TheDico.AttaqueSpecial = int(round(((IV+2*BaseStatsRoucool.AttaqueSpecial)*Lvl*0.01)+5)*2)
+		"Roucoups" : TheDico.AttaqueSpecial = int(round(((IV+2*BaseStatsRoucoups.AttaqueSpecial)*Lvl*0.01)+5)*2)
+		"Roucarnage" : TheDico.AttaqueSpecial = int(round(((IV+2*BaseStatsRoucarnage.AttaqueSpecial)*Lvl*0.01)+5)*2)
+		"Rattata" : TheDico.AttaqueSpecial = int(round(((IV+2*BaseStatsRattata.AttaqueSpecial)*Lvl*0.01)+5)*2)
+		"Rattatac" : TheDico.AttaqueSpecial = int(round(((IV+2*BaseStatsRattatac.AttaqueSpecial)*Lvl*0.01)+5)*2)
+		"Rayquaza" : TheDico.AttaqueSpecial = int(round(((IV+2*BaseStatsRayquaza.AttaqueSpecial)*Lvl*0.01)+5)*2)
+func SetDefenseSpecial(TheDico,Lvl,Name) : 
+	var ARandom = RandomNumberGenerator.new()
+	ARandom.randomize()
+	var IV = ARandom.randi_range(15,31)
+	match Name :
+		"Bulbizarre" : TheDico.DefenseSpecial = int(round(((IV+2*BaseStatsBulbizarre.DefenseSpecial)*Lvl*0.01)+5)*2)
+		"Herbizarre" : TheDico.DefenseSpecial = int(round(((IV+2*BaseStatsHerbizarre.DefenseSpecial)*Lvl*0.01)+5)*2)
+		"Florizarre" : TheDico.DefenseSpecial = int(round(((IV+2*BaseStatsFlorizarre.DefenseSpecial)*Lvl*0.01)+5)*2)
+		"Salameche" : TheDico.DefenseSpecial = int(round(((IV+2*BaseStatsSalameche.DefenseSpecial)*Lvl*0.01)+5)*2)
+		"Reptincel" : TheDico.DefenseSpecial = int(round(((IV+2*BaseStatsReptincel.DefenseSpecial)*Lvl*0.01)+5)*2)
+		"Dracaufeu" :TheDico.DefenseSpecial = int(round(((IV+2*BaseStatsDracaufeu.DefenseSpecial)*Lvl*0.01)+5)*2)
+		"Carapuce" : TheDico.DefenseSpecial = int(round(((IV+2*BaseStatsCarapuce.DefenseSpecial)*Lvl*0.01)+5)*2)
+		"Carabaffe" : TheDico.DefenseSpecial = int(round(((IV+2*BaseStatsCarabaffe.DefenseSpecial)*Lvl*0.01)+5)*2)
+		"Tortank" :TheDico.DefenseSpecial = int(round(((IV+2*BaseStatsTortank.DefenseSpecial)*Lvl*0.01)+5)*2)
+		"Chenipan" : TheDico.DefenseSpecial = int(round(((IV+2*BaseStatsChenipan.DefenseSpecial)*Lvl*0.01)+5)*2)
+		"Chrysacier" :TheDico.DefenseSpecial = int(round(((IV+2*BaseStatsChrysacier.DefenseSpecial)*Lvl*0.01)+5)*2)
+		"Papilusion" : TheDico.DefenseSpecial = int(round(((IV+2*BaseStatsPapilusion.DefenseSpecial)*Lvl*0.01)+5)*2)
+		"Aspicot" : TheDico.DefenseSpecial = int(round(((IV+2*BaseStatsAspicot.DefenseSpecial)*Lvl*0.01)+5)*2)
+		"Coconfort" : TheDico.DefenseSpecial = int(round(((IV+2*BaseStatsCoconfort.DefenseSpecial)*Lvl*0.01)+5)*2)
+		"Dardagnan" : TheDico.DefenseSpecial = int(round(((IV+2*BaseStatsDardagnan.DefenseSpecial)*Lvl*0.01)+5)*2)
+		"Roucool" : TheDico.DefenseSpecial = int(round(((IV+2*BaseStatsRoucool.DefenseSpecial)*Lvl*0.01)+5)*2)
+		"Roucoups" : TheDico.DefenseSpecial = int(round(((IV+2*BaseStatsRoucoups.DefenseSpecial)*Lvl*0.01)+5)*2)
+		"Roucarnage" : TheDico.DefenseSpecial = int(round(((IV+2*BaseStatsRoucarnage.DefenseSpecial)*Lvl*0.01)+5)*2)
+		"Rattata" : TheDico.DefenseSpecial = int(round(((IV+2*BaseStatsRattata.DefenseSpecial)*Lvl*0.01)+5)*2)
+		"Rattatac" : TheDico.DefenseSpecial = int(round(((IV+2*BaseStatsRattatac.DefenseSpecial)*Lvl*0.01)+5)*2)
+		"Rayquaza" : TheDico.DefenseSpecial = int(round(((IV+2*BaseStatsRayquaza.DefenseSpecial)*Lvl*0.01)+5)*2)
+func SetVitesse(TheDico,Lvl,Name) : 
+	var ARandom = RandomNumberGenerator.new()
+	ARandom.randomize()
+	var IV = ARandom.randi_range(15,31)
+	match Name :
+		"Bulbizarre" : TheDico.Vitesse = int(round(((IV+2*BaseStatsBulbizarre.Vitesse)*Lvl*0.01)+5))
+		"Herbizarre" : TheDico.Vitesse = int(round(((IV+2*BaseStatsHerbizarre.Vitesse)*Lvl*0.01)+5))
+		"Florizarre" : TheDico.Vitesse = int(round(((IV+2*BaseStatsFlorizarre.Vitesse)*Lvl*0.01)+5))
+		"Salameche" : TheDico.Vitesse = int(round(((IV+2*BaseStatsSalameche.Vitesse)*Lvl*0.01)+5))
+		"Reptincel" : TheDico.Vitesse = int(round(((IV+2*BaseStatsReptincel.Vitesse)*Lvl*0.01)+5))
+		"Dracaufeu" :TheDico.Vitesse = int(round(((IV+2*BaseStatsDracaufeu.Vitesse)*Lvl*0.01)+5))
+		"Carapuce" : TheDico.Vitesse = int(round(((IV+2*BaseStatsCarapuce.Vitesse)*Lvl*0.01)+5))
+		"Carabaffe" : TheDico.Vitesse = int(round(((IV+2*BaseStatsCarabaffe.Vitesse)*Lvl*0.01)+5))
+		"Tortank" :TheDico.Vitesse = int(round(((IV+2*BaseStatsTortank.Vitesse)*Lvl*0.01)+5))
+		"Chenipan" : TheDico.Vitesse = int(round(((IV+2*BaseStatsChenipan.Vitesse)*Lvl*0.01)+5))
+		"Chrysacier" :TheDico.Vitesse = int(round(((IV+2*BaseStatsChrysacier.Vitesse)*Lvl*0.01)+5))
+		"Papilusion" : TheDico.Vitesse = int(round(((IV+2*BaseStatsPapilusion.Vitesse)*Lvl*0.01)+5))
+		"Aspicot" : TheDico.Vitesse = int(round(((IV+2*BaseStatsAspicot.Vitesse)*Lvl*0.01)+5))
+		"Coconfort" : TheDico.Vitesse = int(round(((IV+2*BaseStatsCoconfort.Vitesse)*Lvl*0.01)+5))
+		"Dardagnan" : TheDico.v = int(round(((IV+2*BaseStatsDardagnan.Vitesse)*Lvl*0.01)+5))
+		"Roucool" : TheDico.Vitesse = int(round(((IV+2*BaseStatsRoucool.Vitesse)*Lvl*0.01)+5))
+		"Roucoups" : TheDico.Vitesse = int(round(((IV+2*BaseStatsRoucoups.Vitesse)*Lvl*0.01)+5))
+		"Roucarnage" : TheDico.Vitesse = int(round(((IV+2*BaseStatsRoucarnage.Vitesse)*Lvl*0.01)+5))
+		"Rattata" : TheDico.Vitesse = int(round(((IV+2*BaseStatsRattata.Vitesse)*Lvl*0.01)+5))
+		"Rattatac" : TheDico.Vitesse = int(round(((IV+2*BaseStatsRattatac.Vitesse)*Lvl*0.01)+5))
+		"Rayquaza" : TheDico.Vitesse = int(round(((IV+2*BaseStatsRayquaza.Vitesse)*Lvl*0.01)+5))
+func SetType1(TheDico,Lvl,Name) :
+	match Name :
+		"Bulbizarre" : TheDico.Type1 = "Plante"
+		"Herbizarre" : TheDico.Type1 = "Plante"
+		"Florizarre" : TheDico.Type1 = "Plante"
+		"Salameche" : TheDico.Type1 = "Feu"
+		"Reptincel" : TheDico.Type1 = "Feu"
+		"Dracaufeu" : TheDico.Type1 = "Feu"
+		"Carapuce" : TheDico.Type1 = "Eau"
+		"Carabaffe" : TheDico.Type1 = "Eau"
+		"Tortank" : TheDico.Type1 = "Eau"
+		"Chenipan" : TheDico.Type1 = "Insecte"
+		"Chrysacier" : TheDico.Type1 = "Insecte"
+		"Papilusion" : TheDico.Type1 = "Insecte"
+		"Aspicot" : TheDico.Type1 = "Insecte"
+		"Coconfort" : TheDico.Type1 = "Insecte"
+		"Dardagnan" : TheDico.Type1 = "Insecte"
+		"Roucool" : TheDico.Type1 = "Normal"
+		"Roucoups" : TheDico.Type1 = "Normal"
+		"Roucarnage" : TheDico.Type1 = "Normal"
+		"Rattata" : TheDico.Type1 = "Normal"
+		"Rattatac" : TheDico.Type1 = "Normal"
+		"Rayquaza" : TheDico.Type1 = "Dragon"
+func SetType2(TheDico,Lvl,Name) :
+	match Name :
+		"Bulbizarre" : TheDico.Type2 = "Poison"
+		"Herbizarre" : TheDico.Type2 = "Poison"
+		"Florizarre" : TheDico.Type2 = "Poison"
+		"Salameche" : TheDico.Type2 = null
+		"Reptincel" : TheDico.Type2 = null
+		"Dracaufeu" : TheDico.Type2 = "Vol"
+		"Carapuce" : TheDico.Type2 = null
+		"Carabaffe" : TheDico.Type2 = null
+		"Tortank" : TheDico.Type2 = null
+		"Chenipan" : TheDico.Type2 = null
+		"Chrysacier" : TheDico.Type2 = null
+		"Papilusion" : TheDico.Type2 = "Vol"
+		"Aspicot" : TheDico.Type2 = "Poison"
+		"Coconfort" : TheDico.Type2 = "Poison"
+		"Dardagnan" : TheDico.Type2 = "Poison"
+		"Roucool" : TheDico.Type2 = "Vol"
+		"Roucoups" : TheDico.Type2 = "Vol"
+		"Roucarnage" : TheDico.Type2 = "Vol"
+		"Rattata" : TheDico.Type2 = null
+		"Rattatac" : TheDico.Type2 = null
+		"Rayquaza" : TheDico.Type2 = "Vol"
+func SetAllStats(TheDico,Lvl,Name) :
+	SetMaxLife(TheDico,Lvl,Name)
+	SetAttaque(TheDico,Lvl,Name)
+	SetDefense(TheDico,Lvl,Name)
+	SetAttaqueSpecial(TheDico,Lvl,Name)
+	SetDefenseSpecial(TheDico,Lvl,Name)
+	SetVitesse(TheDico,Lvl,Name)
+	SetType1(TheDico,Lvl,Name)
+	SetType2(TheDico,Lvl,Name)
 #Health
 func health(ThePokemon) :
 	ThePokemon.Hp = ThePokemon.MaxHp
@@ -19,10 +231,63 @@ func CheckLvlUp(ThePokemon,ExpWin) :
 		ThePokemon.Lvl = ThePokemon.Lvl + 1
 		ThePokemon.Experience = (ThePokemon.Experience + ExpWin) - ThePokemon.ExperienceNeededToLvlUp
 		CalculLvlToLvlUp(ThePokemon,ThePokemon.Lvl)
+		SetAllStats(ThePokemon,ThePokemon.Lvl,ThePokemon.Name)
 	else :
 		ThePokemon.Experience += ExpWin
+	CheckEvolve(ThePokemon,ThePokemon.Name,ThePokemon.Lvl)
 func CheckExpWin(ThePokemon) :
 	return (ThePokemon.Lvl/7) *  ThePokemon.BaseLvl
+#Evolve
+func CheckEvolve(TheDico,Name,Lvl):
+	PG.NumberPokemonEvolve = Pokemon.GetNumberPokedex(TheDico.Name)
+	match Name :
+		"Bulbizarre" : if Lvl >= 16 : 
+			TheDico.Name = "Herbizarre"
+			PG.SomeoneEvolve = true
+		"Herbizarre" : if Lvl >= 32 : 
+			TheDico.Name = "Florizarre"
+			PG.SomeoneEvolve = true
+		"Florizarre" : pass
+		"Salameche" : if Lvl >= 16 : 
+			TheDico.Name = "Reptincel"
+			PG.SomeoneEvolve = true
+		"Reptincel" : if Lvl >= 32 : 
+			PG.SomeoneEvolve = true
+			TheDico.Name = "Dracaufeu"
+		"Dracaufeu" : pass
+		"Carapuce" : if Lvl >= 16 : 
+			PG.SomeoneEvolve = true
+			TheDico.Name = "Carabaffe"
+		"Carabaffe" : if Lvl >= 32 : 
+			PG.SomeoneEvolve = true
+			TheDico.Name = "Tortank"
+		"Tortank" : pass
+		"Chenipan" : if Lvl >= 7 : 
+			PG.SomeoneEvolve = true
+			TheDico.Name = "Chrysacier"
+		"Chrysacier" : if Lvl >= 10 : 
+			PG.SomeoneEvolve = true
+			TheDico.Name = "Papilusion"
+		"Papilusion" : pass
+		"Aspicot" : if Lvl >= 7 : 
+			PG.SomeoneEvolve = true
+			TheDico.Name = "Coconfort"
+		"Coconfort" : if Lvl >= 10 : 
+			PG.SomeoneEvolve = true
+			TheDico.Name = "Dardagnan"
+		"Dardagnan" : pass
+		"Roucool" : if Lvl >= 18 : 
+			PG.SomeoneEvolve = true
+			TheDico.Name = "Roucoups"
+		"Roucoups" : if Lvl >= 36 : 
+			PG.SomeoneEvolve = true
+			TheDico.Name = "Roucarnage"
+		"Roucarnage" : pass
+		"Rattata" : if Lvl >= 20 : 
+			PG.SomeoneEvolve = true
+			TheDico.Name = "Rattatac"
+		"Rattatac" : pass
+		"Rayquaza" : pass
 #Ressources about pokemons
 func GetNumberPokedex(Name) :
 	match Name :
@@ -52,7 +317,155 @@ func GetImageFront(Name) : if Name != null : return load("res://img Pokemon/All 
 func GetImageBack(Name) : if Name != null : return load("res://img Pokemon/All Pokemon/back/"+str(GetNumberPokedex(Name))+".png")
 func GetImageOverworld(Name) : if Name != null : return load("res://img Pokemon/All Pokemon/Overworld/"+str(GetNumberPokedex(Name))+".png")
 func GetImageType(Type) : if Type != null : return load("res://img Pokemon/All Type/"+str(Type)+".png")
-
+func GetImageEvolve(number) :return load("res://img Pokemon/All Pokemon/Front/"+str(number)+".png")
+#Base Stats for each pokemon in the game
+var BaseStatsBulbizarre = {
+	PV = 45,
+	Puissance = 49,
+	Defense = 49,
+	AttaqueSpecial = 65,
+	DefenseSpecial = 65,
+	Vitesse = 45}
+var BaseStatsHerbizarre = {
+	PV = 60,
+	Puissance = 62,
+	Defense = 63,
+	AttaqueSpecial = 80,
+	DefenseSpecial = 80,
+	Vitesse = 60}
+var BaseStatsFlorizarre = {
+	PV = 80,
+	Puissance = 82,
+	Defense = 83,
+	AttaqueSpecial = 100,
+	DefenseSpecial = 100,
+	Vitesse = 80}
+var BaseStatsSalameche = {
+	PV = 39,
+	Puissance = 52,
+	Defense = 43,
+	AttaqueSpecial = 60,
+	DefenseSpecial = 50,
+	Vitesse = 65}
+var BaseStatsReptincel = {
+	PV = 58,
+	Puissance = 64,
+	Defense = 58,
+	AttaqueSpecial = 80,
+	DefenseSpecial = 65,
+	Vitesse = 80}
+var BaseStatsDracaufeu = {
+	PV = 78,
+	Puissance = 84,
+	Defense = 78,
+	AttaqueSpecial = 109,
+	DefenseSpecial = 85,
+	Vitesse = 100}
+var BaseStatsCarapuce = {
+	PV = 44,
+	Puissance = 48,
+	Defense = 65,
+	AttaqueSpecial = 50,
+	DefenseSpecial = 64,
+	Vitesse = 43}
+var BaseStatsCarabaffe = {
+	PV = 59,
+	Puissance = 63,
+	Defense = 80,
+	AttaqueSpecial = 65,
+	DefenseSpecial = 80,
+	Vitesse = 58}
+var BaseStatsTortank = {
+	PV = 79,
+	Puissance = 83,
+	Defense = 100,
+	AttaqueSpecial = 85,
+	DefenseSpecial = 105,
+	Vitesse = 78}
+var BaseStatsChenipan = {
+	PV = 45,
+	Puissance = 30,
+	Defense = 35,
+	AttaqueSpecial = 20,
+	DefenseSpecial = 20,
+	Vitesse = 45}
+var BaseStatsChrysacier = {
+	PV = 50,
+	Puissance = 20,
+	Defense = 55,
+	AttaqueSpecial = 25,
+	DefenseSpecial = 25,
+	Vitesse = 30}
+var BaseStatsPapilusion = {
+	PV = 60,
+	Puissance = 45,
+	Defense = 50,
+	AttaqueSpecial = 90,
+	DefenseSpecial = 80,
+	Vitesse = 70}
+var BaseStatsAspicot = {
+	PV = 40,
+	Puissance = 35,
+	Defense = 30,
+	AttaqueSpecial = 20,
+	DefenseSpecial = 20,
+	Vitesse = 50}
+var BaseStatsCoconfort = {
+	PV = 45,
+	Puissance = 25,
+	Defense = 50,
+	AttaqueSpecial = 25,
+	DefenseSpecial = 25,
+	Vitesse = 35}
+var BaseStatsDardagnan = {
+	PV = 65,
+	Puissance = 90,
+	Defense = 40,
+	AttaqueSpecial = 45,
+	DefenseSpecial = 80,
+	Vitesse = 75}
+var BaseStatsRoucool = {
+	PV = 40,
+	Puissance = 45,
+	Defense = 40,
+	AttaqueSpecial = 35,
+	DefenseSpecial = 35,
+	Vitesse = 56}
+var BaseStatsRoucoups = {
+	PV = 63,
+	Puissance = 60,
+	Defense = 55,
+	AttaqueSpecial = 50,
+	DefenseSpecial = 50,
+	Vitesse = 71}
+var BaseStatsRoucarnage = {
+	PV = 83,
+	Puissance = 80,
+	Defense = 75,
+	AttaqueSpecial = 70,
+	DefenseSpecial = 70,
+	Vitesse = 101}
+var BaseStatsRattata = {
+	PV = 30,
+	Puissance = 56,
+	Defense = 35,
+	AttaqueSpecial = 25,
+	DefenseSpecial = 35,
+	Vitesse = 72}
+var BaseStatsRattatac = {
+	PV = 55,
+	Puissance = 81,
+	Defense = 60,
+	AttaqueSpecial = 50,
+	DefenseSpecial = 70,
+	Vitesse = 97}
+var BaseStatsRayquaza = {
+	PV = 105,
+	Puissance = 150,
+	Defense = 90,
+	AttaqueSpecial = 150,
+	DefenseSpecial = 90,
+	Vitesse = 95}
 # All Pokemon in order with all informations -> extends into PlayerPokemon and EnnemiPokemon
 #1
 class Bulbizarre :

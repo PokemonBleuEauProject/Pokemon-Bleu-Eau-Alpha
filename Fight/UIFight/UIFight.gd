@@ -18,7 +18,7 @@ func changeText(Text) :
 	$ShowText.play("Show_Text")
 
 func _on_UIFight_tree_entered():
-	popup()
+	self.visible = true
 	get_node("/root/FightScene/MenuPokemon").visible = false
 	Attaque.reload("Both")
 	yield(get_tree().create_timer(0.1),"timeout")

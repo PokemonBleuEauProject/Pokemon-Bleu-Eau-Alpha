@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://img Pokemon/img NewGame/UISpeack.png" type="Texture" id=1]
 [ext_resource path="res://img Pokemon/img NewGame/cercleNewGame.png" type="Texture" id=2]
@@ -11,6 +11,10 @@
 [ext_resource path="res://img Pokemon/img NewGame/Chen.png" type="Texture" id=9]
 [ext_resource path="res://img Pokemon/img NewGame/rival.png" type="Texture" id=10]
 [ext_resource path="res://img Pokemon/img NewGame/LastAnimation.png" type="Texture" id=11]
+[ext_resource path="res://Font/24Font.tres" type="DynamicFont" id=12]
+[ext_resource path="res://img Pokemon/All Pokemon/Front/1.png" type="Texture" id=13]
+[ext_resource path="res://img Pokemon/All Pokemon/Front/4.png" type="Texture" id=14]
+[ext_resource path="res://img Pokemon/All Pokemon/Front/7.png" type="Texture" id=15]
 
 [sub_resource type="Animation" id=1]
 resource_name = "ShowText"
@@ -448,7 +452,7 @@ tracks/6/keys = {
 "values": [ Vector2( -106.886, 94.5891 ) ]
 }
 
-[node name="Control" type="Control"]
+[node name="NewGame" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 5 )
@@ -570,6 +574,56 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Bulbizarre" type="Button" parent="."]
+margin_left = 18.0787
+margin_top = 158.772
+margin_right = 298.079
+margin_bottom = 328.772
+custom_fonts/font = ExtResource( 12 )
+text = "Bulbizarre"
+icon = ExtResource( 13 )
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Salameche" type="Button" parent="."]
+margin_left = 375.0
+margin_top = 160.0
+margin_right = 655.0
+margin_bottom = 330.0
+custom_fonts/font = ExtResource( 12 )
+text = "Salameche"
+icon = ExtResource( 14 )
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Carapuce" type="Button" parent="."]
+margin_left = 725.0
+margin_top = 160.0
+margin_right = 1005.0
+margin_bottom = 330.0
+custom_fonts/font = ExtResource( 12 )
+text = "Carapuce"
+icon = ExtResource( 15 )
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Confirm" type="Button" parent="."]
+margin_left = 371.136
+margin_top = 349.568
+margin_right = 658.136
+margin_bottom = 413.568
+custom_fonts/font = ExtResource( 12 )
+text = "Confirmer ?"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/ChangeCharacter = SubResource( 2 )
 "anims/ChangeCharacter 1" = SubResource( 3 )
@@ -593,3 +647,7 @@ __meta__ = {
 [connection signal="tree_entered" from="." to="." method="_on_Control_tree_entered"]
 [connection signal="text_entered" from="LineEdit" to="." method="_on_LineEdit_text_entered"]
 [connection signal="text_entered" from="LineEdit2" to="." method="_on_LineEdit2_text_entered"]
+[connection signal="pressed" from="Bulbizarre" to="." method="_on_Bulbizarre_pressed"]
+[connection signal="pressed" from="Salameche" to="." method="_on_Salameche_pressed"]
+[connection signal="pressed" from="Carapuce" to="." method="_on_Carapuce_pressed"]
+[connection signal="pressed" from="Confirm" to="." method="_on_Confirm_pressed"]

@@ -14,7 +14,6 @@ var NumberPokemonSelection = 0
 #VAR FOR OBJECT AND USE THEM
 var UsingObject = false
 var ActualObject = ""
-var IsTheButtonPushed = false
 #SIGNALS
 signal catchapokemon(PokeballBonus,PokeballName)
 signal theobjecthasbeenused(ObjectName)
@@ -29,15 +28,6 @@ func _ready():
 	$MedicamentBox.visible = true
 	$AnimationPlayer.play("IdleArrows")
 	if PG.ActualScene != "/root/FightScene" : player = get_node(PG.ActualScene + "/Player")
-
-func _input(event) :
-	if event is InputEventMouseButton:
-		var focused = get_focus_owner()
-		if !IsTheButtonPushed :
-			if focused is Button :
-				if !IsTheButtonPushed : 
-					IsTheButtonPushed = true
-		elif IsTheButtonPushed : pass
 
 func _process(delta):
 	if visible :

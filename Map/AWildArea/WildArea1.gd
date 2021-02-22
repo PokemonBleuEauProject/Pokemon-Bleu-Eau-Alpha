@@ -30,7 +30,7 @@ func VerifyPokemon() :
 	ARandom.randomize()
 	var Random = ARandom.randi_range(0,ListPokemon.size() - 1)
 	var RandomLaunch = ARandom.randf_range(0,1)
-	PokemonRNG = (ListPokemon[Random].x) * 0.0008
+	PokemonRNG = (ListPokemon[Random].x) * 0.001
 	
 	if PokemonRNG >= RandomLaunch :
 #		ALL FOR POSITIONS
@@ -52,6 +52,8 @@ func VerifyPokemon() :
 func loadParameters(ThePokemon,TheLvl) :
 #	Pokemon
 	EG.Pokemon1 = {Name = ThePokemon, Lvl = TheLvl, Hp = null, MaxHp = null, Exp = null, Attaque1 = null, Attaque2 = null,Attaque3 = null,Attaque4 = null, ActualPPAttaque1 = null, ActualPPAttaque2 = null,ActualPPAttaque3 = null,ActualPPAttaque4 = null,Puissance = null,Defense = null,AttaqueSpecial = null,DefenseSpecial = null,Vitesse = null,Type1 = null,Type2 = null}
+	Pokemon.SetAllStats(EG.Pokemon1,EG.Pokemon1.Lvl,EG.Pokemon1.Name)
+	Pokemon.health(EG.Pokemon1)
 #	Information
 	EG.EnnemiName = ""
 	UIFight.TypeOfFight = "Savage"

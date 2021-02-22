@@ -11,8 +11,11 @@ func _ready():
 	HideEverything()
 	self.visible = false
 func _input(event):
-	if (Input.is_action_just_pressed("ui_cheat_console")) :
-		if visible :
+	if PG.CantdisplayMenu: pass
+	elif UIFight.IsFightLaunch : pass
+	elif (Input.is_action_just_pressed("ui_cheat_console")) :
+		if get_parent().get_node("MenuUser").visible : pass
+		elif visible :
 			HideEverything()
 			get_node(PG.ActualScene + "/GUITotal/CheatConsole").visible = false
 			get_tree().paused = false
@@ -20,7 +23,6 @@ func _input(event):
 			HideSecondaryThings()
 			get_node(PG.ActualScene + "/GUITotal/CheatConsole").visible = true
 			get_tree().paused = true
-
 
 #OTHERS
 func HideEverything() :

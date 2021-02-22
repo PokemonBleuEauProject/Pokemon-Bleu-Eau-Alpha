@@ -19,8 +19,6 @@
 [ext_resource path="res://img Pokemon/img Map/Environnement/Texture Object/commode.png" type="Texture" id=17]
 [ext_resource path="res://img Pokemon/img Map/Environnement/Texture Mur/Panneau.png" type="Texture" id=18]
 
-
-
 [node name="StartHouse1-Top" type="Node2D"]
 
 [node name="TileMap" parent="." instance=ExtResource( 1 )]
@@ -56,7 +54,7 @@ position = Vector2( 143.959, -197.469 )
 [node name="Tableau" parent="TileMap" instance=ExtResource( 14 )]
 position = Vector2( 49.5218, -249.157 )
 TXT1 = "Merci de jouer au jeu !"
-TXT2 = "Pour plus d'information concernant le jeu et ses dernieres MAJ, allez voir notre site internet !"
+TXT2 = "Pour plus d'information concernant le jeu et ses dernieres MAJ, allez voir notre serveur discord !"
 TXT3 = "Bon jeu à vous et bonne chance dans votre quete !"
 TheTexture = ExtResource( 18 )
 

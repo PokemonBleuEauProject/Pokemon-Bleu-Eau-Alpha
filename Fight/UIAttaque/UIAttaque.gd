@@ -217,7 +217,7 @@ func ProcessRepeat(FirstAttacker,TheAttaque,SpecialProcessRepeat,StringSpecial) 
 			else :
 				UiFight.changeText(PokemonEnnemi.PokemonEnnemi.Name + " rate son attaque !")
 				yield(UiFight_ShowText,"animation_finished")
-			CheckSomeoneDead(PokemonPlayer.PokemonPlayer,PokemonEnnemi.PokemonEnnemi)
+			yield(CheckSomeoneDead(PokemonPlayer.PokemonPlayer,PokemonEnnemi.PokemonEnnemi),"completed")
 			emit_signal("LoadValues")
 			yield(ProcessRepeatOthers(),"completed")
 		UIFight.CantPassTxt = false
@@ -245,7 +245,7 @@ func ProcessRepeat(FirstAttacker,TheAttaque,SpecialProcessRepeat,StringSpecial) 
 				UiFight.changeText(PokemonPlayer.PokemonPlayer.Name + " rate son attaque !")
 				yield(UiFight_ShowText,"animation_finished")
 			emit_signal("LoadValues")
-			CheckSomeoneDead(PokemonPlayer.PokemonPlayer,PokemonEnnemi.PokemonEnnemi)
+			yield(CheckSomeoneDead(PokemonPlayer.PokemonPlayer,PokemonEnnemi.PokemonEnnemi),"completed")
 			var AttaqueEnnemi = PokemonEnnemi.EnnemiLaunchAttack()
 			yield(get_tree().create_timer(0.75),"timeout")
 			UiFight.changeText(PokemonEnnemi.PokemonEnnemi.Name + " utilise " + AttaqueEnnemi + " !")
@@ -267,7 +267,7 @@ func ProcessRepeat(FirstAttacker,TheAttaque,SpecialProcessRepeat,StringSpecial) 
 			else :
 				UiFight.changeText(PokemonEnnemi.PokemonEnnemi.Name + " rate son attaque !")
 				yield(UiFight_ShowText,"animation_finished")
-			CheckSomeoneDead(PokemonPlayer.PokemonPlayer,PokemonEnnemi.PokemonEnnemi)
+			yield(CheckSomeoneDead(PokemonPlayer.PokemonPlayer,PokemonEnnemi.PokemonEnnemi),"completed")
 			emit_signal("LoadValues")
 			yield(ProcessRepeatOthers(),"completed")
 		else :
@@ -294,7 +294,7 @@ func ProcessRepeat(FirstAttacker,TheAttaque,SpecialProcessRepeat,StringSpecial) 
 			else :
 				UiFight.changeText(PokemonEnnemi.PokemonEnnemi.Name + " rate son attaque !")
 				yield(UiFight_ShowText,"animation_finished")
-			CheckSomeoneDead(PokemonPlayer.PokemonPlayer,PokemonEnnemi.PokemonEnnemi)
+			yield(CheckSomeoneDead(PokemonPlayer.PokemonPlayer,PokemonEnnemi.PokemonEnnemi),"completed")
 			emit_signal("LoadValues")
 			UiFight.changeText(PokemonPlayer.PokemonPlayer.Name + " utilise " + TheAttaque + " !")
 			yield(UiFight_ShowText,"animation_finished")
@@ -316,7 +316,7 @@ func ProcessRepeat(FirstAttacker,TheAttaque,SpecialProcessRepeat,StringSpecial) 
 				UiFight.changeText(PokemonPlayer.PokemonPlayer.Name + " rate son attaque !")
 				yield(UiFight_ShowText,"animation_finished")
 			emit_signal("LoadValues")
-			CheckSomeoneDead(PokemonPlayer.PokemonPlayer,PokemonEnnemi.PokemonEnnemi)
+			yield(CheckSomeoneDead(PokemonPlayer.PokemonPlayer,PokemonEnnemi.PokemonEnnemi),"completed")
 			yield(ProcessRepeatOthers(),"completed")
 		UIFight.CantPassTxt = false
 	if Attaque.IsSolarBeamActive or Attaque.IsSkyAttackActive :
@@ -331,7 +331,7 @@ func ProcessRepeatOthers() :
 			AttaqueAnimation.play("UseVol")
 			UiFight.changeText(PokemonPlayer.PokemonPlayer.Name + " utilise Vol !")
 			yield(UiFight_ShowText,"animation_finished")
-			CheckSomeoneDead(PokemonPlayer.PokemonPlayer,PokemonEnnemi.PokemonEnnemi)
+			yield(CheckSomeoneDead(PokemonPlayer.PokemonPlayer,PokemonEnnemi.PokemonEnnemi),"completed")
 			emit_signal("LoadValues")
 	if Attaque.IsFlyingE :
 			emit_signal("AboutLoadingValues")
@@ -339,7 +339,7 @@ func ProcessRepeatOthers() :
 			AttaqueAnimation.play("UseVolE")
 			UiFight.changeText(PokemonEnnemi.PokemonEnnemi.Name + " utilise Vol !")
 			yield(UiFight_ShowText,"animation_finished")
-			CheckSomeoneDead(PokemonPlayer.PokemonPlayer,PokemonEnnemi.PokemonEnnemi)
+			yield(CheckSomeoneDead(PokemonPlayer.PokemonPlayer,PokemonEnnemi.PokemonEnnemi),"completed")
 			emit_signal("LoadValues")
 	if Attaque.VampiDraine :
 			emit_signal("AboutLoadingValues")
@@ -347,7 +347,7 @@ func ProcessRepeatOthers() :
 			AttaqueAnimation.play("VampigraineDrain")
 			UiFight.changeText("Vampigraine drain l'énergie de " + PokemonEnnemi.PokemonEnnemi.Name + " ennemi !")
 			yield(UiFight_ShowText,"animation_finished")
-			CheckSomeoneDead(PokemonPlayer.PokemonPlayer,PokemonEnnemi.PokemonEnnemi)
+			yield(CheckSomeoneDead(PokemonPlayer.PokemonPlayer,PokemonEnnemi.PokemonEnnemi),"completed")
 			emit_signal("LoadValues")
 	if Attaque.VampiDraineE :
 			emit_signal("AboutLoadingValues")
@@ -355,7 +355,7 @@ func ProcessRepeatOthers() :
 			AttaqueAnimation.play("VampigraineDrain E")
 			UiFight.changeText("Vampigraine drain l'énergie de " + PokemonPlayer.PokemonPlayer.Name)
 			yield(UiFight_ShowText,"animation_finished")
-			CheckSomeoneDead(PokemonPlayer.PokemonPlayer,PokemonEnnemi.PokemonEnnemi)
+			yield(CheckSomeoneDead(PokemonPlayer.PokemonPlayer,PokemonEnnemi.PokemonEnnemi),"completed")
 			emit_signal("LoadValues")
 	emit_signal("AboutLoadingValues")
 	if Attaque.CheckPokemonStatut(PokemonEnnemi.PokemonEnnemi) :
@@ -363,7 +363,7 @@ func ProcessRepeatOthers() :
 			yield(UiFight_ShowText,"animation_finished")
 			AttaqueAnimation.play(PokemonEnnemi.PokemonEnnemi.Statut + " E")
 			yield(get_tree().create_timer(1),"timeout")
-			CheckSomeoneDead(PokemonPlayer.PokemonPlayer,PokemonEnnemi.PokemonEnnemi)
+			yield(CheckSomeoneDead(PokemonPlayer.PokemonPlayer,PokemonEnnemi.PokemonEnnemi),"completed")
 			emit_signal("LoadValues")
 	emit_signal("AboutLoadingValues")
 	if Attaque.CheckPokemonStatut(PokemonPlayer.PokemonPlayer) :
@@ -371,10 +371,11 @@ func ProcessRepeatOthers() :
 			yield(UiFight_ShowText,"animation_finished")
 			AttaqueAnimation.play(PokemonPlayer.PokemonPlayer.Statut)
 			yield(get_tree().create_timer(1),"timeout")
-			CheckSomeoneDead(PokemonPlayer.PokemonPlayer,PokemonEnnemi.PokemonEnnemi)
+			yield(CheckSomeoneDead(PokemonPlayer.PokemonPlayer,PokemonEnnemi.PokemonEnnemi),"completed")
 			emit_signal("LoadValues")
 
 func CheckSomeoneDead(Player,Ennemi) :
+	yield(get_tree().create_timer(0.1),"timeout")
 	if Ennemi.Hp <= 0 :
 		if (EG.CheckNumberOfPokemon() == 0) :
 			UiFight.changeText(PokemonEnnemi.PokemonEnnemi.Name + " est KO ! Le combat est fini !")
@@ -384,22 +385,34 @@ func CheckSomeoneDead(Player,Ennemi) :
 			Pokemon.CheckLvlUp(PG.Pokemon1,Pokemon.CheckExpWin(PokemonEnnemi.PokemonEnnemi))
 			get_node("/root/FightScene/AnimationPlayer").play("EndOfFight")
 			yield(get_node("/root/FightScene/AnimationPlayer"),"animation_finished")
+			UIFight.CantPassTxt = false
 			PG.UnUsed = get_tree().change_scene(UIFight.SceneAfterFight)
 		else :
-			match EG.GetAPokemonInLife() :
-				1 :
-					pass
+			PokemonEnnemi.ChangePokemon(EG.GetAPokemonInLife())
+			get_node("/root/FightScene/AnimationPlayer").play("ChangePokemon-Ennemi-Normal")
+			yield(get_node("/root/FightScene/AnimationPlayer"),"animation_finished")
+			PokemonEnnemi.loadTextures()
+			get_node("/root/FightScene/UIPokemonBox").load_values(PokemonEnnemi.PokemonEnnemi.Name,PokemonEnnemi.PokemonEnnemi.Lvl,PokemonEnnemi.PokemonEnnemi.Hp,PokemonEnnemi.PokemonEnnemi.MaxHp,PokemonEnnemi.PokemonEnnemi.Experience,PokemonEnnemi.PokemonEnnemi.ExperienceNeededToLvlUp)
 	elif Player.Hp <= 0 :
 		#Case -> No more Pokemon
 		if (PG.CheckNumberOfPokemon() == 0) :
-			print("Lose")
-		#Case -> Others Pokemon
+			UiFight.changeText(PokemonPlayer.PokemonPlayer.Name + " n'est plus en état de se battre !")
+			yield(UiFight_ShowText,"animation_finished")
+			UiFight.changeText(PG.PlayerName + " a perdu ! Le combat est fini !")
+			yield(UiFight_ShowText,"animation_finished")
+			UIFight.CantPassTxt = false
+			PG.ReloadDictionnary()
+			for x in PG.ListPokemon : if x != null : Pokemon.health(x)
+			PG.UnUsed = get_tree().change_scene(UIFight.SceneAfterFight)
 		else :
-			match PG.GetAPokemonInLife() :
-				1 :
-					pass
-	else :
-		pass
+			UiFight.changeText(PokemonPlayer.PokemonPlayer.Name + " n'est plus en état de se battre !")
+			yield(UiFight_ShowText,"animation_finished")
+			PokemonPlayer.ChangePokemon(PG.GetAPokemonInLife())
+			UiFight.changeText(PokemonPlayer.PokemonPlayer.Name + " go !")
+			get_node("/root/FightScene/AnimationPlayer").play("ChangePokemon-Normal")
+			yield(get_node("/root/FightScene/AnimationPlayer"),"animation_finished")
+			PokemonPlayer.loadTextures()
+			get_node("/root/FightScene/UIPokemonBox").load_values(PokemonPlayer.PokemonPlayer.Name,PokemonPlayer.PokemonPlayer.Lvl,PokemonPlayer.PokemonPlayer.Hp,PokemonPlayer.PokemonPlayer.MaxHp,PokemonPlayer.PokemonPlayer.Experience,PokemonPlayer.PokemonPlayer.ExperienceNeededToLvlUp)
 
 func TwoRoundsIn(FirstAttacker,TheAttaque,SpecialProcessRepeat,StringSpecial) :
 	yield(ProcessRepeat(FirstAttacker,TheAttaque,SpecialProcessRepeat,StringSpecial),"completed")

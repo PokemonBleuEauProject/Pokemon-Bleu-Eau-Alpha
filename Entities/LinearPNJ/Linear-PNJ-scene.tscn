@@ -4,8 +4,6 @@
 [ext_resource path="res://img Pokemon/All PNJ/Overworld/PointExclamationCombat.png" type="Texture" id=2]
 [ext_resource path="res://img Pokemon/All PNJ/Overworld/Joggeur/Joggeur.png" type="Texture" id=3]
 
-
-
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 20.1057, 18.1096 )
 
@@ -28,7 +26,9 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="LinearPNJ" type="KinematicBody2D"]
+[node name="LinearPNJ" type="KinematicBody2D" groups=[
+"PNJLinear",
+]]
 position = Vector2( 120.889, 61.6395 )
 script = ExtResource( 1 )
 

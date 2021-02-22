@@ -15231,7 +15231,6 @@ margin_bottom = 360.0
 script = ExtResource( 1 )
 
 [node name="UIListPokemonEnnemi" parent="." instance=ExtResource( 6 )]
-visible = false
 margin_left = -2.0
 margin_top = 140.0
 margin_right = 408.0
@@ -15270,7 +15269,7 @@ position = Vector2( 0, 30 )
 texture = ExtResource( 19 )
 
 [node name="PokemonPlayer" type="Sprite" parent="."]
-position = Vector2( 315, 365 )
+position = Vector2( 260, 370 )
 scale = Vector2( 4.75, 5 )
 texture = ExtResource( 57 )
 script = ExtResource( 8 )
@@ -15279,7 +15278,6 @@ __meta__ = {
 }
 
 [node name="PokemonEnnemi" type="Sprite" parent="."]
-visible = false
 position = Vector2( 770, 150 )
 scale = Vector2( 3.5, 3.5 )
 texture = ExtResource( 59 )
@@ -15451,13 +15449,12 @@ __meta__ = {
 }
 
 [node name="Texture1" type="TextureRect" parent="AttaqueAnimation"]
-visible = false
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 222.486
-margin_top = 383.532
-margin_right = 422.486
-margin_bottom = 463.532
-texture = ExtResource( 88 )
+margin_left = 400.124
+margin_top = 216.003
+margin_right = 550.124
+margin_bottom = 366.003
+texture = ExtResource( 67 )
 stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -15497,8 +15494,8 @@ modulate = Color( 1, 1, 1, 0 )
 [node name="GameTime" parent="." instance=ExtResource( 53 )]
 [connection signal="DisplayUIAttaque" from="UIAction" to="UIAttaque" method="DisplayUIAttaque"]
 [connection signal="DisplayUIPokemonBox" from="UIAction" to="UIPokemonBox" method="DisplayUIPokemonBox"]
-[connection signal="AboutLoadingValues" from="UIAttaque" to="UIPokemonBox" method="_on_UIAttaque_AboutLoadingValues"]
 [connection signal="AboutLoadingValues" from="UIAttaque" to="UIPokemonBoxEnnemi" method="_on_UIAttaque_AboutLoadingValues"]
+[connection signal="AboutLoadingValues" from="UIAttaque" to="UIPokemonBox" method="_on_UIAttaque_AboutLoadingValues"]
 [connection signal="ChangeStatut" from="UIAttaque" to="UIPokemonBox" method="_on_UIAttaque_ChangeStatut"]
 [connection signal="ChangeStatutE" from="UIAttaque" to="UIPokemonBoxEnnemi" method="_on_UIAttaque_ChangeStatutE"]
 [connection signal="LoadValues" from="UIAttaque" to="PokemonPlayer" method="_on_UIAttaque_LoadValues"]

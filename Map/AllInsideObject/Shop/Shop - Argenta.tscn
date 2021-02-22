@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Entities/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://GUI/GUI-Total.tscn" type="PackedScene" id=2]
@@ -20,6 +20,7 @@
 [ext_resource path="res://img Pokemon/All PNJ/Overworld/Gamin/Overworld_Gamin2_RFVF.png" type="Texture" id=18]
 [ext_resource path="res://img Pokemon/All PNJ/Overworld/Gamin/Overworld_Gamin_RFVF.png" type="Texture" id=19]
 [ext_resource path="res://Entities/SpecialEntities/Seller.tscn" type="PackedScene" id=20]
+[ext_resource path="res://GUI/Shop/Shop.tscn" type="PackedScene" id=21]
 
 [node name="ShopArgenta" type="Node2D"]
 
@@ -111,4 +112,7 @@ TheTexture = ExtResource( 18 )
 position = Vector2( -34.5335, 76.357 )
 
 [node name="GUITotal" parent="." instance=ExtResource( 2 )]
+
+[node name="Shop" parent="GUITotal" instance=ExtResource( 21 )]
+visible = false
 [connection signal="tree_entered" from="Player" to="Player" method="_on_Player_tree_entered"]

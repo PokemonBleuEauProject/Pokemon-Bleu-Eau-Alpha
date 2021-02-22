@@ -9,8 +9,12 @@ func _input(_event) :
 	if PG.CantdisplayMenu :
 		pass
 	elif UIFight.IsFightLaunch : pass
+	elif (Input.is_action_just_pressed("ui_ct")) :
+		PG.NodePositionPath = "LastPosition"
+		Save.saveGame(false)
+		PG.UnUsed = get_tree().change_scene("res://GUI/CT/CT.tscn")
 	elif (Input.is_action_just_pressed("ui_menu_user")) :
-		if get_node(PG.ActualScene + "/GUITotal/CheatConsole").visible : pass
+		if get_parent().get_node("CheatConsole").visible : pass
 		else :
 			popup()
 			get_tree().paused = true

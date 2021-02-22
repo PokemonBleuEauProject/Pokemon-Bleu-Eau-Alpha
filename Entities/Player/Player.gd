@@ -103,6 +103,8 @@ func GetActualPosition() :
 	return self.position
 
 func _on_Player_tree_entered():
+	#UIFIGHT
+	UIFight.SceneAfterFight = str(get_tree().current_scene.filename)
 	UIFight.IsFightLaunch = false
 	#Save Position
 	PG.ActualScene = str(get_tree().current_scene.get_path())

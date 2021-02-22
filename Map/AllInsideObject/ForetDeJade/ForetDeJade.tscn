@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://Map/TileMap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Entities/Player/Player.tscn" type="PackedScene" id=2]
@@ -9,8 +9,9 @@
 [ext_resource path="res://Entities/LinearPNJ/Linear-PNJ-scene.tscn" type="PackedScene" id=7]
 [ext_resource path="res://img Pokemon/All PNJ/Overworld/Gamin/Overworld_Gamin_RFVF.png" type="Texture" id=8]
 [ext_resource path="res://Entities/StaticPNJ/Static-PNJ-scene.tscn" type="PackedScene" id=9]
-
-
+[ext_resource path="res://img Pokemon/All PNJ/Overworld/Scout/Overworld_Scout-Left_RFVF.png" type="Texture" id=10]
+[ext_resource path="res://img Pokemon/All PNJ/InFight/Scout/Sprite_Scout_RFVF.png" type="Texture" id=11]
+[ext_resource path="res://img Pokemon/All PNJ/Overworld/Scout/Overworld_Scout_RFVF.png" type="Texture" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 138.32, 135.57 )
@@ -70,22 +71,19 @@ extents = Vector2( 152.966, 40.6897 )
 extents = Vector2( 101.629, 257.728 )
 
 [sub_resource type="RectangleShape2D" id=20]
-extents = Vector2( 9.0022, 10 )
+extents = Vector2( 90.0076, 5.20782 )
 
 [sub_resource type="RectangleShape2D" id=21]
-extents = Vector2( 12.0437, 20.2463 )
+extents = Vector2( 78.6617, 10.6415 )
 
 [sub_resource type="RectangleShape2D" id=22]
-extents = Vector2( 10, 80.4622 )
+extents = Vector2( 71.4172, 10 )
 
 [sub_resource type="RectangleShape2D" id=23]
-extents = Vector2( 144.834, 10 )
+extents = Vector2( 10, 54.1433 )
 
 [sub_resource type="RectangleShape2D" id=24]
-extents = Vector2( 6.1149, 8.3855 )
-
-[sub_resource type="RectangleShape2D" id=25]
-extents = Vector2( 99.9777, 10 )
+extents = Vector2( 81.4602, 6.83215 )
 
 [node name="ForetDeJade" type="Node2D"]
 
@@ -850,45 +848,354 @@ shape = SubResource( 19 )
 [node name="Player" parent="." instance=ExtResource( 2 )]
 
 [node name="LinearPNJ" parent="." instance=ExtResource( 7 )]
-position = Vector2( -908.267, -1684.26 )
+position = Vector2( 562.4, -207.042 )
+TXT = "Je collectionne les insectes ! Affronte moi !"
+TXTIntro = "Un combat a été lancé contre Scout Omar"
+EnnemiName = "Scout Omar"
+TheTexture = ExtResource( 10 )
+TheInFightTexture = ExtResource( 11 )
+Velocity = Vector2( -1, 0 )
+POKEMON1 = {
+"ActualPPAttaque1": null,
+"ActualPPAttaque2": null,
+"ActualPPAttaque3": null,
+"ActualPPAttaque4": null,
+"Attaque1": "Charge",
+"Attaque2": "Secretion",
+"Attaque3": "Dard Venin",
+"Attaque4": "-",
+"AttaqueSpecial": 0,
+"Defense": 0,
+"DefenseSpecial": 0,
+"Experience": 0,
+"ExperienceNeededToLvlUp": 0,
+"Hp": 0,
+"Lvl": 8,
+"LvlNeededToEvolve": 0,
+"MaxHp": 0,
+"Name": "Aspicot",
+"Puissance": 0,
+"Statut": "",
+"Type1": "",
+"Type2": "",
+"Vitesse": 0
+}
+POKEMON2 = {
+"ActualPPAttaque1": null,
+"ActualPPAttaque2": null,
+"ActualPPAttaque3": null,
+"ActualPPAttaque4": null,
+"Attaque1": "Charge",
+"Attaque2": "Secretion",
+"Attaque3": "-",
+"Attaque4": "-",
+"AttaqueSpecial": 0,
+"Defense": 0,
+"DefenseSpecial": 0,
+"Experience": 0,
+"ExperienceNeededToLvlUp": 0,
+"Hp": 0,
+"Lvl": 6,
+"LvlNeededToEvolve": 0,
+"MaxHp": 0,
+"Name": "Chenipan",
+"Puissance": 0,
+"Statut": "",
+"Type1": "",
+"Type2": "",
+"Vitesse": 0
+}
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LinearPNJ"]
-position = Vector2( -83.6976, 4.23779 )
+[node name="Area2D2" type="Area2D" parent="LinearPNJ"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LinearPNJ/Area2D2"]
+position = Vector2( -84.3445, 3.18317 )
 shape = SubResource( 20 )
 
 [node name="LinearPNJ2" parent="." instance=ExtResource( 7 )]
-position = Vector2( -565.847, -2287.62 )
+position = Vector2( 476.401, -1210.9 )
+TXT = "Scout Alfred pour vous servir !"
+TXTIntro = "Un combat a été lancé contre Scout Alfred"
+EnnemiName = "Scout Alfred"
+TheTexture = ExtResource( 10 )
+TheInFightTexture = ExtResource( 11 )
+Velocity = Vector2( -1, 0 )
+POKEMON1 = {
+"ActualPPAttaque1": null,
+"ActualPPAttaque2": null,
+"ActualPPAttaque3": null,
+"ActualPPAttaque4": null,
+"Attaque1": "Charge",
+"Attaque2": "Dard Venin",
+"Attaque3": "-",
+"Attaque4": "-",
+"AttaqueSpecial": 0,
+"Defense": 0,
+"DefenseSpecial": 0,
+"Experience": 0,
+"ExperienceNeededToLvlUp": 0,
+"Hp": 0,
+"Lvl": 7,
+"LvlNeededToEvolve": 0,
+"MaxHp": 0,
+"Name": "Aspicot",
+"Puissance": 0,
+"Statut": "",
+"Type1": "",
+"Type2": "",
+"Vitesse": 0
+}
+POKEMON2 = {
+"ActualPPAttaque1": null,
+"ActualPPAttaque2": null,
+"ActualPPAttaque3": null,
+"ActualPPAttaque4": null,
+"Attaque1": "Armure",
+"Attaque2": "Charge",
+"Attaque3": "-",
+"Attaque4": "-",
+"AttaqueSpecial": 0,
+"Defense": 0,
+"DefenseSpecial": 0,
+"Experience": 0,
+"ExperienceNeededToLvlUp": 0,
+"Hp": 0,
+"Lvl": 7,
+"LvlNeededToEvolve": 0,
+"MaxHp": 0,
+"Name": "Coconfort",
+"Puissance": 0,
+"Statut": "",
+"Type1": "",
+"Type2": "",
+"Vitesse": 0
+}
+POKEMON3 = {
+"ActualPPAttaque1": null,
+"ActualPPAttaque2": null,
+"ActualPPAttaque3": null,
+"ActualPPAttaque4": null,
+"Attaque1": "Double Dard",
+"Attaque2": "Dard Venin",
+"Attaque3": "-",
+"Attaque4": "-",
+"AttaqueSpecial": 0,
+"Defense": 0,
+"DefenseSpecial": 0,
+"Experience": 0,
+"ExperienceNeededToLvlUp": 0,
+"Hp": 0,
+"Lvl": 12,
+"LvlNeededToEvolve": 0,
+"MaxHp": 0,
+"Name": "Dardagnan",
+"Puissance": 0,
+"Statut": "",
+"Type1": "",
+"Type2": "",
+"Vitesse": 0
+}
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LinearPNJ2"]
-position = Vector2( -0.749146, 86.5273 )
+[node name="Area2D2" type="Area2D" parent="LinearPNJ2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LinearPNJ2/Area2D2"]
+position = Vector2( -72.5257, 0.126953 )
 shape = SubResource( 21 )
 
 [node name="LinearPNJ3" parent="." instance=ExtResource( 7 )]
-position = Vector2( 391.387, -2223.34 )
+position = Vector2( 74.6735, -1682.16 )
+TXT = "J'espere que tu aimes les insectes parce que moi, OUI !"
+TXTIntro = "Un combat a été lancé contre Scout Anthony !"
+EnnemiName = "Scout Anthony"
+TheTexture = ExtResource( 10 )
+TheInFightTexture = ExtResource( 11 )
+Velocity = Vector2( -1, 0 )
+POKEMON1 = {
+"ActualPPAttaque1": null,
+"ActualPPAttaque2": null,
+"ActualPPAttaque3": null,
+"ActualPPAttaque4": null,
+"Attaque1": "Dard Venin",
+"Attaque2": "Furie",
+"Attaque3": "-",
+"Attaque4": "-",
+"AttaqueSpecial": 0,
+"Defense": 0,
+"DefenseSpecial": 0,
+"Experience": 0,
+"ExperienceNeededToLvlUp": 0,
+"Hp": 0,
+"Lvl": 10,
+"LvlNeededToEvolve": 0,
+"MaxHp": 0,
+"Name": "Dardagnan",
+"Puissance": 0,
+"Statut": "",
+"Type1": "",
+"Type2": "",
+"Vitesse": 0
+}
+POKEMON2 = {
+"ActualPPAttaque1": null,
+"ActualPPAttaque2": null,
+"ActualPPAttaque3": null,
+"ActualPPAttaque4": null,
+"Attaque1": "Charge",
+"Attaque2": "Secretion",
+"Attaque3": "-",
+"Attaque4": "-",
+"AttaqueSpecial": 0,
+"Defense": 0,
+"DefenseSpecial": 0,
+"Experience": 0,
+"ExperienceNeededToLvlUp": 0,
+"Hp": 0,
+"Lvl": 8,
+"LvlNeededToEvolve": 0,
+"MaxHp": 0,
+"Name": "Chenipan",
+"Puissance": 0,
+"Statut": "",
+"Type1": "",
+"Type2": "",
+"Vitesse": 0
+}
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LinearPNJ3"]
+[node name="Area2D2" type="Area2D" parent="LinearPNJ3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LinearPNJ3/Area2D2"]
+position = Vector2( -69.0239, 0.540405 )
 shape = SubResource( 22 )
 
 [node name="LinearPNJ4" parent="." instance=ExtResource( 7 )]
-position = Vector2( 533.386, -1199.56 )
+position = Vector2( -528.373, -2279.65 )
+TXT = "Salut, moi c'est Charles ! Je suis plutot fort alors affronte-moi !"
+TXTIntro = "Un combat a été lancé contre Scout Charles !"
+EnnemiName = "Scout Charles"
+TheTexture = ExtResource( 12 )
+TheInFightTexture = ExtResource( 11 )
+Velocity = Vector2( 0, 1 )
+POKEMON1 = {
+"ActualPPAttaque1": null,
+"ActualPPAttaque2": null,
+"ActualPPAttaque3": null,
+"ActualPPAttaque4": null,
+"Attaque1": "Charge",
+"Attaque2": "Secretion",
+"Attaque3": "-",
+"Attaque4": "-",
+"AttaqueSpecial": 0,
+"Defense": 0,
+"DefenseSpecial": 0,
+"Experience": 0,
+"ExperienceNeededToLvlUp": 0,
+"Hp": 0,
+"Lvl": 8,
+"LvlNeededToEvolve": 0,
+"MaxHp": 0,
+"Name": "Chrysacier",
+"Puissance": 0,
+"Statut": "",
+"Type1": "",
+"Type2": "",
+"Vitesse": 0
+}
+POKEMON2 = {
+"ActualPPAttaque1": null,
+"ActualPPAttaque2": null,
+"ActualPPAttaque3": null,
+"ActualPPAttaque4": null,
+"Attaque1": "-",
+"Attaque2": "-",
+"Attaque3": "-",
+"Attaque4": "-",
+"AttaqueSpecial": 0,
+"Defense": 0,
+"DefenseSpecial": 0,
+"Experience": 0,
+"ExperienceNeededToLvlUp": 0,
+"Hp": 0,
+"Lvl": 12,
+"LvlNeededToEvolve": 0,
+"MaxHp": 0,
+"Name": "Dardagnan",
+"Puissance": 0,
+"Statut": "",
+"Type1": "Furie",
+"Type2": "Charge",
+"Vitesse": 0
+}
+POKEMON3 = {
+"ActualPPAttaque1": null,
+"ActualPPAttaque2": null,
+"ActualPPAttaque3": null,
+"ActualPPAttaque4": null,
+"Attaque1": "Choc Mental",
+"Attaque2": "Charge",
+"Attaque3": "-",
+"Attaque4": "-",
+"AttaqueSpecial": 0,
+"Defense": 0,
+"DefenseSpecial": 0,
+"Experience": 0,
+"ExperienceNeededToLvlUp": 0,
+"Hp": 0,
+"Lvl": 12,
+"LvlNeededToEvolve": 0,
+"MaxHp": 0,
+"Name": "Papilusion",
+"Puissance": 0,
+"Statut": "",
+"Type1": "",
+"Type2": "",
+"Vitesse": 0
+}
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LinearPNJ4"]
-position = Vector2( -129.498, 4.20447 )
+[node name="Area2D2" type="Area2D" parent="LinearPNJ4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LinearPNJ4/Area2D2"]
+position = Vector2( 0, 60.9419 )
 shape = SubResource( 23 )
 
 [node name="LinearPNJ5" parent="." instance=ExtResource( 7 )]
-position = Vector2( 550.65, -551.624 )
+position = Vector2( -876.236, -1388.6 )
+TXT = "Je suis Sammy ! Le plus fort des Scouts ! Bat-moi et tu peut partir !"
+TXTIntro = "Un combat a été lancé contre Scout Sammy !"
+EnnemiName = "Scout Sammy"
+TheTexture = ExtResource( 10 )
+TheInFightTexture = ExtResource( 11 )
+Velocity = Vector2( -1, 0 )
+POKEMON1 = {
+"ActualPPAttaque1": null,
+"ActualPPAttaque2": null,
+"ActualPPAttaque3": null,
+"ActualPPAttaque4": null,
+"Attaque1": "Furie",
+"Attaque2": "-",
+"Attaque3": "Dard Venin",
+"Attaque4": "-",
+"AttaqueSpecial": 0,
+"Defense": 0,
+"DefenseSpecial": 0,
+"Experience": 0,
+"ExperienceNeededToLvlUp": 0,
+"Hp": 0,
+"Lvl": 16,
+"LvlNeededToEvolve": 0,
+"MaxHp": 0,
+"Name": "Dardagnan",
+"Puissance": 0,
+"Statut": "",
+"Type1": "",
+"Type2": "",
+"Vitesse": 0
+}
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LinearPNJ5"]
-position = Vector2( -123.1, 3.98401 )
+[node name="Area2D2" type="Area2D" parent="LinearPNJ5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LinearPNJ5/Area2D2"]
+position = Vector2( -78.5177, 1.80505 )
 shape = SubResource( 24 )
-
-[node name="LinearPNJ6" parent="." instance=ExtResource( 7 )]
-position = Vector2( 564.375, -176.916 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LinearPNJ6"]
-position = Vector2( -98.163, 3.77548 )
-shape = SubResource( 25 )
 
 [node name="StaticPNJ" parent="." instance=ExtResource( 9 )]
 position = Vector2( 0, -170 )
@@ -918,3 +1225,8 @@ position = Vector2( -988.024, -2056.89 )
 
 [node name="GUITotal" parent="." instance=ExtResource( 4 )]
 [connection signal="tree_entered" from="Player" to="Player" method="_on_Player_tree_entered"]
+[connection signal="body_entered" from="LinearPNJ/Area2D2" to="LinearPNJ" method="_on_Area2D2_body_entered"]
+[connection signal="body_entered" from="LinearPNJ2/Area2D2" to="LinearPNJ2" method="_on_Area2D2_body_entered"]
+[connection signal="body_entered" from="LinearPNJ3/Area2D2" to="LinearPNJ3" method="_on_Area2D2_body_entered"]
+[connection signal="body_entered" from="LinearPNJ4/Area2D2" to="LinearPNJ4" method="_on_Area2D2_body_entered"]
+[connection signal="body_entered" from="LinearPNJ5/Area2D2" to="LinearPNJ5" method="_on_Area2D2_body_entered"]

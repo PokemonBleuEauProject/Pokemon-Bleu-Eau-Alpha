@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Entities/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://GUI/GUI-Total.tscn" type="PackedScene" id=2]
@@ -21,8 +21,7 @@
 [ext_resource path="res://Entities/StaticPNJ/Static-PNJ-scene.tscn" type="PackedScene" id=19]
 [ext_resource path="res://img Pokemon/All PNJ/Overworld/Intello/Overworld_Intello_RFVF.png" type="Texture" id=20]
 [ext_resource path="res://img Pokemon/All PNJ/Overworld/Aromatherapeute/Overworld_Aroma_RFVF.png" type="Texture" id=21]
-
-
+[ext_resource path="res://img Pokemon/All PNJ/Overworld/Chen/Chen.png" type="Texture" id=22]
 
 [node name="StartHouse2" type="Node2D"]
 
@@ -109,6 +108,13 @@ TheTexture = ExtResource( 18 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 2.67596, 50.4325 )
+
+[node name="Chen" parent="." instance=ExtResource( 19 )]
+position = Vector2( 0.866898, -247.163 )
+TXT1 = "Je suis CHEN, le profsseur Pokemon !"
+TXT2 = "Désolé de te dire ca, mais je ne sers à rien pour le moment !"
+TXT3 = "Bon courage dans ta quete cher dreseur !"
+TheTexture = ExtResource( 22 )
 
 [node name="StaticPNJ" parent="." instance=ExtResource( 19 )]
 position = Vector2( -159.519, 26.2647 )

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://GUI/MenuUser/MenuUser.tscn" type="PackedScene" id=1]
 [ext_resource path="res://GUI/Bag/Bag.tscn" type="PackedScene" id=2]
@@ -11,8 +11,13 @@
 [ext_resource path="res://GUI/Profil/Profil.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Others/GameTime/GameTime.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Others/CheatConsole/CheatConsole.tscn" type="PackedScene" id=11]
+[ext_resource path="res://GUI/Evolve/Evolve.tscn" type="PackedScene" id=12]
 
 [node name="GUITotal" type="CanvasLayer"]
+pause_mode = 2
+
+[node name="CheatConsole" parent="." instance=ExtResource( 11 )]
+visible = false
 
 [node name="UISpeackPopUp" parent="." instance=ExtResource( 3 )]
 pause_mode = 2
@@ -30,9 +35,8 @@ visible = false
 visible = false
 
 [node name="MenuUser" parent="." instance=ExtResource( 1 )]
-visible = false
 
-[node name="CheatConsole" parent="." instance=ExtResource( 11 )]
+[node name="Evolve" parent="." instance=ExtResource( 12 )]
 visible = false
 
 [node name="ChangeScene" parent="." instance=ExtResource( 8 )]

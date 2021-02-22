@@ -1,14 +1,15 @@
 [gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://img Pokemon/img MenuSyeteme/Continuer Cadre.png" type="Texture" id=1]
+[ext_resource path="res://img Pokemon/img MenuSysteme/Continuer Cadre.png" type="Texture" id=1]
 [ext_resource path="res://Others/MenuSysteme/MenuSysteme.gd" type="Script" id=2]
 [ext_resource path="res://Font/60Font.tres" type="DynamicFont" id=3]
-[ext_resource path="res://img Pokemon/img MenuSyeteme/CreditsCadre.png" type="Texture" id=4]
+[ext_resource path="res://img Pokemon/img MenuSysteme/CreditsCadre.png" type="Texture" id=4]
 [ext_resource path="res://Font/45Font.tres" type="DynamicFont" id=5]
-[ext_resource path="res://img Pokemon/img MenuSyeteme/Continuer Cadre hover.png" type="Texture" id=6]
-[ext_resource path="res://img Pokemon/img MenuSyeteme/CreditsCadre hover.png" type="Texture" id=7]
-[ext_resource path="res://img Pokemon/img MenuSyeteme/NewGame Cadre.png" type="Texture" id=8]
-[ext_resource path="res://img Pokemon/img MenuSyeteme/NewGame Cadre Hover.png" type="Texture" id=9]
+[ext_resource path="res://img Pokemon/img MenuSysteme/Continuer Cadre hover.png" type="Texture" id=6]
+[ext_resource path="res://img Pokemon/img MenuSysteme/CreditsCadre hover.png" type="Texture" id=7]
+[ext_resource path="res://img Pokemon/img MenuSysteme/NewGame Cadre.png" type="Texture" id=8]
+[ext_resource path="res://img Pokemon/img MenuSysteme/NewGame Cadre Hover.png" type="Texture" id=9]
+
 
 [sub_resource type="Animation" id=1]
 resource_name = "ChangeScene"

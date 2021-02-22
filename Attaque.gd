@@ -1049,7 +1049,7 @@ func rugissementE(PokemonPlayer,PokemonEnnemi) :
 	SpecialText = "Ah, Attaque du " + PokemonPlayer.Name + " baisse !"
 func mimiqueueE(PokemonPlayer,PokemonEnnemi) :
 	DefensePlayer = DefensePlayer - PokemonPlayer.Puissance * (1/8)
-	SpecialText = "Ah, Attaque du " + PokemonPlayer.Name + " baisse !"
+	SpecialText = "Ah, Defense du " + PokemonPlayer.Name + " baisse !"
 func belierE(PokemonPlayer,PokemonEnnemi,PokemonAttaqueName):
 	PokemonPlayer.Hp = PokemonPlayer.Hp - CalculateDammage(PokemonAttaqueName,PokemonEnnemi,PokemonPlayer,"Ennemi")
 	PokemonEnnemi.Hp = PokemonEnnemi.Hp - (CalculateDammage(PokemonAttaqueName,PokemonEnnemi,PokemonPlayer,"Ennemi")/4)
@@ -1607,12 +1607,12 @@ var CruAiles = {Type = "Vol",Puissance = 60,Precision = 100, MaxPP = 35}
 var PistoletAO = {Type = "Eau", Puissance = 40,Precision = 100,MaxPP = 25}
 var Morsure = {Type = "Tenebre", Puissance = 60,Precision = 100,MaxPP = 25}
 var LanceFlamme = {Type = "Feu",Puissance = 95,Precision = 100,MaxPP = 15}
-var Puissance = {Type = "Normal",Precision = 100,MaxPP = 30}
-var Vampigraine = {Type = "Plante",Precision = 90,MaxPP = 10}
+var Puissance = {Type = "Normal",Precision = 100,MaxPP = 30,Puissance = 0}
+var Vampigraine = {Type = "Plante",Precision = 90,MaxPP = 10,Puissance = 0}
 var Ecume = {Type = "Eau",Puissance = 40,Precision = 100,MaxPP = 30}
-var Jetdesable = {Type = "Normal",Precision = 100,MaxPP = 15}
-var Secretion = {Type = "Insecte",Precision = 95, MaxPP = 40}
-var Armure = {Type = "Normal",Precision = 100,MaxPP = 30}
+var Jetdesable = {Type = "Normal",Precision = 100,MaxPP = 15, Puissance = 0}
+var Secretion = {Type = "Insecte",Precision = 95, MaxPP = 40, Puissance = 0}
+var Armure = {Type = "Normal",Precision = 100,MaxPP = 30,Puissance = 0}
 var DardVenin = {Type = "Poison",Puissance = 15,Precision = 100,MaxPP = 35}
 var Vol = {Type="Vol",Puissance = 90,Precision = 95,MaxPP = 15}
 var Coupe = {Type="Normal",Puissance = 50,Precision = 95,MaxPP = 30}
