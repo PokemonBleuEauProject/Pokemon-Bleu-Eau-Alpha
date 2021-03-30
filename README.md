@@ -15,3 +15,4 @@ Have fun !
 # Contact me : 
 - PokemonBleuEau@gmail.com (mail of the project)
 - mateo.lelong@gmail.com (coordinator of the project and developper)
+- gedeonmuyalaba@gmail.com (developper)
