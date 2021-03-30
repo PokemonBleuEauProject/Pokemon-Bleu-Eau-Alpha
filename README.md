@@ -1,5 +1,4 @@
 ## _Pokemon-Bleu-Eau-Alpha_
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Informations :
 - Last version => Februar 2021
 - Actual Version supported : Windows (Android Soon)
