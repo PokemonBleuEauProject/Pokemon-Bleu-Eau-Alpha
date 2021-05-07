@@ -29,9 +29,12 @@ _global_script_class_icons={
 config/name="Pokemon Bleu Eau"
 config/description="A Pokemon version like of Red Fire and Green Leaf"
 run/main_scene="res://GUI/StartMenu/Menu.tscn"
+run/disable_stdout=true
+run/disable_stderr=true
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://img Pokemon/All Pokemon/Front/9.png"
-config/windows_native_icon="res://img Pokemon/9.ico"
+config/macos_native_icon="res://img Pokemon/img Icones/9.icns"
+config/windows_native_icon="res://img Pokemon/img Icones/9.ico"
 
 [autoload]
 
